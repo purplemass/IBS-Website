@@ -89,13 +89,12 @@ body {
                           <tbody>
                             <tr>
                               <td height="18" valign="top"><p><b> <br>
-                                  An Evening to Remember</b><br>
+                                An Evening to Remember</b><br>
                                   <br>
                                   The Iranian Business School Project was formally launched at a fundraising event in London on 16 January 2009.<br>
                                   <br>
                                   The success of the event was marked by an overwhelming degree of enthusiasm and co-operation on the part of numerous individuals and institutions, whose ongoing commitment will serve to ensure the ultimate success of the of the Project and the establishment of the Iranian Business School as a world-class organisation.</p>
-                                <div align="right"><a href="news_events.htm"><img src="images/more_tab_bg.jpg" alt="more" width="49" height="16" border="0" /></a></div>
-                                <br /></td>
+                              <div align="right"><a href="news_events.htm"><img src="images/more_tab_bg.jpg" alt="more" width="49" height="16" border="0" /></a></div><br /></td>
                             </tr>
                           </tbody>
                         </table></td>
@@ -106,10 +105,49 @@ body {
               <td valign="top" width="257"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                   <tbody>
                     <tr>
-                      <td bgcolor="#d1dce6"><img src="images/spacer.gif" alt="*" width="256" height="30" /></td>
+                      <td bgcolor="#d1dce6"><img src="images/our_programmes_home_tag.jpg" alt="our programmes" width="256" height="30" /></td>
                     </tr>
                     <tr>
-                      <td>&nbsp;</td>
+                      <td valign="top" width="256" background="images/emba_home_tag_bg.jpg" height="50"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tbody>
+                            <tr>
+                              <td class="style1" width="14%" height="16">&nbsp;</td>
+                              <td class="style1" width="86%">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td class="whitetxt16"><span class="homeprogwhitelinks" style="color: #FFFFFF; font-weight: bold">EMBA</span></td>
+                            </tr>
+                          </tbody>
+                        </table></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" width="256" background="images/mba_home_tag_bg.jpg" height="48"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tbody>
+                            <tr>
+                              <td class="style1" width="14%" height="16">&nbsp;</td>
+                              <td class="style1" width="86%">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td class="whitetxt16"><span class="homeprogwhitelinks" style="color: #FFFFFF; font-weight: bold">MBA</span></td>
+                            </tr>
+                          </tbody>
+                        </table></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" width="256" background="images/pathway_home_tag_bg.jpg" height="48"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tbody>
+                            <tr>
+                              <td class="style1" width="14%" height="16">&nbsp;</td>
+                              <td class="style1" width="86%">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td class="whitetxt16"><span class="homeprogwhitelinks" style="color: #FFFFFF; font-weight: bold">Pathway of Excellence</span></td>
+                            </tr>
+                          </tbody>
+                        </table></td>
                     </tr>
                     <tr>
                       <td valign="top" width="256" background="images/newsletter_home_bg.jpg" height="86"><form action="gdform.asp" name="frm1" method="post">
@@ -240,5 +278,8 @@ body {
     </area>
   </map>
 </p>
+<script>
+alert("Your email address is now registered.\nYou will start receiving our newsletter shortly");
+</script>
 </body>
 </html>

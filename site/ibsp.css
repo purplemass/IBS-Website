@@ -103,7 +103,7 @@ a.bottomlinks:hover {
 	text-decoration: none;
 }
 .topwhiteborder {
-	border-top-width: 1px;
+	border-top-width: 0px;
 	border-top-style: solid;
 	border-top-color: #FFFFFF;
 	background-color: #000000;
@@ -167,4 +167,8 @@ a.blackboldlink:hover {
 	border-top-style: solid;
 	border-top-color: #FFFFFF;
 	background-color: #D1DCE6;
+}
+
+.bigger {
+	font-size: 13px;
 }
