@@ -1,0 +1,280 @@
+/*
+
+DA USUAL
+
+*/
+
+html, body {
+	margin: 0;
+	padding: 0
+	border: 0;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 100%;
+	font-family: Helvetica Neue, Arial, Sans-Serif;
+	vertical-align: baseline;
+	background-color: #edeee8;
+	color: #1f2126;
+	line-height: 1;
+	text-align: left;
+}
+
+a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+/*
+
+CONTAINER ET LA
+
+*/
+
+div#cover {
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	min-height: 10px;
+}
+
+div#container {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	1margin-top: 20px;
+	background-color: #FFFFFF;
+}
+
+/*
+
+TOP NAVIGATION
+
+*/
+
+div#nav {
+	height: 40px;
+	min-height: 40px;
+	background-color: #09466a;
+}
+
+div#nav .navitem {
+	float: left;
+	width: 119px;
+	height: 27px;
+	padding-top: 13px;
+	font-size: 12px;
+	text-align: center;
+	border-right: 1px #063b5b solid;
+}
+
+div#nav a {
+	background-color: #09466a;
+	color: #FFFFFF;
+}
+
+div#nav a:hover {
+	background-color: #d9dbd0;
+	color: #09466a;
+}
+
+div#nav .active {
+	background-color: #d9dbd0;
+	color: #09466a;
+}
+
+
+/*
+
+TOP BAR
+
+*/
+
+div#top {
+	height: 140px;
+	min-height: 140px;
+	padding: 10px;
+	background-color: #FFFFFF;
+}
+
+div#logo {
+	width: 190px;
+	height: 140px;
+	min-height: 140px;
+	float: left;
+	text-align: center;
+}
+
+div#image {
+	width: 750px;
+	height: 140px;
+	min-height: 140px;
+	float: left;
+}
+
+
+/*
+
+MAIN AREA
+
+*/
+
+div#main {
+	height: 340px;
+	min-height: 340px;
+	border-top: 1px #063c5c solid;
+	padding: 10px;
+}
+
+/*
+
+LEFT MENU
+
+*/
+
+div#menuleft {
+	width: 190px;
+	float: left;
+}
+
+div#menuleft .navitem {
+	float: left;
+	width: 170px;
+	height: 20px;
+	padding-top: 10px;
+	padding-left:10px;
+	font-size: 12px;
+	text-align: left;
+	border-bottom: 1px #979c99 solid;
+	background-color: #d9dbd0;
+}
+
+div#menuleft a {
+	color: #000000;
+}
+
+div#menuleft a:hover {
+	color: #09466a;
+}
+
+div#menuleft .active {
+	color: #09466a;
+}
+
+/*
+
+CONTENT
+
+*/
+
+div#content {
+	width: 480px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+
+div#title {
+	margin: 9px 0 10px 0;
+	border-bottom: 1px #979c99 solid;
+}
+
+div#title .text {
+	position: relative;
+	top: -5px;
+	left: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #346794;
+}
+
+div#body {
+	padding-left: 10px;
+	font-size: 12px;
+	line-height: 1.4;
+}
+
+/*
+
+RIGHT MENU
+
+*/
+
+div#menuright {
+	width: 260px;
+	margin-left: 10px;
+	float: left;
+	background-color: #edeee8;
+	font-size: 12px;
+}
+
+div#menuright .linkstitle {
+	height: 20px;
+	padding: 10px 0 0 10px;
+	font-weight: bold;
+	color: #346794;
+}
+
+div#menuright #linksbody {
+	padding: 10px 0 10px 10px;
+}
+
+div#menuright #linksbody a {
+	color: #000;
+}
+
+div#menuright #linksbody a:hover {
+	color: #09466a;
+}
+/*
+
+FOOTER
+
+*/
+
+div#footer {
+	clear: both;
+	height: 40px;
+	min-height: 40px;
+	background-color: #09466a;
+}
+
+div#footer .text {
+	position: relative;
+	top: 13px;
+	left: 10px;
+	font-size: 10px;
+	color: #FFFFFF;
+}
+
+/*
+
+			<!--
+			<ul id="navlist">
+				<li id="active">About IBS</li>
+				<li>Programmes</li>
+				<li>Project countdown</li>
+				<li>News & events</li>
+				<li>Get involved</li>
+				<li>Contact us</li>
+			</ul>
+			-->
+
+div#nav ul {
+	margin: 0px;
+	padding: 10px;
+	border-right: 1px #063b5b solid;
+}
+
+div#nav li {
+	display: inline;
+	list-style-type: none;
+	width: 120px;
+	padding-top: 100px;
+	padding-right: 20px;
+	padding-left: 10px;
+	padding-bottom: 12px;
+	color: #FFFFFF;
+	font-size: 12px;
+	border-right: 1px #063b5b solid;
+}
+*/
