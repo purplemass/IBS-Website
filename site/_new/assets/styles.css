@@ -4,7 +4,7 @@ DA USUAL
 
 */
 
-html, body {
+html, body, form {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -29,6 +29,15 @@ a {
 
 p {
 	margin: 0 0 10px 0;
+}
+
+ul {
+	padding: 0 0 0 15px;
+	margin: 0;
+}
+
+li {
+	padding: 0 0 10px 5px;
 }
 
 img {
@@ -88,7 +97,6 @@ div#nav .active {
 	background-color: #d9dbd0;
 	color: #09466a;
 }
-
 
 div#navitem3 {
 	display: none;
@@ -188,6 +196,12 @@ div#content {
 }
 
 
+div#contentWide {
+	width: 750px;
+	float: left;
+	margin-bottom: 10px;
+}
+
 div#title {
 	margin: 9px 0 10px 0;
 	border-bottom: 1px #979c99 solid;
@@ -208,11 +222,27 @@ div#body {
 	line-height: 1.4;
 }
 
+div#body a {
+	color: #09466a;
+	text-decoration: underline;;
+}
+
 div#body .intitle {
 	margin-top: 20px;
 	font-size: 13px;
 	font-weight: bold;
 }
+
+div#body .name {
+	display: block;
+	font-weight: bold;
+}
+
+div#body .address {
+	float: left;
+	width: 230px;
+}
+
 /*
 
 RIGHT MENU
@@ -264,6 +294,10 @@ div#menuright .button1 {
 	padding: 3px;
 	color: #FFF;
 	background-color: #09466a;
+}
+
+div#menuright #subscribe {
+	margin-bottom: 15px;
 }
 
 div#menuright #subscribe a:hover {
