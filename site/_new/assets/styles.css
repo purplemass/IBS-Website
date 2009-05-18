@@ -2,11 +2,9 @@
 
 DA USUAL
 
-Footer:
+STICKY Footer:
 http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
 http://www.visibilityinherit.com/code/height-stickyfooter-centered.php
-
-
 http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
 
 */
@@ -30,20 +28,11 @@ html, body, form {
 }
 
 /* TO FIX FOOTER TO BOTTOM OF PAGE */
-
 html, body {
 	height: 100%; /* gives layout 100% height */
 	overflow: inherit; /* triggers 100% height in Opera 9.5 */
 }
-
-/* BOB'S IE FIX! ok in IE6 - temperemental in IE7 */
-
-* html body {
-	min-height: 97%;
-	height: 97%;
-}
-
-/* <<<<<<<< */
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
 a {
 	text-decoration: none;
@@ -73,13 +62,12 @@ CONTAINER ET LA
 
 div#cover {
 	position: absolute;
-	width: 100%;
+	width: 960px;
 	height: 10px;
 	min-height: 10px;
 }
 
 div#margin {
-	display: none;
 	height: 10px;
 	min-height: 10px;
 	background-color: #edeee8;
@@ -255,7 +243,11 @@ div#body {
 	padding: 0 10px;
 	font-size: 12px;
 	line-height: 1.4;
-	margin-bottom: 45px;
+	margin-bottom: 40px;
+}
+
+* html div#body {
+	margin-bottom: 60px;
 }
 
 div#body a {
