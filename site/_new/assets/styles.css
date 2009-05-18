@@ -2,6 +2,13 @@
 
 DA USUAL
 
+Footer:
+http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
+http://www.visibilityinherit.com/code/height-stickyfooter-centered.php
+
+
+http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
+
 */
 
 html, body, form {
@@ -19,8 +26,11 @@ html, body, form {
 	text-align: left;
 }
 
-body {
-	margin-top: 10px;
+/* TO FIX FOOTER TO BOTTOM OF PAGE */
+
+html, body {
+	height: 100%; /* gives layout 100% height */
+	overflow: inherit; /* triggers 100% height in Opera 9.5 */
 }
 
 a {
@@ -56,10 +66,24 @@ div#cover {
 	min-height: 10px;
 }
 
+div#margin {
+	display: none;
+	height: 10px;
+	min-height: 10px;
+	background-color: #edeee8;
+}
+
 div#container {
 	width: 960px;
-	margin: 0 auto;
+	min-height: 100%; /* gives layout 100% height */
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -40px;
 	background-color: #FFFFFF;
+}
+
+* html #container { 
+	height: 100%; /* IE6 treats height as min-height */
 }
 
 /*
@@ -138,8 +162,7 @@ MAIN AREA
 */
 
 div#main {
-	height: 350px;
-	min-height: 350px;
+	overflow: auto;
 	border-top: 1px #063c5c solid;
 	padding: 10px;
 }
@@ -220,6 +243,7 @@ div#body {
 	padding: 0 10px;
 	font-size: 12px;
 	line-height: 1.4;
+	margin-bottom: 40px;
 }
 
 div#body a {
@@ -311,6 +335,8 @@ FOOTER
 */
 
 div#footer {
+	margin: -40px auto 0;
+	width: 960px;
 	clear: both;
 	height: 40px;
 	min-height: 40px;
