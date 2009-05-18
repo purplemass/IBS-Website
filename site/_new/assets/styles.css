@@ -11,9 +11,12 @@ http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
 
 */
 
-html, body, form {
+* {
 	margin: 0;
 	padding: 0;
+}
+
+html, body, form {
 	border: 0;
 	font-weight: normal;
 	font-style: normal;
@@ -32,6 +35,15 @@ html, body {
 	height: 100%; /* gives layout 100% height */
 	overflow: inherit; /* triggers 100% height in Opera 9.5 */
 }
+
+/* BOB'S IE FIX! ok in IE6 - temperemental in IE7 */
+
+* html body {
+	min-height: 97%;
+	height: 97%;
+}
+
+/* <<<<<<<< */
 
 a {
 	text-decoration: none;
@@ -243,7 +255,7 @@ div#body {
 	padding: 0 10px;
 	font-size: 12px;
 	line-height: 1.4;
-	margin-bottom: 40px;
+	margin-bottom: 45px;
 }
 
 div#body a {
