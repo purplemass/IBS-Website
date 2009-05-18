@@ -1,11 +1,6 @@
 /*
 
-DA USUAL
-
-STICKY Footer:
-http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
-http://www.visibilityinherit.com/code/height-stickyfooter-centered.php
-http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
+DA USUAL1
 
 */
 
@@ -32,7 +27,18 @@ html, body {
 	height: 100%; /* gives layout 100% height */
 	overflow: inherit; /* triggers 100% height in Opera 9.5 */
 }
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* TO FORCE VERTICAL SCROLL BAR
+or use this: margin: 0 0 1px; */
+html {
+	overflow-y: scroll;
+}
+
+/*
+
+DA USUAL2
+
+*/
 
 a {
 	text-decoration: none;
@@ -386,4 +392,10 @@ div#nav li {
 	font-size: 12px;
 	border-right: 1px #063b5b solid;
 }
+
+STICKY Footer:
+http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
+http://www.visibilityinherit.com/code/height-stickyfooter-centered.php
+http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
+
 */
