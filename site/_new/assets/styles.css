@@ -74,6 +74,7 @@ div#cover {
 }
 
 div#margin {
+	display: none;
 	height: 10px;
 	min-height: 10px;
 	background-color: #edeee8;
