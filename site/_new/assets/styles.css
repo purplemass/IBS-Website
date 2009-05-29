@@ -324,9 +324,9 @@ div#menuright img {
 	vertical-align: top;
 }
 
-div#menuright .button1 {
+div#menuright .button_nu {
 	margin: 0;
-	padding: 3px;
+	padding: 0;
 	color: #FFF;
 	background-color: #09466a;
 }
@@ -337,6 +337,21 @@ div#menuright #subscribe {
 
 div#menuright #subscribe a:hover {
 	color: #FFF;
+}
+
+div#menuright #error {
+	display: none;
+	color: red;
+}
+
+div#menuright #success {
+	font-size: 11px;
+	display: none;
+}
+
+div#menuright input {
+	font-size: 11px;
+	height: 16px;
 }
 
 /*
