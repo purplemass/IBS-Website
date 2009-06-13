@@ -24,7 +24,7 @@ $(document).ready(function(){
 		$("#success").hide();
 	});
 	
-	// validate email
+	// validate email & send
 	$("#submit").click(function(){
 
 		var hasError = false;
@@ -47,19 +47,24 @@ $(document).ready(function(){
 		if(hasError == false) {
 			
 			$(this).hide();
-			//$("#sendEmail li.buttons").append('<img src="/images/template/loading.gif" alt="Loading" id="loading" />');
-			
-			$.post("_sendemail.php",{ emailAddress: emailAddressVal },
-		   		function(data){
-		   			$("#subscriptionform").hide();
-		   			$("#success").show();
-					//$("#sendEmail").slideUp("normal", function(){
-					//	$("#success").show();
-						//$("#sendEmail").before('<h1>Success</h1><p>Your email was sent.</p>');
-					//});
+
+			$.ajax({
+				type:		"POST",
+				url:		"_sendemail.php",
+				data:		"emailAddress=" + emailAddressVal,
+				success:	function(output) {
+								$("#subscriptionform").hide();
+					   			$("#success").show();
+				},
+				error:		function()
+				{
+								$("#subscriptionform").show();
+								$("#error").html('There was an error - please try again later.');		
+								$("#error").show();
+								$("#submit").show();
 				}
-			);
-			
+             });  
+
 		} else {
 
 			$("#subscriptionform").show();		
@@ -73,9 +78,25 @@ $(document).ready(function(){
 });
 
 // **********************************************
-//
+// 
 // **********************************************
 
 // **********************************************
-//
+// 
 // **********************************************
+			
+/*			
+			//$("#sendEmail li.buttons").append('<img src="/images/template/loading.gif" alt="Loading" id="loading" />');
+			
+			$.post("_sendemail.php",{ emailAddress: emailAddressVal, success: showResponse, error: showError },
+		   		function(data){
+		   			$("#subscriptionform").hide();
+		   			$("#success").show();
+					//$("#sendEmail").slideUp("normal", function(){
+					//	$("#success").show();
+						//$("#sendEmail").before('<h1>Success</h1><p>Your email was sent.</p>');
+					//});
+				}
+			);
+*/			
+

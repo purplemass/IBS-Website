@@ -1,29 +1,119 @@
 <?php
 
-$emailAddress	= $_REQUEST['emailAddress'];
+#header("Access-Control-Allow-Origin: http://localhost");
 
-#$mailTo 		= 'bob_ak@hotmail.com';
-#$mailTo 		= 'bhat@imagination.com,bob_ak@hotmail.com,bob.hatamian@imagination.com,babak.hatamian@imagination.com';
+#--------------------------------------------------------------
 
-$mailTo 		= 'bhat@imagination.com';
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
 
-$mailFrom 		= 'noreply@ibsproject.com';
+#--------------------------------------------------------------
 
-$mailFromEnd	= 'bhat@imagination.com';
+$autoEmailTo 		= 'info@ibsproject.com,bhat@imagination.com';
+$autoEmailTo 		= 'bhat@imagination.com';
+$emailFrom 			= 'noreply@ibsproject.com';
+$emailFromServer	= 'bhat@imagination.com';
 
-$subject 		= 'IBS - Automated Newsletter Subscription';
+$folder_name		= '_subscriptions/';
+$displayDate		= strftime("%d-%m-%Y");
+$displayTime		= strftime("%H:%M:%S");
 
-$message 		= 'Please add the following email address to the database:'
-					. "\r\n" . "\r\n" . $emailAddress;
+$filename			= $folder_name . $displayDate . '.txt';
 
-$headers		= 	"From: IBS <$mailFrom>" . "\r\n" .
-					"Reply-To: IBS <$mailFrom>" . "\r\n" .
-					"X-Mailer: PHP/" . phpversion();
+#--------------------------------------------------------------
 
-$r				= mail($mailTo, $subject, $message, $headers, '-f' . $mailFromEnd);
+$s = 'emailAddress';
 
+#if (!isset($_REQUEST[$s])) { die(); } else { $emailAddress = $_REQUEST[$s]; }
+
+if (isset($_REQUEST[$s])) {
+	$emailAddress = strip_tags(htmlentities($_REQUEST[$s]));
+} else {
+	exit("ERROR");
+}
+
+#--------------------------------------------------------------
+
+CreateFile($folder_name, $filename);
+
+$s 	= $displayDate . ',' . $displayTime . ',';
+$s .= '"' . $emailAddress . '"' . "\r\n";
+$r	= WriteFile($filename, $s);
+
+#if ($r != 'OK')
+#	exit $r;
+	
+#--------------------------------------------------------------
+
+$subject = 'IBS Project automated email - Newsletter Subscription';
+
+$message = 'Please add the following email address to the database:'
+			. "\r\n" . "\r\n" . $emailAddress;
+
+$r = SendEmail($autoEmailTo, $emailFrom, $subject, $message, $emailFromServer);
+
+#--------------------------------------------------------------
+
+$subject 		= 'Your subscription to the IBS Project Newsletter';
+
+$message 		= <<<EOF
+Dear Subsciber,
+
+Thank you for your interest in the Iranian Business School Project.  Your details will be added to our database and you will receive all future information and updates.
+
+Many thanks,
+
+IBS Project Team
+
+EOF;
+
+$r = SendEmail($emailAddress, $emailFrom, $subject, $message, $emailFromServer);
+
+#--------------------------------------------------------------
 
 exit("Return value=$r");
 
+#--------------------------------------------------------------
+
+function SendEmail($emailTo, $emailFrom, $subject, $message, $emailFromServer)
+{
+	$headers	= 	"From: IBS Project <$emailFrom>" . "\r\n" .
+					"Reply-To: IBS Project <$emailFrom>" . "\r\n" .
+					"X-Mailer: PHP/" . phpversion();
+
+	$r = mail($emailTo, $subject, $message, $headers, '-f' . $emailFromServer);
+	
+	return $r;
+}
+
+#--------------------------------------------------------------
+
+function WriteFile($filename, $content)
+{
+	if (!@$handle = fopen($filename, 'a+')) {
+		return("ERROR - Cannot open file($filename)");
+	}
+	if (fwrite($handle, $content) === FALSE) {
+		return("ERROR - Cannot write to file($filename)");
+	}
+	
+	return 'OK';
+}
+
+#--------------------------------------------------------------
+
+function CreateFile($fd, $file)
+{
+	if (!is_dir($fd)) {
+		mkdir($fd, 0777)
+			or exit("Cannot create directory '" . $fd . "'");
+	}
+	
+	if (!file_exists($file)) {
+		WriteFile($file, '');
+		chmod($file, 0755);
+		#echo("file '$file' created");
+	}
+}
 
 ?>
