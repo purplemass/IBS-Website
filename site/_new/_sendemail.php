@@ -11,8 +11,11 @@ error_reporting(E_ALL);
 
 $autoEmailTo 		= 'info@ibsproject.com,bhat@imagination.com';
 $autoEmailTo 		= 'bhat@imagination.com';
+
 $emailFrom 			= 'noreply@ibsproject.com';
 $emailFromServer	= 'bhat@imagination.com';
+
+#--------------------------------------------------------------
 
 $folder_name		= '_subscriptions/';
 $displayDate		= strftime("%d-%m-%Y");
@@ -34,7 +37,7 @@ if (isset($_REQUEST[$s])) {
 
 #--------------------------------------------------------------
 
-CreateFile($folder_name, $filename);
+$r = CreateFile($folder_name, $filename);
 
 $s 	= $displayDate . ',' . $displayTime . ',';
 $s .= '"' . $emailAddress . '"' . "\r\n";
@@ -71,7 +74,7 @@ $r = SendEmail($emailAddress, $emailFrom, $subject, $message, $emailFromServer);
 
 #--------------------------------------------------------------
 
-exit("Return value=$r");
+exit($r);
 
 #--------------------------------------------------------------
 
@@ -83,7 +86,10 @@ function SendEmail($emailTo, $emailFrom, $subject, $message, $emailFromServer)
 
 	$r = mail($emailTo, $subject, $message, $headers, '-f' . $emailFromServer);
 	
-	return $r;
+	if ($r == 1)
+		return 'OK';
+	else
+		return 'ERROR';
 }
 
 #--------------------------------------------------------------
@@ -106,14 +112,16 @@ function CreateFile($fd, $file)
 {
 	if (!is_dir($fd)) {
 		mkdir($fd, 0777)
-			or exit("Cannot create directory '" . $fd . "'");
+			or exit("ERROR - Cannot create directory '" . $fd . "'");
 	}
 	
 	if (!file_exists($file)) {
-		WriteFile($file, '');
+		$r = WriteFile($file, '');
 		chmod($file, 0755);
-		#echo("file '$file' created");
+		return $r;
 	}
+	
+	return 'ERROR';
 }
 
 ?>

@@ -1,1 +1,5 @@
 .DS*
+._*
+
+_subscriptions/
+_new/_subscriptions/

@@ -27,6 +27,8 @@ $(document).ready(function(){
 	// validate email & send
 	$("#submit").click(function(){
 
+		$("#error").hide();
+		
 		var hasError = false;
 		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
@@ -53,16 +55,16 @@ $(document).ready(function(){
 				url:		"_sendemail.php",
 				data:		"emailAddress=" + emailAddressVal,
 				success:	function(output) {
-								$("#subscriptionform").hide();
-					   			$("#success").show();
+								//alert(output)
+								if (output == 'OK') {
+									$("#subscriptionform").hide();
+						   			$("#success").show();
+						   			$("#error").hide();
+						   		} else {
+						   			errorResponse()
+						   		}
 				},
-				error:		function()
-				{
-								$("#subscriptionform").show();
-								$("#error").html('There was an error - please try again later.');		
-								$("#error").show();
-								$("#submit").show();
-				}
+				error:		errorResponse
              });  
 
 		} else {
@@ -78,8 +80,16 @@ $(document).ready(function(){
 });
 
 // **********************************************
-// 
+// errorResponse
 // **********************************************
+function errorResponse() {
+
+	$("#subscriptionform").show();
+	$("#error").html('There was an error - please try again later.');		
+	$("#error").show();
+	$("#submit").show();
+
+}
 
 // **********************************************
 // 
