@@ -16,7 +16,14 @@ Cufon.replace('#footer .text');
 // **********************************************
 
 $(document).ready(function(){
-	// select the input box
+
+	// add target to external & PFD linkes
+	$('a[href^="http://"]')
+		.attr("target", "_blank");
+	$('a[href$=".pdf"]')
+		.attr("target", "_blank");
+	
+	// select the input box when clicked
 	$("#emailAddress").click(function(){
 		this.focus();
 		this.select();
