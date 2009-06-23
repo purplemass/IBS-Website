@@ -22,6 +22,8 @@ $(document).ready(function(){
 		.attr("target", "_blank");
 	$('a[href$=".pdf"]')
 		.attr("target", "_blank");
+	$('a[href$=".doc"]')
+		.attr("target", "_blank");
 	
 	// select the input box when clicked
 	$("#emailAddress").click(function(){
