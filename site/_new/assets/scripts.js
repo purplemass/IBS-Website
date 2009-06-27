@@ -62,7 +62,7 @@ $(document).ready(function(){
 				url:		"_sendemail.php",
 				data:		"emailAddress=" + emailAddressVal,
 				success:	function(output) {
-								//alert(output)
+								//alert(output);
 								if (output == 'OK') {
 									$("#subscriptionform").hide();
 						   			$("#success").show();

@@ -9,8 +9,8 @@ error_reporting(E_ALL);
 
 #--------------------------------------------------------------
 
-$autoEmailTo 		= 'info@ibsproject.com,bhat@imagination.com';
-$autoEmailTo 		= 'bhat@imagination.com';
+$autoEmailTo 		= 'info@ibsproject.org,info@ibsproject.com';
+#$autoEmailTo 		= 'bhat@imagination.com';
 
 $emailFrom 			= 'noreply@ibsproject.com';
 $emailFromServer	= 'bhat@imagination.com';
@@ -84,7 +84,8 @@ function SendEmail($emailTo, $emailFrom, $subject, $message, $emailFromServer)
 					"Reply-To: IBS Project <$emailFrom>" . "\r\n" .
 					"X-Mailer: PHP/" . phpversion();
 
-	$r = mail($emailTo, $subject, $message, $headers, '-f' . $emailFromServer);
+	#$r = mail($emailTo, $subject, $message, $headers, '-f' . $emailFromServer);
+	$r = mail($emailTo, $subject, $message, $headers);
 	
 	if ($r == 1)
 		return 'OK';
