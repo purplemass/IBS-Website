@@ -9,7 +9,7 @@ DA USUAL1
 	padding: 0;
 }
 
-html, body, form {
+html, body {
 	border: 0;
 	font-weight: normal;
 	font-style: normal;
@@ -39,6 +39,10 @@ html {
 DA USUAL2
 
 */
+
+form {
+
+}
 
 a {
 	text-decoration: none;
