@@ -33,8 +33,8 @@
 	</head>
 	<body>
 	<div id="container">
-	<div id="cover"><img src="assets/images/spacer.gif" width="10" height="5" alt="*" /></div>
-	<div id="margin">&nbsp;</div>
+		<div id="cover"><img src="assets/images/spacer.gif" width="10" height="5" alt="*" /></div>
+		<div id="margin">&nbsp;</div>
 		<div id="nav">
 			<div id="navitem0"><a class="navitem" href="index.html">Home</a></div>
 			<div id="navitem1"><a class="navitem" href="project.html">The Project</a></div>
@@ -50,37 +50,3 @@
 			<div id="image"><img src="assets/images/image_fundraising.jpg" width="750" height="140" alt="Main Image" /></div>
 		</div>	
 		<div id="main">
-			<div id="menuleft">&nbsp;</div>
-			<div id="content">
-				<div id="title">
-					<div class="text">Donations</div>
-				</div>
-				<div id="body">
-					<p>If you'd like to donate, please enter your email address and click submit:</p>
-					<div id="subscribe">
-						<form id="subscriptionform" action="fundraising_02.html">
-						<p>
-							<input id="emailAddress" name="emailAddress" type="text" size="27" value="" />
-						</p>
-						<p>
-							<input type="submit" value="Submit">
-						</p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="footer"><div class="text">Copyright &copy; 2009 Iranian Business School Project</div></div>
-	<script type="text/javascript">Cufon.now();</script>
-	<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1689775-7");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-	</body>
-</html>
