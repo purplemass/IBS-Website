@@ -56,7 +56,7 @@
 					<div class="text">Donations</div>
 				</div>
 				<div id="body">
-					<p>Please enter your details and click submit:</p>
+					<p>Please enter your details and click the Donate button below:</p>
 					<div id="subscribe">
 						<form id="subscriptionform" action="fundraising_03.html">
 						<p>
@@ -80,11 +80,20 @@
 						<p>
 							Country:<br /><input id="country" name="country" type="text" size="35" value="" />
 						</p>
-						<p>
-							<input type="submit" value="Submit">
-						</p>
-
 						</form>
+						<p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="bob_ak@hotmail.com">
+<input type="hidden" name="lc" value="GB">
+<input type="hidden" name="item_name" value="IBS Project">
+<input type="hidden" name="currency_code" value="GBP">
+<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+<!--							<input type="submit" value="Submit"> -->
+						</p>
 					</div>
 				</div>
 			</div>
