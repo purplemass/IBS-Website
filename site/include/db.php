@@ -1,14 +1,30 @@
 <?php
 
-if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
+if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
+
+$is_live = TRUE;
+if ($_SERVER['SERVER_NAME'] === 'localhost')
+	$is_live = FALSE;
 
 
 /* Database config */
 
-$db_host		= 'localhost';
-$db_user		= 'root';
-$db_pass		= 'root';
-$db_database	= 'ibs';
+if ($is_live)
+{
+	$db_host		= 'localhost';
+	$db_user		= 'root';
+	$db_pass		= 'root';
+	$db_database	= 'ibs';
+}
+else
+{
+	$db_host		= 'localhost';
+	$db_user		= 'root';
+	$db_pass		= 'root';
+	$db_database	= 'ibs';
+}
+
+$db_table = 'ibs_community';
 
 /* End config */
 
@@ -31,6 +47,7 @@ CREATE TABLE `ibs_community` (
   `title` varchar(5) collate utf8_unicode_ci NOT NULL default '',
   `forename` varchar(32) collate utf8_unicode_ci NOT NULL default '',
   `surname` varchar(32) collate utf8_unicode_ci NOT NULL default '',
+  `country` varchar(2) collate utf8_unicode_ci NOT NULL default '',
   `regIP` varchar(15) collate utf8_unicode_ci NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `email` (`email`)

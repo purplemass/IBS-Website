@@ -64,6 +64,21 @@ li {
 img {
 	border: 0px;
 }
+
+
+/*
+
+Generic classes
+
+*/
+
+.error_message {
+	color: red;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 1px solid #555;
+}
+
 /*
 
 CONTAINER ET LA

@@ -30,7 +30,11 @@ $(document).ready(function(){
 		$("#error").hide();
 		$("#success").hide();
 	});
-	
+
+	// donation pages
+	$("#email").focus();
+	$("#forename").focus();	
+
 	// validate email & send
 	$("#submit").click(function(){
 

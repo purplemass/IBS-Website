@@ -1,3 +1,4 @@
+<?php if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
 		</div>
 	</div>
 	<div id="footer"><div class="text">Copyright &copy; 2009 Iranian Business School Project</div></div>

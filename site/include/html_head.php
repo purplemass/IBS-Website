@@ -1,3 +1,4 @@
+<?php if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -36,14 +37,30 @@
 		<div id="cover"><img src="assets/images/spacer.gif" width="10" height="5" alt="*" /></div>
 		<div id="margin">&nbsp;</div>
 		<div id="nav">
-			<div id="navitem0"><a class="navitem" href="index.html">Home</a></div>
-			<div id="navitem1"><a class="navitem" href="project.html">The Project</a></div>
-			<div id="navitem2"><a class="navitem" href="programmes.html">Programmes</a></div>
-			<div id="navitem3"><a class="navitem" href="project_timeline.html">Project Timeline</a></div>
-			<div id="navitem4"><a class="navitem" href="news_events.html">News &amp; Events</a></div>
-			<div id="navitem5"><a class="navitem" href="get_involved.html">Get involved</a></div>
-			<div id="navitem6"><a class="navitem active" href="fundraising.html">Fundraising</a></div>
-			<div id="navitem7"><a class="navitem" href="contact_us.html">Contact us</a></div>
+<?php
+$nav_items = array(
+					'index.html'			=>	'Home',
+					'project.html'			=>	'The Project',
+					'programmes.html'		=>	'Programmes',
+					'project_timeline.html'	=>	'Project Timeline',
+					'news_events.html'			=>	'News &amp; Events',
+					'get_involved.html'			=>	'Get involved',
+					'fundraising.html'			=>	'Fundraising',
+					'contact_us.html'			=>	'Contact us',
+					);
+
+$count = 0;
+foreach ($nav_items as $key => $value)
+{
+	$active_class = '';
+	if ($this_nav == $count)
+		$active_class = ' active';
+	
+	echo '			<div id="navitem' . $count . '"><a class="navitem' . $active_class . '" href="' . $key . '">' . $value . '</a></div>' . "\n";
+	$count++;
+}
+
+?>
 		</div>
 		<div id="top">
 			<div id="logo"><a href="index.html"><img src="assets/images/IBS_logo.gif" width="170" height="140" alt="IBS Logo" /></a></div>
