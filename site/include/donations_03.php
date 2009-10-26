@@ -48,8 +48,8 @@ $row = mysql_fetch_assoc(mysql_query("SELECT * FROM ibs_community WHERE email='{
 
 								<input type="hidden" name="cmd" value="_xclick">
 								<input type="hidden" name="business" value="sell2_1255877452_biz@hotmail.com">
-								<input type="hidden" name="item_name" value="Customer Service">
-								<input type="hidden" name="currency_code" value="USD">
+								<input type="hidden" name="item_name" value="IBS Project">
+								<input type="hidden" name="currency_code" value="GBP">
 								<input type="image" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
 							</form>
 						</p>

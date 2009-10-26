@@ -11,17 +11,17 @@ if ($_SERVER['SERVER_NAME'] === 'localhost')
 
 if ($is_live)
 {
-	$db_host		= 'localhost';
-	$db_user		= 'root';
-	$db_pass		= 'root';
-	$db_database	= 'ibs';
+	$db_host		= 'ibsproject.org.mysql';
+	$db_database	= 'ibsproject_org';
+	$db_user		= 'ibsproject_org';
+	$db_pass		= 'Fm6RK6kf';
 }
 else
 {
 	$db_host		= 'localhost';
+	$db_database	= 'ibs';
 	$db_user		= 'root';
 	$db_pass		= 'root';
-	$db_database	= 'ibs';
 }
 
 $db_table = 'ibs_community';
