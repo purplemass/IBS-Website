@@ -33,7 +33,8 @@ $(document).ready(function(){
 
 	// donation pages
 	$("#email").focus();
-	$("#forename").focus();	
+	$("#forename").focus();
+	$("#amount").focus();	
 
 	// validate email & send
 	$("#submit").click(function(){
