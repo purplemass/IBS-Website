@@ -32,9 +32,17 @@ $(document).ready(function(){
 	});
 
 	// donation pages
-	$("#email").focus();
-	$("#forename").focus();
-	$("#amount").focus();	
+	$("#subscribe #email").focus();
+	$("#subscribe #forename").focus();
+	$("#subscribe #amount").focus();	
+	$("#donate_button").click(function(){
+		if ($("#amount").val() == '')
+		{
+			$('#error_div').text('You must enter an amount below');
+			$('#error_div').addClass('error_message');
+			return false;
+		}
+	});
 
 	// validate email & send
 	$("#submit").click(function(){

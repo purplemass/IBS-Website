@@ -2,7 +2,7 @@
 
 #error_reporting(E_ERROR);
 
-define('INCLUDE_CHECK',true);
+define('INCLUDE_CHECK', true);
 
 require 'include/db.php';
 require 'include/functions.php';
@@ -28,17 +28,16 @@ if (isset($_POST['check_email']) && $_POST['check_email'] == 'Submit')
 		$_POST['email'] = mysql_real_escape_string($_POST['email']);
 		
 		// Escaping all input data
-		$row = mysql_fetch_assoc(mysql_query("SELECT email FROM ibs_community WHERE email='{$_POST['email']}'"));
+		$row = mysql_fetch_assoc(mysql_query("SELECT email, country FROM ibs_community WHERE email='{$_POST['email']}'"));
 
 		if ($row['email'])
-		{
 			$flag = 'email_ok';
-		}
 		else
-		{
 			$flag = 'email_new';
-
-		}
+		
+		if ( $row['country'] == 'US' || ($row['country'] == 'CA') )
+			$flag = 'forbidden';
+		
 	}
 
 }
@@ -90,7 +89,10 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 							'".$_SERVER['REMOTE_ADDR']."'
 							
 						)");
-		
+
+		if ( $_POST['country'] == 'US' || ($_POST['country'] == 'CA') )
+			$flag = 'forbidden_new';
+
 	}
 }
 
@@ -102,16 +104,22 @@ require_once('include/html_head.php');
 switch($flag)
 {
 	case 'start':
-		require_once('include/donations_01.php');
+		require_once('include/donations_01_email.php');
 		break;
 	case 'email_new':
-		require_once('include/donations_02.php');
+		require_once('include/donations_02_reg.php');
 		break;
 	case 'email_ok':
-		require_once('include/donations_03.php');
+		require_once('include/donations_03_donate.php');
 		break;
 	case 'reg_ok':
-		require_once('include/donations_03.php');
+		require_once('include/donations_03_donate.php');
+		break;
+	case 'forbidden':
+		require_once('include/donations_04_forbidden.php');
+		break;
+	case 'forbidden_new':
+		require_once('include/donations_04_forbidden.php');
 		break;
 }
 require_once('include/html_tail.php');

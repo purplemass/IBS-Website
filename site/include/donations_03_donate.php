@@ -1,4 +1,7 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
+<?php
+$row = mysql_fetch_assoc(mysql_query("SELECT * FROM ibs_community WHERE email='{$_POST['email']}'"));
+?>
 
 			<div id="menuleft">&nbsp;</div>
 			<div id="content">
@@ -8,13 +11,12 @@
 				<div id="body">
 <?php if ($flag=='reg_ok'): ?>
 					<p>Your details have been saved in our database.</p>
-<?php else:
-$row = mysql_fetch_assoc(mysql_query("SELECT * FROM ibs_community WHERE email='{$_POST['email']}'"));
-?>
+<?php else: ?>
 					<p>Welcome back <?php echo $row['title'] . ' ' . $row['forename'] . ' ' . $row['surname']; ?>!</p>
 <?php endif; ?>
 					<p>Please enter the amount you'd like to donate and press the button below:</p>
 					<div id="subscribe">
+					<div id="error_div"></div>
 <!--
 						<p><img src="assets/images/button_google_checkout.gif" /></p>
 						<p>
@@ -43,14 +45,24 @@ $row = mysql_fetch_assoc(mysql_query("SELECT * FROM ibs_community WHERE email='{
 -->
 						<p>
 							<form name="_xclick" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+<!--
+								<input type="hidden" id="id" name="id" value="<?php echo $row['id']; ?>">
+								<input type="hidden" id="first_name" name="first_name" value="<?php echo $row['forename']; ?>">
+								<input type="hidden" id="last_name" name="last_name" value="<?php echo $row['surname']; ?>">
+								<input type="hidden" id="country" name="country" value="<?php echo $row['country']; ?>">
+								<input type="hidden" id="custom" name="custom" value="<?php echo $row['email']; ?>">
+								<input type="hidden" id="notify_url" name="notify_url" value="http://www.ibsproject.org/fundraising_thankyou.php">
+-->
+								
 								<p>&pound; <input id="amount" name="amount" type="text" size="3" value="" /> .00</p>
 								<input type="hidden" name="return" value="http://www.ibsproject.org">
 
 								<input type="hidden" name="cmd" value="_xclick">
 								<input type="hidden" name="business" value="sell2_1255877452_biz@hotmail.com">
-								<input type="hidden" name="item_name" value="IBS Project">
+								<input type="hidden" name="item_name" value="IBS Project Donation">
 								<input type="hidden" name="currency_code" value="GBP">
-								<input type="image" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+								<input type="image" id="donate_button" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
 							</form>
 						</p>
 					</div>
