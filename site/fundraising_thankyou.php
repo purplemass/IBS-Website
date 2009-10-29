@@ -18,7 +18,7 @@ if (isset($_REQUEST)) {
 
 		if ($key == 'custom')
 		{
-			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM ibs_community WHERE email='" . $value . "'"));
+			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='" . $value . "'"));
 
 			if ($row['email'])
 			{			

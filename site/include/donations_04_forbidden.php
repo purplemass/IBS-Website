@@ -9,7 +9,7 @@
 <?php if ($flag=='reg_ok'): ?>
 					<p>Your details have been saved in our database.</p>
 <?php else:
-$row = mysql_fetch_assoc(mysql_query("SELECT * FROM ibs_community WHERE email='{$_POST['email']}'"));
+$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
 ?>
 					<p>Welcome back <?php echo $row['title'] . ' ' . $row['forename'] . ' ' . $row['surname']; ?>!</p>
 <?php endif; ?>

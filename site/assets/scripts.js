@@ -34,16 +34,30 @@ $(document).ready(function(){
 	// donation pages
 	$("#subscribe #email").focus();
 	$("#subscribe #forename").focus();
-	$("#subscribe #amount").focus();	
+	$("#subscribe #amount").focus();
+
+	// click Donate button
 	$("#donate_button").click(function(){
 		if ($("#amount").val() == '')
 		{
 			$('#error_div').text('You must enter an amount below');
 			$('#error_div').addClass('error_message');
+			$("#subscribe #amount").focus();
 			return false;
+		} else if (isNaN( $('#amount').val() )) {
+			$('#error_div').text('Please enter numbers only');
+			$('#error_div').addClass('error_message');
+			$("#subscribe #amount").focus();
+			return false;
+		} else {
+			//$(this).attr('disabled', 'true');
 		}
 	});
 
+
+	// db_result
+	//$('#db_result td').attr('width', '140');
+	
 	// validate email & send
 	$("#submit").click(function(){
 

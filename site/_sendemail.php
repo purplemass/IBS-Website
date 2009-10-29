@@ -60,7 +60,7 @@ $r = SendEmail($autoEmailTo, $emailFrom, $subject, $message, $emailFromServer);
 $subject 		= 'Your subscription to the IBS Project Newsletter';
 
 $message 		= <<<EOF
-Dear Subsciber,
+Dear Subscriber,
 
 Thank you for your interest in the Iranian Business School Project.  Your details will be added to our database and you will receive all future information and updates.
 

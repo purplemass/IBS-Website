@@ -7,7 +7,6 @@ define('INCLUDE_CHECK', true);
 require 'include/db.php';
 require 'include/functions.php';
 
-
 $flag = 'start';
 $err = array();
 
@@ -28,7 +27,7 @@ if (isset($_POST['check_email']) && $_POST['check_email'] == 'Submit')
 		$_POST['email'] = mysql_real_escape_string($_POST['email']);
 		
 		// Escaping all input data
-		$row = mysql_fetch_assoc(mysql_query("SELECT email, country FROM ibs_community WHERE email='{$_POST['email']}'"));
+		$row = mysql_fetch_assoc(mysql_query("SELECT email, country FROM $db_table_community WHERE email='{$_POST['email']}'"));
 
 		if ($row['email'])
 			$flag = 'email_ok';
@@ -77,7 +76,7 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 		$_POST['country'] = mysql_real_escape_string($_POST['country']);
 		$_POST['email'] = mysql_real_escape_string($_POST['email']);
 				
-		mysql_query("	INSERT INTO $db_table(dt, email, title, forename, surname, country, regIP)
+		mysql_query("	INSERT INTO $db_table_community(dt, email, title, forename, surname, country, regIP)
 						VALUES(
 						
 							NOW(),

@@ -24,6 +24,29 @@ function echo_value($str, $echo_it=FALSE)
 		return $ret;
 }
 
+/**
+ * Insert amount into DB
+ *
+ * @access public
+ * @param int		person's id
+ * @param float		amount
+ * @return void
+ */
+function insert_amount($pid, $amount)
+{
+	global $db_table_donations;
+	
+	mysql_query("	INSERT INTO $db_table_donations(dt, pid, amount, regIP)
+					VALUES(
+					
+						NOW(),
+						'" . $pid . "',
+						'" . $amount . "',
+						'" . $_SERVER['REMOTE_ADDR'] . "'
+						
+					)");
+}
+
 
 /**
  * Checks email address for illegal chars & format
