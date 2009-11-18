@@ -70,7 +70,7 @@ $row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE em
 
 								<input type="hidden" name="cmd" value="_xclick">
 								<input type="hidden" name="business" value="seller_1256763583_biz@hotmail.com">
-								<input type="hidden" name="item_name" value="IBS Project Donation (ja!)">
+								<input type="hidden" name="item_name" value="IBS Project Donation">
 								<input type="hidden" name="currency_code" value="GBP">
 								<input type="image" id="donate_button" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
 							</form>
