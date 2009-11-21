@@ -1,6 +1,5 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
 
-			<div id="menuleft">&nbsp;</div>
 			<div id="content">
 				<div id="title">
 					<div class="text">Donations</div>

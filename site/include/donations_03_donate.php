@@ -3,7 +3,6 @@
 $row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
 ?>
 
-			<div id="menuleft">&nbsp;</div>
 			<div id="content">
 				<div id="title">
 					<div class="text">Donations</div>
@@ -12,7 +11,7 @@ $row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE em
 <?php if ($flag=='reg_ok'): ?>
 					<p>Your details have been saved in our database.</p>
 <?php else: ?>
-					<p>Welcome back <?php echo $row['title'] . ' ' . $row['forename'] . ' ' . $row['surname']; ?>!</p>
+					<p>Welcome back <?php echo $row['title'] . ' ' . $row['forename'] . ' ' . $row['surname']; ?>! [<a href="?flag=email_new&email=<?php echo $row['email']; ?>">edit your details</a>]</p>
 <?php endif; ?>
 					<p>Please enter the amount you'd like to donate and press the button below:</p>
 					<div id="subscribe">
@@ -50,7 +49,6 @@ $row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE em
 								<img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
 							</form>
 -->
-						<p>
 							<form name="_xclick" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 
 <!--
@@ -74,7 +72,6 @@ $row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE em
 								<input type="hidden" name="currency_code" value="GBP">
 								<input type="image" id="donate_button" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
 							</form>
-						</p>
 					</div>
 				</div>
 			</div>

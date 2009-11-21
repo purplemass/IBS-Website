@@ -10,6 +10,9 @@ require 'include/functions.php';
 $flag = 'start';
 $err = array();
 
+// check for edit (it's an exception!)
+if (isset($_GET['flag'])) $flag = $_GET['flag'];
+
 /////////////////////////////////////////////////////////////////////////
 // check email
 /////////////////////////////////////////////////////////////////////////
@@ -40,6 +43,7 @@ if (isset($_POST['check_email']) && $_POST['check_email'] == 'Submit')
 	}
 
 }
+
 /////////////////////////////////////////////////////////////////////////
 // check registration
 /////////////////////////////////////////////////////////////////////////
@@ -106,6 +110,9 @@ switch($flag)
 		require_once('include/donations_01_email.php');
 		break;
 	case 'email_new':
+		require_once('include/donations_02_reg.php');
+		break;
+	case 'edit':
 		require_once('include/donations_02_reg.php');
 		break;
 	case 'email_ok':

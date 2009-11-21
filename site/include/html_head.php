@@ -39,10 +39,10 @@
 		<div id="nav">
 <?php
 $nav_items = array(
-					'index.html'			=>	'Home',
-					'project.html'			=>	'The Project',
-					'programmes.html'		=>	'Programmes',
-					'project_timeline.html'	=>	'Project Timeline',
+					'index.html'				=>	'Home',
+					'project.html'				=>	'The Project',
+					'programmes.html'			=>	'Programmes',
+					'project_timeline.html'		=>	'Project Timeline',
 					'news_events.html'			=>	'News &amp; Events',
 					'get_involved.html'			=>	'Get involved',
 					'fundraising.html'			=>	'Fundraising',
@@ -67,3 +67,12 @@ foreach ($nav_items as $key => $value)
 			<div id="image"><img src="assets/images/image_fundraising.jpg" width="750" height="140" alt="Main Image" /></div>
 		</div>	
 		<div id="main">
+			<div id="menuleft">
+				<a class="navitem active" href="fundraising_donations.php">Donate Now</a>
+				<a class="navitem" href="fundraising.html">Giving To IBS</a>
+				<a class="navitem" href="fundraising_ways.html">Ways to Give</a>
+				<a class="navitem" href="fundraising_ways.html#gifts"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Cheque, Credit &amp; Cash Gifts</a>
+				<a class="navitem" href="fundraising_ways.html#scheduled"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Scheduled Payments</a>
+				<a class="navitem" href="fundraising_ways.html#pledges"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Pledges</a>
+				<a class="navitem" href="fundraising_ways.html#memorial"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Memorial Gifts</a>
+			</div>

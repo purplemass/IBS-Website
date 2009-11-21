@@ -3,13 +3,12 @@
 require_once('include/lists.php');
 ?>
 
-			<div id="menuleft">&nbsp;</div>
 			<div id="content">
 				<div id="title">
 					<div class="text">Donations</div>
 				</div>
 				<div id="body">
-					<p>Please enter your details and click the Donate button below:</p>
+					<p>Please enter/edit your details and click the submit button below:</p>
 					<div id="subscribe">
 <?php if ($err) echo '					<div class="error_message">' . implode('<br />', $err) . '</div>'; ?>
 
