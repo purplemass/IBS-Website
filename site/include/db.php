@@ -5,7 +5,7 @@ if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file d
 /* Is this live? */
 
 $is_live = TRUE;
-if ($_SERVER['SERVER_NAME'] === 'localhost')
+if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.200') )
 	$is_live = FALSE;
 
 /* Global vars */

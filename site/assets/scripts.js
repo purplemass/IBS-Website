@@ -10,6 +10,7 @@ Cufon.replace('#menuright .quicklinks');
 Cufon.replace('#title .text');
 Cufon.replace('#body .intitle');
 Cufon.replace('#footer .text');
+Cufon.replace('.buttons');
 
 // **********************************************
 //
