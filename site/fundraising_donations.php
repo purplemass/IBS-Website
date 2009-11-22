@@ -10,9 +10,6 @@ require 'include/functions.php';
 $flag = 'start';
 $err = array();
 
-// check for edit (it's an exception!)
-if (isset($_GET['flag'])) $flag = $_GET['flag'];
-
 /////////////////////////////////////////////////////////////////////////
 // check email
 /////////////////////////////////////////////////////////////////////////
@@ -36,12 +33,16 @@ if (isset($_POST['check_email']) && $_POST['check_email'] == 'Submit')
 			$flag = 'email_ok';
 		else
 			$flag = 'email_new';
-		
-		if ( $row['country'] == 'US' || ($row['country'] == 'CA') )
-			$flag = 'forbidden';
-		
+			
+		// check country
+		if ( ($row['country'] == 'US') || ($row['country'] == 'CA') )
+		{
+			if (isset($row['email']))
+				$flag = 'forbidden';
+			else
+				$flag = 'forbidden'; //forbidden_new
+		}
 	}
-
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -79,28 +80,67 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 		$_POST['surname'] = mysql_real_escape_string($_POST['surname']);
 		$_POST['country'] = mysql_real_escape_string($_POST['country']);
 		$_POST['email'] = mysql_real_escape_string($_POST['email']);
-				
-		mysql_query("	INSERT INTO $db_table_community(dt, email, title, forename, surname, country, regIP)
-						VALUES(
-						
-							NOW(),
-							'".$_POST['email']."',
-							'".$_POST['title']."',
-							'".$_POST['forename']."',
-							'".$_POST['surname']."',
-							'".$_POST['country']."',
-							'".$_SERVER['REMOTE_ADDR']."'
+		
+		// check to see if record already exists
+		if (isset($_POST['email']))
+		{
+			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
+		}
+		
+		if (isset($row['email']))
+		{
+			// update
+			mysql_query("	UPDATE $db_table_community SET
+
+								title = '".$_POST['title']."',
+								forename = '".$_POST['forename']."',
+								surname = '".$_POST['surname']."',
+								country = '".$_POST['country']."',
+								regIP = '".$_SERVER['REMOTE_ADDR']."'
+
+								WHERE email = '".$_POST['email']."'
+
+						");
+			// check country
+			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
+					$flag = 'forbidden';
+
+		}
+		else
+		{
+			// insert
+			mysql_query("	INSERT INTO $db_table_community(dt, email, title, forename, surname, country, regIP)
+
+							VALUES(
+							
+								NOW(),
+								'".$_POST['email']."',
+								'".$_POST['title']."',
+								'".$_POST['forename']."',
+								'".$_POST['surname']."',
+								'".$_POST['country']."',
+								'".$_SERVER['REMOTE_ADDR']."'
 							
 						)");
+			// check country
+			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
+				$flag = 'forbidden'; //forbidden_new
 
-		if ( $_POST['country'] == 'US' || ($_POST['country'] == 'CA') )
-			$flag = 'forbidden_new';
-
+		}
 	}
+}
+
+/////////////////////////////////////////////////////////////////////////
+// check edit registration
+/////////////////////////////////////////////////////////////////////////
+if (isset($_POST['check_edit']) && $_POST['check_edit'] == 'Submit')
+{
+	$flag = 'edit';
 }
 
 ?>
 <?php
+
 $this_nav = 6;
 require_once('include/html_head.php');
 
@@ -122,11 +162,10 @@ switch($flag)
 		require_once('include/donations_03_donate.php');
 		break;
 	case 'forbidden':
-		require_once('include/donations_04_forbidden.php');
-		break;
-	case 'forbidden_new':
-		require_once('include/donations_04_forbidden.php');
+		require_once('include/donations_03_donate.php');
 		break;
 }
+
 require_once('include/html_tail.php');
+
 ?>

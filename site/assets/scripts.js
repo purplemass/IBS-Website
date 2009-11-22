@@ -57,6 +57,25 @@ $(document).ready(function(){
 
 	// db_result
 	//$('#db_result td').attr('width', '140');
+
+	// check email submit button
+	$("#check_email_button").click(function(){
+		$('#check_email_form').submit();
+		return true;
+	});
+	
+	// registration form submit button
+	$("#registration_form_button").click(function(){
+		$('#registration_form').submit();
+		return true;
+	});
+	
+	
+	// edit registration submit button
+	$("#edit_form_button").click(function(){
+		$('#edit_form').submit();
+		return true;
+	});
 	
 	// validate email & send
 	$("#submit").click(function(){

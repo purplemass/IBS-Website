@@ -12,11 +12,10 @@ if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file dire
  */
 function echo_value($str, $echo_it=FALSE)
 {
-
-	if( empty($_REQUEST[$str]) || (! isset($_REQUEST[$str])) || (! $_REQUEST[$str]) )
+	if ( empty($_POST[$str]) || (! isset($_POST[$str])) || (! $_POST[$str]) )
 		$ret = '';
 	else
-		$ret = (htmlentities($_REQUEST[$str], ENT_QUOTES, 'UTF-8')); #strip_tags
+		$ret = (htmlentities($_POST[$str], ENT_QUOTES, 'UTF-8')); #strip_tags
 	
 	if ($echo_it === TRUE)
 		echo $ret;

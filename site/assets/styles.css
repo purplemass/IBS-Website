@@ -423,6 +423,23 @@ DB
 }
 
 
+/* BUTTONS */
+
+.buttons {
+padding: 3px;
+background-color: #21587b;
+text-transform: uppercase;
+color: #FFFFFF !important;
+text-decoration: none !important;
+font-size: 90%;
+}
+
+#edit_form_button {
+position: relative;
+top: -3px;
+left: 10px;
+float: right;
+}
 /*
 
 			<!--
