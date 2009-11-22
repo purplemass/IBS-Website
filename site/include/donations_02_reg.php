@@ -44,7 +44,7 @@ foreach ($title_codes as $title => $code)
 							<input id="forename" name="forename" type="text" size="27" value="<?php echo_value('forename', TRUE); ?>" />
 						</p>
 						<p>
-							<label for="surname">Surname:</label>:<br />
+							<label for="surname">Surname:</label><br />
 							<input id="surname" name="surname" type="text" size="27" value="<?php echo_value('surname', TRUE); ?>" />
 						</p>
 						<p>
