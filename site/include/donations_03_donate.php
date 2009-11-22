@@ -11,7 +11,7 @@ $row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE em
 
 <?php if ($flag=='reg_ok'): ?>
 				<p><?php echo $row['title'] . ' ' . $row['forename'] . ' ' . $row['surname']; ?>
-				<p>Your details have been saved in our database.
+<!--				<p>Your details have been saved in our database. -->
 <?php elseif ($flag=='email_ok'): ?>
 				<p>Welcome back <?php echo $row['title'] . ' ' . $row['forename'] . ' ' . $row['surname']; ?>!
 <?php elseif ($flag=='forbidden'): ?>
@@ -19,7 +19,6 @@ $row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE em
 <?php endif; ?>
 
 <?php if ($flag=='forbidden'): ?>
-				<p>Your details have been saved in our database.</p>
 				<p>Unfortunately, we are unable to accept donations from the United States and Canada at present time.</p>
 				<p>Thank you very much for registering with us. We'll contact you in the future.........</p>
 <?php else: ?>

@@ -56,6 +56,7 @@ CREATE TABLE `ibs_community` (
   `forename` varchar(32) collate utf8_unicode_ci NOT NULL default '',
   `surname` varchar(32) collate utf8_unicode_ci NOT NULL default '',
   `country` varchar(2) collate utf8_unicode_ci NOT NULL default '',
+  `newsletter` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
   `regIP` varchar(15) collate utf8_unicode_ci NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `email` (`email`)

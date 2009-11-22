@@ -81,6 +81,10 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 		$_POST['country'] = mysql_real_escape_string($_POST['country']);
 		$_POST['email'] = mysql_real_escape_string($_POST['email']);
 		
+		// checkbox for newsletter
+		if ( ! isset($_POST['newsletter']))
+			$_POST['newsletter'] = 0;
+		
 		// check to see if record already exists
 		if (isset($_POST['email']))
 		{
@@ -96,6 +100,7 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 								forename = '".$_POST['forename']."',
 								surname = '".$_POST['surname']."',
 								country = '".$_POST['country']."',
+								newsletter = '".($_POST['newsletter'])."',
 								regIP = '".$_SERVER['REMOTE_ADDR']."'
 
 								WHERE email = '".$_POST['email']."'
@@ -109,7 +114,7 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 		else
 		{
 			// insert
-			mysql_query("	INSERT INTO $db_table_community(dt, email, title, forename, surname, country, regIP)
+			mysql_query("	INSERT INTO $db_table_community(dt, email, title, forename, surname, country, newsletter, regIP)
 
 							VALUES(
 							
@@ -119,6 +124,7 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 								'".$_POST['forename']."',
 								'".$_POST['surname']."',
 								'".$_POST['country']."',
+								'".$_POST['newsletter']."',
 								'".$_SERVER['REMOTE_ADDR']."'
 							
 						)");

@@ -8,11 +8,12 @@ if ($flag == 'edit')
 	$instructions_text = 'edit';
 
 	$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
-	$_POST['email']		= $row['email'];
-	$_POST['forename']	= $row['forename'];
-	$_POST['surname']	= $row['surname'];
-	$_POST['title']		= $row['title'];
-	$_POST['country']	= $row['country'];
+	$_POST['email']			= $row['email'];
+	$_POST['forename']		= $row['forename'];
+	$_POST['surname']		= $row['surname'];
+	$_POST['title']			= $row['title'];
+	$_POST['country']		= $row['country'];
+	$_POST['newsletter']	= $row['newsletter'];
 }
 ?>
 <?php
@@ -48,6 +49,7 @@ foreach ($title_codes as $title => $code)
 							<input id="surname" name="surname" type="text" size="27" value="<?php echo_value('surname', TRUE); ?>" />
 						</p>
 						<p>
+							<label for="country">Country of residence:</label><br />
 							<select id="country" name="country">
 <?php
 foreach ($country_codes as $country => $code)
@@ -61,6 +63,9 @@ foreach ($country_codes as $country => $code)
 }
 ?>
 							</select>
+						</p>
+						<p>
+							Subscribe to IBS Newsletter <input type="checkbox" name="newsletter" value="1" <?php echo ( (isset($_POST['newsletter'])) && ($_POST['newsletter'] == 1) ) ? 'checked' : '' ?>>
 						</p>
 						<p>
 							<input type="hidden" name="email" value="<?php echo_value('email', TRUE); ?>" />
