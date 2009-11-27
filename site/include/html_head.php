@@ -24,6 +24,12 @@
 			@import "./assets/styles.css";
 	</style>
 	
+	<!--[if gt IE 5]>
+		<style>
+			.buttons { zoom: 1; }
+		</style>
+	<![endif]-->
+
 	<script type="text/javascript" src="assets/jquery.js"></script>
 	<script type="text/javascript" src="assets/cufon-yui.js"></script>
 	<script type="text/javascript" src="assets/Helvetica_Neue_400.font.js"></script>
