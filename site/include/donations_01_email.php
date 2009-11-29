@@ -1,6 +1,6 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
 
-				<p>If you'd like to donate, please enter your email address and click submit:</p>
+				<p>If you'd like to donate online, please enter your email address and click submit:</p>
 				<div id="subscribe">
 <?php if ($err) echo '				<div class="error_message">' . implode('<br />', $err) . '</div>'; ?>
 					<form id="check_email_form" action="" method="post">

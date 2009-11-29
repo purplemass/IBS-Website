@@ -64,8 +64,13 @@ foreach ($country_codes as $country => $code)
 ?>
 							</select>
 						</p>
+<?php
+$newsletter = 'checked';
+if (isset($_POST['newsletter']))
+	$newsletter = ($_POST['newsletter'] == 1) ? 'checked' : '';
+?>
 						<p>
-							Subscribe to IBS Newsletter <input type="checkbox" name="newsletter" value="1" <?php echo ( (isset($_POST['newsletter'])) && ($_POST['newsletter'] == 1) ) ? 'checked' : '' ?>>
+							Subscribe to IBS Newsletter <input type="checkbox" name="newsletter" value="1" <?php echo $newsletter; ?>>
 						</p>
 						<p>
 							<input type="hidden" name="email" value="<?php echo_value('email', TRUE); ?>" />
