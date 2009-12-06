@@ -7,10 +7,13 @@ Cufon.replace('#nav a', { hover: true });
 Cufon.replace('#menuleft a', { hover: true });
 Cufon.replace('#menuright a', { hover: true });
 Cufon.replace('#menuright .quicklinks');
+Cufon.replace('#menuleft #announcement p');
+Cufon.replace('#menuleft #announcement .white');
 Cufon.replace('#title .text');
 Cufon.replace('#body .intitle');
 Cufon.replace('#footer .text');
 Cufon.replace('.buttons');
+//Cufon.replace('.standout');
 
 // **********************************************
 //

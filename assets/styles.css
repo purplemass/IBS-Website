@@ -14,7 +14,8 @@ html, body {
 	font-weight: normal;
 	font-style: normal;
 	font-size: 100%;
-	font-family: "Helvetica Neue", Arial, Sans-Serif;
+/* 	font-family: "Helvetica Neue", Arial, Sans-Serif; */
+	font-family: Arial, Sans-Serif;
 	vertical-align: baseline;
 	background-color: #edeee8;
 	color: #1f2126;
@@ -81,6 +82,7 @@ Generic classes
 
 .standout {
 	font-weight: bold;
+/* 	font-size: 1.0em; */
 /* 	font-style: italic;  */
 }
 
@@ -245,7 +247,7 @@ div#menuleft #announcement {
 	width: 160px;
 	height: auto;
 	padding: 10px;
-	line-height: 1.2;
+	line-height: 1.4;
  	border: none;
 }
 
@@ -253,22 +255,36 @@ div#menuleft #announcement .heading {
 	color: #346794;
 	font-weight: bold;
 	font-size: 1.3em;
-	text-decoration: none;
+	line-height: 1;
 }
 
 div#menuleft #announcement .title {
 	font-weight: bold;
-	margin-bottom: 5px;
-	padding-bottom: 5px;
-/* 	display: block; */
-/* 	color: #02a6c1; */
-/* 	border-bottom: 1px solid white; */
+	font-size: 1.1em;
 }
 
 div#menuleft #announcement a {
 	color: #09466a;
 	text-decoration: underline;
 }
+
+div#menuleft #announcement p {
+
+}
+
+div#menuleft #announcement .standout {
+	font-weight: normal;
+/* 	line-height: 1.4; */
+}
+
+div#menuleft #announcement .white {
+	background-color: #EDEEE8;
+	padding: 3px 2px 3px 5px;
+	margin-bottom: 5px;
+	margin-left: -4px;
+	width: 100%;
+}
+
 /*
 
 CONTENT
@@ -298,13 +314,13 @@ div#title .text {
 	top: -5px;
 	left: 10px;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 1.2em;
 	color: #346794;
 }
 
 div#body {
 	padding: 0 10px;
-	font-size: 12px;
+	font-size: 0.8em;
 	line-height: 1.5;
 	margin-bottom: 40px;
 }
@@ -320,7 +336,7 @@ div#body a {
 
 div#body .intitle {
 	margin-top: 20px;
-	font-size: 13px;
+	font-size: 1.1em;
 	font-weight: bold;
 }
 
@@ -343,6 +359,11 @@ div#body .cv {
 div#body .address {
 	float: left;
 	width: 230px;
+}
+
+div#body .ticketstype {
+	width: 100px;
+	float: left;
 }
 
 /*
