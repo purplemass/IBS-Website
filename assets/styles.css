@@ -232,6 +232,24 @@ div#menuleft .active {
 	color: #09466a;
 }
 
+div#menuleft .announcement {
+/* 	background-color: #02a6c1; */
+/* 	background-color: #084165; */
+	width: 160px;
+	height: auto;
+	padding: 10px;
+	line-height: 1.2;
+/* 	color: #edeee8; */
+	border: 1px solid #000;
+}
+
+div#menuleft .title {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+/* 	border-bottom: 1px solid white; */
+}
 /*
 
 CONTENT
