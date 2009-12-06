@@ -79,6 +79,11 @@ Generic classes
 	border: 1px solid #555;
 }
 
+.standout {
+	font-weight: bold;
+/* 	font-style: italic;  */
+}
+
 /*
 
 CONTAINER ET LA
@@ -232,23 +237,37 @@ div#menuleft .active {
 	color: #09466a;
 }
 
-div#menuleft .announcement {
+div#menuleft #announcement {
 /* 	background-color: #02a6c1; */
 /* 	background-color: #084165; */
+/* 	background-color: #EDEEE8; */
+/* 	color: #edeee8; */
 	width: 160px;
 	height: auto;
 	padding: 10px;
 	line-height: 1.2;
-/* 	color: #edeee8; */
-	border: 1px solid #000;
+ 	border: none;
 }
 
-div#menuleft .title {
+div#menuleft #announcement .heading {
+	color: #346794;
 	font-weight: bold;
-	display: block;
+	font-size: 1.3em;
+	text-decoration: none;
+}
+
+div#menuleft #announcement .title {
+	font-weight: bold;
 	margin-bottom: 5px;
 	padding-bottom: 5px;
+/* 	display: block; */
+/* 	color: #02a6c1; */
 /* 	border-bottom: 1px solid white; */
+}
+
+div#menuleft #announcement a {
+	color: #09466a;
+	text-decoration: underline;
 }
 /*
 
