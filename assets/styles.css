@@ -277,12 +277,21 @@ div#menuleft #announcement .standout {
 /* 	line-height: 1.4; */
 }
 
-div#menuleft #announcement .white {
+div#menuleft #announcement #white {
 	background-color: #EDEEE8;
 	padding: 3px 2px 3px 5px;
 	margin-bottom: 5px;
 	margin-left: -4px;
 	width: 100%;
+}
+
+div#menuleft #announcement #white a {
+	color: #1f2126;
+	text-decoration: none;
+}
+
+div#menuleft #announcement #white a:hover {
+	color: #09466a;
 }
 
 /*
