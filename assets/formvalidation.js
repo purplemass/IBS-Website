@@ -122,14 +122,16 @@ function validate_form(thisform)
     {
       return false;
     }
+    /*
     if (validate_required(guest_list,"Please provide a valid Guest List!")==false)
     {
       guest_list.focus();
       return false;
     }
 	// babak/20091217: check guest list lines against total number of tickets    
-    return CheckGuestList();
+    return CheckGuestList();    
     //<<
+    */
   }
 }
 
@@ -143,7 +145,7 @@ function CheckGuestList()
 	tables = $('#tables_qty').val();
 	total_tickets = parseInt(tables * 10) + parseInt(tickets);
 	//alert(guests + ' ' + alltickets + ' tickets:' + tickets + ' tables:' + tables)
-	if (guests < total_tickets)
+	if (guests != total_tickets)
 	{
 		alert('Please provide ' + total_tickets + ' names in total!');
 		$('#guest_list').focus();
