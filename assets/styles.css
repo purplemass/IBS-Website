@@ -272,11 +272,6 @@ div#menuleft #announcement p {
 
 }
 
-div#menuleft #announcement .standout {
-	font-weight: normal;
-/* 	line-height: 1.4; */
-}
-
 div#menuleft #announcement #white {
 	background-color: #EDEEE8;
 	padding: 3px 2px 3px 5px;

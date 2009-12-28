@@ -8,7 +8,7 @@ if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file dire
  * @access public
  * @param string	name of variable
  * @param bool		echo or not
- * @return string	
+ * @return string
  */
 function echo_value($str, $echo_it=FALSE)
 {
@@ -16,7 +16,7 @@ function echo_value($str, $echo_it=FALSE)
 		$ret = '';
 	else
 		$ret = (htmlentities($_POST[$str], ENT_QUOTES, 'UTF-8')); #strip_tags
-	
+
 	if ($echo_it === TRUE)
 		echo $ret;
 	else
@@ -34,15 +34,15 @@ function echo_value($str, $echo_it=FALSE)
 function insert_amount($pid, $amount)
 {
 	global $db_table_donations;
-	
+
 	mysql_query("	INSERT INTO $db_table_donations(dt, pid, amount, regIP)
 					VALUES(
-					
+
 						NOW(),
 						'" . $pid . "',
 						'" . $amount . "',
 						'" . $_SERVER['REMOTE_ADDR'] . "'
-						
+
 					)");
 }
 
@@ -75,6 +75,7 @@ function send_mail($from,$to,$subject,$body)
 	$headers .= "Reply-to: $from\n";
 	$headers .= "Return-Path: $from\n";
 	$headers .= "Message-ID: <" . md5(uniqid(time())) . "@" . $_SERVER['SERVER_NAME'] . ">\n";
+	$headers .= "Content-type: text/html; charset=iso-8859-1\n";
 	$headers .= "MIME-Version: 1.0\n";
 	$headers .= "Date: " . date('r', time()) . "\n";
 
