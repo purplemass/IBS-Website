@@ -22,3 +22,14 @@ Redirect 301 /organisation.htm http://www.ibsproject.com/project_organisation.ht
 Redirect 301 /programmes.htm   http://www.ibsproject.com/programmes.html
 Redirect 301 /project.htm      http://www.ibsproject.com/project.html
 
+# issues with flowplayer - this stops gzip being served for swf on server
+#SetEnvIfNoCase Request_URI .swf$ no-gzip dont-vary
+
+#cache busting!
+<FilesMatch ".(swf)$"> 
+FileETag None 
+Header unset ETag 
+Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate" 
+Header set Pragma "no-cache" 
+Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT" 
+</FilesMatch> 
