@@ -1,6 +1,8 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
 <?php
 
+require_once('include/lists.php');
+
 $instructions_text = 'enter';
 
 if ($flag == 'edit')
@@ -16,10 +18,6 @@ if ($flag == 'edit')
 	$_POST['newsletter']	= $row['newsletter'];
 }
 ?>
-<?php
-require_once('include/lists.php');
-?>
-
 				<p>Please <?php echo $instructions_text; ?> your details and click the submit button below:</p>
 				<div id="subscribe">
 <?php if ($err) echo '				<div class="error_message">' . implode('<br />', $err) . '</div>'; ?>

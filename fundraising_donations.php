@@ -9,10 +9,11 @@ require 'include/functions.php';
 
 $flag = 'start';
 $err = array();
+$debug = true;
 
 /////////////////////////////////////////////////////////////////////////
 // check email
-/////////////////////////////////////////////////////////////////////////
+
 if (isset($_POST['check_email']) && $_POST['check_email'] == 'Submit')
 {	
 	if ( ! $_POST['email'] )
@@ -28,6 +29,7 @@ if (isset($_POST['check_email']) && $_POST['check_email'] == 'Submit')
 		
 		// Escaping all input data
 		$row = mysql_fetch_assoc(mysql_query("SELECT email, country FROM $db_table_community WHERE email='{$_POST['email']}'"));
+		check_db_error();			
 
 		if ($row['email'])
 			$flag = 'email_ok';
@@ -47,7 +49,7 @@ if (isset($_POST['check_email']) && $_POST['check_email'] == 'Submit')
 
 /////////////////////////////////////////////////////////////////////////
 // check registration
-/////////////////////////////////////////////////////////////////////////
+
 if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Submit')
 {
 	$flag = 'email_new';
@@ -80,7 +82,7 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 		$_POST['surname'] = mysql_real_escape_string($_POST['surname']);
 		$_POST['country'] = mysql_real_escape_string($_POST['country']);
 		$_POST['email'] = mysql_real_escape_string($_POST['email']);
-		
+
 		// checkbox for newsletter
 		if ( ! isset($_POST['newsletter']))
 			$_POST['newsletter'] = 0;
@@ -89,23 +91,32 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 		if (isset($_POST['email']))
 		{
 			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
+			check_db_error();			
+
 		}
 		
 		if (isset($row['email']))
 		{
 			// update
-			mysql_query("	UPDATE $db_table_community SET
+			$sql_cmd = ("	UPDATE $db_table_community SET
 
+								mdt = NOW(),
 								title = '".$_POST['title']."',
 								forename = '".$_POST['forename']."',
 								surname = '".$_POST['surname']."',
 								country = '".$_POST['country']."',
-								newsletter = '".($_POST['newsletter'])."',
-								regIP = '".$_SERVER['REMOTE_ADDR']."'
+								newsletter = '".($_POST['newsletter'])."'
 
 								WHERE email = '".$_POST['email']."'
 
 						");
+			
+			mysql_query($sql_cmd);
+			check_db_error();
+						
+			// removed this: regIP = '".$_SERVER['REMOTE_ADDR']."'
+
+			
 			// check country
 			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
 					$flag = 'forbidden';
@@ -114,20 +125,24 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 		else
 		{
 			// insert
-			mysql_query("	INSERT INTO $db_table_community(dt, email, title, forename, surname, country, newsletter, regIP)
+			$sql_cmd = ("	INSERT INTO $db_table_community
+			
+							(dt, mdt, title, forename, surname, email, country, newsletter)
 
 							VALUES(
 							
 								NOW(),
-								'".$_POST['email']."',
+								NOW(),
 								'".$_POST['title']."',
 								'".$_POST['forename']."',
 								'".$_POST['surname']."',
+								'".$_POST['email']."',
 								'".$_POST['country']."',
-								'".$_POST['newsletter']."',
-								'".$_SERVER['REMOTE_ADDR']."'
-							
+								'".$_POST['newsletter']."'							
 						)");
+			
+			mysql_query($sql_cmd);
+			
 			// check country
 			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
 				$flag = 'forbidden'; //forbidden_new
@@ -138,7 +153,7 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 
 /////////////////////////////////////////////////////////////////////////
 // check edit registration
-/////////////////////////////////////////////////////////////////////////
+
 if (isset($_POST['check_edit']) && $_POST['check_edit'] == 'Submit')
 {
 	$flag = 'edit';
@@ -146,6 +161,8 @@ if (isset($_POST['check_edit']) && $_POST['check_edit'] == 'Submit')
 
 ?>
 <?php
+
+// show relevant page content
 
 $this_nav = 6;
 require_once('include/html_head.php');

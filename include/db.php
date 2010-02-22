@@ -31,8 +31,10 @@ else
 	$db_pass		= 'root';
 }
 
-$db_table_community = 'ibs_community';
-$db_table_donations	= 'ibs_donations';
+$db_table_community 		= 'ibs_community';
+$db_table_donations			= 'ibs_donations';
+$db_table_events			= 'ibs_events';
+$db_table_donor_categories	= 'ibs_donor_categories';
 
 /* End config */
 
@@ -47,6 +49,70 @@ mysql_query("SET names UTF8");
 --
 -- Table structure for table `ibs_community`
 --
+
+CREATE TABLE `ibs_community` (
+  `id` int(11) NOT NULL auto_increment,
+  `dt` datetime NOT NULL default '0000-00-00 00:00:00',
+  `mdt` datetime NOT NULL default '0000-00-00 00:00:00',
+  `title` varchar(5) collate utf8_unicode_ci NOT NULL default '',
+  `forename` varchar(32) collate utf8_unicode_ci NOT NULL default '',
+  `surname` varchar(32) collate utf8_unicode_ci NOT NULL default '',
+  `email` varchar(50) collate utf8_unicode_ci NOT NULL default '',
+  `address1` varchar(50) collate utf8_unicode_ci NOT NULL default '',
+  `address2` varchar(50) collate utf8_unicode_ci NOT NULL default '',
+  `address3` varchar(50) collate utf8_unicode_ci NOT NULL default '',
+  `address4` varchar(50) collate utf8_unicode_ci NOT NULL default '',
+  `city` varchar(32) collate utf8_unicode_ci NOT NULL default '',
+  `postcode` varchar(8) collate utf8_unicode_ci NOT NULL default '',
+  `country` varchar(2) collate utf8_unicode_ci NOT NULL default '',
+  `donor` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
+  `donor_category` int(2) NOT NULL,
+  `newsletter` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
+  `register` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
+  `password` varchar(32) collate utf8_unicode_ci NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Table structure for table `ibs_donations`
+--
+
+CREATE TABLE `ibs_donations` (
+  `id` int(11) NOT NULL auto_increment,
+  `dt` datetime NOT NULL default '0000-00-00 00:00:00',
+  `pid` int(11) NOT NULL,
+  `amount` float(10,2) NOT NULL default 0.00,
+  `gift_aid` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+--
+-- Table structure for table `ibs_events`
+--
+
+CREATE TABLE `ibs_events` (
+  `id` int(11) NOT NULL auto_increment,
+  `dt` datetime NOT NULL default '0000-00-00 00:00:00',
+  `pid` int(11) NOT NULL,
+  `amount` float(10,2) NOT NULL default 0.00,
+  `gift_aid` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Table structure for table `ibs_donor_categories`
+--
+
+CREATE TABLE `ibs_donor_categories` (
+  `id` int(2) NOT NULL auto_increment,
+  `category` varchar(32) collate utf8_unicode_ci NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+OLD:
 
 CREATE TABLE `ibs_community` (
   `id` int(11) NOT NULL auto_increment,
@@ -70,6 +136,7 @@ CREATE TABLE `ibs_donations` (
   `regIP` varchar(15) collate utf8_unicode_ci NOT NULL default '',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 */
 

@@ -2,10 +2,12 @@
 
 $title_codes = array(
 						'Select a title'=>'',
-						'Mr.'=>'Mr.',
-						'Mrs.'=>'Mrs.',
+						'Mr'=>'Mr',
+						'Mrs'=>'Mrs',
 						'Miss'=>'Miss',
-						'Dr.'=>'Dr.',
+						'Ms'=>'Ms',
+						'Dr'=>'Dr',
+						'Other'=>'Other',
 					);
 						
 $country_codes = array(

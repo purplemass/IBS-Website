@@ -24,6 +24,30 @@ function echo_value($str, $echo_it=FALSE)
 }
 
 /**
+ * Insert any value into community table
+ *
+ * @access public
+ * @param string	field name
+ * @param float		field value
+ * @return void
+ */
+function insert_value($field, $value)
+{
+	global $db_table_community;
+
+	$sql_cmd = ("	INSERT INTO $db_table_community(mdt, $field)
+					VALUES(
+
+						NOW(),
+						'" . $value . "',
+
+					)");
+	
+	mysql_query($sql_cmd);
+	check_db_error();
+}
+
+/**
  * Insert amount into DB
  *
  * @access public
@@ -35,15 +59,17 @@ function insert_amount($pid, $amount)
 {
 	global $db_table_donations;
 
-	mysql_query("	INSERT INTO $db_table_donations(dt, pid, amount, regIP)
+	$sql_cmd = ("	INSERT INTO $db_table_donations(dt, pid, amount)
 					VALUES(
 
 						NOW(),
 						'" . $pid . "',
-						'" . $amount . "',
-						'" . $_SERVER['REMOTE_ADDR'] . "'
+						'" . $amount . "'
 
 					)");
+	
+	mysql_query($sql_cmd);
+	check_db_error();
 }
 
 
@@ -60,7 +86,7 @@ function check_email($str)
 }
 
 /**
- * Sens simple email
+ * Sends simple email
  *
  * @access public
  * @param string
@@ -80,6 +106,20 @@ function send_mail($from,$to,$subject,$body)
 	$headers .= "Date: " . date('r', time()) . "\n";
 
 	mail($to,$subject,$body,$headers);
+}
+
+/**
+ * Checks for DB errors - debugging only
+ *
+ * @access public
+ * @return void
+ */
+function check_db_error()
+{
+	global $debug, $link;
+	
+	if ( ($debug === true) && (mysql_errno($link) <> 0) )
+		echo mysql_errno($link) . ": " . mysql_error($link). "\n";
 }
 
 ?>
