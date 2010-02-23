@@ -7,6 +7,40 @@ define('INCLUDE_CHECK', true);
 require 'include/db.php';
 require 'include/functions.php';
 
+
+// write to temp file
+$dd			= ';';
+$today		= date("Y-m-d") . $dd . date("H:i:s");
+$file_name	= '_temp.txt';
+
+$r1 = $today . $dd;
+$r2 = $today . $dd;
+
+if (isset($_REQUEST))
+{
+	ksort($_REQUEST);
+	
+	foreach ($_REQUEST as $key=>$value)
+	{
+		if ( ($key <> 'PHPSESSID') && ($key <> 'ci_session') )
+		{
+			$r1 .=  $key . $dd;
+			$r2 .=  $value . $dd;
+		}
+	}
+	
+	$r1 .= "\r\n";
+	$r2 .= "\r\n";
+	
+	#echo $r1;
+	#echo '<br />';
+	#echo $r2;
+	
+	WriteFile($file_name, $r1 . $r2);
+}
+
+//
+
 $count = $_REQUEST['num_cart_items'];
 $total_amt = $_REQUEST['mc_gross'] . " " . $_REQUEST['mc_currency'];
 $payment_status = $_REQUEST['payment_status'];
@@ -53,7 +87,7 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 
 	}
 	
-	insert_value('donor', 1);
+	insert_value('donor', 1, $pid);
 	
 	//send email
 	

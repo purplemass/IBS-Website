@@ -31,17 +31,16 @@ function echo_value($str, $echo_it=FALSE)
  * @param float		field value
  * @return void
  */
-function insert_value($field, $value)
+function insert_value($field, $value, $pid)
 {
 	global $db_table_community;
 
-	$sql_cmd = ("	INSERT INTO $db_table_community(mdt, $field)
-					VALUES(
+	$sql_cmd = ("	UPDATE $db_table_community
+					SET mdt = NOW(), " . $field . " = '" . $value . "'
+					
+						WHERE id=" . $pid . "
 
-						NOW(),
-						'" . $value . "',
-
-					)");
+					");
 	
 	mysql_query($sql_cmd);
 	check_db_error();
@@ -120,6 +119,28 @@ function check_db_error()
 	
 	if ( ($debug === true) && (mysql_errno($link) <> 0) )
 		echo mysql_errno($link) . ": " . mysql_error($link). "\n";
+}
+
+/**
+ * Writes to file
+ *
+ * @access public
+ * @param string	file name
+ * @param string	file content
+ * @return void
+ */
+function WriteFile($filename, $content) {
+	
+	global $syslog_id;
+	
+	if (!$handle = fopen($filename, 'a'))
+	{
+		Logit($syslog_id, "Cannot open file($filename)", 3); # Cannot write to disk (disk full?)
+	}
+	if (fwrite($handle, $content) === FALSE)
+	{
+		Logit($syslog_id, "Cannot write to file($filename)", 3); # Cannot write to disk (disk full?)
+	}
 }
 
 ?>
