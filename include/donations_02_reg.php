@@ -1,8 +1,6 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
 <?php
 
-require_once('include/lists.php');
-
 $instructions_text = 'enter';
 
 if ($flag == 'edit')
@@ -18,64 +16,59 @@ if ($flag == 'edit')
 	$_POST['newsletter']	= $row['newsletter'];
 }
 ?>
+
 				<p>Please <?php echo $instructions_text; ?> your details and click the submit button below:</p>
 				<div id="subscribe">
-<?php if ($err) echo '				<div class="error_message">' . implode('<br />', $err) . '</div>'; ?>
-
-					<form id="registration_form" action="" method="post">
-						<p>
+<?php if ($err): ?>
+				<div class="error_message"><?php echo implode('<br />', $err); ?></div>
+<?php endif ?>
+					<form id="registration_form" class="form_register" action="" method="post">
+					<fieldset>
+						<legend>Personal details</legend>
+<?php $s = ''; foreach ($fields as $name => $options): ?>
+<?php $mandatory = ($options['mandatory'] ? '<span class="mandatory">*</span>' : ''); ?>
+							<label for=<?php echo $name; ?>><?php echo $options['label'] . $mandatory; ?>: </label>
+<?php if ($options['type'] == 'text'): ?>
+							<input id="<?php echo $name; ?>" name="<?php echo $name; ?>" type="text"
+							 size="<?php echo $options['width']; ?>" maxlength="<?php echo $options['length']; ?>" 
+							 value="<?php echo_value($name, TRUE); ?>" />
+							 <br />
+<?php elseif ($name == 'title'): ?>
 							<select id="title" name="title">
-<?php
-foreach ($title_codes as $title => $code)
-{
-	$selected = '';
-
-	if (isset($_POST['title']) && $_POST['title'] == $code)
-		$selected = ' selected';
-	
-	echo '								<option value="' . $code . '"' . $selected . '>' . $title . '</option>' . "\n";
-}
-?>
+<?php foreach ($title_codes as $title => $code): ?>
+<?php $selected = (isset($_POST['title']) && $_POST['title'] == $code) ? ' selected': ''; ?>
+								<option value="<?php echo $code; ?>"<?php echo $selected; ?>><?php echo $title; ?></option>
+<?php endforeach; ?>
 							</select>
-						</p>
-						<p>
-							<label for="forename">Forename:</label><br />
-							<input id="forename" name="forename" type="text" size="27" value="<?php echo_value('forename', TRUE); ?>" />
-						</p>
-						<p>
-							<label for="surname">Surname:</label><br />
-							<input id="surname" name="surname" type="text" size="27" value="<?php echo_value('surname', TRUE); ?>" />
-						</p>
-						<p>
-							<label for="country">Country of residence:</label><br />
+							<br />
+<?php elseif ($name == 'country'): ?>
 							<select id="country" name="country">
-<?php
-foreach ($country_codes as $country => $code)
-{
-	$selected = '';
-
-	if (isset($_POST['country']) && $_POST['country'] == $code)
-		$selected = ' selected';
-	
-	echo '								<option value="' . $code . '"' . $selected . '>' . $country . '</option>' . "\n";
-}
-?>
+<?php foreach ($country_codes as $country => $code): ?>
+<?php $selected = (isset($_POST['country']) && $_POST['country'] == $code) ? ' selected': ''; ?>
+								<option value="<?php echo $code; ?>"<?php echo $selected; ?>><?php echo $country; ?></option>
+<?php endforeach; ?>
 							</select>
-						</p>
+							<br />
+<?php elseif ($name == 'newsletter'): ?>
 <?php
 $newsletter = 'checked';
 if (isset($_POST['newsletter']))
 	$newsletter = ($_POST['newsletter'] == 1) ? 'checked' : '';
 ?>
-						<p>
-							Subscribe to IBS Newsletter <input type="checkbox" name="newsletter" value="1" <?php echo $newsletter; ?>>
-						</p>
+							<input type="checkbox" name="newsletter" value="1" <?php echo $newsletter; ?>>
+<?php endif; ?>
+							<br />
+<?php endforeach; ?>
+							<br />
+							<p>&nbsp;<span class="mandatory">*</span> denotes mandatory fields</p>
+						</fieldset>
 						<p>
 							<input type="hidden" name="email" value="<?php echo_value('email', TRUE); ?>" />
 							<input type="hidden" name="check_registration" value="Submit" />
 							<a id="registration_form_button" href="#" class="buttons">Submit</a>
 <!--
-							<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+							<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
+							 border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
 -->
 						</p>
 					</form>

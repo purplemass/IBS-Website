@@ -4,8 +4,9 @@
 
 define('INCLUDE_CHECK', true);
 
-require 'include/db.php';
-require 'include/functions.php';
+require_once('include/db.php');
+require_once('include/functions.php');
+require_once('include/lists.php');
 
 $flag = 'start';
 $err = array();
@@ -54,17 +55,11 @@ if (isset($_POST['check_registration']) && $_POST['check_registration'] == 'Subm
 {
 	$flag = 'email_new';
 
-	if ( ! $_POST['title'] )
-		$err[] = 'Please enter your title';
-	
-	if ( ! $_POST['forename'] )
-		$err[] = 'Please enter your forename';
-
-	if ( ! $_POST['surname'] )
-		$err[] = 'Please enter your surname';
-
-	if ( ! $_POST['country'] )
-		$err[] = 'Please enter your country';
+	foreach ($fields as $name => $options)
+	{
+		if ( isset($_POST[$name]) && ! $_POST[$name] && $options['mandatory'])
+			$err[] = $options['error'];
+	}
 
 	if ( ! $_POST['email'] )
 	{

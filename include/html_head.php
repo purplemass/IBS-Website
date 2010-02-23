@@ -1,4 +1,5 @@
 <?php if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
+<?php require_once('include/lists.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -42,30 +43,10 @@
 	<div id="cover"><img src="assets/images/spacer.gif" width="10" height="5" alt="*" /></div>
 	<div id="margin">&nbsp;</div>
 	<div id="nav">
-<?php
-$nav_items = array(
-					'index.html'				=>	'Home',
-					'project.html'				=>	'The Project',
-					'programmes.html'			=>	'Programmes',
-					'project_timeline.html'		=>	'Project Timeline',
-					'news_events.html'			=>	'News &amp; Events',
-					'get_involved.html'			=>	'Get involved',
-					'fundraising.html'			=>	'Fundraising',
-					'contact_us.html'			=>	'Contact us',
-					);
-
-$count = 0;
-foreach ($nav_items as $key => $value)
-{
-	$active_class = '';
-	if ($this_nav == $count)
-		$active_class = ' active';
-	
-	echo '		<div id="navitem' . $count . '"><a class="navitem' . $active_class . '" href="' . $key . '">' . $value . '</a></div>' . "\n";
-	$count++;
-}
-
-?>
+<?php $count = 0; foreach ($nav_items as $key => $value): ?>
+<?php $active_class = ($this_nav == $count) ? ' active' : ''; ?>
+		<div id="navitem<?php echo $count; ?>"><a class="navitem<?php echo $active_class; ?>" href="<?php echo $key; ?>"><?php echo $value ?></a></div>
+<?php $count++; endforeach; ?>
 	</div>
 	<div id="top">
 		<div id="logo"><a href="index.html"><img src="assets/images/IBS_logo.gif" width="170" height="140" alt="IBS Logo" /></a></div>

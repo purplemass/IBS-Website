@@ -41,8 +41,24 @@ DA USUAL2
 
 */
 
-form {
+fieldset {
+	padding: 1em;
+	font: 90%/1 sans-serif;
+	border:1px solid #346794;
+}
 
+legend {
+	padding: 0.2em 0.5em;
+	border: 1px solid green;
+	color: #346794;
+	font-size: 90%;
+	text-align: right;
+}
+
+label {
+	float: left;
+	width: 170px;
+	font-weight: bold;
 }
 
 a {
@@ -73,6 +89,10 @@ Generic classes
 
 */
 
+.mandatory {
+	color: #346794; /* #02a6c1 */
+	font-size: 120%;
+}
 .error_message {
 	color: red;
 	margin-bottom: 10px;
@@ -498,6 +518,13 @@ DB
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	text-decoration: none !important;
+	font-size: 90%;
+}
+
+#registration_form_button {
+	float: right;
+	margin-top: -35px;
+	margin-right: 10px;
 }
 
 #edit_form_button {
@@ -506,7 +533,6 @@ DB
 	left: 10px;
 	padding: 3px;
 	float: right;
-	font-size: 90%;
 }
 
 /*

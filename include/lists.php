@@ -1,15 +1,133 @@
-<?php
+<?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
 
-$title_codes = array(
-						'Select a title'=>'',
-						'Mr'=>'Mr',
-						'Mrs'=>'Mrs',
-						'Miss'=>'Miss',
-						'Ms'=>'Ms',
-						'Dr'=>'Dr',
-						'Other'=>'Other',
+// navigation menu items
+$nav_items = array(
+					'index.html'				=>	'Home',
+					'project.html'				=>	'The Project',
+					'programmes.html'			=>	'Programmes',
+					'project_timeline.html'		=>	'Project Timeline',
+					'news_events.html'			=>	'News &amp; Events',
+					'get_involved.html'			=>	'Get involved',
+					'fundraising.html'			=>	'Fundraising',
+					'contact_us.html'			=>	'Contact us',
 					);
-						
+
+// registration fields
+$fields = array(
+				'title' => array(
+						'type'		=> 'dropbox',
+						'label'		=> 'Title',
+						'length'	=> '5',
+						'width'		=> '5',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your Title',
+						),
+
+				'forename' => array(
+						'type'		=> 'text',
+						'label'		=> 'Forename',
+						'length'	=> '32',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your Forename',
+						),
+
+				'surname' => array(
+						'type'		=> 'text',
+						'label'		=> 'Last Name',
+						'length'	=> '32',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your Last Name',
+						),
+/*
+
+				'address1' => array(
+						'type'		=> 'text',
+						'label'		=> 'Address Line 1',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						),
+
+				'address2' => array(
+						'type'		=> 'text',
+						'label'		=> 'Address Line 2',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						),
+
+				'address3' => array(
+						'type'		=> 'text',
+						'label'		=> 'Address Line 3',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						),
+
+				'address4' => array(
+						'type'		=> 'text',
+						'label'		=> 'Address Line 4',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						),
+
+				'city' => array(
+						'type'		=> 'text',
+						'label'		=> 'Town/City',
+						'length'	=> '32',
+						'width'		=> '27',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						),
+
+				'postcode' => array(
+						'type'		=> 'text',
+						'label'		=> 'Post Code',
+						'length'	=> '8',
+						'width'		=> '8',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						),
+*/
+
+				'country' => array(
+						'type'		=> 'dropbox',
+						'label'		=> 'Country of residence',
+						'length'	=> '',
+						'width'		=> '',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your Country',
+						),
+
+				'newsletter' => array(
+						'type'		=> 'dropbox',
+						'label'		=> 'Subscribe to IBS Newsletter',
+						'length'	=> '',
+						'width'		=> '',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						),
+				);
+
+// possible titles
+$title_codes = array(
+						'Select a title' =>'',
+						'Mr'	=>'Mr',
+						'Mrs'	=>'Mrs',
+						'Miss'	=>'Miss',
+						'Ms'	=>'Ms',
+						'Dr'	=>'Dr',
+						'Other'	=>'Other',
+					);
+
+// country codes
 $country_codes = array(
 						'Select a country'=>'',
 						'United Kingdom'=>'UK',
@@ -220,12 +338,12 @@ $country_codes = array(
 						'Somalia'=>'SO',
 						'South Africa'=>'ZA',
 						'South Korea'=>'KR',
-						'South Georgia and the South Sandwich Islands'=>'GS',
+/* 						'South Georgia and the South Sandwich Islands'=>'GS', */
 						'Spain'=>'ES',
 						'Sri Lanka'=>'LK',
 						'Sudan'=>'SD',
 						'Suriname'=>'SR',
-						'Svalbard (Spitzbergen) and Jan Mayen Islands'=>'SJ',
+/* 						'Svalbard (Spitzbergen) and Jan Mayen Islands'=>'SJ', */
 						'Swaziland'=>'SZ',
 						'Sweden'=>'SE',
 						'Switzerland'=>'CH',
