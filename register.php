@@ -391,7 +391,7 @@ http://www.ibsproject.org
 
 EOF;
 
-	SendEmail($emailto, $emailFrom, $subject, $message);
+	send_mail_ibs($emailto, $emailFrom, $subject, $message);
 }
 
 /**
@@ -421,6 +421,6 @@ http://www.ibsproject.org
 
 EOF;
 
-	SendEmail($emailto, $emailFrom, $subject, $message);
+	send_mail_ibs($emailto, $emailFrom, $subject, $message);
 }
 ?>

@@ -83,6 +83,20 @@ function validate_email($str)
 }
 
 /**
+ * Checks for DB errors - debugging only
+ *
+ * @access public
+ * @return void
+ */
+function check_db_error($sql_cmd='')
+{
+	global $debug, $link;
+	
+	if ( ($debug === true) && (mysql_errno($link) <> 0) )
+		echo mysql_errno($link) . ": " . mysql_error($link). "<br />" . $sql_cmd . "<br />";
+}
+
+/**
  * Sends simple email
  *
  * @access public
@@ -106,20 +120,6 @@ function send_mail($from,$to,$subject,$body)
 }
 
 /**
- * Checks for DB errors - debugging only
- *
- * @access public
- * @return void
- */
-function check_db_error($sql_cmd='')
-{
-	global $debug, $link;
-	
-	if ( ($debug === true) && (mysql_errno($link) <> 0) )
-		echo mysql_errno($link) . ": " . mysql_error($link). "<br />" . $sql_cmd . "<br />";
-}
-
-/**
  * Sends email
  *
  * @access public
@@ -130,7 +130,7 @@ function check_db_error($sql_cmd='')
  * @param string	email from (server)
  * @return string	OK or ERROR
  */
-function SendEmail($emailTo, $emailFrom, $subject, $message, $emailFromServer='')
+function send_mail_ibs($emailTo, $emailFrom, $subject, $message, $emailFromServer='')
 {
 	$headers	= 	"From: IBS Project <$emailFrom>" . "\r\n" .
 					"Reply-To: IBS Project <$emailFrom>" . "\r\n" .

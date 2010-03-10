@@ -47,7 +47,7 @@ $subject = 'IBS Project automated email - Newsletter Subscription';
 $message = 'Please add the following email address to the database:'
 				. "\r\n" . "\r\n" . $emailAddress;
 
-$r = SendEmail($autoEmailTo, $emailFrom, $subject, $message, $emailFromServer);
+$r = send_mail_ibs($autoEmailTo, $emailFrom, $subject, $message, $emailFromServer);
 
 //--------------------------------------------------------------
 
@@ -64,7 +64,7 @@ IBS Project Team
 
 EOF;
 
-$r = SendEmail($emailAddress, $emailFrom, $subject, $message, $emailFromServer);
+$r = send_mail_ibs($emailAddress, $emailFrom, $subject, $message, $emailFromServer);
 
 //--------------------------------------------------------------
 
