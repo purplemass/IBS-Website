@@ -222,45 +222,51 @@ if (isset($_POST['page_flag']) && $_POST['page_flag'] == 'check_edit')
 $page_title = 'Log in or register';
 $this_nav = 8;
 
+echo $flag;
+
 switch($flag)
 {
 	case 'start':
-		$mymenuleft = 'html_menu_left_register.php';
-		$mymenuright = 'html_menu_right_register.php';
+		$mymenuleft = 'menu_left_register.php';
+		$mymenuright = 'menu_right_register.php';
 		$mypage = 'register_01.php';
 		break;
 		
 	case 'email_new':
-		$mymenuleft = 'html_menu_left_register.php';
-		$mymenuright = 'html_menu_right_register.php';
+		$mymenuleft = 'menu_left_register.php';
+		$mymenuright = 'menu_right_register.php';
 		$mypage = 'register_02.php';
 		break;
 		
 	case 'edit':
-		$mymenu = 'html_menu_donation.php';
-		$mypage = 'donations_02_reg.php';
+		$mymenuleft = 'menu_left_register.php';
+		$mymenuright = 'menu_right_register.php';
+		$mypage = 'register_02.php';
 		break;
 		
 	case 'email_ok':
-		$mymenu = 'html_menu_donation.php';
-		$mypage = 'donations_03_reg.php';
+		$mymenuleft = 'menu_left_register.php';
+		$mymenuright = 'menu_right_register.php';
+		$mypage = 'register_03.php';
 		break;
 		
 	case 'reg_ok':
-		$mymenu = 'html_menu_donation.php';
-		$mypage = 'donations_03_reg.php';
+		$mymenuleft = 'menu_left_register.php';
+		$mymenuright = 'menu_right_register.php';
+		$mypage = 'register_03.php';
 		break;
 		
 	case 'forbidden':
-		$mymenu = 'html_menu_donation.php';
-		$mypage = 'donations_03_reg.php';
+		$mymenuleft = 'menu_left_register.php';
+		$mymenuright = 'menu_right_register.php';
+		$mypage = 'register_03.php';
 		break;
 }
 
-require_once('include/html_head.php');
-require_once('include/' . $mymenuleft);
-require_once('include/' . $mypage);
-require_once('include/' . $mymenuright);
-require_once('include/html_tail.php');
+require_once('html/head.php');
+require_once('html/' . $mymenuleft);
+require_once('html/' . $mypage);
+require_once('html/' . $mymenuright);
+require_once('html/tail.php');
 
 ?>
