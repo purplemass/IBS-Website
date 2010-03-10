@@ -1,6 +1,6 @@
 /*
 
-DA USUAL1
+PAGE STYLES
 
 */
 
@@ -10,7 +10,7 @@ DA USUAL1
 }
 
 html, body {
-	border: 0;
+	border: none;
 	font-weight: normal;
 	font-style: normal;
 	font-size: 100%;
@@ -37,14 +37,16 @@ html {
 
 /*
 
-DA USUAL2
+FORM STYLES
 
 */
 
 fieldset {
 	padding: 1em;
 	font: 90%/1 sans-serif;
-	border:1px solid #346794;
+/* 	border:1px solid #346794; */
+	border: none;
+	background-color: #D9DBD0;
 }
 
 legend {
@@ -59,7 +61,29 @@ label {
 	float: left;
 	width: 170px;
 	font-weight: bold;
+	margin-top: 5px;
 }
+
+.radio {
+	margin-right: 10px;
+}
+
+.no_list {
+	padding: 0;
+	margin-bottom: 10px;
+}
+
+.no_list_text {
+	margin: 10px 0 15px;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+/*
+
+MAIN STYLES
+
+*/
 
 a {
 	text-decoration: none;
@@ -74,12 +98,18 @@ ul {
 	margin: 0;
 }
 
+ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
 li {
 	padding: 0 0 10px 5px;
 }
 
 img {
-	border: 0px;
+	border: none;
 }
 
 
@@ -209,7 +239,7 @@ div#image {
 	height: 140px;
 	min-height: 140px;
 	float: left;
-	border: 0;
+	border: none;
 }
 
 
@@ -409,6 +439,7 @@ div#menuright {
 	float: left;
 	background-color: #edeee8;
 	font-size: 12px;
+	line-height: 1.2;
 }
 
 div#menuright .navitem {
@@ -521,7 +552,7 @@ DB
 	font-size: 90%;
 }
 
-#registration_form_button {
+.submit_button {
 	float: right;
 	margin-top: -35px;
 	margin-right: 10px;

@@ -62,6 +62,14 @@ $(document).ready(function(){
 	// db_result
 	//$('#db_result td').attr('width', '140');
 
+	// registration form submit button
+	$("#submit").click(function(){
+		$('#main_form').submit();
+		return true;
+	});
+
+
+/*
 	// check email submit button
 	$("#check_email_button").click(function(){
 		$('#check_email_form').submit();
@@ -80,6 +88,7 @@ $(document).ready(function(){
 		$('#edit_form').submit();
 		return true;
 	});
+*/
 	
 	// validate email & send
 	$("#submit").click(function(){

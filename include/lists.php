@@ -10,7 +10,7 @@ $nav_items = array(
 					'get_involved.html'			=>	'Get involved',
 					'fundraising.html'			=>	'Fundraising',
 					'contact_us.html'			=>	'Contact us',
-					'register.php'				=>	'Register with IBS',
+					'register.php'				=>	'Log in or register',
 					);
 
 // registration fields
@@ -22,6 +22,8 @@ $fields = array(
 						'width'		=> '5',
 						'mandatory'	=> TRUE,
 						'error'		=> 'Please enter your Title',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
 						),
 
 				'forename' => array(
@@ -31,6 +33,8 @@ $fields = array(
 						'width'		=> '27',
 						'mandatory'	=> TRUE,
 						'error'		=> 'Please enter your Forename',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
 						),
 
 				'surname' => array(
@@ -40,8 +44,9 @@ $fields = array(
 						'width'		=> '27',
 						'mandatory'	=> TRUE,
 						'error'		=> 'Please enter your Last Name',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
 						),
-/*
 
 				'address1' => array(
 						'type'		=> 'text',
@@ -50,6 +55,8 @@ $fields = array(
 						'width'		=> '27',
 						'mandatory'	=> FALSE,
 						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
 						),
 
 				'address2' => array(
@@ -59,7 +66,10 @@ $fields = array(
 						'width'		=> '27',
 						'mandatory'	=> FALSE,
 						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
 						),
+/*
 
 				'address3' => array(
 						'type'		=> 'text',
@@ -68,6 +78,8 @@ $fields = array(
 						'width'		=> '27',
 						'mandatory'	=> FALSE,
 						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
 						),
 
 				'address4' => array(
@@ -77,7 +89,10 @@ $fields = array(
 						'width'		=> '27',
 						'mandatory'	=> FALSE,
 						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
 						),
+*/
 
 				'city' => array(
 						'type'		=> 'text',
@@ -86,6 +101,8 @@ $fields = array(
 						'width'		=> '27',
 						'mandatory'	=> FALSE,
 						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
 						),
 
 				'postcode' => array(
@@ -95,8 +112,9 @@ $fields = array(
 						'width'		=> '8',
 						'mandatory'	=> FALSE,
 						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
 						),
-*/
 
 				'country' => array(
 						'type'		=> 'dropbox',
@@ -105,6 +123,8 @@ $fields = array(
 						'width'		=> '',
 						'mandatory'	=> TRUE,
 						'error'		=> 'Please enter your Country',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
 						),
 
 				'newsletter' => array(
@@ -114,7 +134,32 @@ $fields = array(
 						'width'		=> '',
 						'mandatory'	=> FALSE,
 						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
 						),
+
+				'password' => array(
+						'type'		=> 'password',
+						'label'		=> 'Password',
+						'length'	=> '32',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your Password',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
+						),
+
+				'password_confirm' => array(
+						'type'		=> 'password',
+						'label'		=> 'Confirm Password',
+						'length'	=> '32',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your Confirm Password',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
+						),
+
 				);
 
 // possible titles

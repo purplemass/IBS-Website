@@ -56,6 +56,7 @@ CREATE TABLE `ibs_community` (
   `forename` varchar(32) collate utf8_unicode_ci NOT NULL default '',
   `surname` varchar(32) collate utf8_unicode_ci NOT NULL default '',
   `email` varchar(50) collate utf8_unicode_ci NOT NULL default '',
+  `password` varchar(32) collate utf8_unicode_ci NOT NULL default '',
   `address1` varchar(50) collate utf8_unicode_ci NOT NULL default '',
   `address2` varchar(50) collate utf8_unicode_ci NOT NULL default '',
   `address3` varchar(50) collate utf8_unicode_ci NOT NULL default '',
@@ -67,7 +68,7 @@ CREATE TABLE `ibs_community` (
   `donor_category` int(2) NOT NULL,
   `newsletter` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
   `register` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
-  `password` varchar(32) collate utf8_unicode_ci NOT NULL default '',
+  `deleted` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -108,6 +109,9 @@ CREATE TABLE `ibs_donor_categories` (
   `category` varchar(32) collate utf8_unicode_ci NOT NULL default '',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
 
 
 OLD:
