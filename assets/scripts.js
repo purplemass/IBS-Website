@@ -118,7 +118,7 @@ $(document).ready(function(){
 
 			$.ajax({
 				type:		"POST",
-				url:		"include/send_email.php",
+				url:		"controllers/send_email.php",
 				data:		"emailAddress=" + emailAddressVal,
 				success:	function(output) {
 								//alert(output);
