@@ -10,6 +10,7 @@ $nav_items = array(
 					'get_involved.html'			=>	'Get involved',
 					'fundraising.html'			=>	'Fundraising',
 					'contact_us.html'			=>	'Contact us',
+					'register.php'				=>	'Register with IBS',
 					);
 
 // registration fields

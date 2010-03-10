@@ -109,7 +109,7 @@ $(document).ready(function(){
 
 			$.ajax({
 				type:		"POST",
-				url:		"_sendemail.php",
+				url:		"include/send_email.php",
 				data:		"emailAddress=" + emailAddressVal,
 				success:	function(output) {
 								//alert(output);

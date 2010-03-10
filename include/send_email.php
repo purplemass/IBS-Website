@@ -9,15 +9,15 @@ error_reporting(E_ALL);
 
 #--------------------------------------------------------------
 
-$autoEmailTo 		= 'info@ibsproject.org,info@ibsproject.com';
-#$autoEmailTo 		= 'bhat@imagination.com';
+#$autoEmailTo 		= 'info@ibsproject.org,info@ibsproject.com';
+$autoEmailTo 		= 'b.hatamian@ibsproject.org';
 
 $emailFrom 			= 'noreply@ibsproject.com';
-$emailFromServer	= 'bhat@imagination.com';
+$emailFromServer	= 'b.hatamian@ibsproject.org';
 
 #--------------------------------------------------------------
 
-$folder_name		= '_subscriptions/';
+$folder_name		= '../_subscriptions/';
 $displayDate		= strftime("%d-%m-%Y");
 $displayTime		= strftime("%H:%M:%S");
 
