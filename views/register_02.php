@@ -1,21 +1,4 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
-<?php
-
-$instructions_text = 'enter';
-
-if ($flag == 'edit')
-{
-	$instructions_text = 'edit';
-
-	$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
-	$_POST['email']			= $row['email'];
-	$_POST['forename']		= $row['forename'];
-	$_POST['surname']		= $row['surname'];
-	$_POST['title']			= $row['title'];
-	$_POST['country']		= $row['country'];
-	$_POST['newsletter']	= $row['newsletter'];
-}
-?>
 
 				<div id="subscribe">
 <?php if ($err): ?>
@@ -26,7 +9,7 @@ if ($flag == 'edit')
 <!-- 						<legend>Personal details</legend> -->
 						<ol>
 							<li class="no_list no_list_text">
-								<span class="form_text">Please enter your details below:</span>
+								<span class="form_text"><?php echo $instructions_text; ?></span>
 							</li>
 <?php $s = ''; foreach ($fields as $name => $options): ?>
 							<li class="no_list">
@@ -66,8 +49,9 @@ if (isset($_POST['newsletter']))
 						</ol>
 					</fieldset>
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
-					<input type="hidden" name="email" value="<?php echo_value('email', TRUE); ?>" />
-					<input type="hidden" name="page_flag" value="check_registration" />
+					<input type="hidden" id="page_flag" name="page_flag" value="check_registration" />
+					<input type="hidden" id="sys_flag" name="sys_flag" value="<?php echo $flag; ?>" />
+					<input type="hidden" id="email" name="email" value="<?php echo_value('email', TRUE); ?>" />
 <!--
 					<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
 					 border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">

@@ -1,18 +1,23 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
 
-/* Is this live? */
+//--------------------------------------------------------------
+
+// Is this live?
 
 $is_live = TRUE;
 if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.200') )
 	$is_live = FALSE;
 
-/* Global vars */
+//--------------------------------------------------------------
+
+// Global vars
 
 define('REDIRECT_PAGE', 'index.html');
 define('EMAIL_FROM', 'info@ibsproject.org');
 
+//--------------------------------------------------------------
 
-/* Database config */
+// Database config
 
 if ($is_live)
 {
@@ -34,13 +39,18 @@ $db_table_donations			= 'ibs_donations';
 $db_table_events			= 'ibs_events';
 $db_table_donor_categories	= 'ibs_donor_categories';
 
-/* End config */
+// End config
 
+//--------------------------------------------------------------
 
 $link = mysql_connect($db_host, $db_user, $db_pass) or die('Unable to establish a DB connection');
 
 mysql_select_db($db_database, $link);
 mysql_query("SET names UTF8");
+
+//--------------------------------------------------------------
+
+// Database Schema
 
 /*
 
@@ -113,8 +123,9 @@ CREATE TABLE `ibs_donor_categories` (
 
 
 
+//--------------------------------------------------------------
 
-OLD:
+// OLD Database Schema
 
 CREATE TABLE `ibs_community` (
   `id` int(11) NOT NULL auto_increment,

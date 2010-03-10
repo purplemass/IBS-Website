@@ -30,12 +30,15 @@
 								<label for='password'>Password:</label><input id="password" name="password" type="password" size="27" value="" />
 							</li>
 							<li class="no_list">
-								&nbsp;<span class="mandatory">*</span> denotes mandatory fields
+								<a id="password_reminder" href="#">Forgotten your password?</a>
+							</li>
+							<li class="no_list">
+								<br />&nbsp;<span class="mandatory">*</span> denotes mandatory fields
 							</li>
 						</ol>
 					</fieldset>
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
-					<input type="hidden" name="page_flag" value="check_email">
+					<input type="hidden" id="page_flag" name="page_flag" value="check_email">
 					</form>
 				</div>
 			</div>

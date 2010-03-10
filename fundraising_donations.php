@@ -4,9 +4,9 @@
 
 define('INCLUDE_CHECK', true);
 
-require_once('include/db.php');
-require_once('include/functions.php');
-require_once('include/lists.php');
+require_once('models/db.php');
+require_once('models/functions.php');
+require_once('models/lists.php');
 
 $flag = 'start';
 $err = array();
@@ -160,30 +160,30 @@ if (isset($_POST['check_edit']) && $_POST['check_edit'] == 'Submit')
 // show relevant page content
 
 $this_nav = 6;
-require_once('include/html_head.php');
+require_once('models/html_head.php');
 
 switch($flag)
 {
 	case 'start':
-		require_once('include/donations_01_email.php');
+		require_once('models/donations_01_email.php');
 		break;
 	case 'email_new':
-		require_once('include/donations_02_reg.php');
+		require_once('models/donations_02_reg.php');
 		break;
 	case 'edit':
-		require_once('include/donations_02_reg.php');
+		require_once('models/donations_02_reg.php');
 		break;
 	case 'email_ok':
-		require_once('include/donations_03_donate.php');
+		require_once('models/donations_03_donate.php');
 		break;
 	case 'reg_ok':
-		require_once('include/donations_03_donate.php');
+		require_once('models/donations_03_donate.php');
 		break;
 	case 'forbidden':
-		require_once('include/donations_03_donate.php');
+		require_once('models/donations_03_donate.php');
 		break;
 }
 
-require_once('include/html_tail.php');
+require_once('models/html_tail.php');
 
 ?>

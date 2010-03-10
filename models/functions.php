@@ -1,6 +1,4 @@
-<?php
-
-if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
+<?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
 
 /**
  * Return/echos REQUEST variables
@@ -79,7 +77,7 @@ function insert_amount($pid, $amount)
  * @param string
  * @return bool
  */
-function check_email($str)
+function validate_email($str)
 {
 	return preg_match("/^[\.A-z0-9_\-\+]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{1,4}$/", $str);
 }
@@ -113,12 +111,38 @@ function send_mail($from,$to,$subject,$body)
  * @access public
  * @return void
  */
-function check_db_error()
+function check_db_error($sql_cmd='')
 {
 	global $debug, $link;
 	
 	if ( ($debug === true) && (mysql_errno($link) <> 0) )
-		echo mysql_errno($link) . ": " . mysql_error($link). "\n";
+		echo mysql_errno($link) . ": " . mysql_error($link). "<br />" . $sql_cmd . "<br />";
+}
+
+/**
+ * Sends email
+ *
+ * @access public
+ * @param string	email to
+ * @param string	email from
+ * @param string	subject
+ * @param string	message
+ * @param string	email from (server)
+ * @return string	OK or ERROR
+ */
+function SendEmail($emailTo, $emailFrom, $subject, $message, $emailFromServer='')
+{
+	$headers	= 	"From: IBS Project <$emailFrom>" . "\r\n" .
+					"Reply-To: IBS Project <$emailFrom>" . "\r\n" .
+					"X-Mailer: PHP/" . phpversion();
+
+	#$r = mail($emailTo, $subject, $message, $headers, '-f' . $emailFromServer);
+	$r = mail($emailTo, $subject, $message, $headers);
+	
+	if ($r == 1)
+		return 'OK';
+	else
+		return 'ERROR';
 }
 
 /**
@@ -129,7 +153,27 @@ function check_db_error()
  * @param string	file content
  * @return void
  */
-function WriteFile($filename, $content) {
+function WriteFile($filename, $content)
+{
+	if (!@$handle = fopen($filename, 'a+')) {
+		return("ERROR - Cannot open file($filename)");
+	}
+	if (fwrite($handle, $content) === FALSE) {
+		return("ERROR - Cannot write to file($filename)");
+	}
+	
+	return 'OK';
+}
+
+/**
+ * Writes to file
+ *
+ * @access public
+ * @param string	file name
+ * @param string	file content
+ * @return void
+ */
+function WriteFileID($filename, $content) {
 	
 	global $syslog_id;
 	
@@ -141,6 +185,30 @@ function WriteFile($filename, $content) {
 	{
 		Logit($syslog_id, "Cannot write to file($filename)", 3); # Cannot write to disk (disk full?)
 	}
+}
+
+/**
+ * Creats to file
+ *
+ * @access public
+ * @param string	file name
+ * @param string	file content
+ * @return void
+ */
+function CreateFile($fd, $file)
+{
+	if (!is_dir($fd)) {
+		mkdir($fd, 0777)
+			or exit("ERROR - Cannot create directory '" . $fd . "'");
+	}
+	
+	if (!file_exists($file)) {
+		$r = WriteFile($file, '');
+		chmod($file, 0755);
+		return $r;
+	}
+	
+	return 'ERROR';
 }
 
 ?>

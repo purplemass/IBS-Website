@@ -4,8 +4,8 @@
 
 define('INCLUDE_CHECK', true);
 
-require 'include/db.php';
-require 'include/functions.php';
+require 'models/db.php';
+require 'models/functions.php';
 
 $ret = date('d-m-y H:i');
 $ret .= "\n";

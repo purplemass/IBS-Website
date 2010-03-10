@@ -2,7 +2,7 @@
 
 define('INCLUDE_CHECK', true);
 
-require 'include/functions.php';
+require 'models/functions.php';
 
 $count = $_REQUEST['num_cart_items'];
 $total_amt = $_REQUEST['mc_gross'] . " " . $_REQUEST['mc_currency'];

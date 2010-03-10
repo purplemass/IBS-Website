@@ -68,6 +68,12 @@ $(document).ready(function(){
 		return true;
 	});
 
+	$("#password_reminder").click(function(){
+		$('#page_flag').val('password_reminder');
+		$('#main_form').submit();
+		return true;
+	});
+
 
 /*
 	// check email submit button

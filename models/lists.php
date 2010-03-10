@@ -1,5 +1,29 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
 
+//--------------------------------------------------------------
+
+#$autoEmailTo 		= 'info@ibsproject.org';
+$autoEmailTo 		= 'b.hatamian@ibsproject.org';
+
+$emailFrom 			= 'noreply@ibsproject.com';
+$emailFromServer	= 'b.hatamian@ibsproject.org';
+
+$debug = true;
+
+//--------------------------------------------------------------
+
+if ($debug === FALSE)
+{
+	error_reporting(E_ERROR);
+}
+else
+{
+	ini_set("display_errors", 1);
+	error_reporting(E_ALL);
+}
+
+//--------------------------------------------------------------
+
 // navigation menu items
 $nav_items = array(
 					'index.html'				=>	'Home',
@@ -13,15 +37,30 @@ $nav_items = array(
 					'register.php'				=>	'Log in or register',
 					);
 
+//--------------------------------------------------------------
+
 // registration fields
 $fields = array(
+/*
+				'email' => array(
+						'type'		=> 'text',
+						'label'		=> 'Email',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your email',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
+						),
+*/
+
 				'title' => array(
 						'type'		=> 'dropbox',
 						'label'		=> 'Title',
 						'length'	=> '5',
 						'width'		=> '5',
 						'mandatory'	=> TRUE,
-						'error'		=> 'Please enter your Title',
+						'error'		=> 'Please enter your title',
 						'register'	=> TRUE,
 						'donation'	=> TRUE,
 						),
@@ -32,7 +71,7 @@ $fields = array(
 						'length'	=> '32',
 						'width'		=> '27',
 						'mandatory'	=> TRUE,
-						'error'		=> 'Please enter your Forename',
+						'error'		=> 'Please enter your forename',
 						'register'	=> TRUE,
 						'donation'	=> TRUE,
 						),
@@ -43,7 +82,7 @@ $fields = array(
 						'length'	=> '32',
 						'width'		=> '27',
 						'mandatory'	=> TRUE,
-						'error'		=> 'Please enter your Last Name',
+						'error'		=> 'Please enter your last name',
 						'register'	=> TRUE,
 						'donation'	=> TRUE,
 						),
@@ -122,7 +161,7 @@ $fields = array(
 						'length'	=> '',
 						'width'		=> '',
 						'mandatory'	=> TRUE,
-						'error'		=> 'Please enter your Country',
+						'error'		=> 'Please enter your country',
 						'register'	=> TRUE,
 						'donation'	=> TRUE,
 						),
@@ -144,7 +183,7 @@ $fields = array(
 						'length'	=> '32',
 						'width'		=> '27',
 						'mandatory'	=> TRUE,
-						'error'		=> 'Please enter your Password',
+						'error'		=> 'Please enter your password',
 						'register'	=> TRUE,
 						'donation'	=> FALSE,
 						),
@@ -155,12 +194,14 @@ $fields = array(
 						'length'	=> '32',
 						'width'		=> '27',
 						'mandatory'	=> TRUE,
-						'error'		=> 'Please enter your Confirm Password',
+						'error'		=> 'Please confirm your password',
 						'register'	=> TRUE,
 						'donation'	=> FALSE,
 						),
 
 				);
+
+//--------------------------------------------------------------
 
 // possible titles
 $title_codes = array(
@@ -172,6 +213,8 @@ $title_codes = array(
 						'Dr'	=>'Dr',
 						'Other'	=>'Other',
 					);
+
+//--------------------------------------------------------------
 
 // country codes
 $country_codes = array(

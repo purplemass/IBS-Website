@@ -4,8 +4,8 @@
 
 define('INCLUDE_CHECK', true);
 
-require 'include/db.php';
-require 'include/functions.php';
+require 'models/db.php';
+require 'models/functions.php';
 
 $ret = '';
 
@@ -37,8 +37,8 @@ $ret .= '</table>';
 mysql_free_result($result);
 
 $this_nav = 6;
-require_once('include/html_head.php');
+require_once('views/html_head.php');
 echo 'Existing donations so far:';
 echo $ret;
-require_once('include/html_tail.php');
+require_once('views/html_tail.php');
 ?>
