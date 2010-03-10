@@ -62,7 +62,7 @@ function show_html()
 {
 	global $flag, $err, $debug;
 	global $db_table_community;
-	global $fields, $nav_items;
+	global $fields, $nav_items, $title_codes, $country_codes;
 	
 	global $page_title;
 	
