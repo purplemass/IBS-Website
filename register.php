@@ -176,15 +176,6 @@ function check_email()
 		$row = mysql_fetch_assoc(mysql_query("SELECT email, country, password FROM $db_table_community WHERE email='{$_POST['email']}'"));
 		check_db_error();			
 
-		// check country first
-		if ( ($row['country'] == 'US') || ($row['country'] == 'CA') )
-		{
-			if (isset($row['email']))
-				$flag = 'forbidden';
-			else
-				$flag = 'forbidden'; //forbidden_new
-		}
-
 		// if email exists, check password
 		if ($row['email'])
 		{
@@ -265,10 +256,9 @@ function check_registration()
 			if (isset($_POST['email']))
 				$row_email = mysql_fetch_assoc(mysql_query("SELECT email FROM $db_table_community WHERE email='{$_POST['email']}'"));
 				
-			if (isset($row_email['email']))
+			if ( isset($row_email['email']) && ($_POST['email'] <> $row['email']) )
 			{
 				$err[] = 'Email address is already registered. Please choose another email.';
-				#$flag = 'edit'
 			}
 			else
 			{
@@ -298,8 +288,10 @@ function check_registration()
 				check_db_error($sql_cmd);
 						
 				// check country
+/*
 				if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
 					$flag = 'forbidden';
+*/
 			}
 		}
 		// insert records
@@ -334,8 +326,10 @@ function check_registration()
 			$_POST['id'] = mysql_insert_id();
 			
 			// check country
+/*
 			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
 				$flag = 'forbidden'; //forbidden_new
+*/
 			
 			// send email
 			send_registration_email();
