@@ -9,14 +9,14 @@
 <!-- 						<legend>Email address</legend> -->
 						<ol>
 							<li class="no_list no_list_text">
-								<span class="form_text">Please enter your email below:</span>
+								Please enter your email below:
 							</li>
 							<li class="no_list">
 								<label for='email'>Email address<span class="mandatory">*</span>:</label>
 								<input id="email" name="email" type="text" size="27" value="<?php echo_value('email', TRUE); ?>" />
 							</li>
 							<li class="no_list no_list_text">
-								<br /><span class="form_text">Do you have an account with IBS?</span>
+								<br />Do you have an account with IBS?
 							</li>
 							<li class="no_list">
 								<input type="radio" class="radio" name="has_account" value="NO"<?php echo (echo_value('has_account', FALSE) == 'NO' ? ' checked' : ''); ?>>

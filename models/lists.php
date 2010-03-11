@@ -41,7 +41,6 @@ $nav_items = array(
 
 // registration fields
 $fields = array(
-/*
 				'email' => array(
 						'type'		=> 'text',
 						'label'		=> 'Email',
@@ -52,7 +51,6 @@ $fields = array(
 						'register'	=> TRUE,
 						'donation'	=> TRUE,
 						),
-*/
 
 				'title' => array(
 						'type'		=> 'dropbox',

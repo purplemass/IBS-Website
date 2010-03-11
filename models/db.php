@@ -151,6 +151,8 @@ CREATE TABLE `ibs_donations` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
+// removed this: regIP = '".$_SERVER['REMOTE_ADDR']."'
+
 */
 
 

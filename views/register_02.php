@@ -9,7 +9,7 @@
 <!-- 						<legend>Personal details</legend> -->
 						<ol>
 							<li class="no_list no_list_text">
-								<span class="form_text"><?php echo $instructions_text; ?></span>
+								<?php echo $instructions_text; ?>
 							</li>
 <?php $s = ''; foreach ($fields as $name => $options): ?>
 							<li class="no_list">
@@ -18,7 +18,7 @@
 <?php if ( ($options['type'] == 'text') || ($options['type'] == 'password') ): ?>
 								<input id="<?php echo $name; ?>" name="<?php echo $name; ?>" type="<?php echo $options['type']; ?>"
 									 size="<?php echo $options['width']; ?>" maxlength="<?php echo $options['length']; ?>" 
-									 value="<?php echo_value($name, TRUE); ?>" />
+									 value="<?php ($name == 'password_confirm') ? '' : echo_value($name, TRUE); ?>" />
 <?php elseif ($name == 'title'): ?>
 								<select id="title" name="title">
 <?php foreach ($title_codes as $title => $code): ?>
@@ -51,7 +51,7 @@ if (isset($_POST['newsletter']))
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
 					<input type="hidden" id="page_flag" name="page_flag" value="check_registration" />
 					<input type="hidden" id="sys_flag" name="sys_flag" value="<?php echo $flag; ?>" />
-					<input type="hidden" id="email" name="email" value="<?php echo_value('email', TRUE); ?>" />
+					<input type="hidden" id="id" name="id" value="<?php echo_value('id', TRUE); ?>" />
 <!--
 					<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
 					 border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">

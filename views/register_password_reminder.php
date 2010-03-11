@@ -9,7 +9,10 @@
 <!-- 						<legend>Email address</legend> -->
 						<ol>
 							<li class="no_list no_list_text">
-								<span class="form_text">Please enter your email below:</span>
+								Please enter your email address below.
+							</li>
+							<li class="no_list">
+								After you submit, you'll receive an email notification with your password.
 							</li>
 							<li class="no_list">
 								<label for='email'>Email address<span class="mandatory">*</span>:</label>
@@ -21,7 +24,7 @@
 						</ol>
 					</fieldset>
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
-					<input type="hidden" name="page_flag" value="password_reminder">
+					<input type="hidden" name="page_flag" value="password_sender">
 					</form>
 				</div>
 			</div>

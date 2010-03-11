@@ -13,37 +13,39 @@ require_once('models/lists.php');
 //--------------------------------------------------------------
 
 $flag = 'start';
+
 $err = array();
 
 //--------------------------------------------------------------
 
-// check email
+if (isset($_POST['page_flag']))
+{
 
-if (isset($_POST['page_flag']) && $_POST['page_flag'] == 'check_email')
-	check_email();
+	switch($_POST['page_flag'])
+	{
+		case 'check_email':
+			check_email();
+			break;
 
-//--------------------------------------------------------------
+		case 'check_registration':
+			check_registration();
+			break;
 
-// check registration
-
-if (isset($_POST['page_flag']) && $_POST['page_flag'] == 'check_registration')
-	check_registration();
-
-//--------------------------------------------------------------
-
-// send password
-
-if (isset($_POST['page_flag']) && $_POST['page_flag'] == 'password_reminder')
-	check_password_reminder();
-
-//--------------------------------------------------------------
-
-// check edit registration
-
+		case 'password_reminder':
+			$flag = 'password_reminder';
+			break;
+		
+		case 'password_sender':
+			check_password_reminder();
+			break;
 /*
-if (isset($_POST['page_flag']) && $_POST['page_flag'] == 'check_edit')
-	$flag = 'edit';
+		case 'check_edit':
+			$flag = 'edit';
+			break;
 */
+	}
+}
+
 
 //--------------------------------------------------------------
 
@@ -67,26 +69,31 @@ function show_html()
 	global $page_title;
 	
 	$this_nav = 8;
-	
+
+	$mypage = 'register_02.php';	
 	$instructions_text = 'Please enter your details below:';
+	
 	$mymenuleft = 'menu_left_register.php';
 	$mymenuright = 'menu_right_register.php';
-	$mypage = 'register_02.php';
 	
 	switch($flag)
 	{
 		case 'start':
 			$page_title = 'Log in or register';
-			$mymenuleft = 'menu_left_register.php';
-			$mymenuright = 'menu_right_register.php';
 			$mypage = 'register_01.php';
 			break;
 			
 		case 'email_new':
 			$page_title = 'Log in or register';
 			break;
-			
+
+		case 'email_ok':
+			$page_title = 'Your details';
+			break;
+					
 		case 'edit':
+			$page_title = 'Your details';
+			$instructions_text = 'Please edit your details below:';
 		
 			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
 			foreach ($fields as $name => $options)
@@ -99,25 +106,26 @@ function show_html()
 						$_POST[$name] = $row[$name];
 				}
 			}
+			$_POST['id'] = $row['id'];
 			
-			$instructions_text = 'Please edit your details below:';
-			$page_title = 'Your details';
-			break;
-			
-		case 'email_ok':
-			$page_title = 'Your details';
 			break;
 			
 		case 'reg_ok':
-			$instructions_text = 'Thank you for updating your profile.';
 			$page_title = 'Your details';
+			$instructions_text = 'Thank you for updating your profile.';
 			break;
 			
 		case 'forbidden':
+			$page_title = 'What?';
 			$mypage = 'register_what.php';
 			break;
 
 		case 'password_reminder':
+			$page_title = 'Get password reminder';
+			$mypage = 'register_password_reminder.php';
+			break;
+
+		case 'password_sender':
 			$page_title = 'Get password reminder';
 			$mypage = 'register_password_reminder.php';
 			break;
@@ -231,9 +239,7 @@ function check_registration()
 	}
 
 	if ( ! count($err) )
-	{
-		$flag = 'reg_ok';
-		
+	{		
 		foreach ($fields as $name => $options)
 		{
 			if (isset($_POST[$name]))
@@ -244,48 +250,63 @@ function check_registration()
 		if ( ! isset($_POST['newsletter']))
 			$_POST['newsletter'] = 0;
 		
-		// check to see if record already exists
-		if (isset($_POST['email']))
-		{
-			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
-			check_db_error();
-		}
-		
-		// update record
-		if (isset($row['email']))
-		{	
-			$sql_cmd = '';
-			foreach ($fields as $name => $options)
-			{
-				if ($name <> 'password_confirm')
-					$sql_cmd .= $name . ' = \'' .$_POST[$name] . '\',';
-			}
-	
-			// remove last ,
-			$sql_cmd = substr_replace($sql_cmd ,"",-1);
+		// check to see if record already exists: by id if already in DB
+		if (intval($_POST['id']) > 0)
+			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'"));
+			
+		check_db_error();
 
-			$sql_cmd = ("	UPDATE $db_table_community SET
+		// update record
+		if (isset($row['id']))
+		{
+			$_POST['id'] = $row['id'];
+
+			// check to see if email already exists
+			if (isset($_POST['email']))
+				$row_email = mysql_fetch_assoc(mysql_query("SELECT email FROM $db_table_community WHERE email='{$_POST['email']}'"));
+				
+			if (isset($row_email['email']))
+			{
+				$err[] = 'Email address is already registered. Please choose another email.';
+				#$flag = 'edit'
+			}
+			else
+			{
+				$flag = 'reg_ok';
+
+				$sql_cmd = '';
+				foreach ($fields as $name => $options)
+				{
+					if ($name <> 'password_confirm')
+						$sql_cmd .= $name . ' = \'' .$_POST[$name] . '\',';
+				}
+	
+				// remove last ,
+				$sql_cmd = substr_replace($sql_cmd ,"",-1);
+
+				$sql_cmd = ("	UPDATE $db_table_community SET
 
 								mdt = NOW(),
 								
 								" . $sql_cmd . "
 								
-								WHERE email = '".$_POST['email']."'
+								WHERE id = '".$_POST['id']."'
 
 						");
 			
-			mysql_query($sql_cmd);
-			check_db_error($sql_cmd);
+				mysql_query($sql_cmd);
+				check_db_error($sql_cmd);
 						
-			// removed this: regIP = '".$_SERVER['REMOTE_ADDR']."'
-			
-			// check country
-			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
+				// check country
+				if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
 					$flag = 'forbidden';
+			}
 		}
 		// insert records
 		else
 		{
+			$flag = 'reg_ok';
+
 			$sql_cmd = ("	INSERT INTO $db_table_community
 			
 							(dt, mdt, title, forename, surname, email, password, address1, address2, city, postcode, country, newsletter)
@@ -310,6 +331,8 @@ function check_registration()
 			mysql_query($sql_cmd);
 			check_db_error();
 			
+			$_POST['id'] = mysql_insert_id();
+			
 			// check country
 			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
 				$flag = 'forbidden'; //forbidden_new
@@ -332,7 +355,7 @@ function check_password_reminder()
 	global $flag, $err, $debug;
 	global $db_table_community;
 	
-	$flag = 'password_reminder';
+	$flag = 'password_sender';
 
 	if ( ! $_POST['email'] )
 		$err[] = 'Please enter your email address';
