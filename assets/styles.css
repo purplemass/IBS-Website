@@ -19,7 +19,7 @@ html, body {
 	vertical-align: baseline;
 	background-color: #edeee8;
 	color: #1f2126;
-	line-height: 1;
+	line-height: 1.0;
 	text-align: left;
 }
 
@@ -321,7 +321,7 @@ div#menuleft #announcement .heading {
 	color: #346794;
 	font-weight: bold;
 	font-size: 1.3em;
-	line-height: 1;
+	line-height: 1.0;
 }
 
 div#menuleft #announcement .title {
@@ -472,7 +472,7 @@ div#menuright a:hover {
 
 div#menuright p {
 	font-size: 0.75em;
-	line-height: 1.3;
+	line-height: 1.4;
 }
 
 div#menuright .quicklinks {

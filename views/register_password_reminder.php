@@ -23,5 +23,3 @@
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
 					<input type="hidden" name="page_flag" value="password_sender">
 				</form>
-			</div>
-		</div>

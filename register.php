@@ -14,6 +14,8 @@ require_once('models/functions.php');
 
 $flag = 'start';
 $err = array();
+if ( ! isset($_POST['page_flag']) )
+	$_POST['page_flag'] = '';
 
 //--------------------------------------------------------------
 
@@ -41,9 +43,6 @@ if (isset($_POST['page_flag']))
 			check_password_reminder();
 			break;
 	}
-	
-	if ($debug)
-		echo $flag . ' ' . $_POST['page_flag'];
 }
 
 
@@ -142,6 +141,8 @@ function show_html()
 	}
 	
 	require_once('views/head.php');
+	if ($debug)
+		echo $flag . ' ' . $_POST['page_flag'];
 	require_once('views/' . $mymenuleft);
 	require_once('views/' . $mypage);
 	require_once('views/' . $mymenuright);
