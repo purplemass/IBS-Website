@@ -43,7 +43,6 @@ MAIN STYLES
 
 p {
 	margin: 0 0 10px 0;
-	line-height: 1.2;
 }
 
 a {
@@ -69,6 +68,10 @@ li {
 	padding: 0 0 10px 5px;
 }
 
+li p {
+	line-height: 1.4;
+}
+
 /*
 
 FORM STYLES
@@ -77,9 +80,7 @@ FORM STYLES
 
 fieldset {
 	padding: 1em;
-	font-size: 0.9em;
 	line-height: 1.0;
-/* 	border:1px solid #346794; */
 	border: none;
 	background-color: #D9DBD0;
 }
@@ -97,6 +98,7 @@ label {
 	width: 170px;
 	font-weight: bold;
 	margin-top: 2px;
+/* 	font-size: 0.9em; */
 }
 
 .label {
@@ -105,6 +107,11 @@ label {
 	margin-top: 2px;
 	display: block;
 }
+
+input {
+	font-size: 1em;
+}
+
 
 .radio {
 	margin-right: 10px;
@@ -149,8 +156,7 @@ Generic classes
 
 .caption {
 	margin: 10px 30px 10px 10px;
-	font-style: italic;
-	font-size: 0.95em;
+	font-size: 0.9em;
 }
 /*
 
@@ -385,7 +391,7 @@ div#title .text {
 div#body {
 	padding: 0 10px;
 	font-size: 0.8em;
-	line-height: 1.5;
+	line-height: 1.4;
 	margin-bottom: 40px;
 }
 
@@ -437,13 +443,13 @@ RIGHT MENU
 */
 
 div#menuright {
-	width: 250px;
+	width: 245px;
 	height: auto;
 	margin-left: 10px;
 	padding-left: 10px;
+	padding-right: 5px;
 	float: left;
 	background-color: #edeee8;
-	font-size: 12px;
 	line-height: 1.2;
 }
 
@@ -464,11 +470,16 @@ div#menuright a:hover {
 	color: #09466a;
 }
 
+div#menuright p {
+	font-size: 0.75em;
+	line-height: 1.3;
+}
 
 div#menuright .quicklinks {
 	clear: both;
 	padding: 10px 0 10px 0;
 	height: 20px;
+	font-size: 0.9em;
 	font-weight: bold;
 	color: #346794;
 }

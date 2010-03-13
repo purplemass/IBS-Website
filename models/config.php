@@ -46,7 +46,7 @@ $nav_items = array(
 $fields = array(
 				'email' => array(
 						'type'		=> 'text',
-						'label'		=> 'Email',
+						'label'		=> 'Email address',
 						'length'	=> '50',
 						'width'		=> '27',
 						'mandatory'	=> TRUE,
@@ -169,7 +169,7 @@ $fields = array(
 
 				'newsletter' => array(
 						'type'		=> 'dropbox',
-						'label'		=> 'Subscribe to IBS Newsletter',
+						'label'		=> 'Subscribe to Newsletter',
 						'length'	=> '',
 						'width'		=> '',
 						'mandatory'	=> FALSE,
