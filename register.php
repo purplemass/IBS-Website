@@ -6,21 +6,19 @@ define('INCLUDE_CHECK', true);
 
 //--------------------------------------------------------------
 
-require_once('models/lists.php');
+require_once('models/config.php');
 require_once('models/db.php');
 require_once('models/functions.php');
 
 //--------------------------------------------------------------
 
 $flag = 'start';
-
 $err = array();
 
 //--------------------------------------------------------------
 
 if (isset($_POST['page_flag']))
 {
-
 	switch($_POST['page_flag'])
 	{
 		case 'check_email':
@@ -42,18 +40,15 @@ if (isset($_POST['page_flag']))
 		case 'password_sender':
 			check_password_reminder();
 			break;
-/*
-		case 'check_edit':
-			$flag = 'edit';
-			break;
-*/
 	}
+	
+	if ($debug)
+		echo $flag . ' ' . $_POST['page_flag'];
 }
 
 
 //--------------------------------------------------------------
 
-echo $flag;
 show_html();
 
 //--------------------------------------------------------------
@@ -100,9 +95,10 @@ function show_html()
 				$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
 			else
 				$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'"));
+
 			foreach ($fields as $name => $options)
 			{
-				if ($options['type'] <> 'password')
+				if ($name <> 'password_confirm')
 				{
 					if ( isset($_POST[$name]) )
 						$_POST[$name] = mysql_real_escape_string($_POST[$name]);
@@ -110,6 +106,7 @@ function show_html()
 						$_POST[$name] = $row[$name];
 				}
 			}
+			
 			$_POST['id'] = $row['id'];
 			
 			break;
@@ -121,7 +118,6 @@ function show_html()
 			break;
 			
 		case 'reg_updated':
-			echo $_POST['id'];
 			$page_title = 'Your details';
 			$instructions_text = 'Thank you for updating your profile.';
 			$mypage = 'register_thankyou.php';
@@ -180,38 +176,41 @@ function check_email()
 			$err[] = 'Please enter your password';
 	}
 	
-	// look up email in DB	
-	if ( ! count($err) )
-	{
-		// check email
-		$_POST['email'] = mysql_real_escape_string(echo_value('email'));
-		
-		// Escaping all input data
-		$row = mysql_fetch_assoc(mysql_query("SELECT email, country, password FROM $db_table_community WHERE email='{$_POST['email']}'"));
-		check_db_error();			
+	if ( count($err) > 0 )
+		return;
 
-		// if email exists, check password
-		if ($row['email'])
-		{
-			if ( ($row['password'] <> null) && ($_POST['password'] <> $row['password']) )
-			{
-				$err[] = 'Incorrect username or password entered';
-			}
-			else
-			{
-				if ($_POST['has_account'] == "NO")
-					$err[] = 'Email address is already registered, please log in';
-				else
-					$flag = 'edit';
-			}
-		}
+	// look up email in DB	
+	$_POST['email'] = mysql_real_escape_string(echo_value('email'));
+	
+	// Escaping all input data
+	$row = mysql_fetch_assoc(mysql_query("SELECT email, country, password FROM $db_table_community WHERE email='{$_POST['email']}'"));
+	check_db_error();			
+
+	// does email exist?
+	if ( ! $row['email'])
+	{
+		if ($_POST['has_account'] == "YES")
+			$err[] = 'Incorrect username or password entered'; //'This email is not registered with us'
 		else
-		{
-			if ($_POST['has_account'] == "YES")
-				$err[] = 'Incorrect username or password entered';
-			else
-				$flag = 'email_new';
-		}
+			$flag = 'email_new';
+	
+		return;
+	}
+
+	// check password	
+	if ( ($row['password'] <> null) && ($_POST['password'] <> $row['password']) )
+	{
+		if ($_POST['has_account'] == "YES")
+			$err[] = 'Incorrect username or password entered';
+		else
+			$err[] = 'This email is registered. Please enter a password';
+	}
+	else
+	{
+		if ($_POST['has_account'] == "NO")
+			$err[] = 'Email address is already registered, please log in';
+		else
+			$flag = 'edit';
 	}
 }
 
@@ -228,7 +227,10 @@ function check_registration()
 	global $db_table_community;
 	global $fields;
 
-	$flag = 'email_new';
+	if ( ! $_POST['id'] )
+		$flag = 'email_new';
+	else
+		$flag = 'edit';
 
 	foreach ($fields as $name => $options)
 	{
@@ -243,116 +245,117 @@ function check_registration()
 		$flag = 'start';
 	}
 
-	if ( ! count($err) )
+	if ( count($err) > 0 )
+		return;
+	
+	// clean all POST vars
+	foreach ($fields as $name => $options)
 	{
-		// clean all POST vars
-		foreach ($fields as $name => $options)
-		{
-			if (isset($_POST[$name]))
-				$_POST[$name] = mysql_real_escape_string(echo_value($name));
-		}
+		if (isset($_POST[$name]))
+			$_POST[$name] = mysql_real_escape_string(echo_value($name));
+	}
 
-		// checkbox for newsletter
-		if ( ! isset($_POST['newsletter']))
-			$_POST['newsletter'] = 0;
-		
-		// check to see if record already exists: by id if already in DB
-		if (intval($_POST['id']) > 0)
-			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'"));
-			
+	// checkbox for newsletter
+	if ( ! isset($_POST['newsletter']))
+		$_POST['newsletter'] = 0;
+	
+	// check to see if record already exists: by id if already in DB
+	if (intval($_POST['id']) > 0)
+	{
+		$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'"));
+		check_db_error();
+	}
+
+	// update record
+	if (isset($row['id']))
+	{
+		$_POST['id'] = $row['id'];
+
+		// check to see if email already exists
+		$row_email = mysql_fetch_assoc(mysql_query("SELECT email FROM $db_table_community WHERE email='{$_POST['email']}'"));
 		check_db_error();
 
-		// update record
-		if (isset($row['id']))
+		if ( isset($row_email['email']) && ($_POST['email'] <> $row['email']) )
 		{
-			$_POST['id'] = $row['id'];
-
-			// check to see if email already exists
-			if (isset($_POST['email']))
-				$row_email = mysql_fetch_assoc(mysql_query("SELECT email FROM $db_table_community WHERE email='{$_POST['email']}'"));
-				
-			if ( isset($row_email['email']) && ($_POST['email'] <> $row['email']) )
-			{
-				$err[] = 'Email address is already registered. Please choose another email.';
-			}
-			else
-			{
-				$flag = 'reg_updated';
-
-				$sql_cmd = '';
-				foreach ($fields as $name => $options)
-				{
-					if ($name <> 'password_confirm')
-						$sql_cmd .= $name . ' = \'' .$_POST[$name] . '\',';
-				}
-	
-				// remove last ,
-				$sql_cmd = substr_replace($sql_cmd ,"",-1);
-
-				$sql_cmd = ("	UPDATE $db_table_community SET
-
-								mdt = NOW(),
-								
-								" . $sql_cmd . "
-								
-								WHERE id = '".$_POST['id']."'
-
-						");
-			
-				mysql_query($sql_cmd);
-				check_db_error($sql_cmd);
-						
-				// check country
-/*
-				if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
-					$flag = 'forbidden';
-*/
-			}
+			$err[] = 'Email address is already registered. Please choose another email.';
 		}
-		// insert records
 		else
 		{
-			$flag = 'reg_new';
+			$flag = 'reg_updated';
 
 			$sql_cmd = '';
-			$sql_top = '';
 			foreach ($fields as $name => $options)
 			{
 				if ($name <> 'password_confirm')
-				{
-					$sql_top .= $name . ',';
-					$sql_cmd .= '\'' . $_POST[$name] . '\',';
-				}
+					$sql_cmd .= $name . ' = \'' .$_POST[$name] . '\',';
 			}
 
 			// remove last ,
 			$sql_cmd = substr_replace($sql_cmd ,"",-1);
-			$sql_top = substr_replace($sql_top ,"",-1);
 
-			$sql_cmd = ("	INSERT INTO $db_table_community
+			$sql_cmd = ("	UPDATE $db_table_community SET
 
-							(dt, mdt, register, " . $sql_top . ")
+							mdt = NOW(),
+							
+							" . $sql_cmd . "
+							
+							WHERE id = '".$_POST['id']."'
 
-							VALUES(
-
-								NOW(),
-								NOW(),
-								1,
-								" . $sql_cmd . "
-						)");
-			
+					");
+		
 			mysql_query($sql_cmd);
-			check_db_error();
-			
-			$_POST['id'] = mysql_insert_id();
-			
+			check_db_error($sql_cmd);
+					
 			// check country
+/*
 			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
-				$flag = 'forbidden'; //forbidden_new
-			
-			// send email
-			send_registration_email();
+				$flag = 'forbidden';
+*/
 		}
+	}
+	// insert records
+	else
+	{
+		$flag = 'reg_new';
+
+		$sql_cmd = '';
+		$sql_top = '';
+		foreach ($fields as $name => $options)
+		{
+			if ($name <> 'password_confirm')
+			{
+				$sql_top .= $name . ',';
+				$sql_cmd .= '\'' . $_POST[$name] . '\',';
+			}
+		}
+
+		// remove last ,
+		$sql_cmd = substr_replace($sql_cmd ,"",-1);
+		$sql_top = substr_replace($sql_top ,"",-1);
+
+		$sql_cmd = ("	INSERT INTO $db_table_community
+
+						(dt, mdt, register, " . $sql_top . ")
+
+						VALUES(
+
+							NOW(),
+							NOW(),
+							1,
+							" . $sql_cmd . "
+					)");
+		
+		mysql_query($sql_cmd);
+		check_db_error();
+		
+		$_POST['id'] = mysql_insert_id();
+		
+		// check country
+		if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
+			$flag = 'forbidden'; //forbidden_new
+		
+		// send email
+		send_registration_email();
 	}
 }
 

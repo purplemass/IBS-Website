@@ -6,7 +6,7 @@ define('INCLUDE_CHECK', true);
 
 require_once('models/db.php');
 require_once('models/functions.php');
-require_once('models/lists.php');
+require_once('models/config.php');
 
 $flag = 'start';
 $err = array();

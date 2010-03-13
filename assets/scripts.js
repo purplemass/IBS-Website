@@ -68,33 +68,29 @@ $(document).ready(function(){
 		return true;
 	});
 
+	// registration form password forgotten button
 	$("#password_reminder").click(function(){
 		$('#page_flag').val('password_reminder');
 		$('#main_form').submit();
 		return true;
 	});
 
+	// registration form password field
+	$("#password").click(function(){
+		$('#radio_yes').attr("checked", "checked");
+		return true;
+	});
 
-/*
-	// check email submit button
-	$("#check_email_button").click(function(){
-		$('#check_email_form').submit();
+	// registration form radio buttons select
+	$("#radio_yes_select").click(function(){
+		$('#radio_yes').attr("checked", "checked");
 		return true;
 	});
-	
-	// registration form submit button
-	$("#registration_form_button").click(function(){
-		$('#registration_form').submit();
+
+	$("#radio_no_select").click(function(){
+		$('#radio_no').attr("checked", "checked");
 		return true;
 	});
-	
-	
-	// edit registration submit button
-	$("#edit_form_button").click(function(){
-		$('#edit_form').submit();
-		return true;
-	});
-*/
 	
 	// validate email & send
 	$("#submit").click(function(){

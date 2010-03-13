@@ -2,22 +2,25 @@
 
 //--------------------------------------------------------------
 
-#$autoEmailTo 		= 'info@ibsproject.org';
-$autoEmailTo 		= 'b.hatamian@ibsproject.org';
+$is_live = TRUE;
+$debug = FALSE;
 
+$autoEmailTo 		= 'info@ibsproject.org';
 $emailFrom 			= 'noreply@ibsproject.com';
 $emailFromServer	= 'info@ibsproject.org';
 
-$debug = true;
+error_reporting(E_ERROR);
 
 //--------------------------------------------------------------
 
-if ($debug === FALSE)
+// Is this live?
+
+if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.65') )
 {
-	error_reporting(E_ERROR);
-}
-else
-{
+	$is_live = FALSE;
+	$debug = TRUE;
+	$autoEmailTo = 'b.hatamian@ibsproject.org';
+	
 	ini_set("display_errors", 1);
 	error_reporting(E_ALL);
 }
