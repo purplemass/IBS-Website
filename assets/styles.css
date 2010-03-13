@@ -29,10 +29,44 @@ html, body {
 	/* overflow: inherit; */ /* triggers 100% height in Opera 9.5 - this seems to put extra scroll bars on the body: NOT GOOD! */
 }
 
-/* TO FORCE VERTICAL SCROLL BAR
-or use this: margin: 0 0 1px; */
+/* TO FORCE VERTICAL SCROLL BAR */
+/* or use this: margin: 0 0 1px; */
 html {
 	overflow-y: scroll;
+}
+
+/*
+
+MAIN STYLES
+
+*/
+
+p {
+	margin: 0 0 10px 0;
+	line-height: 1.2;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+
+ul {
+	padding: 0 0 0 15px;
+	margin: 0;
+}
+
+ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	padding: 0 0 10px 5px;
 }
 
 /*
@@ -61,13 +95,13 @@ label {
 	float: left;
 	width: 170px;
 	font-weight: bold;
-	margin-top: 5px;
+	margin-top: 2px;
 }
 
 .label {
 	float: left;
 	width: 170px;
-	margin-top: 5px;
+	margin-top: 2px;
 	display: block;
 }
 
@@ -86,40 +120,10 @@ label {
 	font-weight: bold;
 }
 
-/*
-
-MAIN STYLES
-
-*/
-
-a {
-	text-decoration: none;
+.mandatory {
+	color: #346794; /* #02a6c1 */
+	font-size: 120%;
 }
-
-p {
-	margin: 0 0 10px 0;
-	line-height: 1.2;
-}
-
-ul {
-	padding: 0 0 0 15px;
-	margin: 0;
-}
-
-ol {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-li {
-	padding: 0 0 10px 5px;
-}
-
-img {
-	border: none;
-}
-
 
 /*
 
@@ -127,10 +131,6 @@ Generic classes
 
 */
 
-.mandatory {
-	color: #346794; /* #02a6c1 */
-	font-size: 120%;
-}
 .error_message {
 	color: red;
 	margin-bottom: 10px;
@@ -151,9 +151,22 @@ Generic classes
 }
 /*
 
-CONTAINER ET LA
+CONTAINERS ET LA
 
 */
+
+div#container {
+	width: 960px;
+	min-height: 100%; /* gives layout 100% height */
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -40px;
+	background-color: #FFFFFF;
+}
+
+* html #container { 
+	height: 100%; /* IE6 treats height as min-height */
+}
 
 div#cover {
 	position: absolute;
@@ -169,17 +182,10 @@ div#margin {
 	background-color: #edeee8;
 }
 
-div#container {
-	width: 960px;
-	min-height: 100%; /* gives layout 100% height */
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -40px;
-	background-color: #FFFFFF;
-}
-
-* html #container { 
-	height: 100%; /* IE6 treats height as min-height */
+div#main {
+	overflow: auto;
+	border-top: 1px #063c5c solid;
+	padding: 10px;
 }
 
 /*
@@ -222,6 +228,7 @@ div#navitem3 {
 	display: none;
 	visibility: hidden;
 }
+
 /*
 
 TOP BAR
@@ -248,19 +255,6 @@ div#image {
 	min-height: 140px;
 	float: left;
 	border: none;
-}
-
-
-/*
-
-MAIN AREA
-
-*/
-
-div#main {
-	overflow: auto;
-	border-top: 1px #063c5c solid;
-	padding: 10px;
 }
 
 /*
