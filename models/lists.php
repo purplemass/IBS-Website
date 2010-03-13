@@ -6,7 +6,7 @@
 $autoEmailTo 		= 'b.hatamian@ibsproject.org';
 
 $emailFrom 			= 'noreply@ibsproject.com';
-$emailFromServer	= 'b.hatamian@ibsproject.org';
+$emailFromServer	= 'info@ibsproject.org';
 
 $debug = true;
 

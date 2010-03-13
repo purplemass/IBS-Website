@@ -12,14 +12,11 @@
 								Please enter your email address below.
 							</li>
 							<li class="no_list">
-								After you submit, you'll receive an email notification with your password.
+								<p>You'll receive an email notification with your password when you submit. You'll receive an email notification with your password when you submit.</p>
 							</li>
 							<li class="no_list">
-								<label for='email'>Email address<span class="mandatory">*</span>:</label>
+								<label for='email'>Email address:</label>
 								<input id="email" name="email" type="text" size="27" value="<?php echo_value('email', TRUE); ?>" />
-							</li>
-							<li class="no_list">
-								&nbsp;<span class="mandatory">*</span> denotes mandatory fields
 							</li>
 						</ol>
 					</fieldset>

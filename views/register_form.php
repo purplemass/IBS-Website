@@ -50,13 +50,8 @@ if (isset($_POST['newsletter']))
 					</fieldset>
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
 					<input type="hidden" id="page_flag" name="page_flag" value="check_registration" />
-					<input type="hidden" id="sys_flag" name="sys_flag" value="<?php echo $flag; ?>" />
+					<input type="hidden" id="sys_flag" name="sys_flag" value="register" />
 					<input type="hidden" id="id" name="id" value="<?php echo_value('id', TRUE); ?>" />
-<!--
-					<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
-					 border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
--->
-						</p>
 					</form>
 				</div>
 			</div>		

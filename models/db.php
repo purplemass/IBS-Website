@@ -5,7 +5,7 @@
 // Is this live?
 
 $is_live = TRUE;
-if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.200') )
+if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.65') )
 	$is_live = FALSE;
 
 //--------------------------------------------------------------

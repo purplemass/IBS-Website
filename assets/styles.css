@@ -64,6 +64,13 @@ label {
 	margin-top: 5px;
 }
 
+.label {
+	float: left;
+	width: 170px;
+	margin-top: 5px;
+	display: block;
+}
+
 .radio {
 	margin-right: 10px;
 }
@@ -91,6 +98,7 @@ a {
 
 p {
 	margin: 0 0 10px 0;
+	line-height: 1.2;
 }
 
 ul {

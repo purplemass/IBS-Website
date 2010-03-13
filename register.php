@@ -6,9 +6,9 @@ define('INCLUDE_CHECK', true);
 
 //--------------------------------------------------------------
 
+require_once('models/lists.php');
 require_once('models/db.php');
 require_once('models/functions.php');
-require_once('models/lists.php');
 
 //--------------------------------------------------------------
 
@@ -31,6 +31,10 @@ if (isset($_POST['page_flag']))
 			check_registration();
 			break;
 
+		case 'edit':
+			$flag = 'edit';
+			break;
+
 		case 'password_reminder':
 			$flag = 'password_reminder';
 			break;
@@ -49,7 +53,7 @@ if (isset($_POST['page_flag']))
 
 //--------------------------------------------------------------
 
-#echo $flag;
+echo $flag;
 show_html();
 
 //--------------------------------------------------------------
@@ -70,8 +74,7 @@ function show_html()
 	
 	$this_nav = 8;
 
-	$mypage = 'register_02.php';	
-	$instructions_text = 'Please enter your details below:';
+	$mypage = 'register_form.php';
 	
 	$mymenuleft = 'menu_left_register.php';
 	$mymenuright = 'menu_right_register.php';
@@ -80,22 +83,23 @@ function show_html()
 	{
 		case 'start':
 			$page_title = 'Log in or register';
-			$mypage = 'register_01.php';
+			$instructions_text = 'Please enter your email below:';
+			$mypage = 'register_email.php';
 			break;
 			
 		case 'email_new':
 			$page_title = 'Log in or register';
+			$instructions_text = 'Please enter your details below:';
 			break;
 
-		case 'email_ok':
-			$page_title = 'Your details';
-			break;
-					
 		case 'edit':
 			$page_title = 'Your details';
 			$instructions_text = 'Please edit your details below:';
-		
-			$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
+
+			if ( ! isset($_POST['id']))
+				$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
+			else
+				$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'"));
 			foreach ($fields as $name => $options)
 			{
 				if ($options['type'] <> 'password')
@@ -110,9 +114,17 @@ function show_html()
 			
 			break;
 			
-		case 'reg_ok':
+		case 'reg_new':
+			$page_title = 'Your details';
+			$instructions_text = 'Thank you for registering with us.';
+			$mypage = 'register_thankyou.php';
+			break;
+			
+		case 'reg_updated':
+			echo $_POST['id'];
 			$page_title = 'Your details';
 			$instructions_text = 'Thank you for updating your profile.';
+			$mypage = 'register_thankyou.php';
 			break;
 			
 		case 'forbidden':
@@ -120,6 +132,8 @@ function show_html()
 			$mypage = 'register_what.php';
 			break;
 
+		// password
+		
 		case 'password_reminder':
 			$page_title = 'Get password reminder';
 			$mypage = 'register_password_reminder.php';
@@ -170,7 +184,7 @@ function check_email()
 	if ( ! count($err) )
 	{
 		// check email
-		$_POST['email'] = mysql_real_escape_string($_POST['email']);
+		$_POST['email'] = mysql_real_escape_string(echo_value('email'));
 		
 		// Escaping all input data
 		$row = mysql_fetch_assoc(mysql_query("SELECT email, country, password FROM $db_table_community WHERE email='{$_POST['email']}'"));
@@ -230,11 +244,12 @@ function check_registration()
 	}
 
 	if ( ! count($err) )
-	{		
+	{
+		// clean all POST vars
 		foreach ($fields as $name => $options)
 		{
 			if (isset($_POST[$name]))
-				$_POST[$name] = mysql_real_escape_string($_POST[$name]);
+				$_POST[$name] = mysql_real_escape_string(echo_value($name));
 		}
 
 		// checkbox for newsletter
@@ -262,7 +277,7 @@ function check_registration()
 			}
 			else
 			{
-				$flag = 'reg_ok';
+				$flag = 'reg_updated';
 
 				$sql_cmd = '';
 				foreach ($fields as $name => $options)
@@ -297,27 +312,33 @@ function check_registration()
 		// insert records
 		else
 		{
-			$flag = 'reg_ok';
+			$flag = 'reg_new';
+
+			$sql_cmd = '';
+			$sql_top = '';
+			foreach ($fields as $name => $options)
+			{
+				if ($name <> 'password_confirm')
+				{
+					$sql_top .= $name . ',';
+					$sql_cmd .= '\'' . $_POST[$name] . '\',';
+				}
+			}
+
+			// remove last ,
+			$sql_cmd = substr_replace($sql_cmd ,"",-1);
+			$sql_top = substr_replace($sql_top ,"",-1);
 
 			$sql_cmd = ("	INSERT INTO $db_table_community
-			
-							(dt, mdt, title, forename, surname, email, password, address1, address2, city, postcode, country, newsletter)
+
+							(dt, mdt, register, " . $sql_top . ")
 
 							VALUES(
-							
+
 								NOW(),
 								NOW(),
-								'".$_POST['title']."',
-								'".$_POST['forename']."',
-								'".$_POST['surname']."',
-								'".$_POST['email']."',
-								'".$_POST['password']."',
-								'".$_POST['address1']."',
-								'".$_POST['address2']."',
-								'".$_POST['city']."',
-								'".$_POST['postcode']."',
-								'".$_POST['country']."',
-								'".$_POST['newsletter']."'							
+								1,
+								" . $sql_cmd . "
 						)");
 			
 			mysql_query($sql_cmd);
@@ -326,10 +347,8 @@ function check_registration()
 			$_POST['id'] = mysql_insert_id();
 			
 			// check country
-/*
 			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
 				$flag = 'forbidden'; //forbidden_new
-*/
 			
 			// send email
 			send_registration_email();

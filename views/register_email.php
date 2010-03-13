@@ -9,11 +9,11 @@
 <!-- 						<legend>Email address</legend> -->
 						<ol>
 							<li class="no_list no_list_text">
-								Please enter your email below:
+								<?php echo $instructions_text; ?>
 							</li>
 							<li class="no_list">
-								<label for='email'>Email address<span class="mandatory">*</span>:</label>
-								<input id="email" name="email" type="text" size="27" value="<?php echo_value('email', TRUE); ?>" />
+								<label for='email'>Email address:</label>
+								<input id="email" name="email" type="text" size="30" value="<?php echo_value('email', TRUE); ?>" />
 							</li>
 							<li class="no_list no_list_text">
 								<br />Do you have an account with IBS?
@@ -23,22 +23,17 @@
 								No, I don't have an account
 							</li>
 							<li class="no_list">
-								<input type="radio" class="radio" name="has_account" value="YES"<?php echo (echo_value('has_account', FALSE) == 'YES' ? ' checked' : ''); ?>>
-								Yes, I have an account (please enter your password below)
+								<span class="label"><input type="radio" class="radio" name="has_account" value="YES"<?php echo (echo_value('has_account', FALSE) == 'YES' ? ' checked' : ''); ?>>
+								Yes, my password is:</span><input id="password" name="password" type="password" size="30" value="" />
 							</li>
 							<li class="no_list">
-								<label for='password'>Password:</label><input id="password" name="password" type="password" size="27" value="" />
-							</li>
-							<li class="no_list">
-								<a id="password_reminder" href="#">Forgotten your password?</a>
-							</li>
-							<li class="no_list">
-								<br />&nbsp;<span class="mandatory">*</span> denotes mandatory fields
+								<a id="password_reminder" href="#"><br />Forgotten your password?</a>
 							</li>
 						</ol>
 					</fieldset>
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
 					<input type="hidden" id="page_flag" name="page_flag" value="check_email">
+					<input type="hidden" id="sys_flag" name="sys_flag" value="register" />
 					</form>
 				</div>
 			</div>
