@@ -13,7 +13,7 @@ html, body {
 	border: none;
 	font-weight: normal;
 	font-style: normal;
-	font-size: 100%;
+	font-size: 1em;
 /* 	font-family: "Helvetica Neue", Arial, Sans-Serif; */
 	font-family: Arial, Sans-Serif;
 	vertical-align: baseline;
@@ -77,7 +77,8 @@ FORM STYLES
 
 fieldset {
 	padding: 1em;
-	font: 90%/1 sans-serif;
+	font-size: 0.9em;
+	line-height: 1.0;
 /* 	border:1px solid #346794; */
 	border: none;
 	background-color: #D9DBD0;
@@ -87,7 +88,7 @@ legend {
 	padding: 0.2em 0.5em;
 	border: 1px solid green;
 	color: #346794;
-	font-size: 90%;
+	font-size: 0.9em;
 	text-align: right;
 }
 
@@ -116,13 +117,15 @@ label {
 
 .no_list_text {
 	margin: 10px 0 15px;
-	font-size: 120%;
+	font-size: 1.2em;
 	font-weight: bold;
 }
 
 .mandatory {
-	color: #346794; /* #02a6c1 */
-	font-size: 120%;
+	color: #B7072D; /* #346794, #02a6c1 */
+	font-size: 1.4em;
+	margin-left: 2px;
+	font-weight: bold;
 }
 
 /*
@@ -147,7 +150,7 @@ Generic classes
 .caption {
 	margin: 10px 30px 10px 10px;
 	font-style: italic;
-	font-size: 95%;
+	font-size: 0.95em;
 }
 /*
 
@@ -546,12 +549,13 @@ DB
 /* BUTTONS */
 
 .buttons {
-	padding: 4px;
+	padding: 5px;
+	line-height: 1;
 	background-color: #21587b;
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	text-decoration: none !important;
-	font-size: 90%;
+	font-size: 0.9em;
 }
 
 .submit_button {
