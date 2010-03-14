@@ -17,12 +17,15 @@
 								<br />Do you have an account with IBS?
 							</li>
 							<li class="no_list">
-								<input type="radio" id="radio_no" class="radio" name="has_account" value="NO"<?php echo (echo_value('has_account', FALSE) == 'NO' ? ' checked' : ''); ?>>
-								<span id="radio_no_select">No, I don't have an account</span>
+								<span id="radio_no_select">
+									<input type="radio" id="radio_no" class="radio" name="has_account" value="NO"<?php echo (echo_value('has_account', FALSE) == 'NO' ? ' checked' : ''); ?>>
+									No, I don't have an account
+								</span>
 							</li>
 							<li class="no_list">
-								<span id="radio_yes_select" class="label"><input type="radio" id="radio_yes" class="radio" name="has_account" value="YES"<?php echo (echo_value('has_account', FALSE) == 'YES' ? ' checked' : ''); ?>>
-								Yes, my password is:</span><input id="password" name="password" type="password" size="30" value="" />
+								<span id="radio_yes_select" class="label">
+									<input type="radio" id="radio_yes" class="radio" name="has_account" value="YES"<?php echo (echo_value('has_account', FALSE) == 'YES' ? ' checked' : ''); ?>>
+									Yes, my password is:</span><input id="password" name="password" type="password" size="30" value="" />
 							</li>
 							<li class="no_list">
 								<a id="password_reminder" href="#"><br />Forgotten your password?</a>

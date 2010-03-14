@@ -22,6 +22,33 @@ function echo_value($str, $echo_it=FALSE)
 }
 
 /**
+ * Set registration cookie
+ *
+ * @access public
+ * @return void
+ */
+function set_cookie()
+{
+	global $mycookie_name, $mycookie_expiry;
+
+	setcookie($mycookie_name, $_POST['id'], time() + $mycookie_expiry);
+}
+
+/**
+ * Delete registration cookie
+ *
+ * @access public
+ * @return void
+ */
+function delete_cookie()
+{
+	global $mycookie_name, $mycookie_expiry;
+
+	setcookie ($mycookie_name, "", time() - 3600);
+	unset($_COOKIE[$mycookie_name]);
+}
+
+/**
  * Insert any value into community table
  *
  * @access public
@@ -80,20 +107,6 @@ function insert_amount($pid, $amount)
 function validate_email($str)
 {
 	return preg_match("/^[\.A-z0-9_\-\+]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{1,4}$/", $str);
-}
-
-/**
- * Checks for DB errors - debugging only
- *
- * @access public
- * @return void
- */
-function check_db_error($sql_cmd='')
-{
-	global $debug, $link;
-	
-	if ( ($debug === true) && (mysql_errno($link) <> 0) )
-		echo mysql_errno($link) . ": " . mysql_error($link). "<br />" . $sql_cmd . "<br />";
 }
 
 /**

@@ -9,6 +9,10 @@ $autoEmailTo 		= 'info@ibsproject.org';
 $emailFrom 			= 'noreply@ibsproject.com';
 $emailFromServer	= 'info@ibsproject.org';
 
+$mycookie_name		= 'ibs_register';
+$mycookie_expiry	= 300;
+
+
 error_reporting(E_ERROR);
 
 //--------------------------------------------------------------

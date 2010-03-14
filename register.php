@@ -14,8 +14,18 @@ require_once('models/functions.php');
 
 $flag = 'start';
 $err = array();
+$loggedin = 0;
+
 if ( ! isset($_POST['page_flag']) )
+{
 	$_POST['page_flag'] = '';
+	if (isset($_COOKIE[$mycookie_name]))
+	{
+		$loggedin = 1;
+		$_POST['id'] = $_COOKIE[$mycookie_name];
+		$flag = 'reg_updated';
+	}
+}
 
 //--------------------------------------------------------------
 
@@ -42,6 +52,11 @@ if (isset($_POST['page_flag']))
 		case 'password_sender':
 			check_password_reminder();
 			break;
+
+		case 'logout':
+			delete_cookie();
+			$flag = 'start';
+			break;
 	}
 }
 
@@ -60,11 +75,12 @@ show_html();
  */
 function show_html()
 {
-	global $flag, $err, $debug;
+	global $debug;
+	global $flag, $err, $loggedin;
+	global $nav_items, $fields, $title_codes, $country_codes;
 	global $db_table_community;
-	global $fields, $nav_items, $title_codes, $country_codes;
-	
-	global $page_title;
+	global $mycookie_name;
+
 	
 	$this_nav = 8;
 
@@ -91,9 +107,9 @@ function show_html()
 			$instructions_text = 'Please edit your details below:';
 
 			if ( ! isset($_POST['id']))
-				$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'"));
+				$row = db_fetch("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'");
 			else
-				$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'"));
+				$row = db_fetch("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'");
 
 			foreach ($fields as $name => $options)
 			{
@@ -107,19 +123,23 @@ function show_html()
 			}
 			
 			$_POST['id'] = $row['id'];
-			
+			set_cookie();
 			break;
 			
 		case 'reg_new':
 			$page_title = 'Your details';
 			$instructions_text = 'Thank you for registering with us.';
 			$mypage = 'register_thankyou.php';
+			set_cookie();
 			break;
 			
 		case 'reg_updated':
 			$page_title = 'Your details';
 			$instructions_text = 'Thank you for updating your profile.';
+			if ($loggedin)
+				$instructions_text = 'Your are logged in.';
 			$mypage = 'register_thankyou.php';
+			set_cookie();
 			break;
 			
 		case 'forbidden':
@@ -141,9 +161,12 @@ function show_html()
 	}
 	
 	require_once('views/head.php');
-	if ($debug)
-		echo $flag . ' ' . $_POST['page_flag'];
 	require_once('views/' . $mymenuleft);
+	if ($debug)
+	{
+		echo $flag . ' ' . $_POST['page_flag'] . ' ';
+		var_dump($_COOKIE);
+	}
 	require_once('views/' . $mypage);
 	require_once('views/' . $mymenuright);
 	require_once('views/tail.php');
@@ -157,7 +180,8 @@ function show_html()
  */
 function check_email()
 {
-	global $flag, $err, $debug;
+	global $debug;
+	global $flag, $err;
 	global $db_table_community;
 	
 	if ( ! $_POST['email'] )
@@ -224,7 +248,8 @@ function check_email()
  */
 function check_registration()
 {
-	global $flag, $err, $debug;
+	global $debug;
+	global $flag, $err;
 	global $db_table_community;
 	global $fields;
 
@@ -262,10 +287,7 @@ function check_registration()
 	
 	// check to see if record already exists: by id if already in DB
 	if (intval($_POST['id']) > 0)
-	{
-		$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'"));
-		check_db_error();
-	}
+		$row = db_fetch("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'");
 
 	// update record
 	if (isset($row['id']))
@@ -273,8 +295,7 @@ function check_registration()
 		$_POST['id'] = $row['id'];
 
 		// check to see if email already exists
-		$row_email = mysql_fetch_assoc(mysql_query("SELECT email FROM $db_table_community WHERE email='{$_POST['email']}'"));
-		check_db_error();
+		$row_email = db_fetch("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'");
 
 		if ( isset($row_email['email']) && ($_POST['email'] <> $row['email']) )
 		{
@@ -362,7 +383,7 @@ function check_registration()
 
 
 /**
- * Show html
+ * Check user's email & send password
  *
  * @access public
  * @return void
@@ -376,7 +397,9 @@ function check_password_reminder()
 
 	if ( ! $_POST['email'] )
 		$err[] = 'Please enter your email address';
-
+	else
+		$_POST['email'] = echo_value('email');
+	
 	if ( ! count($err) && ! validate_email($_POST['email']) )
 		$err[] = 'Please enter a valid email address';
 
@@ -387,8 +410,8 @@ function check_password_reminder()
 		$_POST['email'] = mysql_real_escape_string($_POST['email']);
 		
 		// Escaping all input data
-		$row = mysql_fetch_assoc(mysql_query("SELECT email, password, title, forename, surname FROM $db_table_community WHERE email='{$_POST['email']}'"));
-		check_db_error();			
+		$row = db_fetch("SELECT email, password, title, forename, surname FROM $db_table_community WHERE email='{$_POST['email']}'");
+
 		// if email exists, check password
 		if ($row['email'])
 		{
@@ -463,4 +486,21 @@ EOF;
 
 	send_mail_ibs($emailto, $emailFrom, $subject, $message);
 }
+
+/*
+
+SESSIONS - IGNORE FOR NOW!
+
+ob_start();
+session_start();
+session_name('tzLogin');
+
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == 1);
+$_SESSION['logged_in'] = 0;
+setcookie($mycookie_name, "", time() - 60, $mycookie_path, $mycookie_domain);
+session_destroy();
+
+*/
+
+
 ?>

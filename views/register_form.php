@@ -13,7 +13,7 @@
 							<!-- FIELD START-->
 							<li class="no_list">
 								<label for=<?php echo $name; ?>>
-									<?php echo $options['label'] . ($options['mandatory'] ? '<span class="mandatory">*</span>' : ''); ?>:
+									<?php echo $options['label'] . ': ' . ($options['mandatory'] ? '<span class="mandatory">*</span>' : ''); ?>
 								</label>
 <?php if ( ($options['type'] == 'text') || ($options['type'] == 'password') ): ?>
 								<input
@@ -54,7 +54,7 @@ if (isset($_POST['newsletter']))
 							</li>
 <?php endforeach; ?>
 							<li class="no_list">
-								<br />&nbsp;<span class="mandatory">*</span> denotes mandatory fields
+								<br />&nbsp;<span class="mandatory">*</span> denotes required fields
 							</li>
 						</ol>
 					</fieldset>

@@ -13,7 +13,7 @@ Cufon.replace('#menuleft #announcement .white');
 Cufon.replace('#title .text');
 Cufon.replace('#body .intitle');
 Cufon.replace('#footer .text');
-Cufon.replace('.buttons');
+/* Cufon.replace('.buttons'); */
 Cufon.replace('.caption');
 
 // **********************************************
@@ -63,35 +63,43 @@ $(document).ready(function(){
 	// db_result
 	//$('#db_result td').attr('width', '140');
 
+
+	/* 	BUTTONS */
+	
 	// registration form submit button
 	$("#submit").click(function(){
 		$('#main_form').submit();
 		return true;
 	});
 
+	// logout buttons
+	$("#logout, #logout_menu").click(function(){
+		$('#page_flag').val('logout');
+		$('#main_form').submit();
+		return true;
+	});
+
 	// registration form password forgotten button
-	$("#password_reminder").click(function(){
+	$("#password_reminder, #password_reminder_menu").click(function(){
 		$('#page_flag').val('password_reminder');
 		$('#main_form').submit();
 		return true;
 	});
 
-	// registration form password field
-	$("#password").click(function(){
-		$('#radio_yes').attr("checked", "checked");
-		return true;
-	});
-
 	// registration form radio buttons select
-	$("#radio_yes_select").click(function(){
+	$("#radio_yes_select, #password").click(function(){
 		$('#radio_yes').attr("checked", "checked");
+		$('#submit').text("Log in");
 		return true;
 	});
 
 	$("#radio_no_select").click(function(){
 		$('#radio_no').attr("checked", "checked");
+		$('#submit').text("Create Acount");
 		return true;
 	});
+
+	/* 	EMAIL */
 	
 	// validate email & send
 	$("#submit").click(function(){

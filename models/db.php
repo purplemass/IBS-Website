@@ -42,6 +42,37 @@ mysql_query("SET names UTF8");
 
 //--------------------------------------------------------------
 
+/**
+ * Fetch row from DB
+ *
+ * @access public
+ * @param string	sql command
+ * @return array	result
+ */
+function db_fetch($sql)
+{
+	$row = mysql_fetch_assoc(mysql_query($sql));
+	check_db_error();
+	
+	return $row;	
+}
+
+/**
+ * Checks for DB errors - debugging only
+ *
+ * @access public
+ * @return void
+ */
+function check_db_error($sql_cmd='')
+{
+	global $debug, $link;
+	
+	if ( ($debug === true) && (mysql_errno($link) <> 0) )
+		echo mysql_errno($link) . ": " . mysql_error($link). "<br />" . $sql_cmd . "<br />";
+}
+
+//--------------------------------------------------------------
+
 // Database Schema
 
 /*

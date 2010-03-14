@@ -13,6 +13,7 @@
 							</li>
 							<li class="no_list">
 								<p>If you'd like to edit your details further, please <a id="submit" href="#">click here</a>.</p>
+								<p>If you'd like to log out, please <a id="logout" href="#">click here</a>.</p>
 							</li>
 						</ol>
 					</fieldset>
