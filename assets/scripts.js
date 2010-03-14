@@ -65,7 +65,7 @@ $(document).ready(function(){
 
 
 	/* 	BUTTONS */
-	
+
 	// registration form submit button
 	$("#submit").click(function(){
 		$('#main_form').submit();

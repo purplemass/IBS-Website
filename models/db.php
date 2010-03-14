@@ -53,8 +53,8 @@ function db_fetch($sql)
 {
 	$row = mysql_fetch_assoc(mysql_query($sql));
 	check_db_error();
-	
-	return $row;	
+
+	return $row;
 }
 
 /**
@@ -66,7 +66,7 @@ function db_fetch($sql)
 function check_db_error($sql_cmd='')
 {
 	global $debug, $link;
-	
+
 	if ( ($debug === true) && (mysql_errno($link) <> 0) )
 		echo mysql_errno($link) . ": " . mysql_error($link). "<br />" . $sql_cmd . "<br />";
 }

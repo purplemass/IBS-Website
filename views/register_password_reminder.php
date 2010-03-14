@@ -11,7 +11,7 @@
 								Please enter your email address below.
 							</li>
 							<li class="no_list">
-								<p>You'll receive an email notification with your password after you submit.</p>
+								<p>You'll receive an email notification with your password after you click the submit button.</p>
 							</li>
 							<li class="no_list">
 								<label for='email'>Email address:</label>

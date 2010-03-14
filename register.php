@@ -399,7 +399,7 @@ function check_password_reminder()
 		$err[] = 'Please enter your email address';
 	else
 		$_POST['email'] = echo_value('email');
-	
+
 	if ( ! count($err) && ! validate_email($_POST['email']) )
 		$err[] = 'Please enter a valid email address';
 
