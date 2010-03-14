@@ -10,8 +10,7 @@ $emailFrom 			= 'noreply@ibsproject.com';
 $emailFromServer	= 'info@ibsproject.org';
 
 $mycookie_name		= 'ibs_register';
-$mycookie_expiry	= 300;
-
+$mycookie_expiry	= 600;
 
 error_reporting(E_ERROR);
 

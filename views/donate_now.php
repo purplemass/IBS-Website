@@ -14,7 +14,6 @@
 						<ol>
 							<li class="no_list no_list_text">
 								<?php echo $instructions_text; ?>
-<!-- 								<?php echo_value('title', TRUE); ?> <?php echo_value('forename', TRUE); ?> <?php echo_value('surname', TRUE); ?> -->
 							</li>
 							<li class="no_list">
 <?php if ($_POST['country'] == 'US'): ?>
@@ -23,14 +22,26 @@
 								<p>If you'd like to edit your details further, please <a id="edit_button" href="#">click here</a>.</p>
 								<p>If you'd like to log out, please <a id="logout" href="#">click here</a>.</p>
 <?php else: ?>
-								<p>Please enter the amount you'd like to donate and press the submit button:</p>
+								<p>Please enter the amount you'd like to donate and tell us if you are a UK taxpayer.
+								Press the PayPal button below to go to our PayPal page for a secure transaction.</p>
 							</li>
 							<li class="no_list">
-								<label for='amount'>Amount:</label>
-								<p>&pound; <input id="amount" name="amount" type="text" size="3" value="" /> .00</p>
+								<label for='amount'>Amount (&pound;):</label>
+								<input id="amount" name="amount" type="text" size="3" value="" /> .00
+							</li>
+							<li class="no_list">
+								<span id="taxpayer_yes_select">
+									<input type="radio" class="radio" name="taxpayer" id="taxpayer_yes" value="YES">
+									I am a UK taxpayer (we can reclaim Gift Aid on your donation)
+								</span>
+							</li>
+							<li class="no_list">
+								<span id="taxpayer_no_select">
+									<input type="radio" class="radio" name="taxpayer" id="taxpayer_no" value="NO">
+									I am not a UK taxpayer
+								</span>
 							</li>
 							<li class="no_list">&nbsp;</li>
-<!-- 							<li class="no_list"><p>If you'd like to log out, please <a id="logout" href="#">click here</a>.</p></li> -->
 						</ol>
 					</fieldset>
 

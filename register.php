@@ -19,14 +19,20 @@ $loggedin = FALSE;
 
 //--------------------------------------------------------------
 
-// check the flags
-
+// check sys_flag:
+//		'donate' will be set
+//		'register' will not be set
 if ( ! isset($_POST['sys_flag']) )
 	$_POST['sys_flag'] = 'register';
 
+// check page_flag:
+//		'donate' will be set to ''
+//		'register' will not be set
 if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 {
 	$_POST['page_flag'] = '';
+	
+	// are we logged in?
 	if (isset($_COOKIE[$mycookie_name]))
 	{
 		$loggedin = TRUE;
@@ -38,70 +44,74 @@ if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 //--------------------------------------------------------------
 
 // decide what to do
-
-if (isset($_POST['page_flag']))
+// these are all the possible commands
+switch($_POST['page_flag'])
 {
-	switch($_POST['page_flag'])
-	{
-		case 'check_email':
-			check_email();
-			if ( ($flag == 'edit') && ($_POST['sys_flag'] == 'donate') )
-				$flag = 'donate_now';
-			break;
-
-		case 'check_registration':
-			check_registration();
-			break;
-
-		case 'edit':
-			$flag = 'edit';
-			break;
-
-		case 'password_reminder':
-			$flag = 'password_reminder';
-			break;
+	case 'start':
+		break;
 		
-		case 'password_sender':
-			check_password_reminder();
-			break;
+	case 'check_email':
+		check_email();
+		if ( ($flag == 'edit') && ($_POST['sys_flag'] == 'donate') )
+			$flag = 'donate_now';
+		break;
 
-		case 'logout':
-			delete_cookie();
-			$flag = 'start';
-			break;
-	}
+	case 'check_registration':
+		check_registration();
+		break;
+
+	case 'edit':
+		$flag = 'edit';
+		break;
+
+	case 'password_reminder':
+		$flag = 'password_reminder';
+		break;
+	
+	case 'password_sender':
+		check_password_reminder();
+		break;
+
+	case 'logout':
+		delete_cookie();
+		$flag = 'start';
+		break;
 }
 
 //--------------------------------------------------------------
 
-if ($_POST['sys_flag'] == 'register')
-	show_html_register();
-else
-	show_html_donate();
+show_html();
 
 //--------------------------------------------------------------
 
 /**
- * Show donations html
+ * Show html
  *
  * @access public
  * @return void
  */
-function show_html_donate()
+function show_html()
 {
 	global $debug;
 	global $flag, $err, $loggedin;
 	global $nav_items, $fields, $title_codes, $country_codes;
 	global $mycookie_name;
 
+	if (is_donate())
+	{
+		$this_nav = 6;
+		$mymenuleft = 'menu_left_donate.php';
+		$mymenuright = 'menu_right_donate.php';
+		$page_title = 'Donate Online';		
+	}
+	else
+	{
+		$this_nav = 8;
+		$mymenuleft = 'menu_left_register.php';
+		$mymenuright = 'menu_right_register.php';
+		$page_title = 'Log in or register';
+	}
 	
-	$this_nav = 6;
-	
-	$mymenuleft = 'menu_left_donate.php';
-	$mymenuright = 'menu_right_donate.php';
-
-	$page_title = 'Donate Online';	
-
 	switch($flag)
 	{
 		case 'start':
@@ -110,43 +120,45 @@ function show_html_donate()
 			break;
 			
 		case 'email_new':
-			$instructions_text = 'Please enter your details below:';
+			$instructions_text = 'Please enter your details below';
+			$instructions_text .= (is_donate()) ? ' (for your receipt):' : ':';
 			$mypage = 'register_form.php';
 			break;
 
+		case 'edit':
+			set_user_info();
+			set_cookie();
+			$page_title = 'Your details';
+			$instructions_text = 'Please edit your details below:';
+			$mypage = 'register_form.php';
+			break;
+			
+		case 'reg_new':
+			set_cookie();
+			$page_title = 'Your details';
+			$instructions_text = 'Thank you for registering with us ' . get_full_name();
+			$mypage = (is_donate()) ? 'donate_now.php' : 'register_thankyou.php';
+			break;
+			
+		case 'reg_updated':
+			set_user_info();
+			set_cookie();
+			$page_title = (is_donate()) ? 'Online Donations' : 'Log in or register';
+			$instructions_text = ($loggedin) ? 'Your are logged in as ' : 'Thank you for updating your profile ';
+			$instructions_text .= get_full_name();
+			$mypage = (is_donate()) ? 'donate_now.php' : 'register_thankyou.php';
+			break;
+
+		// donate
+		
 		case 'donate_now':
 			set_user_info();
-			$instructions_text = "Welcome back {$_POST['title']} {$_POST['forename']} {$_POST['surname']}";
+			set_cookie();
+			$instructions_text = 'Welcome back ' . get_full_name();
 			$mypage = 'donate_now.php';
-			set_cookie();
-			break;
-
-		case 'edit':
-			set_user_info();
-			$page_title = 'Your details';
-			$instructions_text = 'Please edit your details below:';
-			$mypage = 'register_form.php';
-			set_cookie();
 			break;
 			
-		case 'reg_new':
-			set_user_info();
-			$page_title = 'Your details';
-			$instructions_text = "Thank you for registering with us {$_POST['title']} {$_POST['forename']} {$_POST['surname']}.";
-			$mypage = 'donate_now.php';
-			set_cookie();
-			break;
-			
-		case 'reg_updated':
-			set_user_info();
-			$instructions_text = "Thank you for updating your profile {$_POST['title']} {$_POST['forename']} {$_POST['surname']}.";
-			if ($loggedin)
-				$instructions_text = "Your are logged in {$_POST['title']} {$_POST['forename']} {$_POST['surname']}";
-			$mypage = 'donate_now.php';
-			set_cookie();
-			break;
-			
-		// password
+		// get password
 		
 		case 'password_reminder':
 			$page_title = 'Get password reminder';
@@ -164,95 +176,19 @@ function show_html_donate()
 	require_once('views/head.php');
 	require_once('views/' . $mymenuleft);
 	if ($debug)
-		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'];
+	{
+/*
+		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'] . ' --- loggedin' . $loggedin .'<br />';
+		var_dump($_COOKIE);
+		var_dump($_REQUEST);
+*/
+	}
 	require_once('views/' . $mypage);
 	require_once('views/' . $mymenuright);
 	require_once('views/tail.php');
 }
 
 //--------------------------------------------------------------
-
-/**
- * Show registration html
- *
- * @access public
- * @return void
- */
-function show_html_register()
-{
-	global $debug;
-	global $flag, $err, $loggedin;
-	global $nav_items, $fields, $title_codes, $country_codes;
-	global $mycookie_name;
-
-	
-	$this_nav = 8;
-	
-	$mymenuleft = 'menu_left_register.php';
-	$mymenuright = 'menu_right_register.php';
-	
-	switch($flag)
-	{
-		case 'start':
-			$page_title = 'Log in or register';
-			$instructions_text = 'Please enter your email below:';
-			$mypage = 'register_email.php';
-			break;
-			
-		case 'email_new':
-			$page_title = 'Log in or register';
-			$instructions_text = 'Please enter your details below:';
-			$mypage = 'register_form.php';
-			break;
-
-		case 'edit':
-			set_user_info();
-			$page_title = 'Your details';
-			$instructions_text = 'Please edit your details below:';
-			$mypage = 'register_form.php';
-			set_cookie();
-			break;
-			
-		case 'reg_new':
-			$page_title = 'Your details';
-			$instructions_text = 'Thank you for registering with us.';
-			$mypage = 'register_thankyou.php';
-			set_cookie();
-			break;
-			
-		case 'reg_updated':
-			set_user_info();
-			$page_title = 'Your details';
-			$instructions_text = "Thank you for updating your profile {$_POST['title']} {$_POST['forename']} {$_POST['surname']}.";
-			if ($loggedin)
-				$instructions_text = "Your are logged in {$_POST['title']} {$_POST['forename']} {$_POST['surname']}";
-			$mypage = 'register_thankyou.php';
-			set_cookie();
-			break;
-			
-		// password
-		
-		case 'password_reminder':
-			$page_title = 'Get password reminder';
-			$instructions_text = 'Please enter your email address below.';
-			$mypage = 'register_password_reminder.php';
-			break;
-
-		case 'password_sender':
-			$page_title = 'Get password reminder';
-			$instructions_text = 'Please enter your email address below.';
-			$mypage = 'register_password_reminder.php';
-			break;
-	}
-	
-	require_once('views/head.php');
-	require_once('views/' . $mymenuleft);
-	if ($debug)
-		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'];
-	require_once('views/' . $mypage);
-	require_once('views/' . $mymenuright);
-	require_once('views/tail.php');
-}
 
 /**
  * Set user info in edit form
@@ -283,6 +219,8 @@ function set_user_info()
 	
 	$_POST['id'] = $row['id'];
 }
+
+//--------------------------------------------------------------
 
 /**
  * Check user's email
@@ -351,7 +289,8 @@ function check_email()
 	}
 }
 
-	
+//--------------------------------------------------------------
+
 /**
  * Check to see if user has registered
  *
@@ -483,6 +422,7 @@ function check_registration()
 	}
 }
 
+//--------------------------------------------------------------
 
 /**
  * Check user's email & send password
@@ -526,9 +466,39 @@ function check_password_reminder()
 		{
 			$err[] = 'Not a registered email address';
 		}
-	}
-	
+	}	
 }
+
+//--------------------------------------------------------------
+
+/**
+ * Is this a donation page?
+ *
+ * @access public
+ * @return bool		result
+ */
+function is_donate()
+{
+	return ($_POST['sys_flag'] === 'donate') ? TRUE : FALSE;
+}
+
+//--------------------------------------------------------------
+
+/**
+ * Get full name
+ *
+ * @access public
+ * @return string		result
+ */
+function get_full_name()
+{
+	$ret = ($_POST['title'] <> 'Other') ? $_POST['title'] . ' ' : '';
+	$ret .= $_POST['forename'] . ' ' . $_POST['surname'] . '.';
+	
+	return $ret;
+}
+
+//--------------------------------------------------------------
 
 /**
  * Send registration email
@@ -558,6 +528,9 @@ EOF;
 
 	send_mail_ibs($emailto, $emailFrom, $subject, $message);
 }
+
+//--------------------------------------------------------------
+
 
 /**
  * Send registration email

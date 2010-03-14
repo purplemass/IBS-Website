@@ -37,9 +37,9 @@ $(document).ready(function(){
 	});
 
 	// donation pages
-	$("#subscribe #email").focus();
-	$("#subscribe #forename").focus();
-	$("#subscribe #amount").focus();
+	$("#main_form #email").focus();
+	$("#main_form #forename").focus();
+	$("#main_form #amount").focus();
 
 	// db_result
 	//$('#db_result td').attr('width', '140');
@@ -67,12 +67,29 @@ $(document).ready(function(){
 			$('#error_div').addClass('error_message');
 			$("#subscribe #amount").focus();
 			return false;
+		} else if ( $('#taxpayer_yes').attr('checked') == false && $('#taxpayer_no').attr('checked') == false) {
+			$('#error_div').text('Please select whether you are a UK taxpayer');
+			$('#error_div').addClass('error_message');
+			return false;
 		} else {
 			//$(this).attr('disabled', 'true');
 			$('#main_form').attr('action', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
 			$('#main_form').submit();
 			return true;
 		}
+	});
+
+	/* 	DONATIONS BUTTONS */
+
+	// registration form radio buttons select
+	$("#taxpayer_yes_select").click(function(){
+		$('#taxpayer_yes').attr("checked", "checked");
+		return true;
+	});
+
+	$("#taxpayer_no_select").click(function(){
+		$('#taxpayer_no').attr("checked", "checked");
+		return true;
 	});
 
 	/* 	REGISTRATION BUTTONS */

@@ -29,9 +29,25 @@ function echo_value($str, $echo_it=FALSE)
  */
 function set_cookie()
 {
+	global $debug;
 	global $mycookie_name, $mycookie_expiry;
+	global $loggedin;
 
-	setcookie($mycookie_name, $_POST['id'], time() + $mycookie_expiry);
+	if ( ! headers_sent())
+	{
+		ob_start();
+		setcookie($mycookie_name, $_POST['id'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
+		$loggedin = TRUE;
+		ob_end_flush();		
+	}
+	else
+	{
+		if ($debug)
+		{
+			var_dump(headers_list());
+			exit('header already sent!!');	
+		}
+	}
 }
 
 /**
