@@ -43,14 +43,21 @@
 			<div id="navitem5"><a class="navitem" href="get_involved.html">Get involved</a></div>
 			<div id="navitem6"><a class="navitem" href="fundraising.html">Fundraising</a></div>
 			<div id="navitem7"><a class="navitem" href="contact_us.html">Contact us</a></div>
-			<div id="navitem8"><a class="navitem" href="register.php">Log in or register</a></div>
+<!-- 			<div id="navitem8"><a class="navitem" href="register.php">Log in or register</a></div> -->
 		</div>
 		<div id="top">
 			<div id="logo"><a href="index.html"><img src="assets/images/IBS_logo.gif" width="170" height="140" alt="IBS Logo" /></a></div>
 			<div id="image"><img src="assets/images/image_home.jpg" width="750" height="140" alt="Main Image" /></div>
 		</div>
 		<div id="main">
-			<div id="menuleft">&nbsp;</div>
+			<div id="menuleft">
+				<a class="navitem" href="#" id="register_start">Login or register</a>
+				<a class="navitem" href="#" id="donate_start">Donate Online</a>
+				<form id="main_form" class="form_register" action="register.php" method="post">
+					<input type="hidden" id="page_flag" name="page_flag" value="">
+					<input type="hidden" id="sys_flag" name="sys_flag" value="" />
+				</form>
+			</div>
 <!--
 				<div id="announcement" class="navitem">
 					<p><span class="heading">Fundraising Event</span></p>
@@ -124,7 +131,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="footer"><div class="text">Copyright &copy; 2009 Iranian Business School Project</div></div>
+	<div id="footer"><div class="text">Copyright &copy; 2010 Iranian Business School Project</div></div>
 	<script type="text/javascript">Cufon.now();</script>
 	<script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

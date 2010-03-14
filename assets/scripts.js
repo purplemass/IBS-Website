@@ -41,6 +41,19 @@ $(document).ready(function(){
 	$("#subscribe #forename").focus();
 	$("#subscribe #amount").focus();
 
+	// db_result
+	//$('#db_result td').attr('width', '140');
+
+	/* 	DONATION BUTTONS */
+
+	// donate start button
+	$("#donate_start").click(function(){
+		$('#page_flag').val('');
+		$('#sys_flag').val('donate');
+		$('#main_form').submit();
+		return true;
+	});
+
 	// click Donate button
 	$("#donate_button").click(function(){
 		if ($("#amount").val() == '')
@@ -56,15 +69,21 @@ $(document).ready(function(){
 			return false;
 		} else {
 			//$(this).attr('disabled', 'true');
+			$('#main_form').attr('action', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
+			$('#main_form').submit();
+			return true;
 		}
 	});
 
+	/* 	REGISTRATION BUTTONS */
 
-	// db_result
-	//$('#db_result td').attr('width', '140');
-
-
-	/* 	BUTTONS */
+	// register start button
+	$("#register_start").click(function(){
+		$('#page_flag').val('');
+		$('#sys_flag').val('register');
+		$('#main_form').submit();
+		return true;
+	});
 
 	// registration form submit button
 	$("#submit").click(function(){
@@ -75,6 +94,13 @@ $(document).ready(function(){
 	// logout buttons
 	$("#logout, #logout_menu").click(function(){
 		$('#page_flag').val('logout');
+		$('#main_form').submit();
+		return true;
+	});
+
+	// edit button
+	$("#edit_button").click(function(){
+		$('#page_flag').val('edit');
 		$('#main_form').submit();
 		return true;
 	});

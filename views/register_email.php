@@ -3,6 +3,8 @@
 				<div class="error_message"><?php echo implode('<br />', $err); ?></div>
 <?php endif ?>
 				<form id="main_form" class="form_register" action="" method="post">
+					<input type="hidden" id="page_flag" name="page_flag" value="check_email">
+					<input type="hidden" id="sys_flag" name="sys_flag" value="<?php echo_value('sys_flag', TRUE); ?>" />
 					<fieldset>
 <!-- 						<legend>Email address</legend> -->
 						<ol>
@@ -33,6 +35,4 @@
 						</ol>
 					</fieldset>
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
-					<input type="hidden" id="page_flag" name="page_flag" value="check_email">
-					<input type="hidden" id="sys_flag" name="sys_flag" value="register" />
 				</form>

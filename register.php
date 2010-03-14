@@ -14,14 +14,22 @@ require_once('models/functions.php');
 
 $flag = 'start';
 $err = array();
-$loggedin = 0;
 
-if ( ! isset($_POST['page_flag']) )
+$loggedin = FALSE;
+
+//--------------------------------------------------------------
+
+// check the flags
+
+if ( ! isset($_POST['sys_flag']) )
+	$_POST['sys_flag'] = 'register';
+
+if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 {
 	$_POST['page_flag'] = '';
 	if (isset($_COOKIE[$mycookie_name]))
 	{
-		$loggedin = 1;
+		$loggedin = TRUE;
 		$_POST['id'] = $_COOKIE[$mycookie_name];
 		$flag = 'reg_updated';
 	}
@@ -29,12 +37,16 @@ if ( ! isset($_POST['page_flag']) )
 
 //--------------------------------------------------------------
 
+// decide what to do
+
 if (isset($_POST['page_flag']))
 {
 	switch($_POST['page_flag'])
 	{
 		case 'check_email':
 			check_email();
+			if ( ($flag == 'edit') && ($_POST['sys_flag'] == 'donate') )
+				$flag = 'donate_now';
 			break;
 
 		case 'check_registration':
@@ -60,31 +72,121 @@ if (isset($_POST['page_flag']))
 	}
 }
 
-
 //--------------------------------------------------------------
 
-show_html();
+if ($_POST['sys_flag'] == 'register')
+	show_html_register();
+else
+	show_html_donate();
 
 //--------------------------------------------------------------
 
 /**
- * Show html
+ * Show donations html
  *
  * @access public
  * @return void
  */
-function show_html()
+function show_html_donate()
 {
 	global $debug;
 	global $flag, $err, $loggedin;
 	global $nav_items, $fields, $title_codes, $country_codes;
-	global $db_table_community;
+	global $mycookie_name;
+
+	
+	$this_nav = 6;
+	
+	$mymenuleft = 'menu_left_donate.php';
+	$mymenuright = 'menu_right_donate.php';
+
+	$page_title = 'Donate Online';	
+
+	switch($flag)
+	{
+		case 'start':
+			$instructions_text = 'Please enter your email below:';
+			$mypage = 'register_email.php';
+			break;
+			
+		case 'email_new':
+			$instructions_text = 'Please enter your details below:';
+			$mypage = 'register_form.php';
+			break;
+
+		case 'donate_now':
+			set_user_info();
+			$instructions_text = "Welcome back {$_POST['title']} {$_POST['forename']} {$_POST['surname']}";
+			$mypage = 'donate_now.php';
+			set_cookie();
+			break;
+
+		case 'edit':
+			set_user_info();
+			$page_title = 'Your details';
+			$instructions_text = 'Please edit your details below:';
+			$mypage = 'register_form.php';
+			set_cookie();
+			break;
+			
+		case 'reg_new':
+			set_user_info();
+			$page_title = 'Your details';
+			$instructions_text = "Thank you for registering with us {$_POST['title']} {$_POST['forename']} {$_POST['surname']}.";
+			$mypage = 'donate_now.php';
+			set_cookie();
+			break;
+			
+		case 'reg_updated':
+			set_user_info();
+			$instructions_text = "Thank you for updating your profile {$_POST['title']} {$_POST['forename']} {$_POST['surname']}.";
+			if ($loggedin)
+				$instructions_text = "Your are logged in {$_POST['title']} {$_POST['forename']} {$_POST['surname']}";
+			$mypage = 'donate_now.php';
+			set_cookie();
+			break;
+			
+		// password
+		
+		case 'password_reminder':
+			$page_title = 'Get password reminder';
+			$instructions_text = 'Please enter your email address below.';
+			$mypage = 'register_password_reminder.php';
+			break;
+
+		case 'password_sender':
+			$page_title = 'Get password reminder';
+			$instructions_text = 'Please enter your email address below.';
+			$mypage = 'register_password_reminder.php';
+			break;
+	}
+	
+	require_once('views/head.php');
+	require_once('views/' . $mymenuleft);
+	if ($debug)
+		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'];
+	require_once('views/' . $mypage);
+	require_once('views/' . $mymenuright);
+	require_once('views/tail.php');
+}
+
+//--------------------------------------------------------------
+
+/**
+ * Show registration html
+ *
+ * @access public
+ * @return void
+ */
+function show_html_register()
+{
+	global $debug;
+	global $flag, $err, $loggedin;
+	global $nav_items, $fields, $title_codes, $country_codes;
 	global $mycookie_name;
 
 	
 	$this_nav = 8;
-
-	$mypage = 'register_form.php';
 	
 	$mymenuleft = 'menu_left_register.php';
 	$mymenuright = 'menu_right_register.php';
@@ -100,29 +202,14 @@ function show_html()
 		case 'email_new':
 			$page_title = 'Log in or register';
 			$instructions_text = 'Please enter your details below:';
+			$mypage = 'register_form.php';
 			break;
 
 		case 'edit':
+			set_user_info();
 			$page_title = 'Your details';
 			$instructions_text = 'Please edit your details below:';
-
-			if ( ! isset($_POST['id']))
-				$row = db_fetch("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'");
-			else
-				$row = db_fetch("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'");
-
-			foreach ($fields as $name => $options)
-			{
-				if ($name <> 'password_confirm')
-				{
-					if ( isset($_POST[$name]) )
-						$_POST[$name] = mysql_real_escape_string($_POST[$name]);
-					else
-						$_POST[$name] = $row[$name];
-				}
-			}
-			
-			$_POST['id'] = $row['id'];
+			$mypage = 'register_form.php';
 			set_cookie();
 			break;
 			
@@ -134,28 +221,26 @@ function show_html()
 			break;
 			
 		case 'reg_updated':
+			set_user_info();
 			$page_title = 'Your details';
-			$instructions_text = 'Thank you for updating your profile.';
+			$instructions_text = "Thank you for updating your profile {$_POST['title']} {$_POST['forename']} {$_POST['surname']}.";
 			if ($loggedin)
-				$instructions_text = 'Your are logged in.';
+				$instructions_text = "Your are logged in {$_POST['title']} {$_POST['forename']} {$_POST['surname']}";
 			$mypage = 'register_thankyou.php';
 			set_cookie();
 			break;
 			
-		case 'forbidden':
-			$page_title = 'What?';
-			$mypage = 'register_what.php';
-			break;
-
 		// password
 		
 		case 'password_reminder':
 			$page_title = 'Get password reminder';
+			$instructions_text = 'Please enter your email address below.';
 			$mypage = 'register_password_reminder.php';
 			break;
 
 		case 'password_sender':
 			$page_title = 'Get password reminder';
+			$instructions_text = 'Please enter your email address below.';
 			$mypage = 'register_password_reminder.php';
 			break;
 	}
@@ -163,13 +248,40 @@ function show_html()
 	require_once('views/head.php');
 	require_once('views/' . $mymenuleft);
 	if ($debug)
-	{
-		echo $flag . ' ' . $_POST['page_flag'] . ' ';
-		var_dump($_COOKIE);
-	}
+		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'];
 	require_once('views/' . $mypage);
 	require_once('views/' . $mymenuright);
 	require_once('views/tail.php');
+}
+
+/**
+ * Set user info in edit form
+ *
+ * @access public
+ * @return void
+ */
+function set_user_info()
+{
+	global $fields;
+	global $db_table_community;
+
+	if ( ! isset($_POST['id']))
+		$row = db_fetch("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'");
+	else
+		$row = db_fetch("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'");
+
+	foreach ($fields as $name => $options)
+	{
+		if ($name <> 'password_confirm')
+		{
+			if ( isset($_POST[$name]) )
+				$_POST[$name] = mysql_real_escape_string($_POST[$name]);
+			else
+				$_POST[$name] = $row[$name];
+		}
+	}
+	
+	$_POST['id'] = $row['id'];
 }
 
 /**
@@ -327,12 +439,6 @@ function check_registration()
 		
 			mysql_query($sql_cmd);
 			check_db_error($sql_cmd);
-					
-			// check country
-/*
-			if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
-				$flag = 'forbidden';
-*/
 		}
 	}
 	// insert records
@@ -371,11 +477,7 @@ function check_registration()
 		check_db_error();
 		
 		$_POST['id'] = mysql_insert_id();
-		
-		// check country
-		if ( ($_POST['country'] == 'US') || ($_POST['country'] == 'CA') )
-			$flag = 'forbidden'; //forbidden_new
-		
+				
 		// send email
 		send_registration_email();
 	}
