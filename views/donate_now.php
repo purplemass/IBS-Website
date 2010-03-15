@@ -57,3 +57,45 @@
 <?php endif; ?>
 <!-- 					<a id="submit" href="#" class="buttons submit_button">Submit</a> -->
 				</form>
+<!--
+					<p><img src="assets/images/button_google_checkout.gif" /></p>
+					<p>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+							BOB'S ACCOUNT
+							<p>&pound; <input id="amount" name="amount" type="text" size="3" value="" /> .00</p>
+							<input type="hidden" name="return" value="http://www.ibsproject.org">
+
+							<input type="hidden" name="cmd" value="_donations">
+							<input type="hidden" name="business" value="bob_ak@hotmail.com">
+							<input type="hidden" name="lc" value="GB">
+							<input type="hidden" name="item_name" value="IBS Project">
+							<input type="hidden" name="currency_code" value="GBP">
+							<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+							<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0"
+									 name="submit" alt="PayPal - The safer, easier way to pay online.">
+							<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						</form>
+					</p>
+					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="hosted_button_id" value="1075419">
+						<input type="image" src="https://www.sandbox.paypal.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+						<img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+					</form>
+						<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="hosted_button_id" value="1076539">
+						<input type="image" src="https://www.sandbox.paypal.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+						<img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+					</form>
+-->
+<!--
+						<input type="hidden" id="id" name="id" value="<?php echo $row['id']; ?>">
+						<input type="hidden" id="first_name" name="first_name" value="<?php echo $row['forename']; ?>">
+						<input type="hidden" id="last_name" name="last_name" value="<?php echo $row['surname']; ?>">
+						<input type="hidden" id="country" name="country" value="<?php echo $row['country']; ?>">
+						<input type="hidden" id="custom" name="custom" value="<?php echo $row['email']; ?>">
+						<input type="hidden" id="notify_url" name="notify_url" value="http://www.ibsproject.org/fundraising_thankyou.php">
+
+						/fundraising_thankyou.php
+-->

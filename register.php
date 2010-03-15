@@ -177,11 +177,9 @@ function show_html()
 	require_once('views/' . $mymenuleft);
 	if ($debug)
 	{
-/*
-		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'] . ' --- loggedin' . $loggedin .'<br />';
-		var_dump($_COOKIE);
-		var_dump($_REQUEST);
-*/
+/* 		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'] . ' --- loggedin' . $loggedin .'<br />'; */
+/* 		var_dump($_COOKIE); */
+/* 		var_dump($_REQUEST); */
 	}
 	require_once('views/' . $mypage);
 	require_once('views/' . $mymenuright);

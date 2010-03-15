@@ -9,6 +9,7 @@
 <?php endif; ?>
 			<a class="navitem<?php echo ( ($_POST['page_flag'] == 'password_sender') || ($_POST['page_flag'] == 'password_reminder') ) ? ' active' : '' ?>" href="#" id="password_reminder_menu">Get password reminder</a>
 <?php if ($loggedin): ?>
+			<a class="navitem" href="#" id="donate_start">Donate Online</a>
 			<a class="navitem" href="#" id="logout_menu">Log out</a>
 <?php endif; ?>
 <!-- 			<a class="navitem" href="#" id="unsubscribe">Unsubscribe (coming soon)</a> -->

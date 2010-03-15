@@ -1,5 +1,7 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly');
 
+//--------------------------------------------------------------
+
 /**
  * Return/echos REQUEST variables
  *
@@ -21,6 +23,8 @@ function echo_value($str, $echo_it=FALSE)
 		return $ret;
 }
 
+//--------------------------------------------------------------
+
 /**
  * Set registration cookie
  *
@@ -36,7 +40,7 @@ function set_cookie()
 	if ( ! headers_sent())
 	{
 		ob_start();
-		setcookie($mycookie_name, $_POST['id'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
+		setcookie($mycookie_name, $_POST['id'], $mycookie_expiry); // '/', '.localhost', 0, 0)
 		$loggedin = TRUE;
 		ob_end_flush();		
 	}
@@ -49,6 +53,8 @@ function set_cookie()
 		}
 	}
 }
+
+//--------------------------------------------------------------
 
 /**
  * Delete registration cookie
@@ -63,6 +69,8 @@ function delete_cookie()
 	setcookie ($mycookie_name, "", time() - 3600);
 	unset($_COOKIE[$mycookie_name]);
 }
+
+//--------------------------------------------------------------
 
 /**
  * Insert any value into community table
@@ -86,6 +94,8 @@ function insert_value($field, $value, $pid)
 	mysql_query($sql_cmd);
 	check_db_error();
 }
+
+//--------------------------------------------------------------
 
 /**
  * Insert amount into DB
@@ -112,6 +122,7 @@ function insert_amount($pid, $amount)
 	check_db_error();
 }
 
+//--------------------------------------------------------------
 
 /**
  * Checks email address for illegal chars & format
@@ -124,6 +135,8 @@ function validate_email($str)
 {
 	return preg_match("/^[\.A-z0-9_\-\+]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{1,4}$/", $str);
 }
+
+//--------------------------------------------------------------
 
 /**
  * Sends simple email
@@ -147,6 +160,8 @@ function send_mail($from,$to,$subject,$body)
 
 	mail($to,$subject,$body,$headers);
 }
+
+//--------------------------------------------------------------
 
 /**
  * Sends email
@@ -174,6 +189,8 @@ function send_mail_ibs($emailTo, $emailFrom, $subject, $message, $emailFromServe
 		return 'ERROR';
 }
 
+//--------------------------------------------------------------
+
 /**
  * Writes to file
  *
@@ -193,6 +210,8 @@ function WriteFile($filename, $content)
 	
 	return 'OK';
 }
+
+//--------------------------------------------------------------
 
 /**
  * Writes to file
@@ -239,5 +258,7 @@ function CreateFile($fd, $file)
 	
 	return 'ERROR';
 }
+
+//--------------------------------------------------------------
 
 ?>
