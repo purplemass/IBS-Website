@@ -152,4 +152,14 @@ else
 
 //--------------------------------------------------------------
 
+function safe($str)
+{
+	if (isset($_REQUEST[$str]))
+		return htmlentities($_REQUEST[$str], ENT_QUOTES, 'UTF-8');
+	else
+		return '';
+}
+
+//--------------------------------------------------------------
+
 ?>

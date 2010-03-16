@@ -34,11 +34,14 @@ if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 	
 	// are we logged in?
 	if (isset($_COOKIE[$mycookie_name]))
-	{
-		$loggedin = TRUE;
-		$_POST['id'] = $_COOKIE[$mycookie_name];
 		$flag = 'reg_updated';
-	}
+}
+
+// are we logged in?
+if (isset($_COOKIE[$mycookie_name]))
+{
+	$loggedin = TRUE;
+	$_POST['id'] = $_COOKIE[$mycookie_name];
 }
 
 //--------------------------------------------------------------
@@ -161,12 +164,14 @@ function show_html()
 		// get password
 		
 		case 'password_reminder':
+			set_user_info();
 			$page_title = 'Get password reminder';
 			$instructions_text = 'Please enter your email address below.';
 			$mypage = 'register_password_reminder.php';
 			break;
 
 		case 'password_sender':
+			set_user_info();
 			$page_title = 'Get password reminder';
 			$instructions_text = 'Please enter your email address below.';
 			$mypage = 'register_password_reminder.php';
@@ -177,8 +182,12 @@ function show_html()
 	require_once('views/' . $mymenuleft);
 	if ($debug)
 	{
-/* 		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'] . ' --- loggedin' . $loggedin .'<br />'; */
-/* 		var_dump($_COOKIE); */
+/*
+		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'];
+		echo ' --- loggedin=' . $loggedin . ' --- id=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' );
+		echo '<br />';
+		var_dump($_COOKIE);
+*/
 /* 		var_dump($_REQUEST); */
 	}
 	require_once('views/' . $mypage);
@@ -209,7 +218,7 @@ function set_user_info()
 		if ($name <> 'password_confirm')
 		{
 			if ( isset($_POST[$name]) )
-				$_POST[$name] = mysql_real_escape_string($_POST[$name]);
+				$_POST[$name] = mysql_real_escape_string(echo_value($name));
 			else
 				$_POST[$name] = $row[$name];
 		}

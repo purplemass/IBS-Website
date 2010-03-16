@@ -20,7 +20,7 @@
 								<p>Unfortunately, we are unable to accept donations from the United States at present time.</p>
 								<p>Thank you very much for registering with us. We'll contact you in the future.........</p>
 								<p>If you'd like to edit your details further, please <a id="edit_button" href="#">click here</a>.</p>
-								<p>If you'd like to log out, please <a id="logout" href="#">click here</a>.</p>
+								<p>If you'd like to log out, please <a id="logout_inline" href="#">click here</a>.</p>
 <?php else: ?>
 								<p>Please enter the amount you'd like to donate and tell us if you are a UK taxpayer.
 								Press the PayPal button below to go to our PayPal page for a secure transaction.</p>

@@ -14,8 +14,8 @@
 								<?php echo $instructions_text; ?>
 							</li>
 							<li class="no_list">
-								<p>If you'd like to edit your details further, please <a id="edit_button" href="#">click here</a>.</p>
-								<p>If you'd like to log out, please <a id="logout" href="#">click here</a>.</p>
+								<p>If you'd like to edit your details further, please <a id="edit_button_inline" href="#">click here</a>.</p>
+								<p>If you'd like to log out, please <a id="logout_inline" href="#">click here</a>.</p>
 							</li>
 						</ol>
 					</fieldset>

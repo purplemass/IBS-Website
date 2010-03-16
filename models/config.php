@@ -16,7 +16,7 @@ $is_live = TRUE;
 $debug = FALSE;
 
 $mycookie_name = 'ibs_register';
-$mycookie_expiry = time() + 600;
+$mycookie_expiry = 600;
 
 //--------------------------------------------------------------
 

@@ -111,14 +111,14 @@ $(document).ready(function(){
 	});
 
 	// logout buttons
-	$("#logout, #logout_menu").click(function(){
+	$("#logout, #logout_inline").click(function(){
 		$('#page_flag').val('logout');
 		$('#main_form').submit();
 		return true;
 	});
 
 	// edit button
-	$("#edit_button").click(function(){
+	$("#edit_button, #edit_button_inline").click(function(){
 		$('#page_flag').val('edit');
 		$('#main_form').submit();
 		return true;
