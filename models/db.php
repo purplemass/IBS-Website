@@ -5,7 +5,6 @@
 // Global vars
 
 define('REDIRECT_PAGE', 'index.html');
-define('EMAIL_FROM', 'info@ibsproject.org');
 
 //--------------------------------------------------------------
 
@@ -56,6 +55,8 @@ function db_fetch($sql)
 
 	return $row;
 }
+
+//--------------------------------------------------------------
 
 /**
  * Checks for DB errors - debugging only

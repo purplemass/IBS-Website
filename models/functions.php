@@ -139,48 +139,28 @@ function validate_email($str)
 //--------------------------------------------------------------
 
 /**
- * Sends simple email
- *
- * @access public
- * @param string
- * @param string
- * @param string
- * @param string
- */
-function send_mail($from,$to,$subject,$body)
-{
-	$headers = '';
-	$headers .= "From: $from\n";
-	$headers .= "Reply-to: $from\n";
-	$headers .= "Return-Path: $from\n";
-	$headers .= "Message-ID: <" . md5(uniqid(time())) . "@" . $_SERVER['SERVER_NAME'] . ">\n";
-	$headers .= "Content-type: text/html; charset=iso-8859-1\n";
-	$headers .= "MIME-Version: 1.0\n";
-	$headers .= "Date: " . date('r', time()) . "\n";
-
-	mail($to,$subject,$body,$headers);
-}
-
-//--------------------------------------------------------------
-
-/**
- * Sends email
+ * Send email
  *
  * @access public
  * @param string	email to
- * @param string	email from
  * @param string	subject
  * @param string	message
- * @param string	email from (server)
  * @return string	OK or ERROR
  */
-function send_mail_ibs($emailTo, $emailFrom, $subject, $message, $emailFromServer='')
+function send_mail($emailTo, $subject, $message)
 {
-	$headers	= 	"From: IBS Project <$emailFrom>" . "\r\n" .
-					"Reply-To: IBS Project <$emailFrom>" . "\r\n" .
-					"X-Mailer: PHP/" . phpversion();
+	$R = "\r\n";
+	$headers = '';
+	$headers .= 'From: IBS Project <' . EMAIL_FROM . '>' . $R;
+	$headers .= 'Reply-To: IBS Project <' . EMAIL_FROM . '>' . $R;
+	$headers .= 'Return-Path: IBS Project <' . EMAIL_FROM . '>' . $R;
+	$headers .= 'Message-ID: <' . md5(uniqid(time())) . '@' . $_SERVER['SERVER_NAME'] . '>' . $R;
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . $R;
+	$headers .= 'MIME-Version: 1.0' + $R;
+	$headers .= 'Date: ' . date('r', time()) . $R;
+	$headers .= 'X-Mailer: PHP/' . phpversion() . $R;
 
-	#$r = mail($emailTo, $subject, $message, $headers, '-f' . $emailFromServer);
+	#$r = mail($emailTo, $subject, $message, $headers, '-f' . EMAIL_SERVER);
 	$r = mail($emailTo, $subject, $message, $headers);
 	
 	if ($r == 1)
@@ -192,14 +172,14 @@ function send_mail_ibs($emailTo, $emailFrom, $subject, $message, $emailFromServe
 //--------------------------------------------------------------
 
 /**
- * Writes to file
+ * Write to file
  *
  * @access public
  * @param string	file name
  * @param string	file content
  * @return void
  */
-function WriteFile($filename, $content)
+function write_file($filename, $content)
 {
 	if (!@$handle = fopen($filename, 'a+')) {
 		return("ERROR - Cannot open file($filename)");
@@ -214,14 +194,14 @@ function WriteFile($filename, $content)
 //--------------------------------------------------------------
 
 /**
- * Writes to file
+ * Write to file and log (not used)
  *
  * @access public
  * @param string	file name
  * @param string	file content
  * @return void
  */
-function WriteFileID($filename, $content) {
+function write_file_id($filename, $content) {
 	
 	global $syslog_id;
 	
@@ -235,15 +215,17 @@ function WriteFileID($filename, $content) {
 	}
 }
 
+//--------------------------------------------------------------
+
 /**
- * Creats to file
+ * Create a file
  *
  * @access public
  * @param string	file name
  * @param string	file content
  * @return void
  */
-function CreateFile($fd, $file)
+function create_file($fd, $file)
 {
 	if (!is_dir($fd)) {
 		mkdir($fd, 0777)
@@ -251,7 +233,7 @@ function CreateFile($fd, $file)
 	}
 	
 	if (!file_exists($file)) {
-		$r = WriteFile($file, '');
+		$r = write_file($file, '');
 		chmod($file, 0755);
 		return $r;
 	}

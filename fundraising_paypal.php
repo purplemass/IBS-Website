@@ -36,7 +36,7 @@ if (isset($_REQUEST))
 	#echo '<br />';
 	#echo $r2;
 	
-	WriteFile($file_name, $r1 . $r2);
+	write_file($file_name, $r1 . $r2);
 }
 
 //
@@ -101,16 +101,21 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 	$subject	= 'IBS Project - Donation Received';
 	$body 		= <<<EOF
 Dear $name,
-
+<br />
+<br />
 We have recieved your donation of £{$amount}.
-
+<br />
+<br />
 Many thanks,
-
+<br />
+<br />
 IBS Project Team
-
+<br />
+http://www.ibsproject.org
+<br />
 EOF;
 
-	send_mail($from,$to,$subject,$body);
+	send_mail($to,$subject,$body);
 }
 else
 {

@@ -61,18 +61,17 @@ $body .= "</body></html>";
 
 // send email to admin
 
-$from		= "info@ibsproject.org";
 $to			= "p.paykari@ibsproject.org,katypalizban@yahoo.co.uk,b.hatamian@ibsproject.org,mankassarian@aol.com,rezzzza@yahoo.com";
 $subject	= "IBS Project - Tickets Purchased";
 $body 		= $body;
 
-send_mail($from,$to,$subject,$body);
+send_mail($to, $subject, $body);
 
 // send email to buyer
 
 $to			= $email_addr;
 $subject	= "IBS Project - Tickets Purchased - Thank You";
 
-send_mail($from,$to,$subject,$body);
+send_mail($to, $subject, $body);
 
 ?>

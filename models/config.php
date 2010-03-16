@@ -2,17 +2,21 @@
 
 //--------------------------------------------------------------
 
+error_reporting(E_ERROR);
+
+//--------------------------------------------------------------
+
+define('EMAIL_FROM',	'noreply@ibsproject.com');
+define('EMAIL_AUTO',	'b.hatamian@ibsproject.com');
+define('EMAIL_SERVER',	'b.hatamian@ibsproject.org');
+
+//--------------------------------------------------------------
+
 $is_live = TRUE;
 $debug = FALSE;
 
-$autoEmailTo 		= 'info@ibsproject.org';
-$emailFrom 			= 'noreply@ibsproject.com';
-$emailFromServer	= 'info@ibsproject.org';
-
 $mycookie_name		= 'ibs_register';
 $mycookie_expiry	= 0; // until browser is closed or time() + 600 for 10 minutes
-
-error_reporting(E_ERROR);
 
 //--------------------------------------------------------------
 
@@ -21,9 +25,7 @@ error_reporting(E_ERROR);
 if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.65') )
 {
 	$is_live = FALSE;
-	$debug = TRUE;
-	$autoEmailTo = 'b.hatamian@ibsproject.org';
-	
+	$debug = TRUE;	
 	ini_set("display_errors", 1);
 	error_reporting(E_ALL);
 }

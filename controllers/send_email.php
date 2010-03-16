@@ -31,11 +31,11 @@ if (isset($_REQUEST[$s])) {
 
 //--------------------------------------------------------------
 
-$r = CreateFile($folder_name, $filename);
+$r = create_file($folder_name, $filename);
 
 $s 	= $displayDate . ',' . $displayTime . ',';
 $s .= '"' . $emailAddress . '"' . "\r\n";
-$r	= WriteFile($filename, $s);
+$r	= write_file($filename, $s);
 
 #if ($r != 'OK')
 #	exit $r;
@@ -44,10 +44,15 @@ $r	= WriteFile($filename, $s);
 
 $subject = 'IBS Project automated email - Newsletter Subscription';
 
-$message = 'Please add the following email address to the database:'
-				. "\r\n" . "\r\n" . $emailAddress;
+$message = <<<EOF
+Please add the following email address to the database:
+<br />
+<br />
+Email address: $emailAddress;
+<br />
+EOF;
 
-$r = send_mail_ibs($autoEmailTo, $emailFrom, $subject, $message, $emailFromServer);
+$r = send_mail(EMAIL_AUTO, $subject, $message);
 
 //--------------------------------------------------------------
 
@@ -55,16 +60,21 @@ $subject 		= 'Your subscription to the IBS Project Newsletter';
 
 $message 		= <<<EOF
 Dear Subscriber,
-
+<br />
+<br />
 Thank you for your interest in the Iranian Business School Project.  Your details will be added to our database and you will receive all future information and updates.
-
+<br />
+<br />
 Many thanks,
-
+<br />
+<br />
 IBS Project Team
-
+<br />
+http://www.ibsproject.org
+<br />
 EOF;
 
-$r = send_mail_ibs($emailAddress, $emailFrom, $subject, $message, $emailFromServer);
+$r = send_mail($emailAddress, $subject, $message);
 
 //--------------------------------------------------------------
 
