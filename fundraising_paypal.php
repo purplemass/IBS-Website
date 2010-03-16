@@ -1,12 +1,15 @@
 <?php
 
-#error_reporting(E_ERROR);
+//--------------------------------------------------------------
 
 define('INCLUDE_CHECK', true);
+
+//--------------------------------------------------------------
 
 require 'models/db.php';
 require 'models/functions.php';
 
+//--------------------------------------------------------------
 
 // write to temp file
 $dd			= ';';
@@ -39,7 +42,7 @@ if (isset($_REQUEST))
 	write_file($file_name, $r1 . $r2);
 }
 
-//
+//--------------------------------------------------------------
 
 $count = $_REQUEST['num_cart_items'];
 $total_amt = $_REQUEST['mc_gross'] . " " . $_REQUEST['mc_currency'];
@@ -54,6 +57,8 @@ $shipping_address = $_REQUEST['address_name'].'<br>'.
                     $_REQUEST['address_state'].'<br>'.
                     $_REQUEST['address_zip'].'<br>'.
                     $_REQUEST['address_country'];
+
+//--------------------------------------------------------------
 
 if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 
@@ -88,6 +93,8 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 	}
 	
 	insert_value('donor', 1, $pid);
+
+	//--------------------------------------------------------------
 	
 	//send email
 	
@@ -96,8 +103,6 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 	else
 		$name = 'Subscriber';
 
-	$from		= EMAIL_FROM;
-	$to			= $email;
 	$subject	= 'IBS Project - Donation Received';
 	$body 		= <<<EOF
 Dear $name,
@@ -106,20 +111,22 @@ Dear $name,
 We have recieved your donation of £{$amount}.
 <br />
 <br />
-Many thanks,
+Many thanks...
 <br />
 <br />
 IBS Project Team
 <br />
-http://www.ibsproject.org
+<a href="http://www.ibsproject.org">www.ibsproject.org</a>
 <br />
 EOF;
 
-	send_mail($to,$subject,$body);
+	send_mail($email, $subject, $body);
 }
 else
 {
 	header( 'Location: ' . REDIRECT_PAGE ) ;
 }
+
+//--------------------------------------------------------------
 
 ?>
