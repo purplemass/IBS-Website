@@ -23,11 +23,10 @@ $s = 'emailAddress';
 
 #if (!isset($_REQUEST[$s])) { die(); } else { $emailAddress = $_REQUEST[$s]; }
 
-if (isset($_REQUEST[$s])) {
+if (isset($_REQUEST[$s]))
 	$emailAddress = strip_tags(htmlentities($_REQUEST[$s]));
-} else {
+else
 	exit("ERROR");
-}
 
 //--------------------------------------------------------------
 
@@ -44,7 +43,7 @@ $r	= write_file($filename, $s);
 
 $subject = 'IBS Project automated email - Newsletter Subscription';
 
-$message = <<<EOF
+$body = <<<EOF
 Please add the following email address to the database:
 <br />
 <br />
@@ -52,13 +51,13 @@ Email address: $emailAddress;
 <br />
 EOF;
 
-$r = send_mail(EMAIL_AUTO, $subject, $message);
+$r = send_mail(EMAIL_AUTO, $subject, $body);
 
 //--------------------------------------------------------------
 
-$subject 		= 'Your subscription to the IBS Project Newsletter';
+$subject = 'Your subscription to the IBS Project Newsletter';
 
-$message 		= <<<EOF
+$body = <<<EOF
 Dear Subscriber,
 <br />
 <br />
@@ -74,7 +73,7 @@ http://www.ibsproject.org
 <br />
 EOF;
 
-$r = send_mail($emailAddress, $subject, $message);
+$r = send_mail($emailAddress, $subject, $body);
 
 //--------------------------------------------------------------
 

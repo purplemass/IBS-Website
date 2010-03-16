@@ -6,6 +6,7 @@ define('INCLUDE_CHECK', true);
 
 //--------------------------------------------------------------
 
+require 'models/config.php';
 require 'models/db.php';
 require 'models/functions.php';
 
@@ -44,36 +45,45 @@ if (isset($_REQUEST))
 
 //--------------------------------------------------------------
 
-$count = $_REQUEST['num_cart_items'];
-$total_amt = $_REQUEST['mc_gross'] . " " . $_REQUEST['mc_currency'];
-$payment_status = $_REQUEST['payment_status'];
-$payment_date = $_REQUEST['payment_date'];
-$buyer_name = $_REQUEST['first_name'].' '.$_REQUEST['last_name'];
-$email_addr = $_REQUEST['option_selection1_1'];
-$guest_list = $_REQUEST['option_selection2_1'];
-$shipping_address = $_REQUEST['address_name'].'<br>'.
-                    $_REQUEST['address_street'].'<br>'.
-                    $_REQUEST['address_city'].'<br>'.
-                    $_REQUEST['address_state'].'<br>'.
-                    $_REQUEST['address_zip'].'<br>'.
-                    $_REQUEST['address_country'];
+/* http://ibsproject.org/_dev/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&item_number=TAXPAYER_YES */
 
 //--------------------------------------------------------------
 
 if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 
-	$email	= mysql_real_escape_string($_REQUEST['transaction_subject']);
-	$amount	= mysql_real_escape_string($_REQUEST['mc_gross']);
+	$email	= mysql_real_escape_string(echo_value('transaction_subject'));
+	$amount	= mysql_real_escape_string(echo_value('mc_gross'));
+	$gift_aid = mysql_real_escape_string(echo_value('item_number'));
+	$gift_aid = ($gift_aid == 'TAXPAYER_YES') ? 1 : 0;
+
+	//--------------------------------------------------------------
+	
+	$count = $_REQUEST['num_cart_items'];
+	$total_amt = $_REQUEST['mc_gross'] . " " . $_REQUEST['mc_currency'];
+	$payment_status = $_REQUEST['payment_status'];
+	$payment_date = $_REQUEST['payment_date'];
+	$buyer_name = $_REQUEST['first_name'].' '.$_REQUEST['last_name'];
+	$email_addr = $_REQUEST['option_selection1_1'];
+	$guest_list = $_REQUEST['option_selection2_1'];
+	$shipping_address = $_REQUEST['address_name'].'<br>'.
+	                    $_REQUEST['address_street'].'<br>'.
+	                    $_REQUEST['address_city'].'<br>'.
+	                    $_REQUEST['address_state'].'<br>'.
+	                    $_REQUEST['address_zip'].'<br>'.
+	                    $_REQUEST['address_country'];
+
+	//--------------------------------------------------------------
 	
 	$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='" . $email . "'"));
+	check_db_error();
 	
-	// email exists
+	// id exists
 	if ($row['email'])
 	{
 		$pid = $row['id'];
-		insert_amount($pid, $amount);
+		insert_amount($pid, $amount, $gift_aid);
 	}
-	// email doesn't exist
+	// id doesn't exist
 	else
 	{
 		$sql_cmd = ("	INSERT INTO $db_table_community(dt, mdt, email)
@@ -88,7 +98,7 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 		mysql_query($sql_cmd);
 		
 		$pid = mysql_insert_id();
-		insert_amount($pid, $amount);
+		insert_amount($pid, $amount, $gift_aid);
 
 	}
 	
@@ -96,10 +106,10 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 
 	//--------------------------------------------------------------
 	
-	//send email
+	//send email to donor
 	
 	if ($row['title'] && $row['forename'] && $row['surname'])
-		$name = $row['title'] . ' ' . $row['forename'] . ' ' .$row['surname'];
+		$name = (($row['title'] <> 'other') ? $row['title'] : '') . ' ' . $row['forename'] . ' ' .$row['surname'];
 	else
 		$name = 'Subscriber';
 
@@ -120,7 +130,20 @@ IBS Project Team
 <br />
 EOF;
 
-	send_mail($email, $subject, $body);
+	$r = send_mail($email, $subject, $body);
+
+	//--------------------------------------------------------------
+	
+	//send email to IBS
+		
+	$subject = 'IBS Project automated email - Donation Received';
+	$body = <<<EOF
+We have recieved a donation of £{$amount} from {$name}.
+<br />
+EOF;
+
+	$r = send_mail(EMAIL_AUTO, $subject, $body);
+
 }
 else
 {

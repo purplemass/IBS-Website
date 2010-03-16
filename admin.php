@@ -1,11 +1,16 @@
 <?php
 
-#error_reporting(E_ERROR);
+//--------------------------------------------------------------
 
 define('INCLUDE_CHECK', true);
 
+//--------------------------------------------------------------
+
+require 'models/config.php';
 require 'models/db.php';
 require 'models/functions.php';
+
+//--------------------------------------------------------------
 
 $ret = '';
 
@@ -27,6 +32,7 @@ while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	$ret .= '<td>' . $row['surname'] . '</td>';
 	$ret .= '<td>' . $row['country'] . '</td>';
 	$ret .= '<td>' . $row['amount'] . '</td>';
+	$ret .= '<td>' . $row['gift_aid'] . '</td>';
 	$ret .= '</tr>';
 	
 	$count++;
@@ -37,8 +43,15 @@ $ret .= '</table>';
 mysql_free_result($result);
 
 $this_nav = 6;
-require_once('views/html_head.php');
-echo 'Existing donations so far:';
-echo $ret;
-require_once('views/html_tail.php');
+require_once('views/head.php');
+echo <<<EOF
+<span class="small">
+Existing donations so far:
+$ret
+</span>
+EOF;
+require_once('views/tail.php');
+
+//--------------------------------------------------------------
+
 ?>

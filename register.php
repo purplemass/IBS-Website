@@ -567,20 +567,4 @@ EOF;
 	send_mail($emailto, $subject, $message);
 }
 
-/*
-
-SESSIONS - IGNORE FOR NOW!
-
-ob_start();
-session_start();
-session_name('tzLogin');
-
-if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == 1);
-$_SESSION['logged_in'] = 0;
-setcookie($mycookie_name, "", time() - 60, $mycookie_path, $mycookie_domain);
-session_destroy();
-
-*/
-
-
 ?>

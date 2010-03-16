@@ -157,6 +157,11 @@ Generic classes
 	margin: 10px 30px 10px 10px;
 	font-size: 0.9em;
 }
+
+.small {
+	font-size: 0.8em;
+}
+
 /*
 
 CONTAINERS ET LA
@@ -547,7 +552,7 @@ DB
 */
 
 #db_result {
-	font-size: small;
+	font-size: 0.8em;
 	padding-bottom: 100px;
 }
 

@@ -12,10 +12,10 @@
  */
 function echo_value($str, $echo_it=FALSE)
 {
-	if ( empty($_POST[$str]) || (! isset($_POST[$str])) || (! $_POST[$str]) )
+	if ( empty($_REQUEST[$str]) || (! isset($_REQUEST[$str])) || (! $_REQUEST[$str]) )
 		$ret = '';
 	else
-		$ret = (htmlentities($_POST[$str], ENT_QUOTES, 'UTF-8')); #strip_tags
+		$ret = (htmlentities($_REQUEST[$str], ENT_QUOTES, 'UTF-8')); #strip_tags
 
 	if ($echo_it === TRUE)
 		echo $ret;
@@ -68,58 +68,6 @@ function delete_cookie()
 
 	setcookie ($mycookie_name, "", time() - 3600);
 	unset($_COOKIE[$mycookie_name]);
-}
-
-//--------------------------------------------------------------
-
-/**
- * Insert any value into community table
- *
- * @access public
- * @param string	field name
- * @param float		field value
- * @return void
- */
-function insert_value($field, $value, $pid)
-{
-	global $db_table_community;
-
-	$sql_cmd = ("	UPDATE $db_table_community
-					SET mdt = NOW(), " . $field . " = '" . $value . "'
-					
-						WHERE id=" . $pid . "
-
-					");
-	
-	mysql_query($sql_cmd);
-	check_db_error();
-}
-
-//--------------------------------------------------------------
-
-/**
- * Insert amount into DB
- *
- * @access public
- * @param int		person's id
- * @param float		amount
- * @return void
- */
-function insert_amount($pid, $amount)
-{
-	global $db_table_donations;
-
-	$sql_cmd = ("	INSERT INTO $db_table_donations(dt, pid, amount)
-					VALUES(
-
-						NOW(),
-						'" . $pid . "',
-						'" . $amount . "'
-
-					)");
-	
-	mysql_query($sql_cmd);
-	check_db_error();
 }
 
 //--------------------------------------------------------------

@@ -84,11 +84,13 @@ $(document).ready(function(){
 	// registration form radio buttons select
 	$("#taxpayer_yes_select").click(function(){
 		$('#taxpayer_yes').attr("checked", "checked");
+		$('#item_number').val('TAXPAYER_YES');
 		return true;
 	});
 
 	$("#taxpayer_no_select").click(function(){
 		$('#taxpayer_no').attr("checked", "checked");
+		$('#item_number').val('TAXPAYER_NO');
 		return true;
 	});
 

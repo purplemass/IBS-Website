@@ -59,6 +59,59 @@ function db_fetch($sql)
 //--------------------------------------------------------------
 
 /**
+ * Insert any value into community table
+ *
+ * @access public
+ * @param string	field name
+ * @param float		field value
+ * @return void
+ */
+function insert_value($field, $value, $pid)
+{
+	global $db_table_community;
+
+	$sql_cmd = ("	UPDATE $db_table_community
+					SET mdt = NOW(), " . $field . " = '" . $value . "'
+					
+						WHERE id=" . $pid . "
+
+					");
+	
+	mysql_query($sql_cmd);
+	check_db_error();
+}
+
+//--------------------------------------------------------------
+
+/**
+ * Insert amount/gift_aid into DB
+ *
+ * @access public
+ * @param int		person's id
+ * @param float		amount
+ * @return void
+ */
+function insert_amount($pid, $amount, $gift_aid)
+{
+	global $db_table_donations;
+
+	$sql_cmd = ("	INSERT INTO $db_table_donations(dt, pid, amount, gift_aid)
+					VALUES(
+
+						NOW(),
+						'" . $pid . "',
+						'" . $amount . "',
+						'" . $gift_aid . "'
+
+					)");
+	
+	mysql_query($sql_cmd);
+	check_db_error();
+}
+
+//--------------------------------------------------------------
+
+/**
  * Checks for DB errors - debugging only
  *
  * @access public

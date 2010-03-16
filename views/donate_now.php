@@ -45,9 +45,14 @@
 						</ol>
 					</fieldset>
 
-					<input type="hidden" name="return" value="http://www.ibsproject.org">
-					<input type="hidden" id="custom" name="custom" value="<?php echo $row['email']; ?>">
+					<!-- store user's id in custom field - will be returned as transaction_subject and custom -->
+					<input type="hidden" id="custom" name="custom" value="<?php echo_value('email', TRUE); ?>">
 
+					<!-- store taxpayer yes/no in item_number -->
+					<input type="hidden" id="item_number" name="item_number" value="">
+
+
+					<input type="hidden" name="return" value="http://www.ibsproject.org">
 					<input type="hidden" name="cmd" value="_xclick">
 					<input type="hidden" name="business" value="seller_1256763583_biz@hotmail.com">
 					<input type="hidden" name="item_name" value="IBS Project Donation">
@@ -55,7 +60,6 @@
 <!-- 					<input class="submit_button" type="image" id="donate_button" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"> -->
 					<input class="submit_button" type="image" id="donate_button" src="./assets/images/paypal.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
 <?php endif; ?>
-<!-- 					<a id="submit" href="#" class="buttons submit_button">Submit</a> -->
 				</form>
 <!--
 					<p><img src="assets/images/button_google_checkout.gif" /></p>

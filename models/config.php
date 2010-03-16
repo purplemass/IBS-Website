@@ -7,7 +7,7 @@ error_reporting(E_ERROR);
 //--------------------------------------------------------------
 
 define('EMAIL_FROM',	'noreply@ibsproject.com');
-define('EMAIL_AUTO',	'b.hatamian@ibsproject.com');
+define('EMAIL_AUTO',	'b.hatamian@ibsproject.org');
 define('EMAIL_SERVER',	'b.hatamian@ibsproject.org');
 
 //--------------------------------------------------------------
@@ -15,8 +15,8 @@ define('EMAIL_SERVER',	'b.hatamian@ibsproject.org');
 $is_live = TRUE;
 $debug = FALSE;
 
-$mycookie_name		= 'ibs_register';
-$mycookie_expiry	= 0; // until browser is closed or time() + 600 for 10 minutes
+$mycookie_name = 'ibs_register';
+$mycookie_expiry = time() + 600;
 
 //--------------------------------------------------------------
 

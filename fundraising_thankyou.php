@@ -6,6 +6,7 @@ define('INCLUDE_CHECK', true);
 
 //--------------------------------------------------------------
 
+require 'models/config.php';
 require 'models/db.php';
 require 'models/functions.php';
 
