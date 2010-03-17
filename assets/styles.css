@@ -510,6 +510,7 @@ div#menuright #subscribe a:hover {
 div#menuright #error {
 	display: none;
 	color: red;
+	font-size: 0.8em;
 }
 
 div#menuright #success {

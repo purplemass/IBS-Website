@@ -81,7 +81,7 @@ Kind regards,
 <br />
 IBS Project Team
 <br />
-http://www.ibsproject.org
+<a href="http://www.ibsproject.org">www.ibsproject.org</a>
 <br />
 EOF;
 
@@ -116,7 +116,7 @@ Kind regards,
 <br />
 IBS Project Team
 <br />
-http://www.ibsproject.org
+<a href="http://www.ibsproject.org">www.ibsproject.org</a>
 <br />
 EOF;
 
@@ -131,7 +131,7 @@ EOF;
  * @access public
  * @return void
  */
-function send_newsletter_auto_email()
+function send_newsletter_auto_email($email)
 {
 	$subject = 'IBS Project automated email - Newsletter Subscription';
 	
@@ -139,7 +139,7 @@ function send_newsletter_auto_email()
 Please add the following email address to the database:
 <br />
 <br />
-Email address: $emailAddress;
+Email address: {$email};
 <br />
 EOF;
 	
@@ -171,7 +171,7 @@ Many thanks,
 <br />
 IBS Project Team
 <br />
-http://www.ibsproject.org
+<a href="http://www.ibsproject.org">www.ibsproject.org</a>
 <br />
 EOF;
 

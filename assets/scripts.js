@@ -28,14 +28,6 @@ $(document).ready(function(){
 	$('a[href$=".pdf"]')
 		.attr("target", "_blank");
 	
-	// select the input box when clicked
-	$("#emailAddress").click(function(){
-		this.focus();
-		this.select();
-		$("#error").hide();
-		$("#success").hide();
-	});
-
 	// donation pages
 	$("#main_form #email").focus();
 	$("#main_form #forename").focus();
@@ -144,10 +136,18 @@ $(document).ready(function(){
 		return true;
 	});
 
-	/* 	EMAIL */
+	/* 	NEWSLETTER */
+
+	// select the input box when clicked
+	$("#emailAddress").click(function(){
+		this.focus();
+		this.select();
+		$("#error").hide();
+		$("#success").hide();
+	});
 	
 	// validate email & send
-	$("#submit").click(function(){
+	$("#newsletter_submit").click(function(){
 
 		$("#error").hide();
 		
@@ -158,7 +158,7 @@ $(document).ready(function(){
 		
 		if(emailAddressVal == '') {
 		
-			$("#error").html('You forgot to enter the email address.');
+			$("#error").html('You forgot to enter your email address.');
 			hasError = true;
 		
 		} else if(!emailReg.test(emailAddressVal)) {
@@ -179,11 +179,11 @@ $(document).ready(function(){
 				success:	function(output) {
 								//alert(output);
 								if (output == 'OK') {
-									$("#subscriptionform").hide();
+									$("#newsletter_form").hide();
 						   			$("#success").show();
 						   			$("#error").hide();
 						   		} else {
-						   			errorResponse()
+						   			errorResponse(output)
 						   		}
 				},
 				error:		errorResponse
@@ -191,7 +191,7 @@ $(document).ready(function(){
 
 		} else {
 
-			$("#subscriptionform").show();		
+			$("#newsletter_form").show();		
 			$("#error").show();
 		
 		}
@@ -204,12 +204,12 @@ $(document).ready(function(){
 // **********************************************
 // errorResponse
 // **********************************************
-function errorResponse() {
-
-	$("#subscriptionform").show();
+function errorResponse(output) {
+alert(output);
+	$("#newsletter_form").show();
 	$("#error").html('There was an error - please try again later.');		
 	$("#error").show();
-	$("#submit").show();
+	$("#newsletter_submit").show();
 
 }
 
@@ -222,7 +222,7 @@ function errorResponse() {
 			
 			$.post("_sendemail.php",{ emailAddress: emailAddressVal, success: showResponse, error: showError },
 		   		function(data){
-		   			$("#subscriptionform").hide();
+		   			$("#newsletter_form").hide();
 		   			$("#success").show();
 					//$("#sendEmail").slideUp("normal", function(){
 					//	$("#success").show();
