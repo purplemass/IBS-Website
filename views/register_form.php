@@ -57,7 +57,7 @@ if (isset($_POST['newsletter']))
 							</li>
 <?php endforeach; ?>
 							<li class="no_list">
-								<br />&nbsp;<span class="mandatory">*</span> denotes required fields
+								<br />&nbsp;<span class="mandatory">*</span> denotes required field
 							</li>
 						</ol>
 					</fieldset>

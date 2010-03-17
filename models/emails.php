@@ -41,7 +41,7 @@ EOF;
  * @access public
  * @return void
  */
-function send_email_auto_donor()
+function send_email_auto_donor($name, $amount)
 {
 	$subject = 'IBS Project automated email - Donation Received';
 	$body = <<<EOF

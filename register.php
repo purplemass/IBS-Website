@@ -140,7 +140,7 @@ function show_html()
 		case 'reg_new':
 			set_cookie();
 			$page_title = 'Your details';
-			$instructions_text = 'Thank you for registering with us ' . get_full_name();
+			$instructions_text = 'Thank you for registering with us ' . get_full_name() . '.';
 			$mypage = (is_donate()) ? 'donate_now.php' : 'register_thankyou.php';
 			break;
 			
@@ -149,7 +149,7 @@ function show_html()
 			set_cookie();
 			$page_title = (is_donate()) ? 'Online Donations' : 'Log in or register';
 			$instructions_text = ($loggedin) ? 'Your are logged in as ' : 'Thank you for updating your profile ';
-			$instructions_text .= get_full_name();
+			$instructions_text .= get_full_name() . '.';
 			$mypage = (is_donate()) ? 'donate_now.php' : 'register_thankyou.php';
 			break;
 
@@ -158,7 +158,7 @@ function show_html()
 		case 'donate_now':
 			set_user_info();
 			set_cookie();
-			$instructions_text = 'Welcome back ' . get_full_name();
+			$instructions_text = 'Welcome back ' . get_full_name() . '.';
 			$mypage = 'donate_now.php';
 			break;
 			

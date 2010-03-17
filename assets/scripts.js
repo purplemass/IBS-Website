@@ -168,9 +168,11 @@ $(document).ready(function(){
 		
 		}
 		
-		if(hasError == false) {
+		if (hasError == false) {
 			
 			$(this).hide();
+			
+			
 
 			$.ajax({
 				type:		"POST",
@@ -188,6 +190,9 @@ $(document).ready(function(){
 				},
 				error:		errorResponse
              });  
+
+				$("#error").html('Processing. Please wait.');
+				$("#error").show();
 
 		} else {
 
@@ -207,7 +212,7 @@ $(document).ready(function(){
 function errorResponse(output) {
 alert(output);
 	$("#newsletter_form").show();
-	$("#error").html('There was an error - please try again later.');		
+	$("#error").html('There was an error - please try again later.');
 	$("#error").show();
 	$("#newsletter_submit").show();
 

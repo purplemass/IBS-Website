@@ -83,12 +83,12 @@ function get_full_name($row='')
 	if ($row == '')
 	{
 		$ret = ($_POST['title'] <> 'Other') ? $_POST['title'] . ' ' : '';
-		$ret .= $_POST['forename'] . ' ' . $_POST['surname'] . '.';
+		$ret .= $_POST['forename'] . ' ' . $_POST['surname'];
 	}
 	else
 	{
 		$ret = ($row['title'] <> 'Other') ? $row['title'] . ' ' : '';
-		$ret .= $row['forename'] . ' ' . $row['surname'] . '.';	
+		$ret .= $row['forename'] . ' ' . $row['surname'];
 	}
 	
 	return $ret;
