@@ -78,6 +78,7 @@ switch($_POST['page_flag'])
 
 	case 'logout':
 		delete_cookie();
+		$loggedin = FALSE;
 		$flag = 'start';
 		break;
 }
