@@ -96,9 +96,7 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 		$name = 'Subscriber';
 	
 	send_email_auto_donor($name, $amount);
-	
-	if ((send_email_donor($email, $name, $amount)) == 'OK')
-		write_file($file_name, 'EMAIL SENT ' . $email);
+	send_email_donor($email, $name, $amount);
 }
 else
 {
