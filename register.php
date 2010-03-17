@@ -9,6 +9,7 @@ define('INCLUDE_CHECK', true);
 require_once('models/config.php');
 require_once('models/db.php');
 require_once('models/functions.php');
+require_once('models/emails.php');
 
 //--------------------------------------------------------------
 
@@ -423,9 +424,12 @@ function check_registration()
 		check_db_error();
 		
 		$_POST['id'] = mysql_insert_id();
+		$email = $_POST['email'];
+		$name = get_full_name();
+		$password = $_POST['password'];
 				
 		// send email
-		send_registration_email();
+		send_registration_email($email, $name, $password);
 	}
 }
 
@@ -465,7 +469,7 @@ function check_password_reminder()
 		if ($row['email'])
 		{
 			$name = $row['title'] . ' ' . $row['forename'] . ' ' . $row['surname'];
-			send_password_email($name, $row['password']);
+			send_password_email($row['email'], $name, $row['password']);
 			$err[] = 'A password reminder has been sent to your registered email address';
 			$flag = 'start';
 		}
@@ -490,90 +494,5 @@ function is_donate()
 }
 
 //--------------------------------------------------------------
-
-/**
- * Get full name
- *
- * @access public
- * @return string		result
- */
-function get_full_name()
-{
-	$ret = ($_POST['title'] <> 'Other') ? $_POST['title'] . ' ' : '';
-	$ret .= $_POST['forename'] . ' ' . $_POST['surname'] . '.';
-	
-	return $ret;
-}
-
-//--------------------------------------------------------------
-
-/**
- * Send registration email
- *
- * @access public
- * @return void
- */
-function send_password_email($name, $password)
-{
-	$emailto = $_POST['email'];
-	$subject = 'Password reminder for IBS Project website';
-	$message = <<<EOF
-Dear {$name},
-<br />
-<br />
-Here is a reminder of your password for the Iranian Business School website:
-<br />
-<br />
-Password: {$password}
-<br />
-<br />
-Kind regards,
-<br />
-<br />
-IBS Project Team
-<br />
-http://www.ibsproject.org
-<br />
-EOF;
-
-	send_mail($emailto, $subject, $message);
-}
-
-//--------------------------------------------------------------
-
-
-/**
- * Send registration email
- *
- * @access public
- * @return void
- */
-function send_registration_email()
-{
-	$emailto = $_POST['email'];
-	$subject = 'Thank you for registering';
-	$message = <<<EOF
-Dear {$_POST['title']} {$_POST['forename']} {$_POST['surname']},
-<br />
-<br />
-Thank you for registering with the Iranian Business School Project website. Your details will be added to our database and you will receive all future information and updates.
-<br />
-<br />
-Email address: {$_POST['email']}
-<br />
-Password: {$_POST['password']}
-<br />
-<br />
-Kind regards,
-<br />
-<br />
-IBS Project Team
-<br />
-http://www.ibsproject.org
-<br />
-EOF;
-
-	send_mail($emailto, $subject, $message);
-}
 
 ?>

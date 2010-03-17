@@ -106,44 +106,15 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 
 	//--------------------------------------------------------------
 	
-	//send email to donor
-	
+	//send emails (to donor & IBS)
+
 	if ($row['title'] && $row['forename'] && $row['surname'])
-		$name = (($row['title'] <> 'other') ? $row['title'] : '') . ' ' . $row['forename'] . ' ' .$row['surname'];
+		$name = get_full_name($row['title']);
 	else
 		$name = 'Subscriber';
-
-	$subject	= 'IBS Project - Donation Received';
-	$body 		= <<<EOF
-Dear $name,
-<br />
-<br />
-We have recieved your donation of £{$amount}.
-<br />
-<br />
-Many thanks...
-<br />
-<br />
-IBS Project Team
-<br />
-<a href="http://www.ibsproject.org">www.ibsproject.org</a>
-<br />
-EOF;
-
-	$r = send_mail($email, $subject, $body);
-
-	//--------------------------------------------------------------
 	
-	//send email to IBS
-		
-	$subject = 'IBS Project automated email - Donation Received';
-	$body = <<<EOF
-We have recieved a donation of £{$amount} from {$name}.
-<br />
-EOF;
-
-	$r = send_mail(EMAIL_AUTO, $subject, $body);
-
+	send_email_donor($email, $name, $amount);
+	send_email_auto_donor();
 }
 else
 {

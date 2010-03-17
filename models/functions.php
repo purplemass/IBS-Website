@@ -73,6 +73,30 @@ function delete_cookie()
 //--------------------------------------------------------------
 
 /**
+ * Get full name
+ *
+ * @access public
+ * @return string		result
+ */
+function get_full_name($row='')
+{
+	if ($row == '')
+	{
+		$ret = ($_POST['title'] <> 'Other') ? $_POST['title'] . ' ' : '';
+		$ret .= $_POST['forename'] . ' ' . $_POST['surname'] . '.';
+	}
+	else
+	{
+		$ret = ($row['title'] <> 'Other') ? $row['title'] . ' ' : '';
+		$ret .= $row['forename'] . ' ' . $row['surname'] . '.';	
+	}
+	
+	return $ret;
+}
+
+//--------------------------------------------------------------
+
+/**
  * Checks email address for illegal chars & format
  *
  * @access public
