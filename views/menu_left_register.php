@@ -6,8 +6,9 @@
 			?>" href="#" id="register_start">Log in or register</a>
 <?php if ($loggedin): ?>
 			<a class="navitem<?php echo ($flag == 'edit') ? ' active' : ''; ?>" href="#" id="edit_button">Edit details</a>
-<?php endif; ?>
+<?php else: ?>
 			<a class="navitem<?php echo ( ($_POST['page_flag'] == 'password_sender') || ($_POST['page_flag'] == 'password_reminder') ) ? ' active' : '' ?>" href="#" id="password_reminder_menu">Get password reminder</a>
+<?php endif; ?>
 <?php if ($loggedin): ?>
 			<a class="navitem" href="#" id="donate_start">Donate Online</a>
 			<a class="navitem" href="#" id="logout">Log out</a>

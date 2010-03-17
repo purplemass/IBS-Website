@@ -182,8 +182,7 @@ CREATE TABLE `ibs_events` (
   `id` int(11) NOT NULL auto_increment,
   `dt` datetime NOT NULL default '0000-00-00 00:00:00',
   `pid` int(11) NOT NULL,
-  `amount` float(10,2) NOT NULL default 0.00,
-  `gift_aid` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
+  `date_attended` date NOT NULL default '0000-00-00',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
