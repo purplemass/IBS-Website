@@ -590,6 +590,12 @@ ADMIN
 	margin-right: 10px;
 }
 
+.cancel_button {
+	float: right;
+	margin-top: -35px;
+	margin-right: 70px;
+}
+
 #edit_form_button {
 	position: relative;
 	top: -3px;

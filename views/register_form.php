@@ -61,5 +61,6 @@ if (isset($_POST['newsletter']))
 							</li>
 						</ol>
 					</fieldset>
+					<a id="cancel" href="#" class="buttons cancel_button">Cancel</a>
 					<a id="submit" href="#" class="buttons submit_button">Submit</a>
 				</form>

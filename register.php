@@ -136,6 +136,10 @@ function show_html()
 			$page_title = 'Your details';
 			$instructions_text = 'Please edit your details below:';
 			$mypage = 'register_form.php';
+
+			if ( ( ! is_donate() ) && ($flag = 'edit') )
+				$mymenuright = "menu_right_blank.php";
+
 			break;
 			
 		case 'reg_new':
@@ -148,10 +152,18 @@ function show_html()
 		case 'reg_updated':
 			set_user_info();
 			set_cookie();
-			$page_title = (is_donate()) ? 'Online Donations' : 'Log in or register';
-			$instructions_text = ($loggedin) ? 'Your are logged in as ' : 'Thank you for updating your profile ';
-			$instructions_text .= get_full_name() . '.';
+			$page_title = (is_donate()) ? 'Donation online' : 'Members area';
+
+			if ($_POST['page_flag'] == 'check_registration')
+				$instructions_text = 'Thank you for updating your profile.';
+			else
+				$instructions_text = 'Welcome back ' . get_full_name() . '.';
+
 			$mypage = (is_donate()) ? 'donate_now.php' : 'register_thankyou.php';
+
+			if ( ! is_donate())
+				$mymenuright = "menu_right_blank.php";
+	
 			break;
 
 		// donate
@@ -184,9 +196,9 @@ function show_html()
 	require_once('views/' . $mymenuleft);
 	if ($debug)
 	{
-/*
 		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'];
 		echo ' --- loggedin=' . $loggedin . ' --- id=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' );
+/*
 		echo '<br />';
 		var_dump($_COOKIE);
 */
@@ -294,7 +306,7 @@ function check_email()
 		if ($_POST['has_account'] == "NO")
 			$err[] = 'Email address is already registered, please log in';
 		else
-			$flag = 'edit';
+			$flag = 'reg_updated';
 	}
 }
 

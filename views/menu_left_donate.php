@@ -3,7 +3,7 @@
 			<a class="navitem
 			<?php
 				echo ( ($flag <> 'edit') && ($_POST['page_flag'] <> 'password_sender') && ($_POST['page_flag'] <> 'password_reminder') ) ? ' active' : ''
-			?>" href="#" id="donate_start">Donate Online</a>
+			?>" href="#" id="donate_start">Donate online</a>
 <?php if ($loggedin): ?>
 			<a class="navitem<?php echo ($flag == 'edit') ? ' active' : ''; ?>" href="#" id="edit_button">Edit details</a>
 <?php else: ?>

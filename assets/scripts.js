@@ -102,6 +102,12 @@ $(document).ready(function(){
 		return true;
 	});
 
+	// registration form submit button
+	$("#cancel").click(function(){
+		history.go(-1);
+		return false;
+	});
+
 	// logout buttons
 	$("#logout, #logout_inline").click(function(){
 		$('#page_flag').val('logout');
@@ -124,9 +130,15 @@ $(document).ready(function(){
 	});
 
 	// registration form radio buttons select
-	$("#radio_yes_select, #password").click(function(){
+	$("#radio_yes_select").click(function(){
 		$('#radio_yes').attr("checked", "checked");
 		$('#submit').text("Log in");
+		return true;
+	});
+
+	// registration form radio buttons select
+	$("#password").click(function(){
+		$("#radio_yes_select").click();
 		return true;
 	});
 
