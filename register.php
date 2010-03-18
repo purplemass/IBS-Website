@@ -21,14 +21,16 @@ $loggedin = FALSE;
 //--------------------------------------------------------------
 
 // check sys_flag:
-//		'donate' will be set
-//		'register' will not be set
+//		when 'donate' sys_flag will be set to donate
+//		when 'register' sys_flag will not be set
 if ( ! isset($_POST['sys_flag']) )
 	$_POST['sys_flag'] = 'register';
 
+//--------------------------------------------------------------
+
 // check page_flag:
-//		'donate' will be set to ''
-//		'register' will not be set
+//		when 'donate' page_flag will be set to ''
+//		when 'register' page_flag will not be set
 if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 {
 	$_POST['page_flag'] = '';
@@ -37,6 +39,8 @@ if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 	if (isset($_COOKIE[$mycookie_name]))
 		$flag = 'reg_updated';
 }
+
+//--------------------------------------------------------------
 
 // are we logged in?
 if (isset($_COOKIE[$mycookie_name]))
@@ -192,13 +196,21 @@ function show_html()
 			break;
 	}
 	
+	//--------------------------------------------------------------
+
+	// show loggedin on top menu
+	if ($loggedin)
+		$nav_items['register.php'] = 'Members area';
+
+	//--------------------------------------------------------------
+
 	require_once('views/head.php');
 	require_once('views/' . $mymenuleft);
 	if ($debug)
 	{
+/*
 		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'];
 		echo ' --- loggedin=' . $loggedin . ' --- id=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' );
-/*
 		echo '<br />';
 		var_dump($_COOKIE);
 */
