@@ -1,6 +1,4 @@
 
-			</div>
-		</div>
 		<div id="menuright">
 			<div class="quicklinks">Donating to the IBS Project</div>
 			<p>Donating on the IBS Project website is totally secure and simple.</p>

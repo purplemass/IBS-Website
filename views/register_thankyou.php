@@ -1,5 +1,9 @@
 <?php if ( ! defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
-
+		<div id="content">
+			<div id="title">
+				<div class="text"><?php echo $page_title; ?></div>
+			</div>
+			<div id="body">
 <?php if ($err): ?>
 				<div class="error_message"><?php echo implode('<br />', $err); ?></div>
 <?php endif ?>
@@ -20,3 +24,5 @@
 						</ol>
 					</fieldset>
 				</form>
+			</div>
+		</div>

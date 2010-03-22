@@ -34,7 +34,7 @@ if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '
 
 // navigation menu items
 $nav_items = array(
-					'index.html'				=>	'Home',
+					'index.php'				=>	'Home',
 					'project.html'				=>	'The Project',
 					'programmes.html'			=>	'Programmes',
 					'project_timeline.html'		=>	'Project Timeline',

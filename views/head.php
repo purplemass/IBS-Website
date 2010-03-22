@@ -31,7 +31,6 @@
 	<![endif]-->
 
 	<script type="text/javascript" src="assets/jquery.js"></script>
-	<script type="text/javascript" src="assets/jquery.json.js"></script>
 	<script type="text/javascript" src="assets/cufon-yui.js"></script>
 	<script type="text/javascript" src="assets/Helvetica_Neue_400.font.js"></script>
 	<script type="text/javascript" src="assets/Helvetica_Neue_500.font.js"></script>

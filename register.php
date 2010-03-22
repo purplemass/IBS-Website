@@ -150,7 +150,7 @@ function show_html()
 			set_cookie();
 			$page_title = 'Your details';
 			$instructions_text = 'Thank you for registering with us ' . get_full_name() . '.';
-			$mypage = (is_donate()) ? 'donate_now.php' : 'register_thankyou.php';
+			$mypage = (is_donate()) ? 'register_donate.php' : 'register_thankyou.php';
 			break;
 			
 		case 'reg_updated':
@@ -163,7 +163,7 @@ function show_html()
 			else
 				$instructions_text = 'Welcome back ' . get_full_name() . '.';
 
-			$mypage = (is_donate()) ? 'donate_now.php' : 'register_thankyou.php';
+			$mypage = (is_donate()) ? 'register_donate.php' : 'register_thankyou.php';
 
 			if ( ! is_donate())
 				$mymenuright = "menu_right_blank.php";
@@ -176,7 +176,7 @@ function show_html()
 			set_user_info();
 			set_cookie();
 			$instructions_text = 'Welcome back ' . get_full_name() . '.';
-			$mypage = 'donate_now.php';
+			$mypage = 'register_donate.php';
 			break;
 			
 		// get password

@@ -1,6 +1,4 @@
 
-			</div>
-		</div>
 		<div id="menuright">
 			<div class="quicklinks">Why register?</div>
 			<p>Registering with the IBS Project website is optional and free.</p>

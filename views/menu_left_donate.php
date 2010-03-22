@@ -14,8 +14,3 @@
 <?php endif; ?>
 <!-- 			<a class="navitem" href="#" id="unsubscribe">Unsubscribe (coming soon)</a> -->
 		</div>
-		<div id="content">
-			<div id="title">
-				<div class="text"><?php echo $page_title; ?></div>
-			</div>
-			<div id="body">
