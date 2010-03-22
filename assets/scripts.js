@@ -89,7 +89,7 @@ $(document).ready(function(){
 
 	/* 	LOGOUT BUTTONS */
 
-	$("#logout, #logout_inline, #logout_right").click(function(){
+	$("#logout, #logout_right").click(function(){
 		$.post('register.php',{
 			'page_flag': 'logout'
 		}, function(data){

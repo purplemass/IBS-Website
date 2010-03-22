@@ -20,7 +20,7 @@ Dear {$name},
 We have recieved your donation of £{$amount}.
 <br />
 <br />
-Many thanks...
+Many thanks ....
 <br />
 <br />
 IBS Project Team
