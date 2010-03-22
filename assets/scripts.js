@@ -42,7 +42,7 @@ $(document).ready(function(){
 	/* 	DONATION BUTTONS */
 
 	// donate start button
-	$("#donate_start").click(function(){
+	$("#donate_start, #donate_start2").click(function(){
 		$('#page_flag').val('donate');
 		$('#sys_flag').val('donate');
 		$('#main_form').submit();

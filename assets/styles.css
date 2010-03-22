@@ -343,20 +343,20 @@ div#menuleft #announcement p {
 
 }
 
-div#menuleft #announcement #white {
-	background-color: #EDEEE8;
+div#menuleft #announcement #box {
+	background-color: #D9DBD0; /* #EDEEE8; */
 	padding: 3px 2px 3px 5px;
 	margin-bottom: 5px;
 	margin-left: -4px;
 	width: 100%;
 }
 
-div#menuleft #announcement #white a {
+div#menuleft #announcement #box a {
 	color: #1f2126;
 	text-decoration: none;
 }
 
-div#menuleft #announcement #white a:hover {
+div#menuleft #announcement #box a:hover {
 	color: #09466a;
 }
 
