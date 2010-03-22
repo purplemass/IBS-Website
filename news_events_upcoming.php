@@ -23,9 +23,9 @@
 				<p>For more details on how to become a <span class="standout">Corporate or Individual Sponsor</span> and the benefits we can offer please download a copy of our <a href="_downloads/2010_Annual_IBS_Fundraising_Event_Sponsorship_Package.pdf">Event Sponsorship Programme</a>. Alternatively, please contact us on <a href="mailto:event@ibsproject.org">event@ibsproject.org</a> for further information.</p>
 <!--
 				<p class="intitle">Ticket &amp; Raffle Information</p>
-				<div class="ticketstype">Individual</div> £180<br />
-				<div class="ticketstype">Table of 10</div>£1,600 (£160 per ticket)<br />
-				<div class="ticketstype">Raffle Tickets</div>£20<br />
+				<div class="ticketstype">Individual</div> &pound;180<br />
+				<div class="ticketstype">Table of 10</div>&pound;1,600 (&pound;160 per ticket)<br />
+				<div class="ticketstype">Raffle Tickets</div>&pound;20<br />
 				<p class="intitle">Raffle Prizes</p>
 				<p><span class="standout">Seven Nights at Ciragan Palace Kempinski, Istanbul</span>, one of the Leading Hotels of the World. Enjoy a double occupancy room (breakfast included) with breathtaking views over the Bosphorus in this glamorous hotel, which was once the home of Ottoman sultans and the only palace in Istanbul to have become a five-star hotel. Valid for use until May 5, 2010.</p>
 				<p><span class="standout">Spa Weekend for Two at The Cloudesley, St. Leonards-on-Sea</span>. Two nights (including breakfast) at this holistic health centre and hotel set in a tranquil garden overlooking the sea. The hotel offers delicious organic foods and excellent spa facilities.</p>

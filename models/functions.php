@@ -141,7 +141,8 @@ function send_mail($emailTo, $subject, $message)
 	$headers .= 'Reply-To: IBS Project <' . EMAIL_FROM . '>' . $R;
 	$headers .= 'Return-Path: IBS Project <' . EMAIL_FROM . '>' . $R;
 	$headers .= 'Message-ID: <' . md5(uniqid(time())) . '@' . $_SERVER['SERVER_NAME'] . '>' . $R;
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . $R;
+/* 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . $R; */
+	$headers .= 'Content-type: text/html; charset=utf-8' . $R;
 	$headers .= 'MIME-Version: 1.0' + $R;
 	$headers .= 'Date: ' . date('r', time()) . $R;
 	$headers .= 'X-Mailer: PHP/' . phpversion() . $R;

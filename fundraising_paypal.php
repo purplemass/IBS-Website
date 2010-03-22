@@ -23,6 +23,7 @@ write_temp_file($file_name);
 
 	http://ibsproject.org/_dev/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&item_number=TAXPAYER_YES
 	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&item_number=TAXPAYER_YES
+	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=bob_ak@hotmail.com&mc_gross=12&item_number=TAXPAYER_YES
 
 */
 

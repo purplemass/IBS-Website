@@ -17,7 +17,7 @@ function send_email_donor($email, $name, $amount)
 Dear {$name},
 <br />
 <br />
-We have recieved your donation of £{$amount}.
+We have recieved your donation of &pound;{$amount}.
 <br />
 <br />
 Many thanks ....
@@ -45,7 +45,7 @@ function send_email_auto_donor($name, $amount)
 {
 	$subject = 'IBS Project automated email - Donation Received';
 	$body = <<<EOF
-We have recieved a donation of £{$amount} from {$name}.
+We have recieved a donation of &pound;{$amount} from {$name}.
 <br />
 EOF;
 	
