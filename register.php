@@ -6,8 +6,9 @@ require_once('controllers/html.php');
 
 //--------------------------------------------------------------
 
-$flag = 'start';
+$task = 'start';
 $err = array();
+$show_vars = FALSE;
 
 //--------------------------------------------------------------
 
@@ -27,14 +28,15 @@ if ( ! isset($_POST['sys_flag']) )
 //		when 'register' page_flag will not be set
 
 if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
-{
 	$_POST['page_flag'] = '';
+
+//--------------------------------------------------------------
+
+// if we are logged in then show re_updated
+
+if (isset($_COOKIE[$mycookie_name]))
+	$task = 'reg_updated';
 	
-	// are we logged in?
-	if (isset($_COOKIE[$mycookie_name]))
-		$flag = 'reg_updated';
-}
-		
 //--------------------------------------------------------------
 
 // decide what to do
@@ -46,8 +48,8 @@ switch($_POST['page_flag'])
 		
 	case 'check_email':
 		check_email();
-		if ( ($flag == 'edit') && ($_POST['sys_flag'] == 'donate') )
-			$flag = 'donate_now';
+		if ( ($task == 'edit') && ($_POST['sys_flag'] == 'donate') )
+			$task = 'donate_now';
 		break;
 
 	case 'check_registration':
@@ -55,11 +57,11 @@ switch($_POST['page_flag'])
 		break;
 
 	case 'edit':
-		$flag = 'edit';
+		$task = 'edit';
 		break;
 
 	case 'password_reminder':
-		$flag = 'password_reminder';
+		$task = 'password_reminder';
 		break;
 	
 	case 'password_sender':
@@ -69,7 +71,7 @@ switch($_POST['page_flag'])
 	case 'logout':
 		delete_cookie();
 		$loggedin = FALSE;
-		$flag = 'start';
+		$task = 'start';
 		$err[] = 'You have successfully been logged out';
 		break;
 }
@@ -88,8 +90,8 @@ show_html();
  */
 function show_html()
 {
-	global $debug;
-	global $flag, $err, $loggedin;
+	global $debug, $show_vars;
+	global $task, $err, $loggedin;
 	global $nav_items, $fields, $title_codes, $country_codes;
 	global $mycookie_name;
 
@@ -108,7 +110,7 @@ function show_html()
 		$page_title = 'Log in or register';
 	}
 	
-	switch($flag)
+	switch($task)
 	{
 		case 'start':
 			$instructions_text = 'Please enter your email below:';
@@ -128,7 +130,7 @@ function show_html()
 			$instructions_text = 'Please edit your details below:';
 			$mypage = 'register_form.php';
 
-			if ( ( ! is_donate() ) && ($flag = 'edit') )
+			if ( ( ! is_donate() ) && ($task = 'edit') )
 				$mymenuright = "menu_right_blank.php";
 
 			break;
@@ -187,16 +189,22 @@ function show_html()
 
 	require_once('views/head.php');
 	require_once('views/' . $mymenuleft);
-	if ($debug)
-	{
-/* 		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag']; */
-/* 		echo ' --- loggedin=' . $loggedin . ' --- id=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' ); */
-/* 		echo '<br />'; */
-/* 		var_dump($_COOKIE); */
-/* 		var_dump($_REQUEST); */
-	}
 	require_once('views/' . $mypage);
 	require_once('views/' . $mymenuright);
+	if ($debug && $show_vars)
+	{
+		echo '<span class="small">';
+		echo 'sys=' . $_POST['sys_flag'];
+		echo '<br />page=' . $_POST['page_flag'];
+		echo '<br />task=' . $task;
+		echo '<br />loggedin=' . $loggedin;
+		echo '<br />id=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' );
+		echo '<br />name=' . ( (isset($_POST['name'])) ? $_POST['name'] : '' );
+		echo '<br />';
+/* 		var_dump($_COOKIE); */
+/* 		var_dump($_REQUEST); */
+		echo '</span>';
+	}
 	require_once('views/tail.php');
 }
 
@@ -244,7 +252,7 @@ function set_user_info()
 function check_email()
 {
 	global $debug;
-	global $flag, $err;
+	global $task, $err;
 	global $db_table_community;
 	
 	if ( ! $_POST['email'] )
@@ -280,7 +288,7 @@ function check_email()
 		if ($_POST['has_account'] == "YES")
 			$err[] = 'Incorrect username or password entered'; //'This email is not registered with us'
 		else
-			$flag = 'email_new';
+			$task = 'email_new';
 	
 		return;
 	}
@@ -298,7 +306,7 @@ function check_email()
 		if ($_POST['has_account'] == "NO")
 			$err[] = 'Email address is already registered, please log in';
 		else
-			$flag = 'reg_updated';
+			$task = 'reg_updated';
 	}
 }
 
@@ -313,14 +321,14 @@ function check_email()
 function check_registration()
 {
 	global $debug;
-	global $flag, $err;
+	global $task, $err;
 	global $db_table_community;
 	global $fields;
 
 	if ( ! $_POST['id'] )
-		$flag = 'email_new';
+		$task = 'email_new';
 	else
-		$flag = 'edit';
+		$task = 'edit';
 
 	foreach ($fields as $name => $options)
 	{
@@ -332,7 +340,7 @@ function check_registration()
 	{
 		$err = array();
 		$err[] = 'There was a problem. Please re-enter your email address';
-		$flag = 'start';
+		$task = 'start';
 	}
 
 	if ( count($err) > 0 )
@@ -367,7 +375,7 @@ function check_registration()
 		}
 		else
 		{
-			$flag = 'reg_updated';
+			$task = 'reg_updated';
 
 			$sql_cmd = '';
 			foreach ($fields as $name => $options)
@@ -396,7 +404,7 @@ function check_registration()
 	// insert records
 	else
 	{
-		$flag = 'reg_new';
+		$task = 'reg_new';
 
 		$sql_cmd = '';
 		$sql_top = '';
@@ -448,10 +456,10 @@ function check_registration()
  */
 function check_password_reminder()
 {
-	global $flag, $err, $debug;
+	global $task, $err, $debug;
 	global $db_table_community;
 	
-	$flag = 'password_sender';
+	$task = 'password_sender';
 
 	if ( ! $_POST['email'] )
 		$err[] = 'Please enter your email address';
@@ -476,7 +484,7 @@ function check_password_reminder()
 			$name = $row['title'] . ' ' . $row['forename'] . ' ' . $row['surname'];
 			send_password_email($row['email'], $name, $row['password']);
 			$err[] = 'A password reminder has been sent to your registered email address';
-			$flag = 'start';
+			$task = 'start';
 		}
 		else
 		{

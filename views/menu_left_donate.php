@@ -2,10 +2,10 @@
 		<div id="menuleft">
 			<a class="navitem
 			<?php
-				echo ( ($flag <> 'edit') && ($_POST['page_flag'] <> 'password_sender') && ($_POST['page_flag'] <> 'password_reminder') ) ? ' active' : ''
+				echo ( ($task <> 'edit') && ($_POST['page_flag'] <> 'password_sender') && ($_POST['page_flag'] <> 'password_reminder') ) ? ' active' : ''
 			?>" href="#" id="donate_start">Donate online</a>
 <?php if ($loggedin): ?>
-			<a class="navitem<?php echo ($flag == 'edit') ? ' active' : ''; ?>" href="#" id="edit_button">Edit details</a>
+			<a class="navitem<?php echo ($task == 'edit') ? ' active' : ''; ?>" href="#" id="edit_button">Edit details</a>
 <?php else: ?>
 			<a class="navitem<?php echo ( ($_POST['page_flag'] == 'password_sender') || ($_POST['page_flag'] == 'password_reminder') ) ? ' active' : '' ?>" href="#" id="password_reminder_menu">Get password reminder</a>
 <?php endif; ?>
