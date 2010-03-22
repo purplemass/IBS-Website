@@ -8,35 +8,77 @@ require_once('views/head.php');
 
 //--------------------------------------------------------------
 
-//if ( ! (isset($_REQUEST['password']) && ($_REQUEST['password'] == 'ibs') ) )
+$err = '';
+
 // are we logged in?
 if (isset($_COOKIE[$mycookie_name]))
 {
 	$cookie = $_COOKIE[$mycookie_name];
+
+	// are we admin?
 	if ($cookie['admin'] <> '1')
-		die('Nothing to see here!');
+		$err = 'You must be an administrator too see this page.';
 }
 else
 {
-	die('Nothing to see here!');
+	$err = 'You must be logged in to see this page.';
 }
 
 //--------------------------------------------------------------
 
-$show_these = array('dt', 'forename', 'surname', 'amount', 'gift_aid');
-$sql = "SELECT $db_table_community.*, $db_table_donations.*
+if ($err == '')
+{
+	$show_these = array(
+					'dt',
+					'forename',
+					'surname',
+					'amount',
+					'gift_aid',
+				);
+
+	$sql = "SELECT $db_table_community.*, $db_table_donations.*
 			FROM $db_table_community, $db_table_donations
 			WHERE $db_table_community.id=$db_table_donations.pid
 			ORDER BY $db_table_donations.dt DESC";
 
-$donations = get_result($sql, $show_these);
+	$donations = get_result($sql, $show_these);
 
-//--------------------------------------------------------------
+	$show_these = array(
+					'title',
+					'forename',
+					'surname',
+					'email',
+					'address1',
+					'address2',
+					'city',
+					'postcode',
+					'country',
+					'newsletter',
+					'donor',
+					'register',
+					'admin',
+				);
 
-$show_these = array('title', 'forename', 'surname', 'email', 'address1', 'address2', 'city', 'postcode', 'country', 'newsletter', 'donor', 'register');
-$sql = "SELECT * FROM $db_table_community";
+	$sql = "SELECT * FROM $db_table_community";
 
-$members = get_result($sql, $show_these);
+	$members = get_result($sql, $show_these);
+
+	echo <<<EOF
+
+<span class="admin_title">Donations so far:</span>
+<span class="small">$donations</span>
+<span class="admin_title">Members so far:</span>
+<span class="small">$members</span>
+
+EOF;
+
+}
+else
+{
+	echo $err;
+}
+
+require_once('views/tail.php');
 
 //--------------------------------------------------------------
 
@@ -74,19 +116,6 @@ function get_result($sql, $show_these)
 
 	return $ret;
 }
-
-//--------------------------------------------------------------
-
-echo <<<EOF
-
-<span class="admin_title">Donations so far:</span>
-<span class="small">$donations</span>
-<span class="admin_title">Members so far:</span>
-<span class="small">$members</span>
-
-EOF;
-
-require_once('views/tail.php');
 
 //--------------------------------------------------------------
 
