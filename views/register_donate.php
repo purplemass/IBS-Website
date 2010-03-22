@@ -36,7 +36,7 @@
 							<li class="no_list">
 								<span id="taxpayer_yes_select">
 									<input type="radio" class="radio" name="taxpayer" id="taxpayer_yes" value="YES">
-									I am a UK taxpayer (we can reclaim <a href="http://www.hmrc.gov.uk/individuals/giving/gift-aid.htm" target="new">Gift Aid</a> on your donation)
+									I am a UK taxpayer (we can reclaim <a href="http://www.hmrc.gov.uk/individuals/giving/gift-aid.htm">Gift Aid</a> on your donation)
 								</span>
 							</li>
 							<li class="no_list">
