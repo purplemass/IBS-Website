@@ -1,5 +1,4 @@
 <?php
-	// home page
 	$this_nav = 7;
 	require_once('controllers/html.php');
 	require_once('views/head.php');
@@ -25,6 +24,6 @@
 				</div>
 			</div>
 <?php
-	require_once('views/menu_right_index.php');
+	require_once('views/menu_right_links.php');
 	require_once('views/tail.php');
 ?>

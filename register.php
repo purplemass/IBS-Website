@@ -155,7 +155,7 @@ function show_html()
 			$mypage = (is_donate()) ? 'register_donate.php' : 'register_thankyou.php';
 
 			if ( ! is_donate())
-				$mymenuright = "menu_right_blank.php";
+				$mymenuright = "menu_right_links.php";
 	
 			break;
 

@@ -42,13 +42,13 @@ if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '
 // navigation menu items
 $nav_items = array(
 					'index.php'					=>	'Home',
-					'project.html'				=>	'The Project',
-					'programmes.html'			=>	'Programmes',
-					'project_timeline.html'		=>	'Project Timeline',
-					'news_events.html'			=>	'News &amp; Events',
-					'get_involved.html'			=>	'Get involved',
-					'fundraising.html'			=>	'Fundraising',
-					'contact_us.html'			=>	'Contact us',
+					'project.php'				=>	'The Project',
+					'programmes.php'			=>	'Programmes',
+					'project_timeline.php'		=>	'Project Timeline',
+					'news_events.php'			=>	'News &amp; Events',
+					'get_involved.php'			=>	'Get involved',
+					'fundraising.php'			=>	'Fundraising',
+					'contact_us.php'			=>	'Contact us',
 					'register.php'				=>	'Log in or register',
 					);
 
