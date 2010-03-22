@@ -17,8 +17,8 @@
 				<p><span class="title">Annual IBS Fundraising Event &amp; Art Auction</span>
 				<br />London, 5th February 2010</p>
 				<div id="white">
-					<a href="news_events_upcoming.html">Highlights included keynote speech by global business leader Mr. Omid Kordestani, Senior Advisor to the Office of the CEO and Founders at Google and remarks from renowned professor and President of IBS’s Board of Governors, Dr. Ali Mashayekhi.</a>
+					<a href="news_events_upcoming.php">Highlights included keynote speech by global business leader Mr. Omid Kordestani, Senior Advisor to the Office of the CEO and Founders at Google and remarks from renowned professor and President of IBS’s Board of Governors, Dr. Ali Mashayekhi.</a>
 				</div>
-				<p>For more information on our fundraising event please visit our <a href="news_events_upcoming.html">News &amp; Events Page</a></p>
+				<p>For more information on our fundraising event please visit our <a href="news_events_upcoming.php">News &amp; Events Page</a></p>
 			</div>
 -->

@@ -54,7 +54,7 @@
 <?php $count++; endforeach; ?>
 	</div>
 	<div id="top">
-		<div id="logo"><a href="index.html"><img src="assets/images/IBS_logo.gif" width="170" height="140" alt="IBS Logo" /></a></div>
+		<div id="logo"><a href="index.php"><img src="assets/images/IBS_logo.gif" width="170" height="140" alt="IBS Logo" /></a></div>
 		<div id="image"><img src="assets/images/image_fundraising.jpg" width="750" height="140" alt="Main Image" /></div>
 	</div>	
 	<div id="main">
