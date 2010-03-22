@@ -13,7 +13,12 @@ require_once('models/emails.php');
 
 //--------------------------------------------------------------
 
-require_once('views/head.php');
+// are we logged in?
+if (isset($_COOKIE[$mycookie_name]))
+{
+	$loggedin = TRUE;
+	$_POST['id'] = $_COOKIE[$mycookie_name];
+}
 
 //--------------------------------------------------------------
 ?>

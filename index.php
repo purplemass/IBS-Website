@@ -2,6 +2,7 @@
 	// home page
 	$this_nav = 0;
 	require_once('controllers/html.php');
+	require_once('views/head.php');
 	require_once('views/menu_left_index.php');
 ?>
 		<div id="content">

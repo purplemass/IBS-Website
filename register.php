@@ -2,21 +2,12 @@
 
 //--------------------------------------------------------------
 
-define('INCLUDE_CHECK', true);
-
-//--------------------------------------------------------------
-
-require_once('models/config.php');
-require_once('models/db.php');
-require_once('models/functions.php');
-require_once('models/emails.php');
+require_once('controllers/html.php');
 
 //--------------------------------------------------------------
 
 $flag = 'start';
 $err = array();
-
-$loggedin = FALSE;
 
 //--------------------------------------------------------------
 
@@ -38,15 +29,6 @@ if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 	// are we logged in?
 	if (isset($_COOKIE[$mycookie_name]))
 		$flag = 'reg_updated';
-}
-
-//--------------------------------------------------------------
-
-// are we logged in?
-if (isset($_COOKIE[$mycookie_name]))
-{
-	$loggedin = TRUE;
-	$_POST['id'] = $_COOKIE[$mycookie_name];
 }
 
 //--------------------------------------------------------------
@@ -196,12 +178,6 @@ function show_html()
 			break;
 	}
 	
-	//--------------------------------------------------------------
-
-	// show loggedin on top menu
-	if ($loggedin)
-		$nav_items['register.php'] = 'Members area';
-
 	//--------------------------------------------------------------
 
 	require_once('views/head.php');

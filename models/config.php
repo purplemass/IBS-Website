@@ -14,6 +14,7 @@ define('EMAIL_SERVER',	'b.hatamian@ibsproject.org');
 
 $is_live = TRUE;
 $debug = FALSE;
+$loggedin = FALSE;
 
 $mycookie_name = 'ibs_register';
 $mycookie_expiry = 600;
@@ -34,7 +35,7 @@ if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '
 
 // navigation menu items
 $nav_items = array(
-					'index.php'				=>	'Home',
+					'index.php'					=>	'Home',
 					'project.html'				=>	'The Project',
 					'programmes.html'			=>	'Programmes',
 					'project_timeline.html'		=>	'Project Timeline',
