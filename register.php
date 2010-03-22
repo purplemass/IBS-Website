@@ -230,12 +230,11 @@ function show_html()
 function set_user_info()
 {
 	global $fields;
-	global $db_table_community;
 
 	if ( ! isset($_POST['id']))
-		$row = db_fetch("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'");
+		$row = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'");
 	else
-		$row = db_fetch("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'");
+		$row = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE id='{$_POST['id']}'");
 
 	foreach ($fields as $name => $options)
 	{
@@ -265,8 +264,7 @@ function check_email()
 {
 	global $debug;
 	global $task, $err;
-	global $db_table_community;
-	
+
 	if ( ! $_POST['email'] )
 		$err[] = 'Please enter your email address';
 
@@ -291,7 +289,7 @@ function check_email()
 	$_POST['email'] = mysql_real_escape_string(echo_value('email'));
 	
 	// Escaping all input data
-	$row = mysql_fetch_assoc(mysql_query("SELECT email, country, password FROM $db_table_community WHERE email='{$_POST['email']}'"));
+	$row = mysql_fetch_assoc(mysql_query("SELECT email, country, password FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'"));
 	check_db_error();			
 
 	// does email exist?
@@ -334,7 +332,6 @@ function check_registration()
 {
 	global $debug;
 	global $task, $err;
-	global $db_table_community;
 	global $fields;
 
 	if ( ! $_POST['id'] )
@@ -371,15 +368,13 @@ function check_registration()
 	
 	// check to see if record already exists: by id if already in DB
 	if (intval($_POST['id']) > 0)
-		$row = db_fetch("SELECT * FROM $db_table_community WHERE id='{$_POST['id']}'");
+		$row = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE id='{$_POST['id']}'");
 
 	// update record
 	if (isset($row['id']))
 	{
-		$_POST['id'] = $row['id'];
-
 		// check to see if email already exists
-		$row_email = db_fetch("SELECT * FROM $db_table_community WHERE email='{$_POST['email']}'");
+		$row_email = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'");
 
 		if ( isset($row_email['email']) && ($_POST['email'] <> $row['email']) )
 		{
@@ -399,7 +394,7 @@ function check_registration()
 			// remove last ,
 			$sql_cmd = substr_replace($sql_cmd ,"",-1);
 
-			$sql_cmd = ("	UPDATE $db_table_community SET
+			$sql_cmd = ("	UPDATE " . TABLE_COMMUNITY . " SET
 
 							mdt = NOW(),
 							
@@ -408,10 +403,15 @@ function check_registration()
 							WHERE id = '".$_POST['id']."'
 
 					");
-		
+
 			mysql_query($sql_cmd);
 			check_db_error($sql_cmd);
 		}
+
+		// used for cookies
+		$_POST['id'] = $row['id'];
+		$_POST['name'] = $row['name'];
+		$_POST['admin'] = $row['admin'];
 	}
 	// insert records
 	else
@@ -433,7 +433,7 @@ function check_registration()
 		$sql_cmd = substr_replace($sql_cmd ,"",-1);
 		$sql_top = substr_replace($sql_top ,"",-1);
 
-		$sql_cmd = ("	INSERT INTO $db_table_community
+		$sql_cmd = ("	INSERT INTO " . TABLE_COMMUNITY . "
 
 						(dt, mdt, register, " . $sql_top . ")
 
@@ -448,7 +448,12 @@ function check_registration()
 		mysql_query($sql_cmd);
 		check_db_error();
 		
+		// used for cookies
 		$_POST['id'] = mysql_insert_id();
+		$_POST['name'] = $_POST['forename'];
+		$_POST['admin'] = '0';
+
+		// used for emailing
 		$email = $_POST['email'];
 		$name = get_full_name();
 		$password = $_POST['password'];
@@ -469,7 +474,6 @@ function check_registration()
 function check_password_reminder()
 {
 	global $task, $err, $debug;
-	global $db_table_community;
 	
 	$task = 'password_sender';
 
@@ -488,7 +492,7 @@ function check_password_reminder()
 		$_POST['email'] = mysql_real_escape_string($_POST['email']);
 		
 		// Escaping all input data
-		$row = db_fetch("SELECT email, password, title, forename, surname FROM $db_table_community WHERE email='{$_POST['email']}'");
+		$row = db_fetch("SELECT email, password, title, forename, surname FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'");
 
 		// if email exists, check password
 		if ($row['email'])

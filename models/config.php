@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 
+ini_set('display_errors', 0);
 error_reporting(E_ERROR);
 
 //--------------------------------------------------------------
@@ -23,7 +24,7 @@ $loggedin = FALSE;
 $admin = FALSE;
 
 $mycookie_name = 'ibs_register';
-$mycookie_expiry = 600;
+$mycookie_expiry = 60 * 60;
 
 //--------------------------------------------------------------
 
@@ -32,8 +33,8 @@ $mycookie_expiry = 600;
 if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.65') )
 {
 	$is_live = FALSE;
-	$debug = TRUE;	
-	ini_set("display_errors", 1);
+	$debug = FALSE;	
+	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
 }
 

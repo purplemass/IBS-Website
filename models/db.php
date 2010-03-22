@@ -19,10 +19,10 @@ else
 	$db_pass		= 'root';
 }
 
-$db_table_community 		= 'ibs_community';
-$db_table_donations			= 'ibs_donations';
-$db_table_events			= 'ibs_events';
-$db_table_donor_categories	= 'ibs_donor_categories';
+define('TABLE_COMMUNITY', 'ibs_community');
+define('TABLE_DONATIONS', 'ibs_donations');
+define('TABLE_EVENTS', 'ibs_events');
+define('TABLE_DONOR_CATS', 'ibs_donor_categories');
 
 // End config
 
@@ -62,9 +62,7 @@ function db_fetch($sql)
  */
 function insert_value($field, $value, $pid)
 {
-	global $db_table_community;
-
-	$sql_cmd = ("	UPDATE $db_table_community
+	$sql_cmd = ("	UPDATE " . TABLE_COMMUNITY . "
 					SET mdt = NOW(), " . $field . " = '" . $value . "'
 					
 						WHERE id=" . $pid . "
@@ -87,9 +85,7 @@ function insert_value($field, $value, $pid)
  */
 function insert_amount($pid, $amount, $gift_aid)
 {
-	global $db_table_donations;
-
-	$sql_cmd = ("	INSERT INTO $db_table_donations(dt, pid, amount, gift_aid)
+	$sql_cmd = ("	INSERT INTO " . TABLE_DONATIONS . "(dt, pid, amount, gift_aid)
 					VALUES(
 
 						NOW(),

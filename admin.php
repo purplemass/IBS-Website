@@ -36,10 +36,10 @@ if ($err == '')
 					'gift_aid',
 				);
 
-	$sql = "SELECT $db_table_community.*, $db_table_donations.*
-			FROM $db_table_community, $db_table_donations
-			WHERE $db_table_community.id=$db_table_donations.pid
-			ORDER BY $db_table_donations.dt DESC";
+	$sql = "SELECT " . TABLE_COMMUNITY . ".*, " . TABLE_DONATIONS . ".*
+			FROM " . TABLE_COMMUNITY. ", " . TABLE_DONATIONS . "
+			WHERE " . TABLE_COMMUNITY. ".id=" . TABLE_DONATIONS .".pid
+			ORDER BY " . TABLE_DONATIONS . ".dt DESC";
 
 	$donations = get_result($sql, $show_these);
 
@@ -59,7 +59,7 @@ if ($err == '')
 					'admin',
 				);
 
-	$sql = "SELECT * FROM $db_table_community";
+	$sql = "SELECT * FROM " . TABLE_COMMUNITY;
 
 	$members = get_result($sql, $show_these);
 

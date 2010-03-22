@@ -56,7 +56,7 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 	
 	//--------------------------------------------------------------
 	
-	$row = mysql_fetch_assoc(mysql_query("SELECT * FROM $db_table_community WHERE email='" . $email . "'"));
+	$row = mysql_fetch_assoc(mysql_query("SELECT * FROM " . TABLE_COMMUNITY . " WHERE email='" . $email . "'"));
 	check_db_error();
 	
 	// id exists
@@ -68,7 +68,7 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 	// id doesn't exist
 	else
 	{
-		$sql_cmd = ("	INSERT INTO $db_table_community(dt, mdt, email)
+		$sql_cmd = ("	INSERT INTO " . TABLE_COMMUNITY . " (dt, mdt, email)
 						VALUES(
 						
 							NOW(),
