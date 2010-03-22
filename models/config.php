@@ -64,6 +64,7 @@ $image_list = array(
 					'project_the_team.php'		=>	'image_the_project.jpg',
 					'project_timeline.php'		=>	'image_project_countdown.jpg',
 					'programmes.php'			=>	'image_programmes.jpg',
+					'programmes_curriculum.php'	=>	'image_programmes.jpg',
 					'news_events.php'			=>	'image_news_events.jpg',
 					'news_events_upcoming.php'	=>	'image_news_events.jpg',
 					'news_events_video.php'		=>	'image_news_events.jpg',
@@ -72,8 +73,14 @@ $image_list = array(
 					'fundraising_ways.php'		=>	'image_fundraising.jpg',
 					'contact_us.php'			=>	'image_contact_us.jpg',
 
+					'tickets_buy.php'			=>	'image_news_events.jpg',
+					'tickets_cancelled.php'		=>	'image_news_events.jpg',
+					'tickets_register.php'		=>	'image_news_events.jpg',
+					'tickets_successful.php'	=>	'image_news_events.jpg',
+
 					'register.php'				=>	'image_fundraising.jpg',
 					'admin.php'					=>	'image_fundraising.jpg',
+					'test_images.php'			=>	'image_news_events.jpg',
 					);
 
 //--------------------------------------------------------------

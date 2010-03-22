@@ -52,6 +52,7 @@ foreach ($image_list as $key => $value)
 	<script type="text/javascript" src="assets/Helvetica_Neue_400.font.js"></script>
 	<script type="text/javascript" src="assets/Helvetica_Neue_500.font.js"></script>
 	<script type="text/javascript" src="assets/scripts.js"></script>
+	<script type="text/javascript" src="assets/formvalidation.js"></script>
 	
 </head>
 <body>
