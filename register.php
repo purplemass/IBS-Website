@@ -8,7 +8,7 @@ require_once('controllers/html.php');
 
 $task = 'start';
 $err = array();
-$show_vars = FALSE;
+$show_vars = TRUE;
 
 //--------------------------------------------------------------
 
@@ -231,10 +231,12 @@ function set_user_info()
 {
 	global $fields;
 
-	if ( ! isset($_POST['id']))
+	if (isset($_POST['id']))
+		$row = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE id='{$_POST['id']}'");
+	else if (isset($_POST['email']))
 		$row = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'");
 	else
-		$row = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE id='{$_POST['id']}'");
+		return;
 
 	foreach ($fields as $name => $options)
 	{
@@ -345,6 +347,14 @@ function check_registration()
 			$err[] = $options['error'];
 	}
 
+	// check passwords
+	if (strlen(trim($_POST['password'])) < 5)
+		$err[] = 'Your password must be at least 5 characters long';
+	
+	if ( (trim($_POST['password_confirm']) <> '') && ( trim($_POST['password']) <> trim($_POST['password_confirm']) ) )
+		$err[] = 'Your passwords do not match';
+	
+	// check email in case there's nothing set
 	if ( ! $_POST['email'] )
 	{
 		$err = array();
@@ -359,7 +369,7 @@ function check_registration()
 	foreach ($fields as $name => $options)
 	{
 		if (isset($_POST[$name]))
-			$_POST[$name] = mysql_real_escape_string(echo_value($name));
+			$_POST[$name] = mysql_real_escape_string(trim(echo_value($name)));
 	}
 
 	// checkbox for newsletter
@@ -368,13 +378,13 @@ function check_registration()
 	
 	// check to see if record already exists: by id if already in DB
 	if (intval($_POST['id']) > 0)
-		$row = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE id='{$_POST['id']}'");
+		$row = db_fetch("SELECT id, email, forename, admin FROM " . TABLE_COMMUNITY . " WHERE id='{$_POST['id']}'");
 
 	// update record
 	if (isset($row['id']))
 	{
 		// check to see if email already exists
-		$row_email = db_fetch("SELECT * FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'");
+		$row_email = db_fetch("SELECT email FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'");
 
 		if ( isset($row_email['email']) && ($_POST['email'] <> $row['email']) )
 		{
@@ -410,7 +420,7 @@ function check_registration()
 
 		// used for cookies
 		$_POST['id'] = $row['id'];
-		$_POST['name'] = $row['name'];
+		$_POST['name'] = $row['forename'];
 		$_POST['admin'] = $row['admin'];
 	}
 	// insert records
