@@ -13,9 +13,8 @@ $show_vars = FALSE;
 //--------------------------------------------------------------
 
 // check sys_flag:
-
-//		when 'donate' sys_flag will be set to donate
-//		when 'register' sys_flag will not be set
+//	when 'donate' sys_flag is already set to 'donate'
+//	when 'register' sys_flag will not be set so set it here
 
 if ( ! isset($_POST['sys_flag']) )
 	$_POST['sys_flag'] = 'register';
@@ -23,16 +22,16 @@ if ( ! isset($_POST['sys_flag']) )
 //--------------------------------------------------------------
 
 // check page_flag:
-
-//		when 'donate' page_flag will be set to ''
-//		when 'register' page_flag will not be set
+//	when 'donate' page_flag will be set to ''
+//	when 'register' page_flag will not be set
 
 if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 	$_POST['page_flag'] = '';
 
 //--------------------------------------------------------------
 
-// if we are logged in then show re_updated
+// when logged in, our task is 'reg_updated'
+//	page_flag overides this
 
 if (isset($_COOKIE[$mycookie_name]))
 	$task = 'reg_updated';
@@ -40,10 +39,12 @@ if (isset($_COOKIE[$mycookie_name]))
 //--------------------------------------------------------------
 
 // decide what to do
-// these are all the possible commands
+//	listed below are all of the possible commands
+
 switch($_POST['page_flag'])
 {
 	case 'start':
+		// normal operation
 		break;
 		
 	case 'check_email':
@@ -71,8 +72,11 @@ switch($_POST['page_flag'])
 	case 'logout':
 		delete_cookie();
 		$loggedin = FALSE;
-		$task = 'start';
-		$err[] = 'You have successfully been logged out';
+		$admin = FALSE;
+		// you will never go past this point as it's done through Ajax!!!!
+		die('logged out');
+		//$task = 'start';
+		//$err[] = 'You have successfully been logged out';
 		break;
 }
 
@@ -91,7 +95,7 @@ show_html();
 function show_html()
 {
 	global $debug, $show_vars;
-	global $task, $err, $loggedin;
+	global $task, $err, $loggedin, $admin;
 	global $nav_items, $image_list, $fields, $title_codes, $country_codes;
 	global $mycookie_name;
 
@@ -191,21 +195,28 @@ function show_html()
 	require_once('views/' . $mymenuleft);
 	require_once('views/' . $mypage);
 	require_once('views/' . $mymenuright);
+	require_once('views/tail.php');
+
 	if ($debug && $show_vars)
 	{
-		echo '<span class="small">';
+		echo '		<div id="debug_info">';
 		echo 'sys=' . $_POST['sys_flag'];
 		echo '<br />page=' . $_POST['page_flag'];
 		echo '<br />task=' . $task;
 		echo '<br />loggedin=' . $loggedin;
-		echo '<br />id=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' );
-		echo '<br />name=' . ( (isset($_POST['name'])) ? $_POST['name'] : '' );
+		echo '<br />admin=' . $admin;
+		echo '<br />[id]=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' );
+		echo '<br />[name]=' . ( (isset($_POST['name'])) ? $_POST['name'] : '' );
+		echo '<br />[admin]=' . ( (isset($_POST['admin'])) ? $_POST['admin'] : '' );
 		echo '<br />';
-/* 		var_dump($_COOKIE); */
+		echo '<br />';
+		var_dump($_COOKIE);
+		echo '<br />';
+		echo '<br />';
 /* 		var_dump($_REQUEST); */
-		echo '</span>';
+		echo '</div>';
+		echo "\n";
 	}
-	require_once('views/tail.php');
 }
 
 //--------------------------------------------------------------
@@ -239,6 +250,7 @@ function set_user_info()
 	
 	$_POST['id'] = $row['id'];
 	$_POST['name'] = $row['forename'];
+	$_POST['admin'] = $row['admin'];
 }
 
 //--------------------------------------------------------------

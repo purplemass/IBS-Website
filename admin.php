@@ -2,18 +2,24 @@
 
 //--------------------------------------------------------------
 
-define('INCLUDE_CHECK', true);
+$this_nav = 8;
+require_once('controllers/html.php');
+require_once('views/head.php');
 
 //--------------------------------------------------------------
 
-require 'models/config.php';
-require 'models/db.php';
-require 'models/functions.php';
-
-//--------------------------------------------------------------
-
-if ( ! (isset($_REQUEST['password']) && ($_REQUEST['password'] == 'ibs') ) )
+//if ( ! (isset($_REQUEST['password']) && ($_REQUEST['password'] == 'ibs') ) )
+// are we logged in?
+if (isset($_COOKIE[$mycookie_name]))
+{
+	$cookie = $_COOKIE[$mycookie_name];
+	if ($cookie['admin'] <> '1')
+		die('Nothing to see here!');
+}
+else
+{
 	die('Nothing to see here!');
+}
 
 //--------------------------------------------------------------
 
@@ -70,10 +76,6 @@ function get_result($sql, $show_these)
 }
 
 //--------------------------------------------------------------
-
-$this_nav = -1;
-
-require_once('views/head.php');
 
 echo <<<EOF
 

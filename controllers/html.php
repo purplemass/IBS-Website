@@ -15,10 +15,19 @@ require_once('models/emails.php');
 
 // are we logged in?
 if (isset($_COOKIE[$mycookie_name]))
-{
+{	
+	$cookie = $_COOKIE[$mycookie_name];
+
+	$_POST['id'] = $cookie['id'];
+	$_POST['name'] = $cookie['name'];
+	$_POST['admin'] = $cookie['admin'];
+
 	$loggedin = TRUE;
-	$_POST['id'] = $_COOKIE[$mycookie_name];
-	$_POST['name'] = $_COOKIE[$mycookie_name2];
+
+	if ($_POST['admin'] == '1')
+		$admin = TRUE;
+	else
+		$admin = FALSE;
 }
 
 //--------------------------------------------------------------

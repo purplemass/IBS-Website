@@ -20,9 +20,9 @@ define('REGISTER_PAGE',	'register.php');
 $is_live = TRUE;
 $debug = FALSE;
 $loggedin = FALSE;
+$admin = FALSE;
 
-$mycookie_name = 'ibs_id';
-$mycookie_name2 = 'ibs_name';
+$mycookie_name = 'ibs_register';
 $mycookie_expiry = 600;
 
 //--------------------------------------------------------------

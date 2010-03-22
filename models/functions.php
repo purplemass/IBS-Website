@@ -34,16 +34,24 @@ function echo_value($str, $echo_it=FALSE)
 function set_cookie()
 {
 	global $debug;
-	global $mycookie_name, $mycookie_name2, $mycookie_expiry;
-	global $loggedin;
+	global $mycookie_name, $mycookie_expiry;
+	global $loggedin, $admin;
 
 	if ( ! headers_sent())
 	{
 		ob_start();
-		setcookie($mycookie_name, $_POST['id'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
-		setcookie($mycookie_name2, $_POST['forename'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
+		setcookie($mycookie_name . '[id]' , $_POST['id'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
+		setcookie($mycookie_name . '[name]' , $_POST['forename'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
+		setcookie($mycookie_name . '[admin]' , $_POST['admin'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
+		ob_end_flush();
+
 		$loggedin = TRUE;
-		ob_end_flush();		
+		
+		if ($_POST['admin'] == '1')
+			$admin = TRUE;
+		else
+			$admin = FALSE;
+
 	}
 	else
 	{
@@ -67,11 +75,13 @@ function delete_cookie()
 {
 	global $mycookie_name, $mycookie_expiry;
 
-	setcookie ($mycookie_name, "", time() - 3600);
-	unset($_COOKIE[$mycookie_name]);
+	setcookie ($mycookie_name . '[id]', "", time() - 3600);
+	setcookie ($mycookie_name . '[name]', "", time() - 3600);
+	setcookie ($mycookie_name . '[admin]', "", time() - 3600);
 
-	setcookie ($mycookie_name2, "", time() - 3600);
-	unset($_COOKIE[$mycookie_name2]);
+	unset($_COOKIE[$mycookie_name . '[id]']);
+	unset($_COOKIE[$mycookie_name . '[name]']);
+	unset($_COOKIE[$mycookie_name . '[admin]']);
 }
 
 //--------------------------------------------------------------

@@ -149,6 +149,7 @@ CREATE TABLE `ibs_community` (
   `donor_category` int(2) NOT NULL,
   `newsletter` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
   `register` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
+  `admin` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
   `deleted` tinyint(1) collate utf8_unicode_ci NOT NULL default 0,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `email` (`email`)
@@ -191,7 +192,11 @@ CREATE TABLE `ibs_donor_categories` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
+//--------------------------------------------------------------
 
+add new field:
+
+ALTER TABLE ibs_community ADD admin tinyint(1) collate utf8_unicode_ci NOT NULL default 0 AFTER register
 
 //--------------------------------------------------------------
 

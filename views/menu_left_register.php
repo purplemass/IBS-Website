@@ -15,6 +15,9 @@
 <?php endif; ?>
 <?php if ($loggedin): ?>
 			<a class="navitem" href="#" id="donate_start">Donate online</a>
+<?php if ($admin): ?>
+			<a class="navitem" href="admin.php">Admin</a>
+<?php endif; ?>
 			<a class="navitem" href="#" id="logout">Log out</a>
 <?php endif; ?>
 <!-- 			<a class="navitem" href="#" id="unsubscribe">Unsubscribe (coming soon)</a> -->

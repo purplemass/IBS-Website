@@ -201,6 +201,14 @@ div#main {
 	padding: 10px;
 }
 
+div#debug_info {
+	position: absolute;
+	top: 0px;
+	width: 100px;
+	font-size: 0.8em;
+	line-height: 1.2;
+}
+
 /*
 
 TOP NAVIGATION

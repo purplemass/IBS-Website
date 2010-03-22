@@ -93,6 +93,7 @@ $(document).ready(function(){
 		$.post('register.php',{
 			'page_flag': 'logout'
 		}, function(data){
+			//alert(data);
 			$(location).attr('href', '');
 		});
 		return true;
