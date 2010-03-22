@@ -43,6 +43,6 @@
 			</div>
 		</div>
 <?php
-	require_once('views/menu_right_blank.php');
+	require_once('views/menu_right_links.php');
 	require_once('views/tail.php');
 ?>

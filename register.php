@@ -92,7 +92,7 @@ function show_html()
 {
 	global $debug, $show_vars;
 	global $task, $err, $loggedin;
-	global $nav_items, $fields, $title_codes, $country_codes;
+	global $nav_items, $image_list, $fields, $title_codes, $country_codes;
 	global $mycookie_name;
 
 	if (is_donate())

@@ -1,10 +1,21 @@
 <?php if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
 <?php
-	if ($loggedin === TRUE)
-		$nav_items['register.php'] = 'Members area';
+if ($loggedin === TRUE)
+	$nav_items['register.php'] = 'Members area';
+
+// find corrcet image
+$this_page = $_SERVER['SCRIPT_NAME'];
+
+foreach ($image_list as $key => $value)
+{
+	if (strpos($this_page, $key) > -1)
+	{
+		$image = $value;
+		break;
+	}
+}
+
 ?>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -55,6 +66,6 @@
 	</div>
 	<div id="top">
 		<div id="logo"><a href="index.php"><img src="assets/images/IBS_logo.gif" width="170" height="140" alt="IBS Logo" /></a></div>
-		<div id="image"><img src="assets/images/image_fundraising.jpg" width="750" height="140" alt="Main Image" /></div>
+		<div id="image"><img id="main_image" src="assets/images/<?php echo $image; ?>" width="750" height="140" alt="Main Image" /></div>
 	</div>	
 	<div id="main">

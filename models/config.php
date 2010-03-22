@@ -54,6 +54,30 @@ $nav_items = array(
 
 //--------------------------------------------------------------
 
+// images
+$image_list = array(
+					'index.php'					=>	'image_home.jpg',
+					'project.php'				=>	'image_the_project.jpg',
+					'project_operations.php'	=>	'image_the_project.jpg',
+					'project_organisation.php'	=>	'image_the_project.jpg',
+					'project_principles.php'	=>	'image_the_project.jpg',
+					'project_the_team.php'		=>	'image_the_project.jpg',
+					'project_timeline.php'		=>	'image_project_countdown.jpg',
+					'programmes.php'			=>	'image_programmes.jpg',
+					'news_events.php'			=>	'image_news_events.jpg',
+					'news_events_upcoming.php'	=>	'image_news_events.jpg',
+					'news_events_video.php'		=>	'image_news_events.jpg',
+					'get_involved.php'			=>	'image_get_involved.jpg',
+					'fundraising.php'			=>	'image_fundraising.jpg',
+					'fundraising_ways.php'		=>	'image_fundraising.jpg',
+					'contact_us.php'			=>	'image_contact_us.jpg',
+
+					'register.php'				=>	'image_fundraising.jpg',
+					'admin.php'					=>	'image_fundraising.jpg',
+					);
+
+//--------------------------------------------------------------
+
 // registration fields
 $fields = array(
 				'email' => array(

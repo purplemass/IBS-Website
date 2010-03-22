@@ -227,11 +227,20 @@ $(document).ready(function(){
 // errorResponse
 // **********************************************
 function errorResponse(output) {
-alert(output);
+	//alert(output);
 	$("#newsletter_form").show();
 	$("#error").html('There was an error - please try again later.');
 	$("#error").show();
 	$("#newsletter_submit").show();
+
+}
+
+// **********************************************
+// change image (test_image.php only)
+// **********************************************
+function CI(img)
+{
+	$("#main_image").attr("src", "test_images/" + img + ".jpg");
 
 }
 
