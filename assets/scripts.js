@@ -13,6 +13,7 @@ Cufon.replace('#menuleft #announcement .white');
 Cufon.replace('#title .text');
 Cufon.replace('#body .intitle');
 Cufon.replace('#footer .text');
+Cufon.replace('#loggedin');
 /* Cufon.replace('.buttons'); */
 Cufon.replace('.caption');
 
@@ -36,11 +37,13 @@ $(document).ready(function(){
 	// db_result
 	//$('#db_result td').attr('width', '140');
 
+
+
 	/* 	DONATION BUTTONS */
 
 	// donate start button
 	$("#donate_start").click(function(){
-		$('#page_flag').val('');
+		$('#page_flag').val('donate');
 		$('#sys_flag').val('donate');
 		$('#main_form').submit();
 		return true;
@@ -71,8 +74,6 @@ $(document).ready(function(){
 		}
 	});
 
-	/* 	DONATIONS BUTTONS */
-
 	// registration form radio buttons select
 	$("#taxpayer_yes_select").click(function(){
 		$('#taxpayer_yes').attr("checked", "checked");
@@ -83,6 +84,17 @@ $(document).ready(function(){
 	$("#taxpayer_no_select").click(function(){
 		$('#taxpayer_no').attr("checked", "checked");
 		$('#item_number').val('TAXPAYER_NO');
+		return true;
+	});
+
+	/* 	LOGOUT BUTTONS */
+
+	$("#logout, #logout_inline, #logout_right").click(function(){
+		$.post('register.php',{
+			'page_flag': 'logout'
+		}, function(data){
+			$(location).attr('href', '');
+		});
 		return true;
 	});
 
@@ -106,13 +118,6 @@ $(document).ready(function(){
 	$("#cancel").click(function(){
 		history.go(-1);
 		return false;
-	});
-
-	// logout buttons
-	$("#logout, #logout_inline").click(function(){
-		$('#page_flag').val('logout');
-		$('#main_form').submit();
-		return true;
 	});
 
 	// edit button

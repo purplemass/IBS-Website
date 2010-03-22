@@ -12,16 +12,20 @@ $err = array();
 //--------------------------------------------------------------
 
 // check sys_flag:
+
 //		when 'donate' sys_flag will be set to donate
 //		when 'register' sys_flag will not be set
+
 if ( ! isset($_POST['sys_flag']) )
 	$_POST['sys_flag'] = 'register';
 
 //--------------------------------------------------------------
 
 // check page_flag:
+
 //		when 'donate' page_flag will be set to ''
 //		when 'register' page_flag will not be set
+
 if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 {
 	$_POST['page_flag'] = '';
@@ -30,7 +34,7 @@ if ( ( ! isset($_POST['page_flag']) ) || ($_POST['page_flag'] == '') )
 	if (isset($_COOKIE[$mycookie_name]))
 		$flag = 'reg_updated';
 }
-
+		
 //--------------------------------------------------------------
 
 // decide what to do
@@ -66,6 +70,7 @@ switch($_POST['page_flag'])
 		delete_cookie();
 		$loggedin = FALSE;
 		$flag = 'start';
+		$err[] = 'You have successfully been logged out';
 		break;
 }
 
@@ -184,12 +189,10 @@ function show_html()
 	require_once('views/' . $mymenuleft);
 	if ($debug)
 	{
-/*
-		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag'];
-		echo ' --- loggedin=' . $loggedin . ' --- id=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' );
-		echo '<br />';
-		var_dump($_COOKIE);
-*/
+/* 		echo 'flag=' . $flag . ' --- sys=' . $_POST['sys_flag'] . ' --- page=' . $_POST['page_flag']; */
+/* 		echo ' --- loggedin=' . $loggedin . ' --- id=' . ( (isset($_POST['id'])) ? $_POST['id'] : '' ); */
+/* 		echo '<br />'; */
+/* 		var_dump($_COOKIE); */
 /* 		var_dump($_REQUEST); */
 	}
 	require_once('views/' . $mypage);
@@ -227,6 +230,7 @@ function set_user_info()
 	}
 	
 	$_POST['id'] = $row['id'];
+	$_POST['name'] = $row['forename'];
 }
 
 //--------------------------------------------------------------

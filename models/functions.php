@@ -34,13 +34,14 @@ function echo_value($str, $echo_it=FALSE)
 function set_cookie()
 {
 	global $debug;
-	global $mycookie_name, $mycookie_expiry;
+	global $mycookie_name, $mycookie_name2, $mycookie_expiry;
 	global $loggedin;
 
 	if ( ! headers_sent())
 	{
 		ob_start();
 		setcookie($mycookie_name, $_POST['id'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
+		setcookie($mycookie_name2, $_POST['forename'], time() + $mycookie_expiry); // '/', '.localhost', 0, 0)
 		$loggedin = TRUE;
 		ob_end_flush();		
 	}
@@ -68,6 +69,9 @@ function delete_cookie()
 
 	setcookie ($mycookie_name, "", time() - 3600);
 	unset($_COOKIE[$mycookie_name]);
+
+	setcookie ($mycookie_name2, "", time() - 3600);
+	unset($_COOKIE[$mycookie_name2]);
 }
 
 //--------------------------------------------------------------

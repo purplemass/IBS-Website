@@ -1,4 +1,5 @@
 
+<?php if ($loggedin) require_once('views/loggedin.php'); ?>
 		<div id="menuright">
 			<div class="quicklinks">Quick Links</div>
 <!-- 				<a class="navitem" href="./news_events_upcoming.html">Upcoming Events</a> -->

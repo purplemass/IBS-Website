@@ -12,11 +12,17 @@ define('EMAIL_SERVER',	'b.hatamian@ibsproject.org');
 
 //--------------------------------------------------------------
 
+define('REDIRECT_PAGE', 'index.php');
+define('REGISTER_PAGE',	'register.php');
+
+//--------------------------------------------------------------
+
 $is_live = TRUE;
 $debug = FALSE;
 $loggedin = FALSE;
 
-$mycookie_name = 'ibs_register';
+$mycookie_name = 'ibs_id';
+$mycookie_name2 = 'ibs_name';
 $mycookie_expiry = 600;
 
 //--------------------------------------------------------------

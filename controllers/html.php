@@ -18,6 +18,7 @@ if (isset($_COOKIE[$mycookie_name]))
 {
 	$loggedin = TRUE;
 	$_POST['id'] = $_COOKIE[$mycookie_name];
+	$_POST['name'] = $_COOKIE[$mycookie_name2];
 }
 
 //--------------------------------------------------------------

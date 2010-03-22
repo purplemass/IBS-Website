@@ -443,6 +443,26 @@ div#body .ticketstype {
 
 /*
 
+LOGGED IN
+
+*/
+
+div#loggedin {
+	float: right;
+	height: 20px;
+	width: 250px;
+	padding: 10px 5px 0;
+	font-size: 0.75em;
+/* 	background-color: #D9DBD0; */
+	border-bottom: 1px solid #979C99;
+}
+
+div#loggedin a {
+	color:#09466A;
+/* 	text-decoration:underline; */
+}
+/*
+
 RIGHT MENU
 
 */
