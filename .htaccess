@@ -12,6 +12,8 @@ order deny,allow
 deny from all
 </Limit>
 
+RedirectMatch 301 (.*)\.html$ http://www.ibsproject.com/$1.php
+
 Redirect 301 /aboutus.htm      http://www.ibsproject.com/project_principles.html
 Redirect 301 /contact.htm      http://www.ibsproject.com/contact_us.html
 Redirect 301 /getinvolved.htm  http://www.ibsproject.com/get_involved.html
