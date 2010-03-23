@@ -4,9 +4,9 @@
 				<p class="heading" id="donate_start">Donate Online</p>
 <!-- 				<p class="title" id="donate_start">Donate Online</p> -->
 				<div id="box">
-					<a href="#" id="donate_start">You can now support the Iranian Business School by donating online.</a>
+					<a href="#" id="donate_start2">You can now support the Iranian Business School by donating online.</a>
 				</div>
-				<p>For more information, please go to our <a href="#" id="donate_start">online donation</a> area or visit our <a href="fundraising.php">Fundraising</a> pages.</p>
+				<p>For more information, please go to our <a href="#" id="donate_start3">online donation</a> area or visit our <a href="fundraising.php">Fundraising</a> pages.</p>
 			</div>
 <!-- 			<a class="navitem" href="#" id="register_start">Login or register</a> -->
 <!-- 			<a class="navitem" href="#" id="donate_start">Donate online</a> -->

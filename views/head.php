@@ -44,6 +44,7 @@ foreach ($image_list as $key => $value)
 	<!--[if gt IE 5]>
 		<style>
 			.buttons { zoom: 1; }
+			#announcement a { zoom: 1; }
 		</style>
 	<![endif]-->
 

@@ -30,7 +30,7 @@ $mycookie_expiry = 60 * 60;
 
 // Is this live?
 
-if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.65') )
+if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.64') )
 {
 	$is_live = FALSE;
 	$debug = FALSE;	
