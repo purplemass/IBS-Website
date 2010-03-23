@@ -60,6 +60,7 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 						)");
 
 		mysql_query($sql_cmd);
+		check_db_error();
 		
 		$pid = mysql_insert_id();
 		insert_amount($pid, $amount, $gift_aid);

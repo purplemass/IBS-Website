@@ -291,7 +291,7 @@ function check_email()
 	$_POST['email'] = mysql_real_escape_string(echo_value('email'));
 	
 	// Escaping all input data
-	$row = mysql_fetch_assoc(mysql_query("SELECT email, country, password FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'"));
+	$row = mysql_fetch_assoc(mysql_query("SELECT email, country, password, register FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'"));
 	check_db_error();			
 
 	// does email exist?
@@ -305,7 +305,18 @@ function check_email()
 		return;
 	}
 
-	// check password	
+	// is registered?
+	if ($row['register'] == '0')
+	{
+		if ($_POST['has_account'] == "YES")
+			$err[] = 'You have not registered with us before';
+		else
+			$task = 'email_new';
+
+		return;
+	}
+
+	// check password
 	if ( ($row['password'] <> null) && ($_POST['password'] <> $row['password']) )
 	{
 		if ($_POST['has_account'] == "YES")
@@ -341,19 +352,25 @@ function check_registration()
 	else
 		$task = 'edit';
 
+	//--------------------------------------------------------------
+	// check for errors
+	
 	foreach ($fields as $name => $options)
 	{
 		if ( isset($_POST[$name]) && ! $_POST[$name] && $options['mandatory'])
 			$err[] = $options['error'];
 	}
 
+	//--------------------------------------------------------------
 	// check passwords
+	
 	if (strlen(trim($_POST['password'])) < 5)
 		$err[] = 'Your password must be at least 5 characters long';
 	
 	if ( (trim($_POST['password_confirm']) <> '') && ( trim($_POST['password']) <> trim($_POST['password_confirm']) ) )
 		$err[] = 'Your passwords do not match';
 	
+	//--------------------------------------------------------------
 	// check email in case there's nothing set
 	if ( ! $_POST['email'] )
 	{
@@ -362,115 +379,166 @@ function check_registration()
 		$task = 'start';
 	}
 
+	//--------------------------------------------------------------
+	
 	if ( count($err) > 0 )
 		return;
-	
+
+	//--------------------------------------------------------------
 	// clean all POST vars
+	
 	foreach ($fields as $name => $options)
 	{
 		if (isset($_POST[$name]))
 			$_POST[$name] = mysql_real_escape_string(trim(echo_value($name)));
 	}
 
+	//--------------------------------------------------------------
 	// checkbox for newsletter
+
 	if ( ! isset($_POST['newsletter']))
 		$_POST['newsletter'] = 0;
 	
+	//--------------------------------------------------------------
 	// check to see if record already exists: by id if already in DB
+
 	if (intval($_POST['id']) > 0)
 		$row = db_fetch("SELECT id, email, forename, admin FROM " . TABLE_COMMUNITY . " WHERE id='{$_POST['id']}'");
 
-	// update record
+	//--------------------------------------------------------------
+	// check to see if email already exists
+
+	$row_email = db_fetch("SELECT id, email, forename, admin FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'");
+	
+	//--------------------------------------------------------------
+	// update existing record
+
 	if (isset($row['id']))
 	{
-		// check to see if email already exists
-		$row_email = db_fetch("SELECT email FROM " . TABLE_COMMUNITY . " WHERE email='{$_POST['email']}'");
-
+		// avoid duplicate emails
 		if ( isset($row_email['email']) && ($_POST['email'] <> $row['email']) )
 		{
 			$err[] = 'Email address is already registered. Please choose another email.';
+			return;
 		}
-		else
-		{
-			$task = 'reg_updated';
-
-			$sql_cmd = '';
-			foreach ($fields as $name => $options)
-			{
-				if ($name <> 'password_confirm')
-					$sql_cmd .= $name . ' = \'' .$_POST[$name] . '\',';
-			}
-
-			// remove last ,
-			$sql_cmd = substr_replace($sql_cmd ,"",-1);
-
-			$sql_cmd = ("	UPDATE " . TABLE_COMMUNITY . " SET
-
-							mdt = NOW(),
-							
-							" . $sql_cmd . "
-							
-							WHERE id = '".$_POST['id']."'
-
-					");
-
-			mysql_query($sql_cmd);
-			check_db_error($sql_cmd);
-		}
-
-		// used for cookies
-		$_POST['id'] = $row['id'];
-		$_POST['name'] = $row['forename'];
-		$_POST['admin'] = $row['admin'];
+		
+		$task = update_record($fields, $row, 'id');
 	}
-	// insert records
+
+	//--------------------------------------------------------------
+	// insert new record or update an existing newsletter subscription
+
 	else
 	{
-		$task = 'reg_new';
-
-		$sql_cmd = '';
-		$sql_top = '';
-		foreach ($fields as $name => $options)
-		{
-			if ($name <> 'password_confirm')
-			{
-				$sql_top .= $name . ',';
-				$sql_cmd .= '\'' . $_POST[$name] . '\',';
-			}
-		}
-
-		// remove last ,
-		$sql_cmd = substr_replace($sql_cmd ,"",-1);
-		$sql_top = substr_replace($sql_top ,"",-1);
-
-		$sql_cmd = ("	INSERT INTO " . TABLE_COMMUNITY . "
-
-						(dt, mdt, register, " . $sql_top . ")
-
-						VALUES(
-
-							NOW(),
-							NOW(),
-							1,
-							" . $sql_cmd . "
-					)");
-		
-		mysql_query($sql_cmd);
-		check_db_error();
-		
-		// used for cookies
-		$_POST['id'] = mysql_insert_id();
-		$_POST['name'] = $_POST['forename'];
-		$_POST['admin'] = '0';
+		if ( isset($row_email['email']) )
+			$task = update_record($fields, $row_email, 'email');
+		else
+			$task = insert_record($fields);
 
 		// used for emailing
 		$email = $_POST['email'];
 		$name = get_full_name();
 		$password = $_POST['password'];
 				
-		// send email
+		// send email to registered user
 		send_registration_email($email, $name, $password);
 	}
+
+	//--------------------------------------------------------------
+
+}
+
+//--------------------------------------------------------------
+
+/**
+ * Insert a new user record
+ *
+ * @access public
+ * @return void
+ */
+function insert_record($fields)
+{
+	$sql_cmd = '';
+	$sql_top = '';
+	foreach ($fields as $name => $options)
+	{
+		if ($name <> 'password_confirm')
+		{
+			$sql_top .= $name . ',';
+			$sql_cmd .= '\'' . $_POST[$name] . '\',';
+		}
+	}
+
+	// remove last ,
+	$sql_cmd = substr_replace($sql_cmd ,"",-1);
+	$sql_top = substr_replace($sql_top ,"",-1);
+
+	$sql_cmd = ("	INSERT INTO " . TABLE_COMMUNITY . "
+
+					(dt, mdt, register, " . $sql_top . ")
+
+					VALUES(
+
+						NOW(),
+						NOW(),
+						1,
+						" . $sql_cmd . "
+				)");
+	
+	mysql_query($sql_cmd);
+	check_db_error();
+	
+	// used for cookies
+	$_POST['id'] = mysql_insert_id();
+	$_POST['name'] = $_POST['forename'];
+	$_POST['admin'] = '0';
+	
+	return('reg_updated');
+}
+
+//--------------------------------------------------------------
+
+/**
+ * Update user record
+ *
+ * @access public
+ * @return void
+ */
+function update_record($fields, $row, $insert_by)
+{
+	$sql_cmd = '';
+	foreach ($fields as $name => $options)
+	{
+		if ($name <> 'password_confirm')
+			$sql_cmd .= $name . ' = \'' .$_POST[$name] . '\',';
+	}
+
+	// remove last ,
+	$sql_cmd = substr_replace($sql_cmd ,"",-1);
+
+	$sql_cmd = ("	UPDATE " . TABLE_COMMUNITY . " SET
+
+					mdt = NOW(),
+					
+					" . $sql_cmd . "
+					
+					WHERE " . $insert_by . " = '".$_POST[$insert_by]."'
+
+			");
+
+	mysql_query($sql_cmd);
+	check_db_error($sql_cmd);
+
+	// must set register for newsletter subscribers (insert_by email)
+	if ($insert_by == 'email')
+		insert_value('register', '1', $row['id']);
+	
+	// used for cookies
+	$_POST['id'] = $row['id'];
+	$_POST['name'] = $row['forename'];
+	$_POST['admin'] = $row['admin'];
+
+	return('reg_updated');
 }
 
 //--------------------------------------------------------------

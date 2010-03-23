@@ -6,8 +6,9 @@ define('INCLUDE_CHECK', true);
 
 //--------------------------------------------------------------
 
-require '../models/functions.php';
 require '../models/config.php';
+require '../models/db.php';
+require '../models/functions.php';
 require '../models/emails.php';
 
 //--------------------------------------------------------------
@@ -41,13 +42,41 @@ $s 	= $displayDate . ',' . $displayTime . ',';
 $s .= '"' . $email . '"' . "\r\n";
 $r	= write_file($filename, $s);
 
-#if ($r != 'OK')
-#	exit $r;
-	
 //--------------------------------------------------------------
 
 $r = send_newsletter_email($email);
 $r = send_newsletter_auto_email($email);
+
+//--------------------------------------------------------------
+// add to DB
+
+$row = mysql_fetch_assoc(mysql_query("SELECT id, email, title, forename, surname FROM " . TABLE_COMMUNITY . " WHERE email='" . $email . "'"));
+check_db_error();
+
+// id exists
+if ($row['email'])
+{
+	$pid = $row['id'];
+}
+// id doesn't exist
+else
+{
+	$sql_cmd = ("	INSERT INTO " . TABLE_COMMUNITY . " (dt, mdt, email)
+					VALUES(
+
+						NOW(),
+						NOW(),
+						'" . $email . "'
+
+					)");
+
+	mysql_query($sql_cmd);
+	check_db_error();
+	
+	$pid = mysql_insert_id();
+}
+
+insert_value('newsletter', '1', $pid);
 
 //--------------------------------------------------------------
 
