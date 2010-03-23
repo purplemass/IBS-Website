@@ -29,6 +29,7 @@ else
 if ($err == '')
 {
 	$show_these = array(
+					'id',
 					'dt',
 					'forename',
 					'surname',
@@ -44,6 +45,7 @@ if ($err == '')
 	$donations = get_result($sql, $show_these);
 
 	$show_these = array(
+					'id',
 					'title',
 					'forename',
 					'surname',
@@ -59,17 +61,48 @@ if ($err == '')
 					'admin',
 				);
 
-	$sql = "SELECT * FROM " . TABLE_COMMUNITY;
+	$sql = "SELECT * FROM " . TABLE_COMMUNITY . " ORDER BY dt DESC";
 
 	$members = get_result($sql, $show_these);
 
+	$show_these = array(
+					'id',
+					'first_name',
+					'last_name',
+					'payer_email',
+					'address_name',
+					'address_street',
+					'address_city',
+					'address_state',
+					'address_zip',
+					'address_country',
+					'address_country_code',
+					'residence_country',
+					'address_status'
+				);
+
+	$sql = "SELECT * FROM " . TABLE_PAYPAL . " ORDER BY dt DESC";
+
+	$paypal = get_result($sql, $show_these);
+
+/*
+		<div id="menuleft">&nbsp;</div>
+			<div id="title">
+				<div class="text">Admin</div>
+			</div>
+*/
+
 	echo <<<EOF
-
-<span class="admin_title">Donations so far:</span>
-<span class="small">$donations</span>
-<span class="admin_title">Members so far:</span>
-<span class="small">$members</span>
-
+		<div id="content">
+			<div id="body" class="small">
+				<span class="admin_title">Members so far:</span>
+				<div class="scroll">$members</div>
+				<span class="admin_title">Donations so far:</span>
+				<div class="scroll">$donations</div>
+				<span class="admin_title">PayPal details so far:</span>
+				<div class="scroll">$paypal</div>
+			</div>
+		</div>
 EOF;
 
 }

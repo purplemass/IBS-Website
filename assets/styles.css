@@ -593,11 +593,18 @@ ADMIN
 	border: 1px black inset;;
 	background-color: #D9DBD0;
 }
+
 .admin_title {
 	display: block;
 	margin: 5px 0;
-	font-size: 0.8em;
-	font-weight: bold;
+	font-size: 1.2em;
+/* 	font-weight: bold; */
+	color: #3E6E97;
+}
+
+.scroll {
+	width: 920px;
+	overflow: auto;
 }
 
 /* BUTTONS */
