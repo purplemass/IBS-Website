@@ -50,10 +50,13 @@
 					</fieldset>
 
 					<!-- store user's id in custom field - will be returned as transaction_subject and custom -->
-					<input type="hidden" id="custom" name="custom" value="<?php echo_value('email', TRUE); ?>">
-
 					<!-- store taxpayer yes/no in item_number -->
-					<input type="hidden" id="item_number" name="item_number" value="">
+					<input type="hidden" id="custom" name="custom" value="">
+
+<!--
+					 This appears on PayPal customer page!!
+					 <input type="hidden" id="item_number" name="item_number" value="">
+-->
 
 
 					<input type="hidden" name="return" value="http://www.ibsproject.org">

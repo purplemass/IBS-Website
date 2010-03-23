@@ -22,6 +22,7 @@ else
 define('TABLE_COMMUNITY', 'ibs_community');
 define('TABLE_DONATIONS', 'ibs_donations');
 define('TABLE_EVENTS', 'ibs_events');
+define('TABLE_PAYPAL', 'ibs_paypal');
 define('TABLE_DONOR_CATS', 'ibs_donor_categories');
 
 // End config
@@ -130,8 +131,8 @@ CREATE TABLE `ibs_community` (
   `dt` datetime NOT NULL default '0000-00-00 00:00:00',
   `mdt` datetime NOT NULL default '0000-00-00 00:00:00',
   `title` varchar(5) collate utf8_unicode_ci NOT NULL default '',
-  `forename` varchar(32) collate utf8_unicode_ci NOT NULL default '',
-  `surname` varchar(32) collate utf8_unicode_ci NOT NULL default '',
+  `forename` varchar(64) collate utf8_unicode_ci NOT NULL default '',
+  `surname` varchar(64) collate utf8_unicode_ci NOT NULL default '',
   `email` varchar(50) collate utf8_unicode_ci NOT NULL default '',
   `password` varchar(32) collate utf8_unicode_ci NOT NULL default '',
   `address1` varchar(50) collate utf8_unicode_ci NOT NULL default '',
@@ -164,6 +165,29 @@ CREATE TABLE `ibs_donations` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Table structure for table `ibs_paypal`
+--
+
+CREATE TABLE `ibs_paypal` (
+  `id` int(11) NOT NULL auto_increment,
+  `dt` datetime NOT NULL default '0000-00-00 00:00:00',
+  `mdt` datetime NOT NULL default '0000-00-00 00:00:00',
+  `pid` int(11) NOT NULL,
+  `first_name` varchar(64) collate utf8_unicode_ci NOT NULL default '',
+  `last_name` varchar(64) collate utf8_unicode_ci NOT NULL default '',
+  `payer_email` varchar(127) collate utf8_unicode_ci NOT NULL default '',
+  `address_name` varchar(128) collate utf8_unicode_ci NOT NULL default '',
+  `address_street` varchar(200) collate utf8_unicode_ci NOT NULL default '',
+  `address_city` varchar(40) collate utf8_unicode_ci NOT NULL default '',
+  `address_state` varchar(40) collate utf8_unicode_ci NOT NULL default '',
+  `address_zip` varchar(20) collate utf8_unicode_ci NOT NULL default '',
+  `address_country` varchar(64) collate utf8_unicode_ci NOT NULL default '',
+  `address_country_code` varchar(2) collate utf8_unicode_ci NOT NULL default '',
+  `residence_country` varchar(2) collate utf8_unicode_ci NOT NULL default '',
+  `address_status` varchar(15) collate utf8_unicode_ci NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Table structure for table `ibs_events`
@@ -193,6 +217,12 @@ CREATE TABLE `ibs_donor_categories` (
 add new field:
 
 ALTER TABLE ibs_community ADD admin tinyint(1) collate utf8_unicode_ci NOT NULL default 0 AFTER register
+
+These do not exist in PayPal's IPN submission:
+
+  `payer_business_name` varchar(127) collate utf8_unicode_ci NOT NULL default '',
+  `contact_phone` varchar(20) collate utf8_unicode_ci NOT NULL default '',
+
 
 //--------------------------------------------------------------
 

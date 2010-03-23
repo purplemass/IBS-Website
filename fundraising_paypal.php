@@ -21,9 +21,9 @@ write_temp_file($file_name);
 
 /* test with these:
 
-	http://ibsproject.org/_dev/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&item_number=TAXPAYER_YES
-	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&item_number=TAXPAYER_YES
-	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=bob_ak@hotmail.com&mc_gross=12&item_number=TAXPAYER_YES
+	http://ibsproject.org/_dev/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&custom=TAXPAYER_YES&address_name=bob
+	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&custom=TAXPAYER_YES
+	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=bob_ak@hotmail.com&mc_gross=12&custom=TAXPAYER_YES
 
 */
 
@@ -33,31 +33,12 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 
 	$email	= mysql_real_escape_string(safe('transaction_subject'));
 	$amount	= mysql_real_escape_string(safe('mc_gross'));
-	$gift_aid = mysql_real_escape_string(safe('item_number'));
+	$gift_aid = mysql_real_escape_string(safe('custom')); // was item_number but it appears in PayPal customer page
 	$gift_aid = ($gift_aid == 'TAXPAYER_YES') ? 1 : 0;
 
 	//--------------------------------------------------------------
 	
-	if (isset($_REQUEST['address_name']))
-	{
-		$count = $_REQUEST['num_cart_items'];
-		$total_amt = $_REQUEST['mc_gross'] . " " . $_REQUEST['mc_currency'];
-		$payment_status = $_REQUEST['payment_status'];
-		$payment_date = $_REQUEST['payment_date'];
-		$buyer_name = $_REQUEST['first_name'].' '.$_REQUEST['last_name'];
-		$email_addr = $_REQUEST['option_selection1_1'];
-		$guest_list = $_REQUEST['option_selection2_1'];
-		$shipping_address = $_REQUEST['address_name'].'<br>'.
-		                    $_REQUEST['address_street'].'<br>'.
-		                    $_REQUEST['address_city'].'<br>'.
-		                    $_REQUEST['address_state'].'<br>'.
-		                    $_REQUEST['address_zip'].'<br>'.
-		                    $_REQUEST['address_country'];
-	}
-	
-	//--------------------------------------------------------------
-	
-	$row = mysql_fetch_assoc(mysql_query("SELECT * FROM " . TABLE_COMMUNITY . " WHERE email='" . $email . "'"));
+	$row = mysql_fetch_assoc(mysql_query("SELECT id, email, title, forename, surname FROM " . TABLE_COMMUNITY . " WHERE email='" . $email . "'"));
 	check_db_error();
 	
 	// id exists
@@ -86,6 +67,77 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 	}
 	
 	insert_value('donor', 1, $pid);
+
+	//--------------------------------------------------------------
+	// paypal address fields
+
+	if (isset($_REQUEST['address_name']))
+	{
+		$fields = array(
+					'first_name',
+					'last_name',
+					'payer_email',
+					'address_name',
+					'address_street',
+					'address_city',
+					'address_state',
+					'address_zip',
+					'address_country',
+					'address_country_code',
+					'residence_country',
+					'address_status'
+				);
+
+		$sql_cmd = '';
+		$sql_top = '';
+		foreach ($fields as $name)
+		{
+			$sql_top .= $name . ',';
+			if (isset($_REQUEST[$name]))
+				$sql_cmd .= '\'' . mysql_real_escape_string(safe($name)) . '\',';
+			else
+				$sql_cmd .= '\'\',';
+		}
+
+		// remove last ,
+		$sql_cmd = substr_replace($sql_cmd ,"",-1);
+		$sql_top = substr_replace($sql_top ,"",-1);
+
+		$sql_cmd = ("	INSERT INTO " . TABLE_PAYPAL . "
+
+						(dt, mdt, pid, " . $sql_top . ")
+
+						VALUES(
+
+							NOW(),
+							NOW(),
+							" . $pid . ",
+							" . $sql_cmd . "
+					)");
+
+/*
+		$sql_cmd = '';
+		foreach ($update_these as $name)
+			$sql_cmd .= $name . ' = \'' .$_REQUEST[$name] . '\',';
+
+		// remove last ,
+		$sql_cmd = substr_replace($sql_cmd ,"",-1);
+
+		$sql_cmd = ("	UPDATE " . TABLE_PAYPAL . " SET
+
+						mdt = NOW(),
+
+						" . $sql_cmd . "
+
+						WHERE id = '". $pid ."'
+
+				");
+*/
+
+		mysql_query($sql_cmd);
+		check_db_error($sql_cmd);
+
+	}
 
 	//--------------------------------------------------------------
 	
