@@ -45,6 +45,7 @@ foreach ($image_list as $key => $value)
 		<style>
 			.buttons { zoom: 1; }
 			#announcement a { zoom: 1; }
+			#div#loggedin { float: none !important; margin-top: -5px !important; border: none !important;}
 		</style>
 	<![endif]-->
 
