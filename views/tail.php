@@ -1,5 +1,6 @@
 <?php if(!defined('INCLUDE_CHECK')) die('You are not allowed to execute this file directly'); ?>
 	</div>
+	<!--[if lte IE 6]><div class="ie6clear"></div><![endif]-->
 </div>
 <div id="footer"><div class="text">Copyright &copy; 2010 Iranian Business School Project</div></div>
 <script type="text/javascript">Cufon.now();</script>

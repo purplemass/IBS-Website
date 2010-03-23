@@ -35,6 +35,13 @@ html {
 	overflow-y: scroll;
 }
 
+/* IE6 HACK FOR CLEARING FOOTER WHEN ROLLING OVER NAV ITEMS */
+.ie6clear {
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+
 /*
 
 MAIN STYLES
