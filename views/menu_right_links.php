@@ -1,5 +1,10 @@
 
-<?php if ($loggedin) require_once('views/loggedin.php'); ?>
+<?php
+	if ($loggedin)
+		require_once('views/loggedin.php');
+	else
+		require_once('views/loggedout.php');
+?>
 		<div id="menuright">
 			<div class="quicklinks">Quick Links</div>
 			<a class="navitem" rel="new" href="./_downloads/IBS_Project_Newsletter_Issue_4_December_2009.pdf">Quarterly Newsletter, Issue 4, Dec. 2009</a>

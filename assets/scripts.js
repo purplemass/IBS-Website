@@ -98,9 +98,9 @@ $(document).ready(function(){
 			// 	go to same page if this is register
 			// 	otherwise we're should go to fundraising.php
 			if (sys_flag == 'donate')
-				$(location).attr('href', 'fundraising.php');
+				$(location).attr('href', 'fundraising.php?logout');
 			else
-				$(location).attr('href', '');
+				$(location).attr('href', '?logout');
 		});
 		return true;
 	});
