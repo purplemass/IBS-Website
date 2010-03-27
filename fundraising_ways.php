@@ -18,10 +18,10 @@
 		</div>
 		<div id="content">
 			<div id="title">
-				<div class="text">Fundraising</div>
+				<div class="text">Ways to Give</div>
 			</div>
 			<div id="body">
-				<p class="intitle">Ways to Give</p>
+<!-- 				<p class="intitle">Ways to Give</p> -->
 				<p>Contributions of all sizes and manners are welcome and we have devised a number of ways to make giving easy and tax efficient.</p>
 				<p>In addition to the methods of giving named below, we can also work together to devise a giving plan that meets your personal giving objectives.</p>
 				<p>The Project has also developed a number of ways to recognise gifts made to the School and we are happy to discuss these with all prospective donors wishing to find out more about how we <a href="contact_us.php">recognise contributions.</a></p>

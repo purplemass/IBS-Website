@@ -74,7 +74,7 @@ switch($_POST['page_flag'])
 		$loggedin = FALSE;
 		$admin = FALSE;
 		// you will never go past this point as it's done through Ajax!!!!
-		die('logged out');
+		die($_POST['sys_flag']);
 		//$task = 'start';
 		//$err[] = 'You have successfully been logged out';
 		break;
@@ -149,7 +149,7 @@ function show_html()
 		case 'reg_updated':
 			set_user_info();
 			set_cookie();
-			$page_title = (is_donate()) ? 'Donation online' : 'Members area';
+			$page_title = (is_donate()) ? 'Donate online' : 'Members area';
 
 			if ($_POST['page_flag'] == 'check_registration')
 				$instructions_text = 'Thank you for updating your profile.';

@@ -91,10 +91,16 @@ $(document).ready(function(){
 
 	$("#logout, #logout_right").click(function(){
 		$.post('register.php',{
-			'page_flag': 'logout'
-		}, function(data){
-			//alert(data);
-			$(location).attr('href', '');
+			'page_flag': 'logout',
+			'sys_flag': $('#sys_flag').val()
+		}, function(sys_flag){
+			// sys_flag will be sent back from PHP script register.php
+			// 	go to same page if this is register
+			// 	otherwise we're should go to fundraising.php
+			if (sys_flag == 'donate')
+				$(location).attr('href', 'fundraising.php');
+			else
+				$(location).attr('href', '');
 		});
 		return true;
 	});
