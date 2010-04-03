@@ -162,6 +162,16 @@ $(document).ready(function(){
 
 	/* 	NEWSLETTER */
 
+	// archived_newsletters_button
+	$(".archived_newsletters_button").click(function(){
+		if ($('#archived_newsletters').css('display') == 'none')
+			$('#archived_newsletters').css('display', 'block')
+		else
+			$('#archived_newsletters').css('display', 'none')
+		$(".archived_newsletters_button").blur();
+		return false;
+	});
+
 	// select the input box when clicked
 	$("#emailAddress").click(function(){
 		this.focus();

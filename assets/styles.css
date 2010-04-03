@@ -524,6 +524,11 @@ div#menuright .quicklinks {
 	color: #346794;
 }
 
+div#menuright #archived_newsletters {
+	display: none;
+	padding: 10px;
+}
+
 div#menuright img {
 	vertical-align: top;
 }
