@@ -165,9 +165,13 @@ $(document).ready(function(){
 	// archived_newsletters_button
 	$(".archived_newsletters_button").click(function(){
 		if ($('#archived_newsletters').css('display') == 'none')
+		{
 			$('#archived_newsletters').css('display', 'block')
-		else
+			$('#bullet_right').attr('src', './assets/images/bullet_down.gif')
+		} else {
 			$('#archived_newsletters').css('display', 'none')
+			$('#bullet_right').attr('src', './assets/images/bullet_right.gif')
+		}
 		$(".archived_newsletters_button").blur();
 		return false;
 	});
