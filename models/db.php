@@ -172,7 +172,6 @@ CREATE TABLE `ibs_donations` (
 CREATE TABLE `ibs_paypal` (
   `id` int(11) NOT NULL auto_increment,
   `dt` datetime NOT NULL default '0000-00-00 00:00:00',
-  `mdt` datetime NOT NULL default '0000-00-00 00:00:00',
   `pid` int(11) NOT NULL,
   `first_name` varchar(64) collate utf8_unicode_ci NOT NULL default '',
   `last_name` varchar(64) collate utf8_unicode_ci NOT NULL default '',

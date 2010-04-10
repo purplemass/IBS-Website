@@ -29,22 +29,7 @@ else
 if ($err == '')
 {
 	$show_these = array(
-					'id',
 					'dt',
-					'forename',
-					'surname',
-					'amount',
-					'gift_aid',
-				);
-
-	$sql = "SELECT " . TABLE_COMMUNITY . ".*, " . TABLE_DONATIONS . ".*
-			FROM " . TABLE_COMMUNITY. ", " . TABLE_DONATIONS . "
-			WHERE " . TABLE_COMMUNITY. ".id=" . TABLE_DONATIONS .".pid
-			ORDER BY " . TABLE_DONATIONS . ".dt DESC";
-
-	$donations = get_result($sql, $show_these);
-
-	$show_these = array(
 					'id',
 					'title',
 					'forename',
@@ -66,6 +51,23 @@ if ($err == '')
 	$members = get_result($sql, $show_these);
 
 	$show_these = array(
+					'dt',
+					'id',
+					'forename',
+					'surname',
+					'amount',
+					'gift_aid',
+				);
+
+	$sql = "SELECT " . TABLE_COMMUNITY . ".*, " . TABLE_DONATIONS . ".*
+			FROM " . TABLE_COMMUNITY. ", " . TABLE_DONATIONS . "
+			WHERE " . TABLE_COMMUNITY. ".id=" . TABLE_DONATIONS .".pid
+			ORDER BY " . TABLE_DONATIONS . ".dt DESC";
+
+	$donations = get_result($sql, $show_these);
+
+	$show_these = array(
+					'dt',
 					'id',
 					'first_name',
 					'last_name',

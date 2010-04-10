@@ -68,6 +68,8 @@ $(document).ready(function(){
 			return false;
 		} else {
 			//$(this).attr('disabled', 'true');
+			// add email + ; + tax_payer to make up PayPal's cutom field
+			$('#custom').val($('#email').val() + '|' + $('#tax_payer').val());
 			$('#main_form').attr('action', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
 			$('#main_form').submit();
 			return true;
@@ -77,13 +79,13 @@ $(document).ready(function(){
 	// registration form radio buttons select
 	$("#taxpayer_yes_select").click(function(){
 		$('#taxpayer_yes').attr("checked", "checked");
-		$('#custom').val('TAXPAYER_YES');
+		$('#tax_payer').val('TAXPAYER_YES');
 		return true;
 	});
 
 	$("#taxpayer_no_select").click(function(){
 		$('#taxpayer_no').attr("checked", "checked");
-		$('#custom').val('TAXPAYER_NO');
+		$('#tax_payer').val('TAXPAYER_NO');
 		return true;
 	});
 

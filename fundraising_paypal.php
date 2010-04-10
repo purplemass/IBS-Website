@@ -21,9 +21,9 @@ write_temp_file($file_name);
 
 /* test with these:
 
-	http://ibsproject.org/_dev/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&custom=TAXPAYER_YES&address_name=bob
-	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org&mc_gross=12&custom=TAXPAYER_YES
-	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=bob_ak@hotmail.com&mc_gross=12&custom=TAXPAYER_YES
+	http://ibsproject.org/_dev/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org;TAXPAYER_YES&mc_gross=12&address_name=bob
+	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=b.hatamian@ibsproject.org;TAXPAYER_YES&mc_gross=12
+	http://localhost:8888/ibs/fundraising_paypal.php?transaction_subject=bob_ak@hotmail.com;TAXPAYER_NO&mc_gross=12
 
 */
 
@@ -31,9 +31,12 @@ write_temp_file($file_name);
 
 if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 
-	$email	= mysql_real_escape_string(safe('transaction_subject'));
 	$amount	= mysql_real_escape_string(safe('mc_gross'));
-	$gift_aid = mysql_real_escape_string(safe('custom')); // was item_number but it appears in PayPal customer page
+	$custom = mysql_real_escape_string(safe('custom')); // or 'transaction_subject'
+	$custom = explode('|', $custom);
+
+	$email	= $custom[0];
+	$gift_aid = $custom[1]; // was item_number but it appears in PayPal customer page
 	$gift_aid = ($gift_aid == 'TAXPAYER_YES') ? 1 : 0;
 
 	//--------------------------------------------------------------
@@ -106,11 +109,10 @@ if (isset($_REQUEST['transaction_subject']) && isset($_REQUEST['mc_gross'])) {
 
 		$sql_cmd = ("	INSERT INTO " . TABLE_PAYPAL . "
 
-						(dt, mdt, pid, " . $sql_top . ")
+						(dt, pid, " . $sql_top . ")
 
 						VALUES(
 
-							NOW(),
 							NOW(),
 							" . $pid . ",
 							" . $sql_cmd . "

@@ -51,6 +51,8 @@
 
 					<!-- store user's id in custom field - will be returned as transaction_subject and custom -->
 					<!-- store taxpayer yes/no in item_number -->
+					<input type="hidden" id="email" name="email" value="<?php echo_value('email', TRUE); ?>">
+					<input type="hidden" id="tax_payer" name="tax_payer" value="">
 					<input type="hidden" id="custom" name="custom" value="">
 
 <!--

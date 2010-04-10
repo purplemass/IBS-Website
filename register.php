@@ -8,7 +8,7 @@ require_once('controllers/html.php');
 
 $task = 'start';
 $err = array();
-$show_vars = TRUE;
+$show_vars = FALSE;
 
 //--------------------------------------------------------------
 
@@ -199,7 +199,7 @@ function show_html()
 
 	if ($debug && $show_vars)
 	{
-		echo '		<div id="debug_info">';
+		echo '<div id="debug_info">';
 		echo 'sys=' . $_POST['sys_flag'];
 		echo '<br />page=' . $_POST['page_flag'];
 		echo '<br />task=' . $task;
@@ -252,6 +252,7 @@ function set_user_info()
 	$_POST['id'] = $row['id'];
 	$_POST['name'] = $row['forename'];
 	$_POST['admin'] = $row['admin'];
+	$_POST['email'] = $row['email'];
 }
 
 //--------------------------------------------------------------

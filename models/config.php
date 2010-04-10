@@ -33,7 +33,7 @@ $mycookie_expiry = 60 * 60;
 if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.64') )
 {
 	$is_live = FALSE;
-	$debug = FALSE;	
+	$debug = TRUE;	
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
 }
