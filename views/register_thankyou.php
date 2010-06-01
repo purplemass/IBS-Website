@@ -18,7 +18,7 @@
 								<?php echo $instructions_text; ?>
 							</li>
 							<li class="no_list">
-								<p>If you'd like to edit your details, please <a id="edit_button_inline" href="#">click here</a>.</p>
+								<p>If you would like to edit your details, please <a id="edit_button_inline" href="#">click here</a>.</p>
 							</li>
 						</ol>
 					</fieldset>

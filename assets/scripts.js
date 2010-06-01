@@ -146,7 +146,7 @@ $(document).ready(function(){
 	// registration form radio buttons select
 	$("#radio_yes_select").click(function(){
 		$('#radio_yes').attr("checked", "checked");
-		$('#submit').text("Log in");
+		$('#submit').text("Submit"); //Log in
 		return true;
 	});
 
@@ -158,7 +158,7 @@ $(document).ready(function(){
 
 	$("#radio_no_select").click(function(){
 		$('#radio_no').attr("checked", "checked");
-		$('#submit').text("Create Acount");
+		$('#submit').text("Submit"); //Create Acount
 		return true;
 	});
 
