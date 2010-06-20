@@ -11,7 +11,7 @@
 				<a class="navitem" href="project_the_team.php">The Team</a>
 				<a class="navitem" href="project_timeline.php">Project Timeline</a>
 			</div>
-			<div id="contentWide">
+			<div id="content">
 				<div id="title">
 					<div class="text">Organisational Structure</div>
 				</div>
@@ -53,10 +53,10 @@
 					<p>External advisers and various other advisory bodies also operate under, or in conjunction with, the Executive Committee. Currently, two key boards are under establishment, the Development Board and an International Advisory Board.  The Development Board is comprised of founders, major donors and supporters of the Project. This group will provide oversight and input on the fundraising efforts undertaken on behalf of the School both abroad and within Iran. The International Advisory Board is comprised of world-leading business figures, entrepreneurs and academics and will focus on providing input on high-level strategies and initiatives to distinguish IBS and ensure its vision and mission are realised.  </p>
 					<p>All committees and boards are comprised of experts from inside and outside Iran with the vast majority working on a volunteer basis. </p>
 					<p>The Project's organisational structure is as follows: </p>
-					<p><img src="assets/images/project_organisation.gif" width="700" height="540" alt="Project Organisation" /></p>
+					<p><img src="assets/images/project_organisation.gif" width="727" height="476" alt="Project Organisation" /></p>
 				</div>
 			</div>
 <?php
-	//require_once('views/menu_right_links.php');
+	require_once('views/menu_right_links.php');
 	require_once('views/tail.php');
 ?>
