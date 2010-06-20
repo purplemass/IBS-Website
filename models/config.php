@@ -67,6 +67,7 @@ $image_list = array(
 					'programmes.php'			=>	'image_programmes.jpg',
 					'programmes_curriculum.php'	=>	'image_programmes.jpg',
 					'news_events.php'			=>	'image_news_events.jpg',
+					'news_events_launch.php'	=>	'image_news_events.jpg',
 					'news_events_upcoming.php'	=>	'image_news_events.jpg',
 					'news_events_video.php'		=>	'image_news_events.jpg',
 					'get_involved.php'			=>	'image_get_involved.jpg',

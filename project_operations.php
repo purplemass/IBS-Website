@@ -16,9 +16,9 @@
 				<div class="text">How We Operate</div>
 			</div>
 			<div id="body">
-				<p>The Iranian Business School will operate as a wholly independent, not-for-profit educational establishment located in Tehran. The Project is currently administered by a <a href="project_the_team.php#steering_commitee">Steering Committee</a>, which is responsible for strategic planning, fundraising, curriculum development and all other activities involved in the process of setting up the School.</p>
-				<p>Notwithstanding its private status, the School shall ultimately operate under the auspices of the Iranian Ministry of Science, Research and Technology whose involvement will ensure that the School conforms to the legal requirements of independent educational establishments in Iran.</p>
-				<p>It is expected that the School will become operational in September 2010.  A permit for the creation of an educational establishment in Tehran has been obtained and we are in the process of completing the final requisite legal requirements with the relevant local authorities.</p>
+				<p>The Iranian Business School will operate as a wholly independent, not-for-profit educational establishment located in Tehran. The Iranian Business School Project operates as a fully independent, not-for-profit entity. The Project is administered by a <a href="project_the_team.php#steering_commitee">Coordinating Committee</a>, which is responsible for strategic planning, fundraising, curriculum development and all other activities involved in the process of setting up the School.</p>
+				<p>The Iranian Business School itself will also operate as a wholly independent, not-for-profit establishment. Notwithstanding its private status, the School shall ultimately operate under the auspices of the Iranian Ministry of Science, Research and Technology whose involvement will ensure that the School conforms to the legal requirements of independent educational establishments in Iran. </p>
+				<p>A permit for the creation of an educational establishment in Tehran has already been obtained and the School will become operational in September 2010, commencing with Executive Education Programmes aimed at CEO and board-level executives.</p>
 			</div>
 		</div>
 <?php
