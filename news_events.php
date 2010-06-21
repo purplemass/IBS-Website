@@ -11,7 +11,7 @@
 		</div>
 		<div id="content">
 			<div id="title">
-				<div class="text">Success of Annual Fundraising Event underscores strong support for IBS Project</div>
+				<div class="text">Success of Annual Fundraising Event Underscores Strong Support For IBS Project</div>
 			</div>
 			<div id="body">
 				<p>Held on the 5th of February 2010 at the Ballroom of the Dorchester Hotel in London, more than 300 business figures and individuals from within Iran and the Iranian Diaspora came to together at the Iranian Business School (IBS) Project’s second annual fundraising event.</p>
@@ -22,20 +22,20 @@
 				<p>Through the support shown by all of the evening’s guests and the generous bids made by those who took part in the auction, the event was a great success helping to raising meaningful funds for the Iranian Business School Project.</p>
 				<p class="intitle">Sponsors</p>
 				<p>The Iranian Business School Project would like to extend sincere gratitude to the following sponsors who generously supported the 2010 Fundraising Event:</p>
-				<p><b>Platinum Sponsor</b></p>
-				<p>Advance International Transport Inc.</p>
-				<p><b>Gold Sponsors</b></p>
-				<p>Couture Smile<br />
+				<p><span class="sponsors">Platinum Sponsor</span><br />
+				Advance International Transport Inc.</p>
+				<p><span class="sponsors">Gold Sponsors</span><br />
+				Couture Smile<br />
 				Rana Agro-Industry Corporation<br />
 				Simoon Travel<br />
 				Turquoise Partners</p>
-				<p><b>Silver Sponsors</b></p>
-				<p>a2e Venture Catalysts Ltd.<br />
+				<p><span class="sponsors">Silver Sponsors</span><br />
+				a2e Venture Catalysts Ltd.<br />
 				Britannia Petroleum<br />
 				Jacuzzi Films<br />
 				Pars Business Club</p>
-				<p><b>Bronze Sponsors</b></p>
-				<p>Arash Mahdaviani<br />
+				<p><span class="sponsors">Bronze Sponsors</span><br />
+				Arash Mahdaviani<br />
 				Amir Morshed<br />
 				Farzin Pourmokhtar</p>
 			</div>

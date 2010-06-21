@@ -19,7 +19,7 @@
 					<p>An Executive Committee assumes responsibility for guiding all aspects of the strategic, planning, operational and development of the Iranian Business School. </p>
 					<p>To date, three separate legal entities have been established for the purposes of fundraising, management and operation of the School. These entities are IBS Project (UK), Holdco (Iran) and the Iranian Business School (Iran), each of which operates under the oversight of the Executive Committee.  The Project and Holdco have established Boards of Trustees and the School itself is overseen by a Board of Governors.</p>
 					<p class="intitle">IBS Project (UK)</p>
-					<p>IBS Project is a UK registered charity (Charity Registration Number: 1125584), managed by a four member Board of Trustees and operating in a tax efficient manner.</p>
+					<p>IBS Project is a <a href="http://www.charitycommission.gov.uk" rel="new">UK registered charity</a> (Charity Registration Number: 1125584), managed by a four member Board of Trustees and operating in a tax efficient manner.</p>
 					<p>The responsibilities of this entity are as follows:</p>
 					<ul>
 						<li>Fundraising for the School outside Iran</li>
