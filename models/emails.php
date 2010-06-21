@@ -17,7 +17,7 @@ function send_email_donor($email, $name, $amount)
 Dear {$name},
 <br />
 <br />
-We have recieved your donation of &pound;{$amount}.
+We have received your donation of &pound;{$amount}.
 <br />
 <br />
 Many thanks ....
@@ -68,7 +68,7 @@ function send_registration_email($email, $name, $password)
 Dear {$name},
 <br />
 <br />
-Thank you for registering with the Iranian Business School Project website. Your details will be added to our database and you will receive all future information and updates.
+Thank you for registering on the Iranian Business School Project website. Your details will be added to our database and you will receive all future information and updates.
 <br />
 <br />
 Email address: {$email}

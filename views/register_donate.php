@@ -22,9 +22,15 @@
 							<li class="no_list">
 <?php if ($_POST['country'] == 'US'): ?>
 								<p>Thank you very much for registering with us.</p>
-								<p>Unfortunately, we are unable to accept donations from the United States at present time.</p>
-								<p>We'll contact you in the future ....</p>
+								<p>Unfortunately, due to legal restrictions, we are unable to accept donations from the United States at the present time.</p>
+								<p>We will contact you in the future should this status change.</p>
+								<p>In the meanwhile, please feel free to contact Mr. Reza Moradi on: <a href="mailto:info@ibsproject.org">info@ibsproject.org</a> to discuss alternative ways of supporting IBS.</p>
 								<p>If you would like to edit your details, please <a id="edit_button" href="#">click here</a>.</p>
+<?php elseif ($_POST['country'] == 'IR'): ?>
+								<p>Unfortunately, we cannot accept donations from debit or credit cards registered in Iran.</p>
+								<p>If you would like to make a donation to IBS directly in Iran, please contact Ms. Alieh Ashtari by e-mail or telephone to discuss alternative methods of donating:</p>
+								<p>E-mail: <a href="mailto:a.ashtari@ibsproject.org">a.ashtari@ibsproject.org</a></p>
+								<p>Tel: +98 (0) 21 2203 5830</p>
 <?php else: ?>
 								<p>Please enter the amount you would like to donate and tell us if you are a UK taxpayer.
 								Press the PayPal button below to go to our PayPal page for a secure transaction.</p>
