@@ -8,8 +8,8 @@ error_reporting(E_ERROR);
 //--------------------------------------------------------------
 
 define('EMAIL_FROM',	'noreply@ibsproject.com');
-define('EMAIL_AUTO',	'b.hatamian@ibsproject.org');
-define('EMAIL_SERVER',	'b.hatamian@ibsproject.org');
+define('EMAIL_AUTO',	'info@ibsproject.org');
+define('EMAIL_SERVER',	'info@ibsproject.org');
 
 //--------------------------------------------------------------
 
@@ -265,9 +265,11 @@ $title_codes = array(
 // country codes
 $country_codes = array(
 						'Select a country'=>'',
+/*
 						'United Kingdom'=>'UK',
 						'United States of America'=>'US',
 						'Iran'=>'IR',
+*/
 						'Afghanistan'=>'AF',
 						'Albania'=>'AL',
 						'Algeria'=>'DZ',
@@ -371,7 +373,7 @@ $country_codes = array(
 						'Iceland'=>'IS',
 						'India'=>'IN',
 						'Indonesia'=>'ID',
-/* 						'Iran'=>'IR', */
+						'Iran'=>'IR',
 						'Iraq'=>'IQ',
 						'Ireland'=>'IE',
 						'Isle of Man'=>'IM',
@@ -500,10 +502,8 @@ $country_codes = array(
 						'Uganda'=>'UG',
 						'Ukraine'=>'UA',
 						'United Arab Emirates'=>'AE',
-/*
 						'United Kingdom (Great Britain)'=>'UK',
 						'United States of America (USA)'=>'US',
-*/
 						'United States Minor Outlying Islands'=>'UM',
 						'Uruguay'=>'UY',
 						'Uzbekistan'=>'UZ',

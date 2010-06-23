@@ -12,15 +12,15 @@
  */
 function send_email_donor($email, $name, $amount)
 {
-	$subject	= 'IBS Project - Donation Received';
+	$subject	= 'IBS Project - Donation received';
 	$body 		= <<<EOF
 Dear {$name},
 <br />
 <br />
-We have received your donation of &pound;{$amount}.
+We have received your donation of &pound;{$amount} and are extremely grateful for your contribution to this not-for-profit venture.
 <br />
 <br />
-Many thanks ....
+Many thanks,
 <br />
 <br />
 IBS Project Team
@@ -43,7 +43,7 @@ EOF;
  */
 function send_email_auto_donor($name, $amount)
 {
-	$subject = 'IBS Project automated email - Donation Received';
+	$subject = 'IBS Project automated email - Donation received';
 	$body = <<<EOF
 We have recieved a donation of &pound;{$amount} from {$name}.
 <br />
@@ -63,7 +63,7 @@ EOF;
  */
 function send_registration_email($email, $name, $password)
 {
-	$subject = 'Thank you for registering';
+	$subject = 'IBS Project - User registration';
 	$message = <<<EOF
 Dear {$name},
 <br />
@@ -139,7 +139,7 @@ function send_newsletter_auto_email($email)
 Please add the following email address to the database:
 <br />
 <br />
-Email address: {$email};
+Email address: {$email}
 <br />
 EOF;
 	

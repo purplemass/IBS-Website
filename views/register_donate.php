@@ -8,8 +8,7 @@
 				<div class="error_message"><?php echo implode('<br />', $err); ?></div>
 <?php endif ?>
 				<div id="error_div"></div>
-				<form id="main_form" class="form_register" action="" method="post" name="_xclick">
-<!-- 				<form id="main_form" class="form_register" name="_xclick" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post"> -->
+				<form id="main_form" class="form_register" method="post">  <!-- name="_xclick"  action="" -->
 					<input type="hidden" id="page_flag" name="page_flag" value="donate_now">
 					<input type="hidden" id="sys_flag" name="sys_flag" value="<?php echo_value('sys_flag', TRUE); ?>" />
 					<input type="hidden" id="id" name="id" value="<?php echo_value('id', TRUE); ?>" />
@@ -61,22 +60,38 @@
 					<input type="hidden" id="tax_payer" name="tax_payer" value="">
 					<input type="hidden" id="custom" name="custom" value="">
 
+					<!-- This one is for the live site -->
+					<input type="hidden" name="business" value="donations@ibsproject.org">
+					<input type="hidden" name="cmd" value="_donations">
+
+					<!-- These are for the test site -->
 <!--
-					 This appears on PayPal customer page!!
+					<input type="hidden" name="business" value="seller_1256763583_biz@hotmail.com">
+					<input type="hidden" name="cmd" value="_xclick">
+-->
+
+					<!-- Leave these for both live and test sites -->
+					<input type="hidden" name="currency_code" value="GBP">
+					<input type="hidden" name="item_name" value="IBS Project Donation">
+					<input type="hidden" name="return" value="http://www.ibsproject.org/register.php">
+
+<!-- 					<input class="submit_button" type="image" id="donate_button" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"> -->
+					<input class="submit_button" type="image" id="donate_button" src="./assets/images/paypal.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+<?php endif; ?>
+				</form>
+
+<!--
+					 This appears on PayPal customer page. Do NOT use!!
 					 <input type="hidden" id="item_number" name="item_number" value="">
 -->
 
-
-					<input type="hidden" name="return" value="http://www.ibsproject.org">
-					<input type="hidden" name="cmd" value="_xclick">
-					<input type="hidden" name="business" value="seller_1256763583_biz@hotmail.com">
-					<input type="hidden" name="item_name" value="IBS Project Donation">
-					<input type="hidden" name="currency_code" value="GBP">
-<!-- 					<input class="submit_button" type="image" id="donate_button" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"> -->
-					<input class="submit_button" type="image" id="donate_button" src="./assets/images/paypal.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-<?php endif; ?>
-				</form>
 <!--
+
+LEGACY CODE - IGNORE
+
+				<form id="main_form" class="form_register" name="_xclick" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+
 					<p><img src="assets/images/button_google_checkout.gif" /></p>
 					<p>
 						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">

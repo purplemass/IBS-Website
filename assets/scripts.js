@@ -55,12 +55,12 @@ $(document).ready(function(){
 		{
 			$('#error_div').text('You must enter an amount below');
 			$('#error_div').addClass('error_message');
-			$("#subscribe #amount").focus();
+			$("#main_form #amount").focus();
 			return false;
 		} else if (isNaN( $('#amount').val() )) {
 			$('#error_div').text('Please enter numbers only');
 			$('#error_div').addClass('error_message');
-			$("#subscribe #amount").focus();
+			$("#main_form #amount").focus();
 			return false;
 		} else if ( $('#taxpayer_yes').attr('checked') == false && $('#taxpayer_no').attr('checked') == false) {
 			$('#error_div').text('Please select whether you are a UK taxpayer');
@@ -70,7 +70,13 @@ $(document).ready(function(){
 			//$(this).attr('disabled', 'true');
 			// add email + ; + tax_payer to make up PayPal's cutom field
 			$('#custom').val($('#email').val() + '|' + $('#tax_payer').val());
-			$('#main_form').attr('action', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
+			
+			// this one if for testing
+			//$('#main_form').attr('action', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
+			
+			// this one is for the live site
+			$('#main_form').attr('action', 'https://www.paypal.com/cgi-bin/webscr');
+			
 			$('#main_form').submit();
 			return true;
 		}
