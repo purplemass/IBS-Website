@@ -312,6 +312,11 @@ div#menuleft .navitem {
 	background-color: #d9dbd0;
 }
 
+div#menuleft .navitemlarge {
+	height: 34px;
+}
+
+
 div#menuleft a {
 	color: #000000;
 }
@@ -327,6 +332,26 @@ div#menuleft img {
 
 div#menuleft .active {
 	color: #09466a;
+}
+
+div#menuleft #executive_programme {
+	width: 160px;
+	height: 30px;
+	padding: 10px;
+	margin-bottom: 10px;
+ 	border: none;
+ 	background-color: #346794;
+}
+
+div#menuleft #executive_programme .heading a {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 1.2em;
+	line-height: 1.0;
+}
+
+div#menuleft #executive_programme .heading a:hover {
+	color: #D9DBD0;
 }
 
 div#menuleft #announcement {

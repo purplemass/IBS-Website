@@ -10,6 +10,7 @@ Cufon.replace('#menuright p');
 Cufon.replace('#menuright .quicklinks');
 Cufon.replace('#menuleft #announcement p');
 Cufon.replace('#menuleft #announcement .white');
+Cufon.replace('#menuleft #executive_programme p');
 Cufon.replace('#title .text');
 Cufon.replace('#body .intitle');
 Cufon.replace('#footer .text');

@@ -66,6 +66,7 @@ $image_list = array(
 					'project_timeline.php'		=>	'image_project_countdown.jpg',
 					'programmes.php'			=>	'image_programmes.jpg',
 					'programmes_curriculum.php'	=>	'image_programmes.jpg',
+					'programmes_form.php'		=>	'image_programmes.jpg',
 					'news_events.php'			=>	'image_news_events.jpg',
 					'news_events_launch.php'	=>	'image_news_events.jpg',
 					'news_events_upcoming.php'	=>	'image_news_events.jpg',
@@ -113,11 +114,11 @@ $fields = array(
 
 				'forename' => array(
 						'type'		=> 'text',
-						'label'		=> 'Forename',
+						'label'		=> 'First Name',
 						'length'	=> '32',
 						'width'		=> '27',
 						'mandatory'	=> TRUE,
-						'error'		=> 'Please enter your forename',
+						'error'		=> 'Please enter your first name',
 						'register'	=> TRUE,
 						'donation'	=> TRUE,
 						),
@@ -247,6 +248,95 @@ $fields = array(
 
 				);
 
+//--------------------------------------------------------------
+
+// registration fields
+$programme_fields = array(
+				'title' => array(
+						'type'		=> 'dropbox',
+						'label'		=> 'Title',
+						'length'	=> '5',
+						'width'		=> '5',
+						'mandatory'	=> FALSE,
+						'error'		=> 'Please enter your title',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
+						),
+
+				'forename' => array(
+						'type'		=> 'text',
+						'label'		=> 'First Name',
+						'length'	=> '32',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your first name',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
+						),
+
+				'surname' => array(
+						'type'		=> 'text',
+						'label'		=> 'Last Name',
+						'length'	=> '32',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your last name',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
+						),
+
+				'organisation' => array(
+						'type'		=> 'text',
+						'label'		=> 'Organisation',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
+						),
+
+				'phone' => array(
+						'type'		=> 'text',
+						'label'		=> 'Phone',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
+						),
+				'email' => array(
+						'type'		=> 'text',
+						'label'		=> 'Email address',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your email',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
+						),
+				'city' => array(
+						'type'		=> 'text',
+						'label'		=> 'Town/City',
+						'length'	=> '32',
+						'width'		=> '27',
+						'mandatory'	=> FALSE,
+						'error'		=> '',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
+						),
+				);
+
+//--------------------------------------------------------------
+
+// possible titles
+$programme_docs = array(
+				'ibs_brochure' => 'IBS Brochure',
+				'program_brochure' => 'Program Brochure',
+				'faculty_information' => 'Faculty Information',
+				'application_form' => 'Application Form',
+				);
 //--------------------------------------------------------------
 
 // possible titles
