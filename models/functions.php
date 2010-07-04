@@ -230,4 +230,28 @@ function create_file($fd, $file)
 
 //--------------------------------------------------------------
 
+/**
+ * List files in folder
+ *
+ * @access public
+ * @param string	folder name
+ * @return array	list of files
+ */
+function directory_listing($dir)
+{
+	$files = array();
+	
+	if ($handle = opendir($dir))
+	{
+		while (false !== ($file = readdir($handle)))
+			array_push($files, $file);
+		
+		closedir($handle);
+	}
+	
+	return $files;
+}
+
+//--------------------------------------------------------------
+
 ?>

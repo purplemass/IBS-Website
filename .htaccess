@@ -12,8 +12,18 @@ order deny,allow
 deny from all
 </Limit>
 
+#RedirectMatch 301 (.*)\.html$ $1.php
+
+RewriteEngine On
+RewriteRule (.*)\.html $1.php
+
 #RedirectMatch 301 (.*)\.html$ http://www.ibsproject.com/$1.php
-RedirectMatch 301 (.*)\.html$ $1.php
+#RedirectMatch 301 ^//(?!_subscriptions)(.*)\.html$ $1.php
+
+#RewriteRule ^/?/$ index.php  
+#RewriteRule !^/basedirectory/(exceptions|to|the|rule).* - [C]
+#RewriteRule  ^/(basedirectory/.*) http://server2/$1
+
 
 Redirect 301 /aboutus.htm      http://www.ibsproject.com/project_principles.html
 Redirect 301 /contact.htm      http://www.ibsproject.com/contact_us.html
@@ -35,4 +45,5 @@ Header unset ETag
 Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate" 
 Header set Pragma "no-cache" 
 Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT" 
-</FilesMatch> 
+</FilesMatch>
+ 
