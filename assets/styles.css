@@ -334,26 +334,6 @@ div#menuleft .active {
 	color: #09466a;
 }
 
-div#menuleft #executive_programme {
-	width: 160px;
-	height: 30px;
-	padding: 10px;
-	margin-bottom: 10px;
- 	border: none;
- 	background-color: #346794;
-}
-
-div#menuleft #executive_programme .heading a {
-	color: #FFFFFF;
-	font-weight: bold;
-	font-size: 1.2em;
-	line-height: 1.0;
-}
-
-div#menuleft #executive_programme .heading a:hover {
-	color: #D9DBD0;
-}
-
 div#menuleft #announcement {
 /* 	background-color: #02a6c1; */
 /* 	background-color: #084165; */
@@ -592,6 +572,37 @@ div#menuright #success {
 div#menuright input {
 	font-size: 11px;
 	height: 16px;
+}
+
+div#menuright #executive_programme {
+	margin-left: -10px;
+	width: 240px;
+	height: 60px;
+	padding: 10px;
+ 	background-color: #346794;
+}
+
+div#menuright #executive_programme .text {
+	font-size: 0.7em;
+	color: #D9DBD0;
+}
+
+div#menuright #executive_programme .heading a {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 1.6em;
+	line-height: 1.0;
+}
+
+div#menuright #executive_programme .heading a:hover {
+	color: #D9DBD0;
+}
+
+div#menuright #executive_programme_white {
+	margin-left: -10px;
+	width: 260px;
+	height: 10px;
+	background-color: #FFFFFF;
 }
 
 /*

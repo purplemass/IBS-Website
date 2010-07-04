@@ -1,5 +1,4 @@
 
-
 		<div id="menuleft">
 			<a class="navitem" href="fundraising.php">Giving To IBS</a>
 			<a class="navitem" href="fundraising_ways.php">Ways to Give</a>
