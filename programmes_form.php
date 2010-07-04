@@ -63,6 +63,7 @@ require_once('views/tail.php');
 function write_csv() {
 
 	global $programme_fields;
+	global $programme_docs;
 
 	$folder_name = '_executive_programme/';
 	$displayDate = strftime("%Y-%m-%d");
@@ -74,10 +75,18 @@ function write_csv() {
 	foreach ($programme_fields as $name => $options)
 		$data .= '"' . echo_value($name) . '",';
 
+	foreach ($programme_docs as $name => $label)
+	{
+		if (isset($_POST[$name]))
+			$data .= '"' . $label . '"' . ',';
+		else
+			$data .= ',';
+	}
+
 	$r = create_file($folder_name, $filename);
 	
 	$s 	= $displayDate . ',' . $displayTime . ',';
-	$s .= '"' . $data . '"' . "\r\n";
+	$s .= $data . "\r\n";
 
 	$r	= write_file($filename, $s);
 }
