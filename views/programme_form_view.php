@@ -57,6 +57,15 @@
 									</option>
 <?php endforeach; ?>
 								</select>
+<?php elseif ($name == 'country'): ?>
+								<select id="country" name="country">
+<?php foreach ($country_codes as $country => $code): ?>
+									<option	value="<?php echo $code; ?>"<?php echo (isset($_POST['country']) && $_POST['country'] == $code) ? ' selected': ''; ?>>
+										<?php echo $country; ?>
+
+									</option>
+<?php endforeach; ?>
+								</select>
 <?php endif; ?>
 							</li>
 <?php endforeach; ?>

@@ -337,6 +337,17 @@ $programme_fields = array(
 						'register'	=> TRUE,
 						'donation'	=> FALSE,
 						),
+
+				'country' => array(
+						'type'		=> 'dropbox',
+						'label'		=> 'Country of residence',
+						'length'	=> '',
+						'width'		=> '',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your country',
+						'register'	=> TRUE,
+						'donation'	=> TRUE,
+						),
 				);
 
 //--------------------------------------------------------------
