@@ -257,7 +257,7 @@ $programme_fields = array(
 						'label'		=> 'Title',
 						'length'	=> '5',
 						'width'		=> '5',
-						'mandatory'	=> FALSE,
+						'mandatory'	=> TRUE,
 						'error'		=> 'Please enter your title',
 						'register'	=> TRUE,
 						'donation'	=> TRUE,
@@ -290,8 +290,19 @@ $programme_fields = array(
 						'label'		=> 'Organisation',
 						'length'	=> '50',
 						'width'		=> '27',
-						'mandatory'	=> FALSE,
-						'error'		=> '',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter the name of your organisation',
+						'register'	=> TRUE,
+						'donation'	=> FALSE,
+						),
+
+				'organisation_number' => array(
+						'type'		=> 'dropbox',
+						'label'		=> 'No. of people employed',
+						'length'	=> '50',
+						'width'		=> '27',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter the number of people employed in your organisation',
 						'register'	=> TRUE,
 						'donation'	=> FALSE,
 						),
@@ -301,8 +312,8 @@ $programme_fields = array(
 						'label'		=> 'Phone',
 						'length'	=> '50',
 						'width'		=> '27',
-						'mandatory'	=> FALSE,
-						'error'		=> '',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your phone number',
 						'register'	=> TRUE,
 						'donation'	=> FALSE,
 						),
@@ -321,8 +332,8 @@ $programme_fields = array(
 						'label'		=> 'Town/City',
 						'length'	=> '32',
 						'width'		=> '27',
-						'mandatory'	=> FALSE,
-						'error'		=> '',
+						'mandatory'	=> TRUE,
+						'error'		=> 'Please enter your city/town',
 						'register'	=> TRUE,
 						'donation'	=> FALSE,
 						),
@@ -348,6 +359,16 @@ $title_codes = array(
 						'Ms'	=>'Ms',
 						'Dr'	=>'Dr',
 						'Other'	=>'Other',
+					);
+
+//--------------------------------------------------------------
+
+// possible no. of employees in organistaion
+$organisation_numbers = array(
+						'Select'				=>'',
+						'< 50'					=>'less_than_50',
+						'Between 50 and 500'	=>'50_500',
+						'> 500'					=>'more_than_50',
 					);
 
 //--------------------------------------------------------------

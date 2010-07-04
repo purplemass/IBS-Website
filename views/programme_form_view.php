@@ -48,6 +48,15 @@
 									</option>
 <?php endforeach; ?>
 								</select>
+<?php elseif ($name == 'organisation_number'): ?>
+								<select id="organisation_number" name="organisation_number">
+<?php foreach ($organisation_numbers as $label => $code): ?>
+									<option	value="<?php echo $code; ?>"<?php echo (isset($_POST['organisation_number']) && $_POST['organisation_number'] == $code) ? ' selected': ''; ?>>
+										<?php echo $label; ?>
+
+									</option>
+<?php endforeach; ?>
+								</select>
 <?php endif; ?>
 							</li>
 <?php endforeach; ?>

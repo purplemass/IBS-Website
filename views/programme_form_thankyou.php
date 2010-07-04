@@ -10,9 +10,5 @@
 			<div id="title">
 				<div class="text">Executive Leadership Programme</div>
 			</div>
-			<div id="body">
-				<p><strong>Thank you for your interest in the Executive Leadership Program.</strong></p>
-				<p>Your details have been sent to us.</p>
-				<p>We will be dealing with your request shortly.</p>
-			</div>
+			<div id="body"><?php echo $body ?></div>
 		</div>

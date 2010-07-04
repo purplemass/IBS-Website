@@ -18,7 +18,7 @@ require '../models/emails.php';
 //--------------------------------------------------------------
 
 $folder_name = '../_subscriptions/';
-$displayDate = strftime("%d-%m-%Y");
+$displayDate = strftime("%Y-%m-%d");
 $displayTime = strftime("%H:%M:%S");
 
 $filename = $folder_name . $displayDate . '.txt';

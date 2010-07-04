@@ -11,11 +11,6 @@ $email = '';
 $R = "\n" . '<br />';
 $RR = $R . $R;
 
-$body_tail = '';
-$body_tail .= 'Many thanks,' . $RR;
-$body_tail .= 'IBS Project Team' . $R;
-$body_tail .= '<a href="http://www.ibsproject.org">www.ibsproject.org</a>' . $R;
-
 //--------------------------------------------------------------
 // is this a submmitted form?
 if ($_POST)
@@ -38,8 +33,17 @@ if ($_POST)
 	}
 	else
 	{
-		$email = email_thankyou() . $RR;
-		$email .= email_zahed();
+
+		$body = '';	
+		$body .= '<p>Dear ' . echo_value('title') . ' ' . echo_value('forename') . ' ' . echo_value('surname') . ',</p>';
+		$body .= '<p><b>Thank you for your interest in the Executive Leadership Program.</b></p>';
+		$body .= '<p>We will respond to your request within 24 hours. Meanwhile, please feel free to call us at 8352 3280.</p>';
+		$body .= '<p>Zahed Sheikholeslami, Ph.D.<br />Executive Dean<br />IBS<p>';
+
+		email_thankyou();
+		email_zahed();
+		write_csv();
+		
 		require_once('views/programme_form_thankyou.php');
 	}
 }
@@ -54,23 +58,39 @@ else
 require_once('views/menu_right_links.php');
 require_once('views/tail.php');
 
+//--------------------------------------------------------------
+
+function write_csv() {
+
+	global $programme_fields;
+
+	$folder_name = '_executive_programme/';
+	$displayDate = strftime("%Y-%m-%d");
+	$displayTime = strftime("%H:%M:%S");
+	$filename = $folder_name . $displayDate . '.txt';
+
+	$data = '';
+	
+	foreach ($programme_fields as $name => $options)
+		$data .= '"' . echo_value($name) . '",';
+
+	$r = create_file($folder_name, $filename);
+	
+	$s 	= $displayDate . ',' . $displayTime . ',';
+	$s .= '"' . $data . '"' . "\r\n";
+
+	$r	= write_file($filename, $s);
+}
 
 //--------------------------------------------------------------
 
 function email_thankyou() {
 
-	global $R, $RR, $body_tail;
+	global $R, $RR, $body;
 
 	$email = echo_value('email');
 
 	$subject = 'IBS Project - Executive Leadership Programme';
-
-	$body = '';
-	
-	$body .= 'Dear ' . echo_value('forename') . ',' . $RR;
-	$body .= 'We have received your request for our Executive Leadership Programme.' . $RR;
-	$body .= 'We will be dealing with your request shortly.' . $RR;
-	$body .= $body_tail;
 	
 	send_mail($email, $subject, $body);
 
@@ -81,11 +101,11 @@ function email_thankyou() {
 
 function email_zahed() {
 
-	global $R, $RR, $body_tail;
+	global $R, $RR;
 	global $programme_fields;
 	global $programme_docs;
 	
-	$email = 'zahed.sheikh@gmail.com, b.hatamian@ibsproject.org';
+	$email = 'b.hatamian@ibsproject.org'; //zahed.sheikh@gmail.com, 
 	
 	$subject = 'IBS Project automated email - Executive Leadership Programme';
 	
@@ -106,8 +126,10 @@ function email_zahed() {
 			$body .= '<b>' . $label . '</b>' . $R;
 	}
 
-	$body .= $R;	
-	$body .= $body_tail;
+	$body .= $R;
+	$body .= 'Many thanks,' . $RR;
+	$body .= 'IBS Project Team' . $R;
+	$body .= '<a href="http://www.ibsproject.org">www.ibsproject.org</a>' . $R;
 	
 	send_mail($email, $subject, $body);
 
