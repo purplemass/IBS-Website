@@ -7,7 +7,7 @@ error_reporting(E_ERROR);
 
 //--------------------------------------------------------------
 
-define('EMAIL_FROM',	'noreply@ibsproject.com');
+define('EMAIL_FROM',	'noreply@ibsproject.org');
 define('EMAIL_AUTO',	'info@ibsproject.org');
 define('EMAIL_SERVER',	'info@ibsproject.org');
 
