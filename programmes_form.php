@@ -116,6 +116,7 @@ function email_zahed() {
 	
 	$email = 'b.hatamian@ibsproject.org';
 	$email .= ',zahed.sheikh@gmail.com';
+	$email .= ',azadeh_azimi@yahoo.com';
 	
 	$subject = 'IBS Project automated email - Executive Leadership Programme';
 	
