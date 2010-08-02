@@ -8,8 +8,7 @@ error_reporting(E_ERROR);
 //--------------------------------------------------------------
 
 define('EMAIL_FROM',	'noreply@ibsproject.org');
-define('EMAIL_AUTO',	'info@ibsproject.org');
-define('EMAIL_SERVER',	'info@ibsproject.org');
+// rest of the mails are below
 
 //--------------------------------------------------------------
 
@@ -36,6 +35,17 @@ if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '
 	$debug = TRUE;	
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL);
+}
+
+if ($is_live)
+{
+	define('EMAIL_AUTO',	'info@ibsproject.org');
+	define('EMAIL_SERVER',	'info@ibsproject.org');
+}
+else
+{
+	define('EMAIL_AUTO',	'b.hatamian@ibsproject.org');
+	define('EMAIL_SERVER',	'b.hatamian@ibsproject.org');
 }
 
 //--------------------------------------------------------------
@@ -83,6 +93,9 @@ $image_list = array(
 
 					'register.php'				=>	'image_fundraising.jpg',
 					'admin.php'					=>	'image_fundraising.jpg',
+
+					'unsubscribe.php'			=>	'image_news_events.jpg',
+
 					'test_images.php'			=>	'image_news_events.jpg',
 					);
 

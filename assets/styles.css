@@ -135,6 +135,10 @@ input {
 	font-weight: bold;
 }
 
+.spaced {
+	line-height: 1.2;
+}
+
 .mandatory {
 	color: #B7072D; /* #346794, #02a6c1 */
 	font-size: 1.4em;

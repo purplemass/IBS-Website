@@ -131,12 +131,25 @@ EOF;
  * @access public
  * @return void
  */
-function send_newsletter_auto_email($email)
+function send_newsletter_auto_email($email, $unsubscribe = false)
 {
-	$subject = 'IBS Project automated email - Newsletter Subscription';
+	$subject = 'IBS Project automated email - Newsletter ';
+	$add_remove = 'add';
+	$to_from = 'to';
+
+	if ($unsubscribe)
+	{
+		$subject .= 'Cancellation';
+		$add_remove = 'remove';
+		$to_from = 'from';
+	}
+	else
+	{
+		$subject .= 'Subscription';
+	}
 	
 	$body = <<<EOF
-Please add the following email address to the database:
+Please {$add_remove} the following email address {$to_from} the database:
 <br />
 <br />
 Email address: {$email}
