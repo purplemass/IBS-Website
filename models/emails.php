@@ -54,7 +54,6 @@ EOF;
 
 //--------------------------------------------------------------
 
-
 /**
  * Send registration email
  *
@@ -86,6 +85,35 @@ IBS Project Team
 EOF;
 
 	return(send_mail($email, $subject, $message));
+}
+
+//--------------------------------------------------------------
+
+/**
+ * Send registration auto email
+ *
+ * @access public
+ * @return void
+ */
+function send_registration_auto_email($fields, $is_new)
+{
+	$msg = 'updated their details';
+	if ($is_new)
+		$msg = 'registered';
+
+	$subject = 'IBS Project automated email - Registeration';
+	$body = <<<EOF
+The following user has {$msg} on our website:
+<br />
+<br />
+EOF;
+	foreach ($fields as $name => $options)
+	{
+		if (isset($_POST[$name]) && strpos($name, 'password') === FALSE)
+			$body .= $name . ': ' . echo_value($name) . '<br />';
+	}
+
+	return(send_mail(EMAIL_AUTO, $subject, $body));
 }
 
 //--------------------------------------------------------------

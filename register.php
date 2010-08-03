@@ -424,6 +424,7 @@ function check_registration()
 		}
 		
 		$task = update_record($fields, $row, 'id');
+		send_registration_auto_email($fields, FALSE);
 	}
 
 	//--------------------------------------------------------------
@@ -443,6 +444,7 @@ function check_registration()
 				
 		// send email to registered user
 		send_registration_email($email, $name, $password);
+		send_registration_auto_email($fields, TRUE);
 	}
 
 	//--------------------------------------------------------------
