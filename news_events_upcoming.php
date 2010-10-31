@@ -4,23 +4,29 @@
 	require_once('views/head.php');
 ?>
 		<div id="menuleft">
-			<a class="navitem" href="news_events.php">Launch of IBS</a>
-			<a class="navitem active" href="news_events_upcoming.php">Become a sponsor</a>
-			<a class="navitem" href="news_events_video.php">Promo Video</a>
+			<a class="navitem active" href="news_events_upcoming.php">Upcoming Events</a>
+			<a class="navitem" href="news_events.php">2010 Fundraising Event</a>
+			<a class="navitem" href="news_events_launch.php">2009 Launch Event</a>
+<!-- 			<a class="navitem active" href="news_events_sponsor.php">Become a sponsor</a> -->
+			<a class="navitem" href="news_events_video.php">IBS Project Video</a>
 		</div>
 		<div id="content">
 			<div id="title">
-				<div class="text">Become a sponsor</div>
+				<div class="text">Upcoming Events</div>
 			</div>
 			<div id="body">
+				<p>4th February 2011<br />Annual Fundraising Event & Art Auction<br />The Dorchester Hotel, London</p>
+				<p>The Iranian Business School Project will host its Annual Fundraising Event &amp; Art Auction on February 4, 2011 at The Dorchester Hotel in London.</p>
+				<p>The evening's highlights will include a keynote speech from Dr. Hossein Eslambolchi, Chairman &amp; CEO of 2020 Venture Partners, and a globally recognised thought leader and visionary in 21st Century high-tech science.</p>
+				<p>The event will also feature a live musical performance by legendary Iranian composer and pianist, Anoushirvan Rohani, as well as an exclusive auction of a number of significant works from world-renowned Iranian artists. The auction will again be presided over by a member of Sotheby's auction team.</p>
+				<p>Further event and ticket information will soon be made available.</p>
+				<p>For general queries and information on sponsorship opportunities, please contact us at <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p>
 <!--
 				<p>The Iranian Business School Project hosted its <span class="standout">Annual Fundraising Event on February 5, 2010</span> at the Ballroom of The Dorchester Hotel in London.</p>
 				<p>The evening’s highlights included a <span class="standout">keynote speech from global business leader, Mr. Omid Kordestani</span>, Senior Advisor to the Office of the CEO and Founders at Google and <span class="standout">remarks from Dr. Ali Mashaheykhi</span>, The President of the Board of Governors of the School.</p>
 				<p>The event also featured an <span class="standout">exclusive auction of a number of significant works from world-renowned Iranian artists</span> including Mr. Parviz Tanavoli. The auction will be presided over by a member of Sotheby’s auction team for the second year.</p>
 				<a name="sponsor"></a>
 -->
-				<p>As a philanthropically-motivated project, IBS relies upon the co-operation of like-minded organisations and this event promises to provide an ideal forum for those wishing to join together and forge relationships with top Iranian business leaders.</p>
-				<p>For more details on how to become a <span class="standout">Corporate or Individual Sponsor</span> and the benefits we can offer please download a copy of our <a href="_downloads/2010_Annual_IBS_Fundraising_Event_Sponsorship_Package.pdf">Event Sponsorship Programme</a>. Alternatively, please contact us on <a href="mailto:event@ibsproject.org">event@ibsproject.org</a> for further information.</p>
 <!--
 				<p class="intitle">Ticket &amp; Raffle Information</p>
 				<div class="ticketstype">Individual</div> &pound;180<br />
