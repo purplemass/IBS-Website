@@ -15,10 +15,10 @@
 				<div class="text">Upcoming Events</div>
 			</div>
 			<div id="body">
-				<p>4th February 2011<br />Annual Fundraising Event & Art Auction<br />The Dorchester Hotel, London</p>
+				<p class="bold_text">4th February 2011<br />Annual Fundraising Event & Art Auction<br />The Dorchester Hotel, London</p>
 				<p>The Iranian Business School Project will host its Annual Fundraising Event &amp; Art Auction on February 4, 2011 at The Dorchester Hotel in London.</p>
-				<p>The evening's highlights will include a keynote speech from Dr. Hossein Eslambolchi, Chairman &amp; CEO of 2020 Venture Partners, and a globally recognised thought leader and visionary in 21st Century high-tech science.</p>
-				<p>The event will also feature a live musical performance by legendary Iranian composer and pianist, Anoushirvan Rohani, as well as an exclusive auction of a number of significant works from world-renowned Iranian artists. The auction will again be presided over by a member of Sotheby's auction team.</p>
+				<p>The evening's highlights will include a keynote speech from <span class="bold_text">Dr. Hossein Eslambolchi</span>, Chairman &amp; CEO of 2020 Venture Partners, and a globally recognised thought leader and visionary in 21st Century high-tech science.</p>
+				<p>The event will also feature a live musical performance by legendary Iranian composer and pianist, <span class="bold_text">Anoushirvan Rohani</span>, as well as an exclusive auction of a number of significant works from world-renowned Iranian artists. The auction will again be presided over by a member of Sotheby's auction team.</p>
 				<p>Further event and ticket information will soon be made available.</p>
 				<p>For general queries and information on sponsorship opportunities, please contact us at <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p>
 <!--

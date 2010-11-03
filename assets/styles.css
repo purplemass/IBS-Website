@@ -164,6 +164,10 @@ Generic classes
 	color: #D9DBD0 !important;
 }
 
+.bold_text {
+	font-weight: bold;
+}
+
 .error_message {
 	color: red;
 	margin-bottom: 10px;
