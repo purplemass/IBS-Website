@@ -18,8 +18,8 @@
 				</div>
 				<div class="address">
 					<p><strong>Tehran Office:</strong></p>
-					<p>58 East Gord Alley,<br />Bidar St.,<br />Fayyazi (Fereshteh) Ave.<br />Tehran, Iran</p>
-					<p><strong>T</strong>: +98 (0)21 220 35 830<br /><strong>F</strong>: +98 (0)21 220 49 260</p>
+					<p>No. 8/3 Arabshahi Street,<br />Park Avenue,<br />Ashrafi Esfahani Highway,<br />Tehran, Iran</p>
+					<p><strong>T</strong>: +98 (21) 4425 1627<br /><strong>F</strong>: +98 (21) 4425 1655</p>
 				</div>
 			</div>
 		</div>
