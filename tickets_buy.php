@@ -2,9 +2,13 @@
 	$this_nav = 4;
 	require_once('controllers/html.php');
 	require_once('views/head.php');
+	
+	$ticket_single = 200;
+	$ticket_table = 1700;
+	$ticket_raffle = 20;
 ?>
 		<div id="menuleft">
-			<a class="navitem active" href="news_events_upcoming.php">Upcoming Events</a>
+			<a class="navitem" href="news_events_upcoming.php">Upcoming Events</a>
 			<a class="navitem active" href="news_events_upcoming.php#purchasing"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Purchase Tickets</a>
 			<a class="navitem" href="news_events.php">Launch of IBS</a>
 		</div>
@@ -35,6 +39,9 @@
 				$raffles_qty =     $_POST['raffles_qty'];
 
 				$guest_list =      str_replace(array("\r\n", "\n", "\r"), ";", $_POST['guest_list']);
+				
+				$total = ($individuals_qty*$ticket_single) + ($ticket_table*$tables_qty) + ($ticket_raffle*$raffles_qty);
+				$show_warning = ($total > 1000) ? TRUE : FALSE;
 
 				if ($guest_list == "") $guest_list = "(empty)";
 
@@ -43,45 +50,70 @@
 				<p>Please check the details below and click <span class="standout">Buy Now</span> to continue to checkout.</p>
 
 				<table>
-				<tr><td width="130"><b>Email Address</b>          </td><td><?php echo $email_address ?></td></tr>
-				<tr><td><b>Individual Tickets</b>     </td><td><?php echo $individuals_qty ?></td></tr>
-				<tr><td><b>Tables of 10</b>           </td><td><?php echo $tables_qty ?></td></tr>
-				<tr><td><b>Raffle Tickets</b>         </td><td><?php echo $raffles_qty ?></td></tr>
-				<tr valign="top"><td><b>Guest List</b></td><td><?php echo str_replace(";", "<br>", $guest_list) ?></td></tr>
+					<tr>
+						<td width="130"><b>Email Address:</b></td>
+						<td><?php echo $email_address ?></td>
+					</tr>
+					<tr>
+						<td><b>Individual Tickets:</b></td>
+						<td><?php echo $individuals_qty ?></td>
+					</tr>
+					<tr>
+						<td><b>Tables of 10:</b></td>
+						<td><?php echo $tables_qty ?></td>
+					</tr>
+					<tr>
+						<td><b>Raffle Tickets:</b></td>
+						<td><?php echo $raffles_qty ?></td>
+					</tr>
+					<tr valign="top">
+						<td><b>Guest List:</b></td>
+						<td><?php echo str_replace(";", "<br>", $guest_list) ?></td>
+					</tr>
+					<tr>
+						<td><br /><b>Total Price:</b></td>
+						<td><br />&pound;<?php echo $total ?></td>
+					</tr>
 				</table>
-
-				<p>&nbsp;</p>
+				
+				<?php if ($show_warning): ?>
+						<p class="warning">PayPal will not accept payments of over &pound;1000. If you are not a PayPal member, 
+						please contact us on xxx or yyyy...</p>
+				<? else: ?>
+						<br />
+				<?php endif; ?>
+				
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_cart">
 					<input type="hidden" name="hosted_button_id" value="10778616">
-
+					
 					<?php
-
+					
 					$i = 1;
 
 					if ($individuals_qty!=0)
 					{
-					    echo "<input type=\"hidden\" name=\"item_name_$i\" value=\"Individual Tickets\">";
-					    echo "<input type=\"hidden\" name=\"amount_$i\" value=\"180\">";
-					    echo "<input type=\"hidden\" name=\"quantity_$i\" value=\"$individuals_qty\">";
+					    echo '<input type="hidden" name="item_name_' . $i . '" value="Individual Tickets">';
+					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_single . '">';
+					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $individuals_qty . '">';
 					    $i++;
 					}
 					if ($tables_qty!=0)
 					{
-					    echo "<input type=\"hidden\" name=\"item_name_$i\" value=\"Table of 10\">";
-					    echo "<input type=\"hidden\" name=\"amount_$i\" value=\"1600\">";
-					    echo "<input type=\"hidden\" name=\"quantity_$i\" value=\"$tables_qty\">";
+					    echo '<input type="hidden" name="item_name_' . $i . '" value="Table of 10">';
+					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_table . '">';
+					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $tables_qty . '">';
 					    $i++;
 					}
 					if ($raffles_qty!=0)
 					{
-					    echo "<input type=\"hidden\" name=\"item_name_$i\" value=\"Raffle Tickets\">";
-					    echo "<input type=\"hidden\" name=\"amount_$i\" value=\"20\">";
-					    echo "<input type=\"hidden\" name=\"quantity_$i\" value=\"$raffles_qty\">";
+					    echo '<input type="hidden" name="item_name_' . $i . '" value="Raffle Tickets">';
+					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_raffle . '">';
+					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $raffles_qty . '">';
 					    $i++;
-					}			
-
+					}
 					?>
+					
 					<input type="hidden" name="on0_1" value="Email Address">
 					<input type="hidden" name="os0_1" value="<?php echo $email_address ?>">
 					<input type="hidden" name="on1_1" value="Guest List">

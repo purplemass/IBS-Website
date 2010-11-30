@@ -684,6 +684,12 @@ ADMIN
 	overflow: auto;
 }
 
+.warning {
+	display: block;
+	font-style: italic;
+	padding: 5px 0;
+}
+
 /* BUTTONS */
 
 .buttons {
@@ -754,3 +760,31 @@ http://www.visibilityinherit.com/code/height-stickyfooter-centered.php
 http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
 
 */
+
+/*
+
+SLIDE SHOWS
+
+*/
+
+
+.pop {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pop ul {
+    line-height: 20px;
+    list-style-type: square;
+}
+
+.pop li {
+    float: left;
+    margin: 1px;
+    padding: 0px;
+}
+
+.clear {
+	clear: both;
+}

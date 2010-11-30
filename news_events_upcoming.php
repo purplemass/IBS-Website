@@ -21,6 +21,33 @@
 				<p>The event will also feature a live musical performance by legendary Iranian composer and pianist, <span class="bold_text">Anoushirvan Rohani</span>, as well as an exclusive auction of a number of significant works from world-renowned Iranian artists. The auction will again be presided over by a member of Sotheby's auction team.</p>
 				<p>Further event and ticket information will soon be made available.</p>
 				<p>For general queries and information on sponsorship opportunities, please contact us at <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p>
+
+<!-- This is for testing -->
+
+				<p class="intitle">Raffle Prizes</p>
+				<script type="text/javascript" src="assets/popSlides.js"></script>
+				<ul class="pop">
+					<li><img src="assets/images/raffle_slide/01.jpg" /><span>This is the caption to image 01</span></li>
+					<li><img src="assets/images/raffle_slide/02.jpg" /><span>This is the caption to image 02</span></li>
+					<li><img src="assets/images/raffle_slide/03.jpg" /><span>This is the caption to image 03</span></li>
+					<li><img src="assets/images/raffle_slide/04.jpg" /><span>This is the caption to image 04</span></li>
+					<li><img src="assets/images/raffle_slide/06.jpg" /><span>This is the caption to image 06</span></li>
+					<li><img src="assets/images/raffle_slide/05.jpg" /><span>This is the caption to image 05</span></li>
+					<li><img src="assets/images/raffle_slide/07.jpg" /><span>This is the caption to image 07</span></li>
+					<li><img src="assets/images/raffle_slide/08.jpg" /><span>This is the caption to image 08</span></li>
+					<li><img src="assets/images/raffle_slide/09.jpg" /><span>This is the caption to image 09</span></li>
+				</ul>
+				<script type="text/javascript">$('.pop').popSlides();</script>
+				<div class="clear"></div>
+				
+				<a name="purchasing"></a>
+				<p class="intitle">Purchase Tickets</p>
+				<ul>
+					<li><span class="standout">on-line</span><br />purchase your tickets <a href="tickets_register.php">on-line</a></li>
+					<li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or <a href="mailto:event@ibsproject.org">event@ibsproject.org</a></li>
+					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2010_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
+				</ul>
+
 <!--
 				<p>The Iranian Business School Project hosted its <span class="standout">Annual Fundraising Event on February 5, 2010</span> at the Ballroom of The Dorchester Hotel in London.</p>
 				<p>The evening’s highlights included a <span class="standout">keynote speech from global business leader, Mr. Omid Kordestani</span>, Senior Advisor to the Office of the CEO and Founders at Google and <span class="standout">remarks from Dr. Ali Mashaheykhi</span>, The President of the Board of Governors of the School.</p>
