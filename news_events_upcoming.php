@@ -24,6 +24,9 @@
 
 <!-- This is for testing -->
 
+				<p class="intitle">BELOW ARE THE TESTS FOR KATY & PENDAR:</p>
+
+
 				<p class="intitle">Raffle Prizes</p>
 				<script type="text/javascript" src="assets/popSlides.js"></script>
 				<ul class="pop">
@@ -44,7 +47,7 @@
 				<p class="intitle">Purchase Tickets</p>
 				<ul>
 					<li><span class="standout">on-line</span><br />purchase your tickets <a href="tickets_register.php">on-line</a></li>
-					<li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or <a href="mailto:event@ibsproject.org">event@ibsproject.org</a></li>
+					<li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or <a href="mailto:events@ibsproject.org">events@ibsproject.org</a></li>
 					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2010_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
 				</ul>
 
