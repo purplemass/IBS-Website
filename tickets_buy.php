@@ -83,7 +83,10 @@
 						<br />
 				<?php endif; ?>
 				
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<!-- This is for testing -->
+				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+				<!-- This is for going live -->
+				<!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post"> -->
 					<input type="hidden" name="cmd" value="_cart">
 					<input type="hidden" name="hosted_button_id" value="10778616">
 					
