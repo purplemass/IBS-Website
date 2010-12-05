@@ -6,6 +6,8 @@
 	$ticket_single = 200;
 	$ticket_table = 1700;
 	$ticket_raffle = 20;
+	
+	$CR = "\n";
 ?>
 		<div id="menuleft">
 			<a class="navitem" href="news_events_upcoming.php">Upcoming Events</a>
@@ -83,12 +85,26 @@
 						<br />
 				<?php endif; ?>
 				
+<!-- we don't need these at all:
+					TEST: <input type="hidden" name="hosted_button_id" value="52ZN66572FWS2">
+					LIVE: <input type="hidden" name="hosted_button_id" value="10778616">
+ -->
 				<!-- This is for testing -->
-				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-				<!-- This is for going live -->
-				<!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post"> -->
+ 					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_cart">
-					<input type="hidden" name="hosted_button_id" value="10778616">
+					<input type="hidden" name="business" value="seller_1291458969_biz@hotmail.com" />
+				<!-- end of testing -->
+									
+				<!-- This is for going live -->
+<!--
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_cart">
+					<input type="hidden" name="business" value="donations@ibsproject.org">
+-->
+				<!-- end of going live -->
+
+					<input type="hidden" name="currency_code" value="GBP">
+					<input type="hidden" name="upload" value="1">
 					
 					<?php
 					
@@ -96,23 +112,23 @@
 
 					if ($individuals_qty!=0)
 					{
-					    echo '<input type="hidden" name="item_name_' . $i . '" value="Individual Tickets">';
-					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_single . '">';
-					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $individuals_qty . '">';
+					    echo '<input type="hidden" name="item_name_' . $i . '" value="Individual Tickets">' . $CR;
+					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_single . '">' . $CR;
+					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $individuals_qty . '">' . $CR;
 					    $i++;
 					}
 					if ($tables_qty!=0)
 					{
-					    echo '<input type="hidden" name="item_name_' . $i . '" value="Table of 10">';
-					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_table . '">';
-					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $tables_qty . '">';
+					    echo '<input type="hidden" name="item_name_' . $i . '" value="Table of 10">' . $CR;
+					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_table . '">' . $CR;
+					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $tables_qty . '">' . $CR;
 					    $i++;
 					}
 					if ($raffles_qty!=0)
 					{
-					    echo '<input type="hidden" name="item_name_' . $i . '" value="Raffle Tickets">';
-					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_raffle . '">';
-					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $raffles_qty . '">';
+					    echo '<input type="hidden" name="item_name_' . $i . '" value="Raffle Tickets">' . $CR;
+					    echo '<input type="hidden" name="amount_' . $i . '" value="' . $ticket_raffle . '">' . $CR;
+					    echo '<input type="hidden" name="quantity_' . $i . '" value="' . $raffles_qty . '">' . $CR;
 					    $i++;
 					}
 					?>
@@ -121,11 +137,6 @@
 					<input type="hidden" name="os0_1" value="<?php echo $email_address ?>">
 					<input type="hidden" name="on1_1" value="Guest List">
 					<input type="hidden" name="os1_1" value="<?php echo $guest_list ?>">
-
-					<input type="hidden" name="currency_code" value="GBP">
-
-					<input type="hidden" name="upload" value="1">
-					<input type="hidden" name="business" value="donations@ibsproject.org">
 
 					<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_buynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
 					<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
