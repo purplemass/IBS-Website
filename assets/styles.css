@@ -767,19 +767,18 @@ SLIDE SHOWS
 
 */
 
-
-.pop {
+.slide_show {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.pop ul {
+.slide_show ul {
     line-height: 20px;
     list-style-type: square;
 }
 
-.pop li {
+.slide_show li {
     float: left;
     margin: 1px;
     padding: 0px;

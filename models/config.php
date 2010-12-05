@@ -25,6 +25,16 @@ $admin = FALSE;
 $mycookie_name = 'ibs_register';
 $mycookie_expiry = 60 * 60;
 
+$CR = "\n";
+
+//--------------------------------------------------------------
+// tiket prices
+
+$ticket_single = 200;
+$ticket_table = 1700;
+$ticket_raffle = 20;
+$per_table = 10;
+
 //--------------------------------------------------------------
 
 // Is this live?
@@ -68,28 +78,33 @@ $nav_items = array(
 // images
 $image_list = array(
 					'index.php'					=>	'image_home.jpg',
+
 					'project.php'				=>	'image_the_project.jpg',
 					'project_operations.php'	=>	'image_the_project.jpg',
 					'project_organisation.php'	=>	'image_the_project.jpg',
 					'project_principles.php'	=>	'image_the_project.jpg',
 					'project_the_team.php'		=>	'image_the_project.jpg',
 					'project_timeline.php'		=>	'image_project_countdown.jpg',
+
 					'programmes.php'			=>	'image_programmes.jpg',
 					'programmes_curriculum.php'	=>	'image_programmes.jpg',
 					'programmes_form.php'		=>	'image_programmes.jpg',
+
 					'news_events.php'			=>	'image_news_events.jpg',
 					'news_events_launch.php'	=>	'image_news_events.jpg',
 					'news_events_upcoming.php'	=>	'image_news_events.jpg',
 					'news_events_video.php'		=>	'image_news_events.jpg',
+
 					'get_involved.php'			=>	'image_get_involved.jpg',
+
 					'fundraising.php'			=>	'image_fundraising.jpg',
 					'fundraising_ways.php'		=>	'image_fundraising.jpg',
+
 					'contact_us.php'			=>	'image_contact_us.jpg',
 
 					'tickets_buy.php'			=>	'image_news_events.jpg',
-					'tickets_cancelled.php'		=>	'image_news_events.jpg',
 					'tickets_register.php'		=>	'image_news_events.jpg',
-					'tickets_successful.php'	=>	'image_news_events.jpg',
+					'tickets_return.php'		=>	'image_news_events.jpg',
 
 					'register.php'				=>	'image_fundraising.jpg',
 					'admin.php'					=>	'image_fundraising.jpg',

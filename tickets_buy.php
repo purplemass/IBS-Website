@@ -2,17 +2,14 @@
 	$this_nav = 4;
 	require_once('controllers/html.php');
 	require_once('views/head.php');
-	
-	$ticket_single = 200;
-	$ticket_table = 1700;
-	$ticket_raffle = 20;
-	
-	$CR = "\n";
 ?>
 		<div id="menuleft">
-			<a class="navitem" href="news_events_upcoming.php">Upcoming Events</a>
+			<a class="navitem active" href="news_events_upcoming.php">Upcoming Events</a>
 			<a class="navitem active" href="news_events_upcoming.php#purchasing"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Purchase Tickets</a>
-			<a class="navitem" href="news_events.php">Launch of IBS</a>
+			<a class="navitem" href="news_events.php">2010 Fundraising Event</a>
+			<a class="navitem" href="news_events_launch.php">2009 Launch Event</a>
+			<a class="navitem" href="news_events_video.php">IBS Project Video</a>
+<!-- 			<a class="navitem" href="news_events_sponsor.php">Become a sponsor</a> -->
 		</div>
 		<div id="content">
 			<div id="title">
@@ -88,24 +85,30 @@
 <!-- we don't need these at all:
 					TEST: <input type="hidden" name="hosted_button_id" value="52ZN66572FWS2">
 					LIVE: <input type="hidden" name="hosted_button_id" value="10778616">
+					
+					This is for adding to cart:
+					<input type="hidden" name="add" value="1">
  -->
 				<!-- This is for testing -->
  					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-					<input type="hidden" name="cmd" value="_cart">
 					<input type="hidden" name="business" value="seller_1291458969_biz@hotmail.com" />
 				<!-- end of testing -->
 									
 				<!-- This is for going live -->
 <!--
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-					<input type="hidden" name="cmd" value="_cart">
 					<input type="hidden" name="business" value="donations@ibsproject.org">
 -->
 				<!-- end of going live -->
 
+					<input type="hidden" name="cmd" value="_cart">
 					<input type="hidden" name="currency_code" value="GBP">
 					<input type="hidden" name="upload" value="1">
 					
+					<input type="hidden" name="return" value="http://www.ibsproject.org/tickets_return.php?msg=success">
+					<input type="hidden" name="cancel_return" value="http://www.ibsproject.org/tickets_return.php?msg=cancel">
+					<input type="hidden" name="rm" value="2"> <!-- for returning a POST for the above 2 links-->
+
 					<?php
 					
 					$i = 1;
