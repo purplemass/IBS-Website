@@ -24,6 +24,9 @@ Cufon.replace('.caption');
 
 $(document).ready(function(){
 
+	//start_slide_show
+	start_slide_show();
+	
 	// add target to external & PFD linkes
 	$('a[href^="http://"]')
 		.attr("target", "_blank");
@@ -252,6 +255,36 @@ $(document).ready(function(){
 		
 	});
 });
+
+
+
+// **********************************************
+// slide show
+// **********************************************
+function start_slide_show() {
+	$("#slide_raffle").PikaChoose({autoPlay:true});
+	
+	$("#slide_raffle").jcarousel({scroll:4,					
+		initCallback: function(carousel) 
+		{
+			$(carousel.list).find('img').click(function() {
+				carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
+			});
+		}
+	});
+
+	$("#slide_auction").PikaChoose({autoPlay:false, user_thumbs:true, show_prev_next:false});
+	$("#slide_auction").jcarousel({scroll:4,					
+		initCallback: function(carousel) 
+		{
+			$(carousel.list).find('img').click(function() {
+				carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
+			});
+		}
+	});
+
+
+}
 
 // **********************************************
 // errorResponse

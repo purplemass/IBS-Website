@@ -23,25 +23,25 @@
 					<p>The responsibilities of this entity are as follows:</p>
 					<ul>
 						<li>Fundraising for the School outside Iran</li>
-						<li>Helping the School’s operations outside of Iran</li>
+						<li>Helping the School's operations outside of Iran</li>
 					</ul>
 					<p class="intitle">The Holdco</p>
-					<p>The Holdco is a not-for-profit entity established in Iran with a legally binding internal constitution.  The Holdco’s responsibilities are as follows:</p>
+					<p>The Holdco is a not-for-profit entity established in Iran with a legally binding internal constitution.  The Holdco's responsibilities are as follows:</p>
 					<ul>
-						<li>Managing of the School’s assets (financial and non-financial)</li>
+						<li>Managing of the School's assets (financial and non-financial)</li>
 						<li>Fundraising for the School in Iran</li>
 						<li>Receiving foreign donations (via the IBS Project) and expending such funds for the sole purposes of the development of the School</li>
 					</ul>
-					<p class="intitle">The School’s Board of Governors</p>
+					<p class="intitle">The School's Board of Governors</p>
 					<p>The School has a five member Board of Governors, headed by a President.  The responsibilities of this entity are as follows: </p>
 					<ul>
 						<li>Managing the administration of degree and non-degree courses</li>
-						<li>Developing and implementing the internal structure of the School Co-operating with supporting parties, in order to fulfil the School’s Vision and Mission Statements</li>
+						<li>Developing and implementing the internal structure of the School Co-operating with supporting parties, in order to fulfil the School's Vision and Mission Statements</li>
 						<li>Planning the development of the School</li>
 						<li>Getting involved in fundraising activities for the School</li>
 					</ul>
-					<p>Each legal entity is independent, but will work with the other parties in order to achieve the project’s stated Vision and Mission.</p>
-					<p>Within the IBS Project, a Coordinating Committee has been created which reports to and operates under, the direction of the Executive Committee. The Coordinating Committee is comprised of the heads of each of the Project’s operating committees, which are tasked with supporting the establishment of the School and thereafter providing support as and where required, whilst IBS is in its initial phases of operation.  There are six operating sub-committees with the project. They are: </p>
+					<p>Each legal entity is independent, but will work with the other parties in order to achieve the project's stated Vision and Mission.</p>
+					<p>Within the IBS Project, a Coordinating Committee has been created which reports to and operates under, the direction of the Executive Committee. The Coordinating Committee is comprised of the heads of each of the Project's operating committees, which are tasked with supporting the establishment of the School and thereafter providing support as and where required, whilst IBS is in its initial phases of operation.  There are six operating sub-committees with the project. They are: </p>
 					<ul>
 						<li>The Planning Committee</li>
 						<li>The Academic Committee</li>

@@ -122,9 +122,9 @@ function do_tickets()
 	
 	// send email to admin
 	
-	//$to			= "p.paykari@ibsproject.org,katypalizban@yahoo.co.uk,b.hatamian@ibsproject.org,mankassarian@aol.com,rezzzza@yahoo.com";
-	//	$to			= "p.paykari@ibsproject.org,katypalizban@yahoo.co.uk,b.hatamian@ibsproject.org";
-	$to			= "b.hatamian@ibsproject.org";
+	$to			= "p.paykari@ibsproject.org,katypalizban@yahoo.co.uk,b.hatamian@ibsproject.org,mankassarian@aol.com,rezzzza@yahoo.com";
+	//$to			= "p.paykari@ibsproject.org,katypalizban@yahoo.co.uk,b.hatamian@ibsproject.org";
+	//$to			= "b.hatamian@ibsproject.org";
 	$subject	= "IBS Project - Tickets Purchased";
 	$body 		= $body;
 	
