@@ -61,7 +61,7 @@
 					<input type="hidden" id="custom" name="custom" value="">
 
 					<!-- This one is for the live site -->
-					<input type="hidden" name="business" value="donations@ibsproject.org">
+					<input type="hidden" name="business" id="business" value="donations@ibsproject.org">
 					<input type="hidden" name="cmd" value="_donations">
 
 					<!-- These are for the test site -->

@@ -111,12 +111,13 @@ function do_donations()
 			// add email + ; + tax_payer to make up PayPal's cutom field
 			$('#custom').val($('#email').val() + '|' + $('#tax_payer').val());
 			
-			// this one if for testing
-			//$('#main_form').attr('action', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
-			
 			// this one is for the live site
 			$('#main_form').attr('action', 'https://www.paypal.com/cgi-bin/webscr');
 			
+			// these are for testing ONLY
+			//$('#business').val('seller_1291458969_biz@hotmail.com');
+			//$('#main_form').attr('action', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
+						
 			$('#main_form').submit();
 			return true;
 		}

@@ -257,14 +257,14 @@ function do_donations()
 	//--------------------------------------------------------------
 	
 	//send emails (to donor & IBS)
-
+	
 	if ($row['title'] && $row['forename'] && $row['surname'])
 		$name = get_full_name($row);
 	else
 		$name = 'Subscriber';
 	
-	//send_email_auto_donor($name, $amount);
-	//send_email_donor($email, $name, $amount);
+	send_email_auto_donor($name, $amount);
+	send_email_donor($email, $name, $amount);
 }
 
 //--------------------------------------------------------------
