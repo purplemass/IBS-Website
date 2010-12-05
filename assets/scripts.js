@@ -19,13 +19,15 @@ Cufon.replace('#loggedin');
 Cufon.replace('.caption');
 
 // **********************************************
-//
+// DOCUMENT READY
 // **********************************************
 
 $(document).ready(function(){
-
+	
 	//start_slide_show
-	start_slide_show();
+	path = window.location.pathname;
+	if (path.indexOf('_upcoming') > -1)
+		start_slide_show();
 	
 	// add target to external & PFD linkes
 	$('a[href^="http://"]')
@@ -37,14 +39,48 @@ $(document).ready(function(){
 	$("#main_form #email").focus();
 	$("#main_form #forename").focus();
 	$("#main_form #amount").focus();
-
+	
 	// db_result
 	//$('#db_result td').attr('width', '140');
+	
+	do_donations();
+	do_logout();
+	do_registration();
+	do_newsletter();
 
+});
 
+// **********************************************
+// slide show
+// **********************************************
+function start_slide_show() {
+	$("#slide_raffle").PikaChoose({autoPlay:true});
+	
+	$("#slide_raffle").jcarousel({scroll:4,					
+		initCallback: function(carousel) 
+		{
+			$(carousel.list).find('img').click(function() {
+				carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
+			});
+		}
+	});
 
-	/* 	DONATION BUTTONS */
+	$("#slide_auction").PikaChoose({autoPlay:false, user_thumbs:true, show_prev_next:false});
+	$("#slide_auction").jcarousel({scroll:4,					
+		initCallback: function(carousel) 
+		{
+			$(carousel.list).find('img').click(function() {
+				carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
+			});
+		}
+	});
+}
 
+// **********************************************
+// DONATION BUTTONS
+// **********************************************
+function do_donations()
+{
 	// donate start button
 	$("#donate_start, #donate_start2, #donate_start3").click(function(){
 		$('#page_flag').val('donate');
@@ -85,40 +121,45 @@ $(document).ready(function(){
 			return true;
 		}
 	});
+}
 
-	// registration form radio buttons select
-	$("#taxpayer_yes_select").click(function(){
-		$('#taxpayer_yes').attr("checked", "checked");
-		$('#tax_payer').val('TAXPAYER_YES');
-		return true;
-	});
+// **********************************************
+// LOGOUT BUTTONS
+// **********************************************
 
-	$("#taxpayer_no_select").click(function(){
-		$('#taxpayer_no').attr("checked", "checked");
-		$('#tax_payer').val('TAXPAYER_NO');
-		return true;
-	});
-
-	/* 	LOGOUT BUTTONS */
-
+function do_logout()
+{
 	$("#logout, #logout_right").click(function(){
+
 		$.post('register.php',{
+
 			'page_flag': 'logout',
 			'sys_flag': $('#sys_flag').val()
+
 		}, function(sys_flag){
+		
+			loc = String(document.location);
+			n = loc.lastIndexOf('/', loc.length);
+			loc = loc.substr(0, n+1);
+
 			// sys_flag will be sent back from PHP script register.php
 			// 	go to same page if this is register
 			// 	otherwise we're should go to fundraising.php
 			if (sys_flag == 'donate')
-				$(location).attr('href', 'fundraising.php?logout');
+				document.location.href = loc + 'fundraising.php?logout'; //$(location).attr('href', 'fundraising.php?logout');
 			else
-				$(location).attr('href', '?logout');
+				document.location.href = loc + '?logout'; //$(location).attr('href', '?logout');
 		});
 		return true;
 	});
+}
 
-	/* 	REGISTRATION BUTTONS */
+// **********************************************
+// REGISTRATION BUTTONS
+// **********************************************
 
+function do_registration()
+{
 	// register start button
 	$("#register_start").click(function(){
 		$('#page_flag').val('');
@@ -153,16 +194,16 @@ $(document).ready(function(){
 		return true;
 	});
 
-	// registration form radio buttons select
-	$("#radio_yes_select").click(function(){
-		$('#radio_yes').attr("checked", "checked");
-		$('#submit').text("Submit"); //Log in
+	// registration form password button
+	$("#password").click(function(){
+		$("#radio_yes_select").click();
 		return true;
 	});
 
 	// registration form radio buttons select
-	$("#password").click(function(){
-		$("#radio_yes_select").click();
+	$("#radio_yes_select").click(function(){
+		$('#radio_yes').attr("checked", "checked");
+		$('#submit').text("Submit"); //Log in
 		return true;
 	});
 
@@ -172,8 +213,26 @@ $(document).ready(function(){
 		return true;
 	});
 
-	/* 	NEWSLETTER */
+	// registration form taxpayer select
+	$("#taxpayer_yes_select").click(function(){
+		$('#taxpayer_yes').attr("checked", "checked");
+		$('#tax_payer').val('TAXPAYER_YES');
+		return true;
+	});
 
+	$("#taxpayer_no_select").click(function(){
+		$('#taxpayer_no').attr("checked", "checked");
+		$('#tax_payer').val('TAXPAYER_NO');
+		return true;
+	});
+}
+
+// **********************************************
+// NEWSLETTER BUTTONS
+// **********************************************
+
+function do_newsletter()
+{
 	// archived_newsletters_button
 	$(".archived_newsletters_button").click(function(){
 		if ($('#archived_newsletters').css('display') == 'none')
@@ -254,36 +313,6 @@ $(document).ready(function(){
 		return false;
 		
 	});
-});
-
-
-
-// **********************************************
-// slide show
-// **********************************************
-function start_slide_show() {
-	$("#slide_raffle").PikaChoose({autoPlay:true});
-	
-	$("#slide_raffle").jcarousel({scroll:4,					
-		initCallback: function(carousel) 
-		{
-			$(carousel.list).find('img').click(function() {
-				carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
-			});
-		}
-	});
-
-	$("#slide_auction").PikaChoose({autoPlay:false, user_thumbs:true, show_prev_next:false});
-	$("#slide_auction").jcarousel({scroll:4,					
-		initCallback: function(carousel) 
-		{
-			$(carousel.list).find('img').click(function() {
-				carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
-			});
-		}
-	});
-
-
 }
 
 // **********************************************
@@ -295,7 +324,6 @@ function errorResponse(output) {
 	$("#error").html('There was an error - please try again later.');
 	$("#error").show();
 	$("#newsletter_submit").show();
-
 }
 
 // **********************************************
@@ -304,7 +332,6 @@ function errorResponse(output) {
 function CI(img)
 {
 	$("#main_image").attr("src", "test_images/" + img + ".jpg");
-
 }
 
 // **********************************************
