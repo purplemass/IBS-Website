@@ -46,7 +46,7 @@
 						<li>The Planning Committee</li>
 						<li>The Academic Committee</li>
 						<li>The Fundraising Committee</li>
-						<li>The Finance & Legal Committee</li>
+						<li>The Finance &amp; Legal Committee</li>
 						<li>The Marketing Committee</li>
 						<li>The Events Committee</li>
 					</ul>

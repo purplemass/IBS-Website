@@ -76,8 +76,7 @@
 				</table>
 				
 				<?php if ($show_warning): ?>
-						<p class="warning">PayPal will not accept payments of over &pound;1000. If you are not a PayPal member, 
-						please contact us on xxx or yyyy...</p>
+						<p class="warning">Warning: For security purposes, we cannot accept payments exceeding &pound;1,000. If your purchase is likely to be more than this amount, please contact us on: +44 (0)20 7493 0413</p>
 				<? else: ?>
 						<br />
 				<?php endif; ?>

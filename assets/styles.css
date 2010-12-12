@@ -358,12 +358,7 @@ div#menuleft .clear {
 	padding: 5px;
 }
 
-div#menuleft .important {
-	background-color: #346794; /* 0Fa6cf 00a6cf */
-	color: #FFF;
-}
-
-div#menuleft #announcement {
+div#menuleft .announcement {
 /* 	color: #edeee8; */
 /* 	background-color: #FFF; */
 	width: 160px;
@@ -373,40 +368,59 @@ div#menuleft #announcement {
  	border: none;
 }
 
-div#menuleft #announcement .heading {
+div#menuleft .announcement .heading {
 	color: #346794;
 	font-weight: bold;
 	font-size: 1.4em;
 	line-height: 1.0;
 }
 
-div#menuleft #announcement .title {
+div#menuleft .announcement .title {
 	font-weight: bold;
 	font-size: 1.2em;
 }
 
-div#menuleft #announcement a {
-	color: #09466a;
+div#menuleft .announcement a {
+	color: #346794; /* dark blue 09466a */
 }
 
-div#menuleft #announcement p {
+div#menuleft .announcement p {
 	font-size: 1.0em;
 }
 
-div#menuleft #announcement #box {
+div#menuleft .announcement #box1 {
 	padding: 3px 2px 3px 5px;
 	margin-bottom: 5px;
 	margin-left: -4px;
 	width: 100%;
 }
 
-div#menuleft #announcement #box a {
+div#menuleft .announcement #box a {
 	color: #1f2126;
 	text-decoration: none;
 }
 
-div#menuleft #announcement #box a:hover {
+div#menuleft .announcement #box a:hover {
 	color: #09466a;
+}
+
+div#menuleft .announcement .hilite {
+	width: 160px;
+	height: 23px;
+	padding: 2px;
+	margin-left: -2px;
+	background-color: #02a6c1;
+	text-align: center;
+	vertical-align: middle;
+}
+div#menuleft .blue_box {
+	background-color: #346794; /* 0Fa6cf 00a6cf */
+	font-size: 0.75em;
+	color: #FFFFFF;
+}
+
+div#menuleft .large_text {
+	font-size: 1.5em !important;
 }
 
 /*
@@ -607,24 +621,26 @@ div#menuright #executive_programme {
 	width: 240px;
 	height: 60px;
 	padding: 10px;
- 	background-color: #346794;
+ 	background-color: #D9DBD0;  /* blue 346794  grey D9DBD0 */
 }
 
 div#menuright #executive_programme .text {
 	font-size: 0.7em;
-	color: #D9DBD0;
+	color: #1F2126;
 }
 
 div#menuright #executive_programme .heading a {
-	color: #FFFFFF;
+	color: #346794;
 	font-weight: bold;
-	font-size: 1.6em;
-	line-height: 1.0;
+	font-size: 1.5em;
+	line-height: 1.1;
 }
 
+/*
 div#menuright #executive_programme .heading a:hover {
 	color: #D9DBD0;
 }
+*/
 
 div#menuright #executive_programme_white {
 	margin-left: -10px;
