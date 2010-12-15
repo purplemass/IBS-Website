@@ -4,7 +4,7 @@
 	require_once('views/head.php');
 ?>
 		<div id="menuleft">
-			<a class="navitem" href="news_events_upcoming.php">Upcoming Events</a>
+			<a class="navitem" href="news_events_upcoming.php">2011 Fundraising Event</a>
 			<a class="navitem" href="news_events.php">2010 Fundraising Event</a>		
 			<a class="navitem" href="news_events_launch.php">2009 Launch Event</a>
 <!-- 				<a class="navitem" href="news_events_upcoming.php">Become a sponsor</a> -->

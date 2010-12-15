@@ -4,7 +4,7 @@
 	require_once('views/head.php');
 ?>
 		<div id="menuleft">
-			<a class="navitem active" href="news_events_upcoming.php">Upcoming Events</a>
+			<a class="navitem active" href="news_events_upcoming.php">2011 Fundraising Event</a>
 			<a class="navitem" href="news_events_upcoming.php#purchasing"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Purchase Tickets</a>
 			<a class="navitem" href="news_events.php">2010 Fundraising Event</a>
 			<a class="navitem" href="news_events_launch.php">2009 Launch Event</a>
@@ -13,7 +13,7 @@
 		</div>
 		<div id="content">
 			<div id="title">
-				<div class="text">Upcoming Events</div>
+				<div class="text">2011 Fundraising Event</div>
 			</div>
 			<div id="body">
 				<p class="bold_text">4th February 2011<br />Annual Fundraising Event &amp; Art Auction<br />The Dorchester Hotel, London</p>
@@ -48,19 +48,19 @@
 
 				<ul id="slide_raffle" class="jcarousel-skin-pika">
 					<li><a href="Javascript:"><img src="./assets/images_raffle/01.jpg" /><span><strong>A rugby ball signed by Danny Cipriani, the renowned English Rugby Union player.</strong> He plays fly-half, centre and fullback and has played for London Wasps and England.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_raffle/02.jpg" /><span><strong>A 2010 framed Arsenal home shirt signed by Andrei Arshavin,</strong> the world class Arsenal Forward and Russian National Team Captain.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_raffle/03.jpg" /><span><strong>Dinner for up to 10 people at Fakhreldine,</strong> one of London&apos;s finest Lebanese restaurants offering a contemporary and lively Middle Eastern atmosphere, an elegant dining room and uninterrupted views of Green Park.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_raffle/04.jpg" /><span><strong>An elegant Mont Blanc Pen, Cufflink and Business Card Holder set,</strong>  all featuring the Mont Blanc emblem, which has become synonymous with high-quality and sophistication in the creation of precision writing instruments and accessories. This prize includes a black precious resin ballpoint pen, platinum-plated cufflinks and black leather business card holder.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_raffle/05.jpg" /><span><strong>Spa Weekend for up to 8 people at The Cloudesley, St. Leonards-on-Sea.</strong> Two nights (including breakfast) at this holistic health centre and hotel set in a tranquil garden overlooking the sea. The hotel offers delicious organic foods and excellent spa facilities for relaxation.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_raffle/06.jpg" /><span><strong>Authentic Turkmen tunic.</strong>This beautiful traditional garment is hand embroidered and features rich colours and the distinctive patterns for which Turkmen design is best recognised.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_raffle/07.jpg" /><span><strong>Dentistry Package for Two from Couture Smile.</strong> Receive complimentary routine dental treatments for one year, including one session per person of the latest in-surgery laser whitening treatment.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_raffle/08.jpg" /><span><strong>Mallorca Villa Holiday for Four</strong> at a lovely seaside villa in the picturesque town of Portals Nous for five nights. Available for use during April, May and June 2011. Flights excluded.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_raffle/02.jpg" /><span><strong>Dinner for up to 10 people at Fakhreldine,</strong> one of London&apos;s finest Lebanese restaurants offering a contemporary and lively Middle Eastern atmosphere, an elegant dining room and uninterrupted views of Green Park.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_raffle/03.jpg" /><span><strong>An elegant Mont Blanc Pen, Cufflink and Business Card Holder set,</strong>  all featuring the Mont Blanc emblem, which has become synonymous with high-quality and sophistication in the creation of precision writing instruments and accessories. This prize includes a black precious resin ballpoint pen, platinum-plated cufflinks and black leather business card holder.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_raffle/04.jpg" /><span><strong>Spa Weekend for up to 8 people at The Cloudesley, St. Leonards-on-Sea.</strong> Two nights (including breakfast) at this holistic health centre and hotel set in a tranquil garden overlooking the sea. The hotel offers delicious organic foods and excellent spa facilities for relaxation.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_raffle/05.jpg" /><span><strong>Authentic Turkmen tunic.</strong>This beautiful traditional garment is hand embroidered and features rich colours and the distinctive patterns for which Turkmen design is best recognised.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_raffle/06.jpg" /><span><strong>Dentistry Package for Two from Couture Smile.</strong> Receive complimentary routine dental treatments for one year, including one session per person of the latest in-surgery laser whitening treatment.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_raffle/07.jpg" /><span><strong>Mallorca Villa Holiday for Four</strong> at a lovely seaside villa in the picturesque town of Portals Nous for five nights. Available for use during April, May and June 2011. Flights excluded.</span></a></li>
 				</ul>
 				
 				<p class="intitle intitle_larger">Silent Auction Prizes</p>
 				<ul id="slide_auction" class="jcarousel-skin-pika">
 					<li><a href="Javascript:"><img src="./assets/images_auction/01.jpg" /><span><strong>An afternoon of Lunch and Guided Trading Floor Tour with Mr. Cyrus Ardalan, Vice Chairman of Barclays Capital.</strong> This prize presents a unique opportunity to spend time with Mr. Cyrus Ardalan, one of the most experienced and globally respected veterans of the financial industry. The winner will also have the chance to experience first-hand the inner workings of Barclays Capital, which is among the world’s foremost financial institutions, and the excitement of its highly charged trading floor environment.</span></a></li>
 					<li><a href="Javascript:"><img src="./assets/images_auction/02.jpg" /><span><strong>Behind the scenes day for two at a music video shoot with Jacuzzi Films.</strong> Jacuzzi Films are offering the winning bidder the opportunity to have two people  spend a day witnessing the ‘behind-the scenes’ production of a music video in its London studio in 2011.  A choice of dates and artists will be presented to the winner and will include all transport and meals. Jacuzzi Films has worked with leading companies and artists including the Ministry of Sound, Universal Records, Diddy, Mark Ronson, Wiley, Samsung, Mini Cooper, 3Gand and others.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_auction/03.jpg" /><span><strong>A 2010 framed Arsenal home shirt signed by Andrei Arshavin,</strong> the world class Arsenal Forward and Russian National Team Captain.</span></a></li>
 <!--
 					<li><a href="Javascript:"><img src="./assets/images_auction/03.jpg" /><span><strong>Three rare first edition masterpieces by Iraj Pezeshkzad</strong> - including the novels 'Daei Jan Napoleon', 'Adabe Mard Beh Ze Dolate Oost' and 'Mashallah Khan Dar Bargaheh Haroon-al-Rashid.</span></a></li>
 					<li><a href="Javascript:"><img src="./assets/images_auction/04.jpg" /><span><strong>Lunch and a tour of the Barclays Capital trading floor with Mr Cyrus Ardalan – Vice Chairman of Barclays Capital.</strong></span></a></li>
