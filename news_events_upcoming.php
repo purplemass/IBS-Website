@@ -8,8 +8,8 @@
 			<a class="navitem" href="news_events_upcoming.php#purchasing"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Purchase Tickets</a>
 			<a class="navitem" href="news_events.php">2010 Fundraising Event</a>
 			<a class="navitem" href="news_events_launch.php">2009 Launch Event</a>
-			<a class="navitem" href="news_events_video.php">IBS Project Video</a>
 <!-- 			<a class="navitem" href="news_events_sponsor.php">Become a sponsor</a> -->
+			<a class="navitem" href="news_events_video.php">IBS Project Video</a>
 		</div>
 		<div id="content">
 			<div id="title">
@@ -22,10 +22,10 @@
 				<p>The event will also feature a live musical performance by legendary Iranian composer and pianist, <span class="bold_text">Anoushirvan Rohani</span>, as well as an exclusive auction of a number of significant works from world-renowned Iranian artists. The auction will again be presided over by a member of Sotheby's auction team.</p>
 
 				<p class="intitle intitle_larger">Sponsorship opportunities</p>
-				<p>Please contact us at: <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p>
+				<p>Please contact us at: <a href="mailto:info@ibsproject.org">info@ibsproject.org</a>. You can also download a copy of our <a href="_downloads/2011_Annual_IBS_Fundraising_Event_Sponsorship_Package.pdf">Event Sponsorship Programme</a></p>
 
 				<p class="intitle intitle_larger">General Enquiries and to purchase tickets</p>
-				<p>Please contact us at: <a href="mailto:info@ibsproject.org">info@ibsproject.org</a> or call: +44 (0)20 7493 0413</p>
+				<p>Please contact us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a> or call: +44 (0)20 7493 0413</p>
 				
 <!-- 				<p>For general queries and information on sponsorship opportunities, please contact us at <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p> -->
 				
@@ -39,7 +39,7 @@
 				<ul>
 					<li><span class="standout">on-line</span><br />purchase your tickets <a href="tickets_register.php">on-line</a></li>
 					<li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or <a href="mailto:events@ibsproject.org">events@ibsproject.org</a></li>
-					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2010_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
+					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2011_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
 				</ul>
 				
 				<p class="intitle intitle_larger">Raffle Prizes</p>
@@ -58,13 +58,14 @@
 				
 				<p class="intitle intitle_larger">Silent Auction Prizes</p>
 				<ul id="slide_auction" class="jcarousel-skin-pika">
-					<li><a href="Javascript:"><img src="./assets/images_auction/01.jpg" /><span><strong>An afternoon of Lunch and Guided Trading Floor Tour with Mr. Cyrus Ardalan, Vice Chairman of Barclays Capital.</strong> This prize presents a unique opportunity to spend time with Mr. Cyrus Ardalan, one of the most experienced and globally respected veterans of the financial industry. The winner will also have the chance to experience first-hand the inner workings of Barclays Capital, which is among the world’s foremost financial institutions, and the excitement of its highly charged trading floor environment.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_auction/02.jpg" /><span><strong>Behind the scenes day for two at a music video shoot with Jacuzzi Films.</strong> Jacuzzi Films are offering the winning bidder the opportunity to have two people  spend a day witnessing the ‘behind-the scenes’ production of a music video in its London studio in 2011.  A choice of dates and artists will be presented to the winner and will include all transport and meals. Jacuzzi Films has worked with leading companies and artists including the Ministry of Sound, Universal Records, Diddy, Mark Ronson, Wiley, Samsung, Mini Cooper, 3Gand and others.</span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_auction/03.jpg" /><span><strong>A 2010 framed Arsenal home shirt signed by Andrei Arshavin,</strong> the world class Arsenal Forward and Russian National Team Captain.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_auction/01.jpg" /><span><strong>An afternoon of Lunch and Guided Trading Floor Tour with Mr. Cyrus Ardalan, Vice Chairman of Barclays Capital </strong> This prize presents a unique opportunity to spend time with Mr. Cyrus Ardalan, a globally known and well respected veteran of the financial industry. The winner will also be treated to a tour of the BarCap trading floor.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_auction/02.jpg" /><span><strong>Behind the scenes day for two at a music video shoot with Jacuzzi Films.</strong> The winning bidder will spend a day 'behind-the scenes' of a music video shoot at Jacuzzi Films; London studio in 2011.  A choice of dates and artists available and all transport and meals will be included.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_auction/03.jpg" /><span><strong>A 2010 framed Arsenal home shirt signed by the entire Arsenal Team.</strong> This autographed jersey is signed by the current squad of the famous Premier League team. The 2010 Arsenal roster includes some of the sport's greatest players including Cesc Fabergas, Robin van Persie, Smir Nasri and Andrei Arshavin.</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_auction/04.jpg" /><span><strong>Three highly coveted masterpieces signed by their author Iraj Pezeshkzad.</strong> - including the novels 'Daei Jan Napoleon', 'Adabe Mard Beh Ze Dolate Oost' and 'Mashallah Khan Dar Bargaheh Haroon-al-Rashid'</span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_auction/05.jpg" /><span><strong>Three prime tickets for Chelsea vs Manchester City.</strong> Tickets are for the March 19, 2011 match at 3:00PM. This package includes a pre-match lunch at Marco restaurant, located within the Chelsea Football Club Complex at Stamford Bridge.</span></a></li>
+					
 <!--
-					<li><a href="Javascript:"><img src="./assets/images_auction/03.jpg" /><span><strong>Three rare first edition masterpieces by Iraj Pezeshkzad</strong> - including the novels 'Daei Jan Napoleon', 'Adabe Mard Beh Ze Dolate Oost' and 'Mashallah Khan Dar Bargaheh Haroon-al-Rashid.</span></a></li>
 					<li><a href="Javascript:"><img src="./assets/images_auction/04.jpg" /><span><strong>Lunch and a tour of the Barclays Capital trading floor with Mr Cyrus Ardalan – Vice Chairman of Barclays Capital.</strong></span></a></li>
-					<li><a href="Javascript:"><img src="./assets/images_auction/05.jpg" /><span><strong>Behind the scenes day for two at a music video shoot with Jacuzzi Films</strong></span></a></li>
 -->
 				</ul>
 				

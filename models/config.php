@@ -93,6 +93,7 @@ $image_list = array(
 					'news_events.php'			=>	'image_news_events.jpg',
 					'news_events_launch.php'	=>	'image_news_events.jpg',
 					'news_events_upcoming.php'	=>	'image_news_events.jpg',
+					'news_events_sponsor.php'	=>	'image_news_events.jpg',
 					'news_events_video.php'		=>	'image_news_events.jpg',
 
 					'get_involved.php'			=>	'image_get_involved.jpg',
