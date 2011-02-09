@@ -1,5 +1,6 @@
 
 		<div id="menuleft">
+<!--
 			<div class="navitem announcement blue_box">
 				<a href="news_events_upcoming.php"><p class="heading white_text large_text">Upcoming Events</p></a>
 				<p><span class="title grey_text">Annual Fundraising Event &amp; Art Auction</span>
@@ -8,6 +9,7 @@
 				<p><a href="news_events_upcoming.php" class="white_text">Featuring keynote speech from Dr. Hossein Eslambolchi, Chairman &amp; CEO of 2020 Venture Partners, global thought leader and renowned high-tech scientist, and a live musical performance from Anoushirvan Rohani, the legendary Iranian composer and pianist.</a></p>
 				<p>For more information, please visit our <a href="news_events_upcoming.php" class="grey_text">News &amp; Events Page</a></p>
 			</div>
+-->
 			<div class="clear"></div>
 			<div class="navitem announcement">
 				<p class="heading"><a href="#" id="donate_start">Donate Online</a></p>
