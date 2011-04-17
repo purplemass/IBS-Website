@@ -88,7 +88,7 @@ insert_value('newsletter', '1', $pid);
 //
 if (isset($_REQUEST['fromFacebook']))
 {
-	header('Location: http://ibsproject.org/newsletter_thankyou.php');
+	header('Location: http://ibsproject.org/facebook_newsletter_thankyou.php');
 }
 else
 {
