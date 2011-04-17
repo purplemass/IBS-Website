@@ -80,7 +80,20 @@ insert_value('newsletter', '1', $pid);
 
 //--------------------------------------------------------------
 
-exit($r);
+// check for Facebook
+//
+// if fromFacebook is set then we must redirect to
+// another Newsletter Thank You page
+// otherwise it's an AJAX call expecting an exit($r)
+//
+if (isset($_REQUEST['fromFacebook']))
+{
+	header('Location: http://ibsproject.org/newsletter_thankyou.php');
+}
+else
+{
+	exit($r);
+}
 
 //--------------------------------------------------------------
 

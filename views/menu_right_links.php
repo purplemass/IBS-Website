@@ -18,6 +18,7 @@
 				<a class="navitem" rel="new" href="./_downloads/IBS_Project_Newsletter_Issue_1_January_2009.pdf">Newsletter, Issue 1, January 2009</a>
 			</div>
 			<a class="navitem" rel="new" href="./_downloads/IBS_Project_Brochure.pdf">IBS Project Brochure</a>
+<!--
 			<div class="quicklinks">Subscribe to Newsletter</div>
 			<div id="subscribe">
 				<form id="newsletter_form" action="">
@@ -28,5 +29,6 @@
 				<div id="error"></div>
 				<div id="success">Your email address is now registered.<br /><br />You will start receiving our newsletters shortly.</div>
 			</div>
+-->
 			<!--<a class="navitem" href="#">Unsubsribe</a>-->
 		</div>

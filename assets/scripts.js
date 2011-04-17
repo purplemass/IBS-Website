@@ -281,8 +281,6 @@ function do_newsletter()
 		if (hasError == false) {
 			
 			$(this).hide();
-			
-			
 
 			$.ajax({
 				type:		"POST",

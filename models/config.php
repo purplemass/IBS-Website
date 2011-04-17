@@ -112,6 +112,8 @@ $image_list = array(
 
 					'unsubscribe.php'			=>	'image_news_events.jpg',
 
+					'newsletter_thankyou.php'	=>	'image_fundraising.jpg',
+
 					'test_images.php'			=>	'image_news_events.jpg',
 					);
 

@@ -607,7 +607,7 @@ div#menuright #error {
 }
 
 div#menuright #success {
-	font-size: 11px;
+	font-size: 0.8em;
 	display: none;
 }
 
