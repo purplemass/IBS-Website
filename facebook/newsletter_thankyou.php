@@ -17,8 +17,8 @@ Cufon.replace('.heading');
     line-height: 1.2;
   }
   .heading{
-    margin: 9px 0 10px 0;
-    padding: 5px 0 5px 10px;
+    margin: 20px 0 5px;
+    padding: 0 0 5px 10px;
     border-bottom: 1px #979c99 solid;
     color: #346794;
     font-weight: bold;
@@ -26,8 +26,7 @@ Cufon.replace('.heading');
   }
   p{
     font-size: 0.9em;
-    padding: 0px 10px;
-    margin-bottom: 15px;
+    margin: 5px 10px 10px;
   }
   .lineup {
     font-size: 0.9em;
@@ -35,7 +34,7 @@ Cufon.replace('.heading');
   }
   #go_button {
     position: relative;
-	    top: 5px;
+	top: 7px;
   	margin-top: -10px;
   }
   #error {
@@ -53,7 +52,7 @@ Cufon.replace('.heading');
   #nav {
     height: 40px;
     min-height: 40px;
-    margin-top: 10px;
+    margin-bottom: 20px;
     background-color: #09466a;
   }
   .navitem {
@@ -87,5 +86,15 @@ Cufon.replace('.heading');
     <div><a class="navitem" href="http://ibsproject.org/contact_us.php" target="_blank">Contact us</a></div>
   </div>
   <!-- NAV: stop -->
-  <br />
+</div>
   <script type="text/javascript">Cufon.now();</script>
+  <script>
+$(".navitem").mouseenter(function(){
+	$(this).text($(this).text()+'');
+});
+
+$(".navitem").mouseleave(function(){
+	$(this).text($(this).text()+'');
+});
+</script>
+<script type="text/javascript">Cufon.now();</script>

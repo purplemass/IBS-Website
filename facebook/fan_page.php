@@ -17,8 +17,8 @@ Cufon.replace('.heading');
     line-height: 1.2;
   }
   .heading{
-    margin: 9px 0 10px 0;
-    padding: 5px 0 5px 10px;
+    margin: 20px 0 5px;
+    padding: 0 0 5px 10px;
     border-bottom: 1px #979c99 solid;
     color: #346794;
     font-weight: bold;
@@ -26,8 +26,7 @@ Cufon.replace('.heading');
   }
   p{
     font-size: 0.9em;
-    padding: 0px 10px;
-    margin-bottom: 15px;
+    margin: 5px 10px 10px;
   }
   .lineup {
     font-size: 0.9em;
@@ -35,7 +34,7 @@ Cufon.replace('.heading');
   }
   #go_button {
     position: relative;
-	    top: 5px;
+	top: 7px;
   	margin-top: -10px;
   }
   #error {
@@ -53,7 +52,7 @@ Cufon.replace('.heading');
   #nav {
     height: 40px;
     min-height: 40px;
-    margin-top: 10px;
+    margin-bottom: 20px;
     background-color: #09466a;
   }
   .navitem {
@@ -85,18 +84,8 @@ Cufon.replace('.heading');
     flowplayer("flplayer", "http://ibsproject.org/assets/flowplayer/flowplayer.swf", { clip: {autoPlay: false, autoBuffering: false}, plugins: {controls:{url: 'http://ibsproject.org/assets/flowplayer/flowplayer.controls.swf'}}});
   </script>
   <!-- VIDEO: end -->
-  <br />
-  <div class="heading">Subscribe to IBS Newsletter</div>
-  <form id="newsletter_form" action="http://ibsproject.org/controllers/newsletter.php" method="POST">
-    <p>
-      <input type="text" name="emailAddress" id="emailAddress" value="Enter email address" />
-      <input type="hidden" value="fromFacebook" name="fromFacebook" />&nbsp;
-      <a href="#" id="newsletter_submit" class="button"><img id="go_button" src="http://ibsproject.org/assets/images/go.gif" alt="GO" /></a>
-    </p>
-  </form>
-  <div id="error" class="lineup"></div>
-  <div class="heading">Find out more about IBS</div>
   <!-- NAV: start -->
+  <div class="heading">Find out more about IBS</div>
   <div id="nav">
     <div><a class="navitem" href="http://ibsproject.org/project.php" target="_blank">The Project</a></div>
     <div><a class="navitem" href="http://ibsproject.org/programmes.php" target="_blank">Programmes</a></div>
@@ -104,22 +93,32 @@ Cufon.replace('.heading');
     <div><a class="navitem" href="http://ibsproject.org/contact_us.php" target="_blank">Contact us</a></div>
   </div>
   <!-- NAV: stop -->
+  <!--   <div class="heading">Subscribe to IBS Newsletter</div> -->
+  <form id="newsletter_form" action="http://ibsproject.org/controllers/newsletter.php" method="POST">
+    <p>Subscribe to IBS Newsletter:&nbsp;
+      <input type="text" name="emailAddress" id="emailAddress" value="Enter email address" />
+      <input type="hidden" value="fromFacebook" name="fromFacebook" />&nbsp;
+      <a href="#" id="newsletter_submit" class="button"><img id="go_button" src="http://ibsproject.org/assets/images/go.gif" alt="GO" /></a>
+    </p>
+  </form>
+  <div id="error" class="lineup"></div>
   <br />
   <iframe src="http://www.facebook.com/plugins/like.php?href=http://www.facebook.com/pages/IBS-Project/176240462425266?sk=app_190322544333196&layout=box_count&show_faces=false&width=450&action=like&font=tahoma&colorscheme=light&height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:65px;" allowTransparency="true"></iframe>
   <!--   <div id="footer">Copyright &copy; 2011 Iranian Business School Project</div> -->
-  <script>
-$("#emailAddress").click(function(){
-  this.focus();
-  this.select();
-  $("#error").hide();
-});
-
+</div>
+<script>
 $(".navitem").mouseenter(function(){
 	$(this).text($(this).text()+'');
 });
 
 $(".navitem").mouseleave(function(){
 	$(this).text($(this).text()+'');
+});
+
+$("#emailAddress").click(function(){
+  this.focus();
+  this.select();
+  $("#error").hide();
 });
 
 $("#newsletter_submit").click(function(){
@@ -155,5 +154,5 @@ $("#newsletter_submit").click(function(){
   
   return false;
 });
-  </script>
-  <script type="text/javascript">Cufon.now();</script>
+</script>
+<script type="text/javascript">Cufon.now();</script>
