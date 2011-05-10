@@ -8,6 +8,8 @@
 		<div id="menuright">
 			<div class="quicklinks">Quick Links</div>
 <!-- 				<a class="navitem" href="./news_events_upcoming.php">Upcoming Events</a> -->
+			<a class="navitem" rel="new" href="./_downloads	/IBS_Project_Newsletter_Issue_9_April_2011.pdf">Newsletter, Issue 9, April 2011</a>
+			<a class="navitem" rel="new" href="./_downloads/IBS_Project_Newsletter_Issue_7_and_8_Jan_2011.pdf">Newsletter, Issues 7/8, January 2011</a>
 			<a class="navitem" rel="new" href="./_downloads/IBS_Project_Newsletter_Issue_6_June_2010.pdf">Newsletter, Issue 6, June 2010</a>
 			<a class="navitem" rel="new" href="./_downloads/IBS_Project_Newsletter_Issue_5_March_2010.pdf">Newsletter, Issue 5, March 2010</a>
 			<a class="navitem archived_newsletters_button" href="#">2009 Newsletters&nbsp;<img id="bullet_right" src="assets/images/bullet_right.gif" width="10" height="13" alt="bullet" /></a>
