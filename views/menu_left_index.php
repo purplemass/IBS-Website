@@ -9,9 +9,8 @@
 				<p><a href="news_events_upcoming.php" class="white_text">Featuring keynote speech from Dr. Hossein Eslambolchi, Chairman &amp; CEO of 2020 Venture Partners, global thought leader and renowned high-tech scientist, and a live musical performance from Anoushirvan Rohani, the legendary Iranian composer and pianist.</a></p>
 				<p>For more information, please visit our <a href="news_events_upcoming.php" class="grey_text">News &amp; Events Page</a></p>
 			</div>
--->
 			<div class="clear"></div>
-			<div class="navitem announcement">
+-->			<div class="navitem announcement">
 				<p class="heading"><a href="#" id="donate_start">Donate Online</a></p>
 <!-- 				<p class="title" id="donate_start">Donate Online</p> -->
 				<div id="box"></a>

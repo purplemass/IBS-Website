@@ -16,7 +16,7 @@
 			</div>
 			<div id="body">
 				<p>The curriculum for IBS is being developed by an Academic Committee comprised of a group of professionals familiar with the Iranian market working in collaboration with reputable international experts in the field of management education. This will ensure that best-practice from leading business schools around the world are applied and that students are provided with a full array of tools and exposure to all disciplines required for competitiveness in the modern economy.</p>
-				<p>IBS will offer programmes and courses covering the full range of relevant subject areas across a broad spectrum – from micro to macro, technological to financial and SME to large-scale corporations. In addition to its set curriculum and degree course, the School will also provide courses tailored to the needs of particular local and international companies and organisations operating in Iran.</p>
+				<p>IBS will offer programmes and courses covering the full range of relevant subject areas across a broad spectrum - from micro to macro, technological to financial and SME to large-scale corporations. In addition to its set curriculum and degree course, the School will also provide courses tailored to the needs of particular local and international companies and organisations operating in Iran.</p>
 				<a name="first"></a>
 				<p class="intitle">First Stage Programmes</p>
 				<p>The Iranian Business School will commence its activities in September 2010 with a series of Executive Education Master Classes aimed at CEO/Board Level Executives, and progress to Executive MBA courses and full-time MBA Programmes by 2012.</p>

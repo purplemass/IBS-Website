@@ -62,59 +62,62 @@ else
 
 // navigation menu items
 $nav_items = array(
-					'index.php'					=>	'Home',
-					'project.php'				=>	'The Project',
-					'programmes.php'			=>	'Programmes',
-					'project_timeline.php'		=>	'Project Timeline',
-					'news_events.php'			=>	'News &amp; Events',
-					'get_involved.php'			=>	'Get involved',
-					'fundraising.php'			=>	'Fundraising',
-					'contact_us.php'			=>	'Contact us',
-					'register.php'				=>	'Log in or register',
+					'index.php'						=>	'Home',
+					'project.php'					=>	'The Project',
+					'programmes.php'				=>	'Programmes',
+					'project_timeline.php'			=>	'Project Timeline',
+					'news_events_2011_project.php'	=>	'News &amp; Events',
+					'get_involved.php'				=>	'Get involved',
+					'fundraising.php'				=>	'Fundraising',
+					'contact_us.php'				=>	'Contact us',
+					'register.php'					=>	'Log in or register',
 					);
 
 //--------------------------------------------------------------
 
 // images
 $image_list = array(
-					'index.php'					=>	'image_home.jpg',
+					'index.php'						=>	'image_home.jpg',
 
-					'project.php'				=>	'image_the_project.jpg',
-					'project_operations.php'	=>	'image_the_project.jpg',
-					'project_organisation.php'	=>	'image_the_project.jpg',
-					'project_principles.php'	=>	'image_the_project.jpg',
-					'project_the_team.php'		=>	'image_the_project.jpg',
-					'project_timeline.php'		=>	'image_project_countdown.jpg',
+					'news_events.php'				=>	'image_news_events.jpg',
+					'news_events_2009_launch'		=>	'image_news_events.jpg',
+					'news_events_2010_fundraising'	=>	'image_news_events.jpg',
+					'news_events_2011_fundraising'	=>	'image_news_events.jpg',
+					'news_events_2011_project'		=>	'image_news_events.jpg',
+					'news_events_sponsor.php'		=>	'image_news_events.jpg',
+					'news_events_upcoming.php'		=>	'image_news_events.jpg',
+					'news_events_video.php'			=>	'image_news_events.jpg',
 
-					'programmes.php'			=>	'image_programmes.jpg',
-					'programmes_curriculum.php'	=>	'image_programmes.jpg',
-					'programmes_form.php'		=>	'image_programmes.jpg',
+					'project.php'					=>	'image_the_project.jpg',
+					'project_operations.php'		=>	'image_the_project.jpg',
+					'project_organisation.php'		=>	'image_the_project.jpg',
+					'project_principles.php'		=>	'image_the_project.jpg',
+					'project_the_team.php'			=>	'image_the_project.jpg',
+					'project_timeline.php'			=>	'image_project_countdown.jpg',
 
-					'news_events.php'			=>	'image_news_events.jpg',
-					'news_events_launch.php'	=>	'image_news_events.jpg',
-					'news_events_upcoming.php'	=>	'image_news_events.jpg',
-					'news_events_sponsor.php'	=>	'image_news_events.jpg',
-					'news_events_video.php'		=>	'image_news_events.jpg',
+					'programmes.php'				=>	'image_programmes.jpg',
+					'programmes_curriculum.php'		=>	'image_programmes.jpg',
+					'programmes_form.php'			=>	'image_programmes.jpg',
 
-					'get_involved.php'			=>	'image_get_involved.jpg',
+					'get_involved.php'				=>	'image_get_involved.jpg',
 
-					'fundraising.php'			=>	'image_fundraising.jpg',
-					'fundraising_ways.php'		=>	'image_fundraising.jpg',
+					'fundraising.php'				=>	'image_fundraising.jpg',
+					'fundraising_ways.php'			=>	'image_fundraising.jpg',
 
-					'contact_us.php'			=>	'image_contact_us.jpg',
+					'contact_us.php'				=>	'image_contact_us.jpg',
 
-					'tickets_buy.php'			=>	'image_news_events.jpg',
-					'tickets_register.php'		=>	'image_news_events.jpg',
-					'tickets_return.php'		=>	'image_news_events.jpg',
+					'tickets_buy.php'				=>	'image_news_events.jpg',
+					'tickets_register.php'			=>	'image_news_events.jpg',
+					'tickets_return.php'			=>	'image_news_events.jpg',
 
-					'register.php'				=>	'image_fundraising.jpg',
-					'admin.php'					=>	'image_fundraising.jpg',
+					'register.php'					=>	'image_fundraising.jpg',
+					'admin.php'						=>	'image_fundraising.jpg',
 
-					'unsubscribe.php'			=>	'image_news_events.jpg',
+					'unsubscribe.php'				=>	'image_news_events.jpg',
 
-					'newsletter_thankyou.php'	=>	'image_fundraising.jpg',
+					'newsletter_thankyou.php'		=>	'image_fundraising.jpg',
 
-					'test_images.php'			=>	'image_news_events.jpg',
+					'test_images.php'				=>	'image_news_events.jpg',
 					);
 
 //--------------------------------------------------------------

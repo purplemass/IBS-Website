@@ -4,10 +4,10 @@
 	require_once('views/head.php');
 ?>
 		<div id="menuleft">
-			<a class="navitem active" href="news_events_upcoming.php">2011 Fundraising Event</a>
-<!-- 			<a class="navitem" href="news_events_upcoming.php#purchasing"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Purchase Tickets</a> -->
-			<a class="navitem" href="news_events.php">2010 Fundraising Event</a>
-			<a class="navitem" href="news_events_launch.php">2009 Launch Event</a>
+			<a class="navitem" href="news_events_2011_project.php">2011 Project Launch in Dubai</a>
+			<a class="navitem" href="news_events_2011_fundraising.php">2011 Fundraising Event</a>
+			<a class="navitem" href="news_events_2010_fundraising.php">2010 Fundraising Event</a>
+			<a class="navitem " href="news_events_2009_launch.php">2009 Launch Event</a>
 <!-- 			<a class="navitem" href="news_events_sponsor.php">Become a sponsor</a> -->
 			<a class="navitem" href="news_events_video.php">IBS Project Video</a>
 		</div>
@@ -66,7 +66,7 @@
 					<li><a href="Javascript:"><img src="./assets/images_auction/06.jpg" /><span><strong>A highly coveted 2010 Arsenal home shirt signed by world-class Arsenal Forward and Russian National Team Captain Andrei Arshavin.</strong> </span></a></li>
 					
 <!--
-					<li><a href="Javascript:"><img src="./assets/images_auction/04.jpg" /><span><strong>Lunch and a tour of the Barclays Capital trading floor with Mr Cyrus Ardalan – Vice Chairman of Barclays Capital.</strong></span></a></li>
+					<li><a href="Javascript:"><img src="./assets/images_auction/04.jpg" /><span><strong>Lunch and a tour of the Barclays Capital trading floor with Mr Cyrus Ardalan - Vice Chairman of Barclays Capital.</strong></span></a></li>
 -->
 				</ul>
 				
