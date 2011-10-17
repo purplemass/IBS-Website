@@ -4,6 +4,7 @@
 	require_once('views/head.php');
 ?>
 		<div id="menuleft">
+			<a class="navitem active" href="news_events_upcoming.php">Upcoming Events</a>
 			<a class="navitem" href="news_events_2011_project.php">2011 Project Launch in Dubai</a>
 			<a class="navitem" href="news_events_2011_fundraising.php">2011 Fundraising Event</a>
 			<a class="navitem" href="news_events_2010_fundraising.php">2010 Fundraising Event</a>
@@ -13,21 +14,18 @@
 		</div>
 		<div id="content">
 			<div id="title">
-				<div class="text">2011 Fundraising Event</div>
+				<div class="text">Upcoming Events</div>
 			</div>
 			<div id="body">
-				<p class="bold_text">4th February 2011<br />Annual Fundraising Event &amp; Art Auction<br />The Dorchester Hotel, London</p>
-				<p>The Iranian Business School Project will host its Annual Fundraising Event &amp; Art Auction on February 4, 2011 at The Dorchester Hotel in London.</p>
-				<p>The evening's highlights will include a keynote speech from <span class="bold_text">Dr. Hossein Eslambolchi</span>, Chairman &amp; CEO of 2020 Venture Partners, and a globally recognised thought-leader and visionary in 21st Century high-tech science.</p>
-				<p>The event will also feature a live musical performance by legendary Iranian composer and pianist, <span class="bold_text">Anoushirvan Rohani</span>, as well as an exclusive auction of a number of significant works from world-renowned Iranian artists. The auction will again be presided over by a member of Sotheby's auction team.</p>
+<!-- 				<p class="bold_text">11th November 2011<br />Annual IBS Fundraising Event &amp; Art Auction<br />The Dorchester Hotel, London</p> -->
+				<p>The Iranian Business School Project will host <span class="bold_text">its Annual Fundraising Event on November 11th, 2011</span> at the Ballroom of The Dorchester Hotel in London.</p>
+				<p>The evening's highlights will include a <span class="bold_text">keynote speech from Dr. Hossein Eslambolchi</span>, Chairman &amp; CEO of 2020 Venture Partners and a global thought leader of the 21st Century high-tech age.</p>
+				<p>The event will also feature a <span class="bold_text">live musical performance and an exclusive auction of a number of significant works from world-renowned Iranian artists</span> and will be presided over by a member of Sotheby's auction team for the fourth consecutive year.</p>
+				<p><a rel="new" href="./_downloads/2011_Annual_IBS_Fundraising_Event_Art_Auction.pdf">Click here</a> to download a list of Art Auction Items.</p>
 
-				<p class="intitle intitle_larger">Sponsorship opportunities</p>
-				<p>Please contact us at: <a href="mailto:info@ibsproject.org">info@ibsproject.org</a>. You can also download a copy of our <a href="_downloads/2011_Annual_IBS_Fundraising_Event_Sponsorship_Package.pdf">Event Sponsorship Programme</a></p>
-
-				<p class="intitle intitle_larger">General Enquiries and to purchase tickets</p>
-				<p>Please contact us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a> or call: +44 (0)20 7493 0413</p>
-				
-<!-- 				<p>For general queries and information on sponsorship opportunities, please contact us at <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p> -->
+				<p class="intitle intitle_larger">Become a Sponsor</p>
+				<p>As a philanthropically-motivated project, IBS relies upon the co-operation of like-minded organisations and this event promises to provide an ideal forum for those wishing to join together and forge relationships with top Iranian business leaders.</p>
+				<p>For more details on how to become a Corporate or Individual Sponsor and the benefits we can offer please download a copy of our <a rel="new" href="./_downloads/2011_Annual_IBS_Fundraising_Event_Sponsorship_Opportunities.pdf">Event Sponsorship Programme</a>. Alternatively, please contact us on <a href="mailto:events@ibsproject.org">events@ibsproject.org</a> for further information.</p>
 				
 				<a name="purchasing"></a>
 				<p class="intitle intitle_larger">Ticket &amp; Raffle Information</p>
@@ -35,14 +33,18 @@
 				<span class="ticketstype">Table of <?php print $per_table; ?></span>&pound;<?php print $ticket_table; ?> (&pound;<?php print $ticket_table/$per_table; ?> per ticket)<br />
 				<span class="ticketstype">Raffle Tickets</span>&pound;<?php print $ticket_raffle; ?><br />
 				
-				<p class="intitle intitle_larger">Purchase Tickets</p>
-				<ul>
-					<!--<li><span class="standout">on-line</span><br />purchase your tickets <a href="tickets_register.php">on-line</a></li>-->
-					<li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or <a href="mailto:events@ibsproject.org">events@ibsproject.org</a></li>
-					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2011_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
-				</ul>
-				
 				<p class="intitle intitle_larger">Raffle Prizes</p>
+				<ul>
+					<li><span class="bold_text">Mallorca Holiday for Four</span>, at a lovely seaside villa in the picturesque town of Portals Nous for five nights. Available for use during April, May and June 2012. Flights excluded.</li>
+					<li><span class="bold_text">A fantastic Imperial size bottle of Duca Leonardo red wine by "Tenuta Duca di Casalanza 2009"</span> in its own wooden presentation box, from old vines dating back to 1821in the Venezie region of Italy. Cabernet Sauvignon (60%) and Merlot (40%) grapes.</li>
+					<li><span class="bold_text">Dentistry Package for Two at Couture Smile.</span> Receive a complimentary routine dental check, including one session per person of the latest in-surgery laser whitening treatment.</li>
+					<li><span class="bold_text">Dinner for two at the exclusive and private Beauchamp Club in Knightsbridge.</span> This chic and happening private club is a hidden jewel with a stimulating environment providing an interface of art, cultural, design and literary worlds.</li>
+					<li><span class="bold_text">Five Personal training sessions with Richard Wallace.</span> Experienced and celebrated in his field, he designs safe and effective programmes tailored to his clients' specific requirements. <a rel="new" target="new" href="http://www.acewall-fitness.com">www.acewall-fitness.com</a></li>
+					<li><span class="bold_text">Dinner for two at Nobu Restaurant London.</span> One of London's hippest Michelin Star restaurants offering innovative Japanese cuisine and an elegant atmosphere.</li>
+					<li><span class="bold_text">Afternoon tea for two at The Dorchester Hotel.</span> A sophisticated, yet traditional afternoon tea in one of London's chicest and most luxurious hotels.</li>
+					<li><span class="bold_text">Authentic lady's Turkmen Tunic.</span> This beautiful traditional garment is hand embroidered and features rich colours and the distinctive patterns for which Turkmen design is best recognised.</li>
+				</ul>
+<!--
 				<script type="text/javascript" src="./assets/jquery.pikachoose.js"></script>
 				<script type="text/javascript" src="./assets/jquery.jcarousel.min.js"></script>
 
@@ -55,7 +57,9 @@
 					<li><a href="Javascript:"><img src="./assets/images_raffle/06.jpg" /><span><strong>Dentistry Package for Two from Couture Smile.</strong> Receive complimentary routine dental treatments for one year, including one session per person of the latest in-surgery laser whitening treatment.</span></a></li>
 					<li><a href="Javascript:"><img src="./assets/images_raffle/07.jpg" /><span><strong>Mallorca Villa Holiday for Four</strong> at a lovely seaside villa in the picturesque town of Portals Nous for five nights. Available for use during April, May and June 2011. Flights excluded.</span></a></li>
 				</ul>
+-->
 				
+<!--
 				<p class="intitle intitle_larger">Silent Auction Prizes</p>
 				<ul id="slide_auction" class="jcarousel-skin-pika">
 					<li><a href="Javascript:"><img src="./assets/images_auction/01.jpg" /><span><strong>An afternoon of Lunch and Guided Trading Floor Tour with Mr. Cyrus Ardalan, Vice Chairman of Barclays Capital.</strong> This prize presents a unique opportunity to spend time with Mr. Cyrus Ardalan, a globally known and well respected veteran of the financial industry. The winner will also be treated to a tour of the BarCap trading floor.</span></a></li>
@@ -65,10 +69,10 @@
 					<li><a href="Javascript:"><img src="./assets/images_auction/05.jpg" /><span><strong>Three prime tickets for Chelsea vs. Manchester City.</strong> Tickets are for the match on March 19, 2011. This package includes a pre-match lunch at Marco restaurant, located within the Chelsea Football Club Complex at Stamford Bridge.</span></a></li>
 					<li><a href="Javascript:"><img src="./assets/images_auction/06.jpg" /><span><strong>A highly coveted 2010 Arsenal home shirt signed by world-class Arsenal Forward and Russian National Team Captain Andrei Arshavin.</strong> </span></a></li>
 					
-<!--
 					<li><a href="Javascript:"><img src="./assets/images_auction/04.jpg" /><span><strong>Lunch and a tour of the Barclays Capital trading floor with Mr Cyrus Ardalan - Vice Chairman of Barclays Capital.</strong></span></a></li>
--->
+
 				</ul>
+-->
 				
 <!--
 				<script type="text/javascript" src="assets/popSlides.js"></script>
@@ -122,6 +126,23 @@
 				<p>Further event and ticket information will soon be made available.</p>
 
 -->
+<!--
+				<p class="intitle intitle_larger">General Enquiries and to purchase tickets</p>
+				<p>Please contact us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a> or call: +44 (0)20 7493 0413</p>				
+				<p>For general queries and information on sponsorship opportunities, please contact us at <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p>
+-->
+
+				<p class="intitle intitle_larger">Purchase Tickets</p>
+				<p>To purchase event and raffle tickets online, please complete and return the <a rel="new" href="./_downloads/2011_Annual_IBS_Fundraising_Event_Reservation_Form.pdf">Reservation Form</a> to the IBS Project.</p>
+				<p>For any questions, please contact us on 020 7493 0413 or <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p>
+<!--
+				<ul>
+					<li><span class="standout">on-line</span><br />purchase your tickets <a href="tickets_register.php">on-line</a></li>
+					<li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or <a href="mailto:events@ibsproject.org">events@ibsproject.org</a></li>
+					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2011_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
+				</ul>
+-->
+				
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
