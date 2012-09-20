@@ -39,7 +39,7 @@ $per_table = 10;
 
 // Is this live?
 
-if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.111') )
+if ( ($_SERVER['SERVER_NAME'] === 'localhost') || ($_SERVER['SERVER_NAME'] === '192.168.1.199') )
 {
 	$is_live = FALSE;
 	$debug = TRUE;	
