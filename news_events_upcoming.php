@@ -18,6 +18,13 @@
 			</div>
 			<div id="body">
 <!-- 				<p class="bold_text">11th November 2011<br />Annual IBS Fundraising Event &amp; Art Auction<br />The Dorchester Hotel, London</p> -->
+                <p>The Iranian Business School Project will host its Annual Fundraising Event on <span class="bold_text">Friday, 2nd November 2012</span> at the Ballroom of <span class="bold_text">The Dorchester Hotel</span> in London.</p>
+                <p>The event will feature entertainment from the renowned Iranian comedian <span class="bold_text">Maz Jobrani</span> and an exclusive auction of a number of significant works from leading Iranian artists.</p>
+                <p>To purchase tickets or for general enquiries, please contact us on <br />+44 20 7493 0413 or write to us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p>
+                <p class="intitle intitle_larger">Become a Sponsor</p>
+                <p>As a philanthropically-motivated project, IBS relies upon the co-operation of like-minded organisations and this event promises to provide an ideal forum for those wishing to join together and forge relationships with top Iranian business leaders.</p>
+                <p>For more details on how to become a Corporate or Individual Sponsor and the benefits we can offer, please contact us on <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p>
+<!--
 				<p>The Iranian Business School Project will host <span class="bold_text">its Annual Fundraising Event on November 11th, 2011</span> at the Ballroom of The Dorchester Hotel in London.</p>
 				<p>The evening's highlights will include a <span class="bold_text">keynote speech from Dr. Hossein Eslambolchi</span>, Chairman &amp; CEO of 2020 Venture Partners and a global thought leader of the 21st Century high-tech age.</p>
 				<p>The event will also feature a <span class="bold_text">live musical performance and an exclusive auction of a number of significant works from world-renowned Iranian artists</span> and will be presided over by a member of Sotheby's auction team for the fourth consecutive year.</p>
@@ -44,6 +51,7 @@
 					<li><span class="bold_text">Afternoon tea for two at The Dorchester Hotel.</span> A sophisticated, yet traditional afternoon tea in one of London's chicest and most luxurious hotels.</li>
 					<li><span class="bold_text">Authentic lady's Turkmen Tunic.</span> This beautiful traditional garment is hand embroidered and features rich colours and the distinctive patterns for which Turkmen design is best recognised.</li>
 				</ul>
+-->
 <!--
 				<script type="text/javascript" src="./assets/jquery.pikachoose.js"></script>
 				<script type="text/javascript" src="./assets/jquery.jcarousel.min.js"></script>
@@ -131,10 +139,11 @@
 				<p>Please contact us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a> or call: +44 (0)20 7493 0413</p>				
 				<p>For general queries and information on sponsorship opportunities, please contact us at <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p>
 -->
-
+<!--
 				<p class="intitle intitle_larger">Purchase Tickets</p>
 				<p>To purchase event and raffle tickets online, please complete and return the <a rel="new" href="./_downloads/2011_Annual_IBS_Fundraising_Event_Reservation_Form.pdf">Reservation Form</a> to the IBS Project.</p>
 				<p>For any questions, please contact us on 020 7493 0413 or <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p>
+-->
 <!--
 				<ul>
 					<li><span class="standout">on-line</span><br />purchase your tickets <a href="tickets_register.php">on-line</a></li>
