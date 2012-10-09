@@ -3,7 +3,9 @@
 			<div class="navitem announcement blue_box">
 				<a href="news_events_upcoming.php"><p class="heading white_text large_text">Upcoming Events</p></a>
                 <p class="title grey_text">The Iranian Business School Project's Annual Fundraising Event will be held at The Dorchester Hotel in London on Friday 2nd November 2012, this year featuring the renowned comedian Maz Jobrani. We hope you will join us for another fun and exciting evening in support of a world-class business school in Iran.</p>
-                <p class="hilite title">Ticket purchase information will be available soon</p>
+<!--                <p class="hilite title">Ticket purchase information will be available soon</p> -->
+                <a href="news_events_upcoming.php" class="white_text"><p class="hilite title">For information on purchasing tickets or becoming a Sponsor, please click here.</p></a>
+                <p></p>
 <!--
 				<p><span class="title grey_text">Annual IBS Fundraising Event &amp; Art Auction</span>
 				<br />London, 11th November 2011</p>
