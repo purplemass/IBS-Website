@@ -17,15 +17,15 @@
 				<div class="text">Upcoming Events</div>
 			</div>
 			<div id="body">
-<!-- 				<p class="bold_text">11th November 2011<br />Annual IBS Fundraising Event &amp; Art Auction<br />The Dorchester Hotel, London</p> -->
-				<p>The Iranian Business School Project will host its Annual Fundraising Event on <span class="bold_text">Friday, 2nd November 2012</span> at the Ballroom of <span class="bold_text">The Dorchester Hotel</span> in London.</p>
-				<p>The event will feature entertainment from the renowned Iranian comedian <span class="bold_text">Maz Jobrani</span> and an exclusive auction of a number of significant works from leading Iranian artists.</p>
+				<!-- <p class="bold_text">11th November 2011<br />Annual IBS Fundraising Event &amp; Art Auction<br />The Dorchester Hotel, London</p> -->
+				<p>The Iranian Business School Project will host its Annual Fundraising Event on <span class="bold_text">Friday, 25th October 2013</span> at the Ballroom of <span class="bold_text">The Dorchester Hotel</span> in London.</p>
+				<!-- <p>The event will feature entertainment from the renowned Iranian comedian <span class="bold_text">Maz Jobrani</span> and an exclusive auction of a number of significant works from leading Iranian artists.</p> -->
 
 				<p class="intitle intitle_larger">Purchase Tickets</p>
-<!--				<p>To purchase tickets or for general enquiries, please contact us on <br />+44 20 7493 0413 or write to us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p> -->
+				<!-- <p>To purchase tickets or for general enquiries, please contact us on <br />+44 20 7493 0413 or write to us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p>  -->
 				<ul>
 					<li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or write to us at <a href="mailto:events@ibsproject.org">events@ibsproject.org</a></li>
-					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2012_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
+					<!-- <li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2012_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li> -->
 				</ul>
 
 				<p class="intitle intitle_larger">Become a Sponsor</p>
