@@ -72,7 +72,7 @@ else
 
 	mysql_query($sql_cmd);
 	check_db_error();
-	
+
 	$pid = mysql_insert_id();
 }
 

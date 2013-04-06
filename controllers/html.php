@@ -15,7 +15,7 @@ require_once('models/emails.php');
 
 // are we logged in?
 if (isset($_COOKIE[$mycookie_name]))
-{	
+{
 	$cookie = $_COOKIE[$mycookie_name];
 
 	$_POST['id'] = $cookie['id'];

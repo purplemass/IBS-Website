@@ -2,7 +2,9 @@
 	$this_nav = 2;
 	require_once('controllers/html.php');
 	require_once('views/head.php');
+	require_once('views/menu_left_blank.php');
 ?>
+<!--
 		<div id="menuleft">
 			<a class="navitem" href="programmes.php">About IBS Programmes</a>
 			<a class="navitem active" href="programmes_curriculum.php">Curriculum Development</a>
@@ -10,6 +12,7 @@
 			<a class="navitem" href="programmes_curriculum.php#further"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Further Stage Programmes</a>
 			<a class="navitem navitemlarge" href="programmes_form.php">Executive Leadership Programme</a>
 		</div>
+-->
 		<div id="content">
 			<div id="title">
 				<div class="text">Curriculum Development</div>

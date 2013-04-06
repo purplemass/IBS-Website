@@ -15,7 +15,7 @@ $RR = $R . $R;
 // is this a submmitted form?
 if ($_POST)
 {
-	// check for errors	
+	// check for errors
 	foreach ($programme_fields as $name => $options)
 	{
 		if ( isset($_POST[$name]) && ! $_POST[$name] && $options['mandatory'])
@@ -25,7 +25,7 @@ if ($_POST)
 	// check for valid email
 	if ( ! count($err) && ! validate_email($_POST['email']) )
 		$err[] = 'Please enter a valid email address';
-	
+
 	// if errors, display form - otherwise thank 'em
 	if ( count($err) > 0 )
 	{
@@ -34,7 +34,7 @@ if ($_POST)
 	else
 	{
 
-		$body = '';	
+		$body = '';
 		$body .= '<p>Dear ' . echo_value('title') . ' ' . echo_value('forename') . ' ' . echo_value('surname') . ',</p>';
 		$body .= '<p><b>Thank you for your interest in the Executive Leadership Program.</b></p>';
 		$body .= '<p>We will respond to your request within 24 hours. Meanwhile, please feel free to call us at 8352 3280.</p>';
@@ -43,7 +43,7 @@ if ($_POST)
 		email_thankyou();
 		email_zahed();
 		write_csv();
-		
+
 		require_once('views/programme_form_thankyou.php');
 	}
 }
@@ -71,7 +71,7 @@ function write_csv() {
 	$filename = $folder_name . $displayDate . '.txt';
 
 	$data = '';
-	
+
 	foreach ($programme_fields as $name => $options)
 		$data .= '"' . echo_value($name) . '",';
 
@@ -84,7 +84,7 @@ function write_csv() {
 	}
 
 	$r = create_file($folder_name, $filename);
-	
+
 	$s 	= $displayDate . ',' . $displayTime . ',';
 	$s .= $data . "\r\n";
 
@@ -100,7 +100,7 @@ function email_thankyou() {
 	$email = echo_value('email');
 
 	$subject = 'IBS Project - Executive Leadership Programme';
-	
+
 	send_mail($email, $subject, $body);
 
 	return $body;
@@ -113,18 +113,18 @@ function email_zahed() {
 	global $R, $RR;
 	global $programme_fields;
 	global $programme_docs;
-	
+
 	$email = 'b.hatamian@ibsproject.org';
 	$email .= ',zahed.sheikh@gmail.com';
 	$email .= ',azadeh_azimi@yahoo.com';
-	
+
 	$subject = 'IBS Project automated email - Executive Leadership Programme';
-	
+
 	$body = '';
-	
+
 	$body .= 'Dear Zahed' . ',' . $RR;
 	$body .= 'The following person has sent you a request on ibsproject.org:' . $RR;
-	
+
 	foreach ($programme_fields as $name => $options)
 		$body .= $options['label'] . ' <b>' . echo_value($name) . '</b>' . $R;
 
@@ -141,7 +141,7 @@ function email_zahed() {
 	$body .= 'Many thanks,' . $RR;
 	$body .= 'IBS Project Team' . $R;
 	$body .= '<a href="http://www.ibsproject.org">www.ibsproject.org</a>' . $R;
-	
+
 	send_mail($email, $subject, $body);
 
 	return $body;
