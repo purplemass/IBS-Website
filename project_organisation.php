@@ -16,6 +16,16 @@
 					<div class="text">Organisational Structure</div>
 				</div>
 				<div id="body">
+                    <p>
+                        To date, three separate legal entities have been established for the purposes of fundraising,
+                        management and operation of the School. These entities are IBS Project (UK), Holdco (Iran) and
+                        the Iranian Business School (Iran) <a href="http://www.iranianbusinessschool.ir/en/" target="target">www.iranianbusinessschool.ir</a>. The Project and Holdco have
+                        established Boards of Trustees and the School itself is overseen by a Board of Governors.
+                    </p>
+                    <p></p>
+
+
+<!--
 					<p>An Executive Committee assumes responsibility for guiding all aspects of the strategic, planning, operational and development of the Iranian Business School. </p>
 					<p>To date, three separate legal entities have been established for the purposes of fundraising, management and operation of the School. These entities are IBS Project (UK), Holdco (Iran) and the Iranian Business School (Iran), each of which operates under the oversight of the Executive Committee.  The Project and Holdco have established Boards of Trustees and the School itself is overseen by a Board of Governors.</p>
 					<p class="intitle">IBS Project (UK)</p>
@@ -54,6 +64,7 @@
 					<p>All committees and boards are comprised of experts from inside and outside Iran with the vast majority working on a volunteer basis. </p>
 					<p>The Project's organisational structure is as follows: </p>
 					<p><img src="assets/images/project_organisation.gif" width="727" height="476" alt="Project Organisation" /></p>
+-->
 				</div>
 			</div>
 <?php
