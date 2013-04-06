@@ -2,7 +2,7 @@
 	</div>
 	<!--[if lte IE 6]><div class="ie6clear"></div><![endif]-->
 </div>
-<div id="footer"><div class="text">Copyright &copy; 2010 Iranian Business School Project</div></div>
+<div id="footer"><div class="text">Copyright &copy; 2013 Iranian Business School Project</div></div>
 <script type="text/javascript">Cufon.now();</script>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
