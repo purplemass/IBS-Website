@@ -20,6 +20,7 @@
 				<p>IBS' students will benefit from a blend of focused lectures, seminars, case studies and interactive simulations supported by an advanced IT system. Local case studies and simulations will be developed to highlight the challenges of managing businesses in Iran and to encourage students to share their own experiences.</p>
 				<p>International experts primarily leading Iranian-origin academics, will work closely with the local faculty to achieve effective knowledge transfer and assimilation of the best of both worlds for the benefit of the students and the country at large.</p>
 				<p>IBS will be a bilingual Persian and English speaking institution.</p>
+				<p>(For more information please go to <a href="http://www.iranianbusinessschool.ir/en/" target="new">www.iranianbusinessschool.ir</a>)</p>
 				<p>&nbsp;</p>
 			</div>
 		</div>
