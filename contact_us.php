@@ -13,7 +13,7 @@
 				<p class="intitle">Iranian Business School Project</p>
 				<div class="address">
 					<!-- <p><strong>London Office:</strong></p> -->
-					<p>5th Floor,<br />143 New Bond Street<br />London W1S 2TP<br />United Kingdom</p>
+					<p>5th Floor<br />143 New Bond Street<br />London W1S 2TP<br />United Kingdom</p>
 					<p><strong>T</strong>: +44 (0)20 7493 0412<br /><strong>F</strong>: +44 (0)20 7493 0436</p>
 				</div>
 <!--
