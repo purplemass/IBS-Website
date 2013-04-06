@@ -13,7 +13,7 @@
 			<span style="color: #FFFFFF; font-weight: bold; display: block; margin: 10px 0 0 5px; font-size: 2.0em; display: block;">Annual IBS Fundraising Event</span>
 			<span style="color: #FFFFFF; display: block; margin: 5px 0 10px 5px; font-size: 1.7em;">Sponsorship Opportunities</span>
 		</td>
-		<td><img src="http://www.ibsproject.org/emails/20101211/images/IBS_logo.gif" alt="IBS Logo" width="100" height="110" /></td>
+		<td><img src="http://www.ibsproject.org/emails/20101211/images/IBS_logo.png" alt="IBS Logo" width="100" height="110" /></td>
 	</tr>
 	<tr>
 		<td style="line-height:4px; background-color: #5bb6d5;"><img style="display:inline" src="http://www.ibsproject.org/emails/20101211/images/spacer.gif" width="15" height="4" alt="*" /></td>
