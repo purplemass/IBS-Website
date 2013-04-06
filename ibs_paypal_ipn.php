@@ -73,16 +73,16 @@ function do_tickets()
 	$email_addr = $_REQUEST['option_selection1_1'];
 	$guest_list = $_REQUEST['option_selection2_1'];
 	$shipping_address = $_REQUEST['address_name'].'<br>'.
-	                    $_REQUEST['address_street'].'<br>'.
-	                    $_REQUEST['address_city'].'<br>'.
-	                    $_REQUEST['address_state'].'<br>'.
-	                    $_REQUEST['address_zip'].'<br>'.
-	                    $_REQUEST['address_country'];
-	
+						$_REQUEST['address_street'].'<br>'.
+						$_REQUEST['address_city'].'<br>'.
+						$_REQUEST['address_state'].'<br>'.
+						$_REQUEST['address_zip'].'<br>'.
+						$_REQUEST['address_country'];
+
 	$body  = "<html><body>";
-	
+
 	$body .= "<p>Thank you for purchasing tickets for the IBS event. Below are the details of your purchase.</p>";
-	
+
 	$body .= "<table>";
 	$body .= "<tr><td><b>Name</b></td><td>$buyer_name</td></tr>";
 	$body .= "<tr><td><b>Email Address</b></td><td>$email_addr</td></tr>";
@@ -90,14 +90,14 @@ function do_tickets()
 	$body .= "<tr><td><b>Items in cart</b></td><td>$count</td></tr>";
 	for ($i=1; $i<=$count; $i++)
 	{
-	    $item     = $_REQUEST['item_name'.$i];
-	    $quantity = $_REQUEST['quantity'.$i];
-	    $amount   = $_REQUEST['mc_gross_'.$i] . " " . $_REQUEST['mc_currency'];
-	    
-	    $body .= "<tr bgcolor=\"#6699CC\"><td><b>Item</b></td><td>$i</td></tr>";
-	    $body .= "<tr><td><b>Item</b></td><td>$item</td></tr>";
-	    $body .= "<tr><td><b>Quantity</b></td><td>$quantity</td></tr>";
-	    $body .= "<tr><td><b>Amount</b></td><td>$amount</td></tr>";
+		$item	 = $_REQUEST['item_name'.$i];
+		$quantity = $_REQUEST['quantity'.$i];
+		$amount   = $_REQUEST['mc_gross_'.$i] . " " . $_REQUEST['mc_currency'];
+
+		$body .= "<tr bgcolor=\"#6699CC\"><td><b>Item</b></td><td>$i</td></tr>";
+		$body .= "<tr><td><b>Item</b></td><td>$item</td></tr>";
+		$body .= "<tr><td><b>Quantity</b></td><td>$quantity</td></tr>";
+		$body .= "<tr><td><b>Amount</b></td><td>$amount</td></tr>";
 	}
 	$body .= "<tr><td>&nbsp;</td><td>&nbsp;</td></tr>";
 	$body .= "<tr><td><b>Total Amount</b></td><td>$total_amt</td></tr>";
@@ -106,37 +106,37 @@ function do_tickets()
 	$body .= "<tr><td>&nbsp;</td><td>&nbsp;</td></tr>";
 	$body .= "<tr><td><b>Guest List</b></td><td>$guest_list</td></tr>";
 	$body .= "</table>";
-	
-	
+
+
 	/*
 	$body .= "<table>";
 	foreach ($_REQUEST as $key => $value)
 	{
-	    $body .= "<tr><td>$key</td><td>$value</td></tr>";
+		$body .= "<tr><td>$key</td><td>$value</td></tr>";
 	}
 	$body .= "</table>";
 	*/
-	
-	
+
+
 	$body .= "</body></html>";
-	
+
 	// send email to admin
-	
+
 	$to			= "Mankassarian@aol.com,mkamel@mkamel.com,ardavan@farmanfarmaian.co.uk,rezzzza@yahoo.com";
 	//$to			= "p.paykari@ibsproject.org,katypalizban@yahoo.co.uk,b.hatamian@ibsproject.org";
 	//$to			= "b.hatamian@ibsproject.org";
 	$subject	= "IBS Project - Tickets Purchased";
 	$body 		= $body;
-	
+
 	send_mail($to, $subject, $body);
-	
+
 	// send email to buyer
-	
+
 	$to			= $email_addr;
 	$subject	= "IBS Project - Tickets Purchased - Thank You";
-	
+
 	send_mail($to, $subject, $body);
-	
+
 }
 
 //--------------------------------------------------------------
@@ -152,10 +152,10 @@ function do_donations()
 	$gift_aid = ($gift_aid == 'TAXPAYER_YES') ? 1 : 0;
 
 	//--------------------------------------------------------------
-	
+
 	$row = mysql_fetch_assoc(mysql_query("SELECT id, email, title, forename, surname FROM " . TABLE_COMMUNITY . " WHERE email='" . $email . "'"));
 	check_db_error();
-	
+
 	// id exists
 	if ($row['email'])
 	{
@@ -167,21 +167,21 @@ function do_donations()
 	{
 		$sql_cmd = ("	INSERT INTO " . TABLE_COMMUNITY . " (dt, mdt, email)
 						VALUES(
-						
+
 							NOW(),
 							NOW(),
 							'" . $email . "',
-							
+
 						)");
 
 		mysql_query($sql_cmd);
 		check_db_error();
-		
+
 		$pid = mysql_insert_id();
 		insert_amount($pid, $amount, $gift_aid);
 
 	}
-	
+
 	insert_value('donor', 1, $pid);
 
 	//--------------------------------------------------------------
@@ -255,14 +255,14 @@ function do_donations()
 	}
 
 	//--------------------------------------------------------------
-	
+
 	//send emails (to donor & IBS)
-	
+
 	if ($row['title'] && $row['forename'] && $row['surname'])
 		$name = get_full_name($row);
 	else
 		$name = 'Subscriber';
-	
+
 	send_email_auto_donor($name, $amount);
 	send_email_donor($email, $name, $amount);
 }
@@ -284,14 +284,14 @@ function write_temp_file($file_name)
 	// write to temp file
 	$dd			= ';';
 	$today		= date("Y-m-d") . $dd . date("H:i:s");
-	
+
 	$r1 = $today . $dd;
 	$r2 = $today . $dd;
-	
+
 	if (isset($_REQUEST))
 	{
 		ksort($_REQUEST);
-		
+
 		foreach ($_REQUEST as $key=>$value)
 		{
 			if ( ($key <> 'PHPSESSID') && ($key <> 'ci_session') )
@@ -300,14 +300,14 @@ function write_temp_file($file_name)
 				$r2 .=  $value . $dd;
 			}
 		}
-		
+
 		$r1 .= "\r\n";
 		$r2 .= "\r\n";
-		
+
 		#echo $r1;
 		#echo '<br />';
 		#echo $r2;
-		
+
 		write_file($file_name, $r1 . $r2);
 	}
 }

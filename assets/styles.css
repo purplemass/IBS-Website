@@ -205,7 +205,7 @@ div#container {
 	background-color: #FFFFFF;
 }
 
-* html #container { 
+* html #container {
 	height: 100%; /* IE6 treats height as min-height */
 }
 
@@ -789,20 +789,20 @@ SLIDE SHOWS
 
 /*
 .slide_show {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 .slide_show ul {
-    line-height: 20px;
-    list-style-type: square;
+	line-height: 20px;
+	list-style-type: square;
 }
 
 .slide_show li {
-    float: left;
-    margin: 1px;
-    padding: 0px;
+	float: left;
+	margin: 1px;
+	padding: 0px;
 }
 
 .clear {
@@ -845,7 +845,7 @@ ul#slide_auction {width:450px;}
 .pika-textnav a.previous {float: left; width: auto; display: block;}
 .pika-textnav a.next {float: right; width: auto; display: block;}
 */
-	
+
 .pika-thumbs {margin: 10px 0 0 0; padding: 0; overflow: hidden; }
 .pika-thumbs li {float: left; list-style-type: none; width: 74px; padding: 3px; margin: 0 2px; background: #fafafa; border: 1px solid #e5e5e5; cursor: pointer;}
 .pika-thumbs li:last {margin: 0;}

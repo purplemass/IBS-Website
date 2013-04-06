@@ -8,69 +8,69 @@ Cufon.replace('.heading');
 </script>
 <style type='text/css'>
   #container, body, html {
-    overflow: hidden;
-    width: 520px;
-    margin: 0; border:0; padding:0;
-    color: #1F2126;
-    font-family: Arial,Sans-Serif;
-    font-size: 1em;
-    line-height: 1.2;
+	overflow: hidden;
+	width: 520px;
+	margin: 0; border:0; padding:0;
+	color: #1F2126;
+	font-family: Arial,Sans-Serif;
+	font-size: 1em;
+	line-height: 1.2;
   }
   .heading{
-    margin: 20px 0 5px;
-    padding: 0 0 5px 10px;
-    border-bottom: 1px #979c99 solid;
-    color: #346794;
-    font-weight: bold;
-    font-size: 1.1em;
+	margin: 20px 0 5px;
+	padding: 0 0 5px 10px;
+	border-bottom: 1px #979c99 solid;
+	color: #346794;
+	font-weight: bold;
+	font-size: 1.1em;
   }
   p{
-    font-size: 0.9em;
-    margin: 5px 10px 10px;
+	font-size: 0.9em;
+	margin: 5px 10px 10px;
   }
   .lineup {
-    font-size: 0.9em;
-    padding: 0px 10px;
+	font-size: 0.9em;
+	padding: 0px 10px;
   }
   #go_button {
-    position: relative;
+	position: relative;
 	top: 7px;
   	margin-top: -10px;
   }
   #error {
-    display: none;
-    margin-bottom: 20px;
-    color: red;
-    font-size: 0.8em;
+	display: none;
+	margin-bottom: 20px;
+	color: red;
+	font-size: 0.8em;
   }
   #footer {
-    font-size: 10px;
+	font-size: 10px;
   }
   #emailAddress {
   	width: 210px;
   }
   #nav {
-    height: 40px;
-    min-height: 40px;
-    margin-bottom: 20px;
-    background-color: #09466a;
+	height: 40px;
+	min-height: 40px;
+	margin-bottom: 20px;
+	background-color: #09466a;
   }
   .navitem {
-    float: left;
-    width: 129px;
-    height: 27px;
-    padding-top: 13px;
-    font-size: 12px;
-    text-align: center;
-    border-right: 1px #063b5b solid;
-    text-decoration: none;
+	float: left;
+	width: 129px;
+	height: 27px;
+	padding-top: 13px;
+	font-size: 12px;
+	text-align: center;
+	border-right: 1px #063b5b solid;
+	text-decoration: none;
   }
   a.navitem {
-    color: #FFFFFF;
+	color: #FFFFFF;
   }
   a.navitem:hover {
-    color: #09466a;
-    background-color: #d9dbd0;
+	color: #09466a;
+	background-color: #d9dbd0;
   }
 </style>
 <div id="container">
@@ -81,25 +81,25 @@ Cufon.replace('.heading');
   <script type="text/javascript" src="http://ibsproject.org/assets/flowplayer/flowplayer-3.1.4.min.js"></script>
   <a href="http://ibsproject.org/assets/videos/IBS_promo_video.flv" style="display:block;width1:430px;height1:275px;width:530px;height:339px" id="flplayer"></a>
   <script>
-    flowplayer("flplayer", "http://ibsproject.org/assets/flowplayer/flowplayer.swf", { clip: {autoPlay: false, autoBuffering: false}, plugins: {controls:{url: 'http://ibsproject.org/assets/flowplayer/flowplayer.controls.swf'}}});
+	flowplayer("flplayer", "http://ibsproject.org/assets/flowplayer/flowplayer.swf", { clip: {autoPlay: false, autoBuffering: false}, plugins: {controls:{url: 'http://ibsproject.org/assets/flowplayer/flowplayer.controls.swf'}}});
   </script>
   <!-- VIDEO: end -->
   <!-- NAV: start -->
   <div class="heading">Find out more about IBS</div>
   <div id="nav">
-    <div><a class="navitem" href="http://ibsproject.org/project.php" target="_blank">The Project</a></div>
-    <div><a class="navitem" href="http://ibsproject.org/programmes.php" target="_blank">Programmes</a></div>
-    <div><a class="navitem" href="http://ibsproject.org/fundraising.php" target="_blank">Support IBS</a></div>
-    <div><a class="navitem" href="http://ibsproject.org/contact_us.php" target="_blank">Contact us</a></div>
+	<div><a class="navitem" href="http://ibsproject.org/project.php" target="_blank">The Project</a></div>
+	<div><a class="navitem" href="http://ibsproject.org/programmes.php" target="_blank">Programmes</a></div>
+	<div><a class="navitem" href="http://ibsproject.org/fundraising.php" target="_blank">Support IBS</a></div>
+	<div><a class="navitem" href="http://ibsproject.org/contact_us.php" target="_blank">Contact us</a></div>
   </div>
   <!-- NAV: stop -->
   <!--   <div class="heading">Subscribe to IBS Newsletter</div> -->
   <form id="newsletter_form" action="http://ibsproject.org/controllers/newsletter.php" method="POST">
-    <p>Subscribe to IBS Newsletter:&nbsp;
-      <input type="text" name="emailAddress" id="emailAddress" value="Enter email address" />
-      <input type="hidden" value="fromFacebook" name="fromFacebook" />&nbsp;
-      <a href="#" id="newsletter_submit" class="button"><img id="go_button" src="http://ibsproject.org/assets/images/go.gif" alt="GO" /></a>
-    </p>
+	<p>Subscribe to IBS Newsletter:&nbsp;
+	  <input type="text" name="emailAddress" id="emailAddress" value="Enter email address" />
+	  <input type="hidden" value="fromFacebook" name="fromFacebook" />&nbsp;
+	  <a href="#" id="newsletter_submit" class="button"><img id="go_button" src="http://ibsproject.org/assets/images/go.gif" alt="GO" /></a>
+	</p>
   </form>
   <div id="error" class="lineup"></div>
   <br />
@@ -124,34 +124,34 @@ $("#emailAddress").click(function(){
 $("#newsletter_submit").click(function(){
 
   $("#error").hide();
-  
+
   var hasError = false;
   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
   var emailAddressVal = $("#emailAddress").val();
-  
+
   if(emailAddressVal == '') {
-  
-    $("#error").html('You forgot to enter your email address.');
-    hasError = true;
-  
+
+	$("#error").html('You forgot to enter your email address.');
+	hasError = true;
+
   } else if(!emailReg.test(emailAddressVal)) {
-  
-    $("#error").html('Please enter a valid email address.');
-    hasError = true;
-  
+
+	$("#error").html('Please enter a valid email address.');
+	hasError = true;
+
   }
-  
+
   if (hasError == false) {
-    
-    $(this).hide();    
-    $('#newsletter_form').submit();
+
+	$(this).hide();
+	$('#newsletter_form').submit();
 
   } else {
 
-    $("#error").show();
-  
+	$("#error").show();
+
   }
-  
+
   return false;
 });
 </script>

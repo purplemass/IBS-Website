@@ -18,19 +18,19 @@
 			</div>
 			<div id="body">
 <!-- 				<p class="bold_text">11th November 2011<br />Annual IBS Fundraising Event &amp; Art Auction<br />The Dorchester Hotel, London</p> -->
-                <p>The Iranian Business School Project will host its Annual Fundraising Event on <span class="bold_text">Friday, 2nd November 2012</span> at the Ballroom of <span class="bold_text">The Dorchester Hotel</span> in London.</p>
-                <p>The event will feature entertainment from the renowned Iranian comedian <span class="bold_text">Maz Jobrani</span> and an exclusive auction of a number of significant works from leading Iranian artists.</p>
+				<p>The Iranian Business School Project will host its Annual Fundraising Event on <span class="bold_text">Friday, 2nd November 2012</span> at the Ballroom of <span class="bold_text">The Dorchester Hotel</span> in London.</p>
+				<p>The event will feature entertainment from the renowned Iranian comedian <span class="bold_text">Maz Jobrani</span> and an exclusive auction of a number of significant works from leading Iranian artists.</p>
 
-                <p class="intitle intitle_larger">Purchase Tickets</p>
-<!--                <p>To purchase tickets or for general enquiries, please contact us on <br />+44 20 7493 0413 or write to us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p> -->
-                <ul>
-                    <li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or write to us at <a href="mailto:events@ibsproject.org">events@ibsproject.org</a></li>
-                    <li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2012_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
-                </ul>
+				<p class="intitle intitle_larger">Purchase Tickets</p>
+<!--				<p>To purchase tickets or for general enquiries, please contact us on <br />+44 20 7493 0413 or write to us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p> -->
+				<ul>
+					<li><span class="standout">by phone or email</span><br />contact us on +44 (0)20 7493 0413 or write to us at <a href="mailto:events@ibsproject.org">events@ibsproject.org</a></li>
+					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2012_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
+				</ul>
 
-                <p class="intitle intitle_larger">Become a Sponsor</p>
-                <p>As a philanthropically-motivated project, IBS relies upon the co-operation of like-minded organisations and this event promises to provide an ideal forum for those wishing to join together and forge relationships with top Iranian business leaders.</p>
-                <p>For more details on how to become a Corporate or Individual Sponsor and the benefits we can offer, please contact us on <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p>
+				<p class="intitle intitle_larger">Become a Sponsor</p>
+				<p>As a philanthropically-motivated project, IBS relies upon the co-operation of like-minded organisations and this event promises to provide an ideal forum for those wishing to join together and forge relationships with top Iranian business leaders.</p>
+				<p>For more details on how to become a Corporate or Individual Sponsor and the benefits we can offer, please contact us on <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p>
 <!--
 				<p>The Iranian Business School Project will host <span class="bold_text">its Annual Fundraising Event on November 11th, 2011</span> at the Ballroom of The Dorchester Hotel in London.</p>
 				<p>The evening's highlights will include a <span class="bold_text">keynote speech from Dr. Hossein Eslambolchi</span>, Chairman &amp; CEO of 2020 Venture Partners and a global thought leader of the 21st Century high-tech age.</p>
@@ -40,13 +40,13 @@
 				<p class="intitle intitle_larger">Become a Sponsor</p>
 				<p>As a philanthropically-motivated project, IBS relies upon the co-operation of like-minded organisations and this event promises to provide an ideal forum for those wishing to join together and forge relationships with top Iranian business leaders.</p>
 				<p>For more details on how to become a Corporate or Individual Sponsor and the benefits we can offer please download a copy of our <a rel="new" href="./_downloads/2011_Annual_IBS_Fundraising_Event_Sponsorship_Opportunities.pdf">Event Sponsorship Programme</a>. Alternatively, please contact us on <a href="mailto:events@ibsproject.org">events@ibsproject.org</a> for further information.</p>
-				
+
 				<a name="purchasing"></a>
 				<p class="intitle intitle_larger">Ticket &amp; Raffle Information</p>
 				<span class="ticketstype">Individual</span>&pound;<?php print $ticket_single; ?><br />
 				<span class="ticketstype">Table of <?php print $per_table; ?></span>&pound;<?php print $ticket_table; ?> (&pound;<?php print $ticket_table/$per_table; ?> per ticket)<br />
 				<span class="ticketstype">Raffle Tickets</span>&pound;<?php print $ticket_raffle; ?><br />
-				
+
 				<p class="intitle intitle_larger">Raffle Prizes</p>
 				<ul>
 					<li><span class="bold_text">Mallorca Holiday for Four</span>, at a lovely seaside villa in the picturesque town of Portals Nous for five nights. Available for use during April, May and June 2012. Flights excluded.</li>
@@ -73,7 +73,7 @@
 					<li><a href="Javascript:"><img src="./assets/images_raffle/07.jpg" /><span><strong>Mallorca Villa Holiday for Four</strong> at a lovely seaside villa in the picturesque town of Portals Nous for five nights. Available for use during April, May and June 2011. Flights excluded.</span></a></li>
 				</ul>
 -->
-				
+
 <!--
 				<p class="intitle intitle_larger">Silent Auction Prizes</p>
 				<ul id="slide_auction" class="jcarousel-skin-pika">
@@ -83,15 +83,15 @@
 					<li><a href="Javascript:"><img src="./assets/images_auction/04.jpg" /><span><strong>Three highly coveted masterpieces signed by their author Iraj Pezeshkzad.</strong> - including the novels 'Daei Jan Napoleon', 'Adabe Mard Beh Ze Dolate Oost' and 'Mashallah Khan Dar Bargaheh Haroon-al-Rashid'.</span></a></li>
 					<li><a href="Javascript:"><img src="./assets/images_auction/05.jpg" /><span><strong>Three prime tickets for Chelsea vs. Manchester City.</strong> Tickets are for the match on March 19, 2011. This package includes a pre-match lunch at Marco restaurant, located within the Chelsea Football Club Complex at Stamford Bridge.</span></a></li>
 					<li><a href="Javascript:"><img src="./assets/images_auction/06.jpg" /><span><strong>A highly coveted 2010 Arsenal home shirt signed by world-class Arsenal Forward and Russian National Team Captain Andrei Arshavin.</strong> </span></a></li>
-					
+
 					<li><a href="Javascript:"><img src="./assets/images_auction/04.jpg" /><span><strong>Lunch and a tour of the Barclays Capital trading floor with Mr Cyrus Ardalan - Vice Chairman of Barclays Capital.</strong></span></a></li>
 
 				</ul>
 -->
-				
+
 <!--
 				<script type="text/javascript" src="assets/popSlides.js"></script>
-				
+
 				<ul class="slide_raffle slide_show">
 					<li><img src="assets/images/raffle_slide/01.jpg" /><span>This is the caption for image 01</span></li>
 					<li><img src="assets/images/raffle_slide/02.jpg" /><span>This is the caption for image 02</span></li>
@@ -105,7 +105,7 @@
 				</ul>
 				<script type="text/javascript">$('.slide_raffle').popSlides();</script>
 				<div class="clear"></div>
-				
+
 				<p class="intitle">Silent Auction Prizes</p>
 				<ul class="slide_auction slide_show">
 					<li><img src="assets/images/raffle_slide/01.jpg" /><span>This is the caption for image 01</span></li>
@@ -121,7 +121,7 @@
 				<script type="text/javascript">$('.slide_auction').popSlides();</script>
 				<div class="clear"></div>
 -->
-				
+
 <!--
 				<p>The Iranian Business School Project hosted its <span class="standout">Annual Fundraising Event on February 5, 2010</span> at the Ballroom of The Dorchester Hotel in London.</p>
 				<p>The evening's highlights included a <span class="standout">keynote speech from global business leader, Mr. Omid Kordestani</span>, Senior Advisor to the Office of the CEO and Founders at Google and <span class="standout">remarks from Dr. Ali Mashaheykhi</span>, The President of the Board of Governors of the School.</p>
@@ -143,7 +143,7 @@
 -->
 <!--
 				<p class="intitle intitle_larger">General Enquiries and to purchase tickets</p>
-				<p>Please contact us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a> or call: +44 (0)20 7493 0413</p>				
+				<p>Please contact us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a> or call: +44 (0)20 7493 0413</p>
 				<p>For general queries and information on sponsorship opportunities, please contact us at <a href="mailto:info@ibsproject.org">info@ibsproject.org</a></p>
 -->
 <!--
@@ -158,7 +158,7 @@
 					<li><span class="standout">by cheque</span><br />please complete the <a href="_downloads/Ticket_and_Raffle_Registration_Form_2011_Event.pdf">Registration Form</a> and send it with your payment to the address provided in the document</li>
 				</ul>
 -->
-				
+
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>

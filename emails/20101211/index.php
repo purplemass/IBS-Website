@@ -2,8 +2,8 @@
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>IBS Email 20101211</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>IBS Email 20101211</title>
 </head>
 <body style="margin: 10px; padding: 0;">
 <table width="600" cellpadding="0" cellspacing="0" border="0" style="font-family: Verdana; font-size: 12px; color: #1F2126; text-align: left;">
