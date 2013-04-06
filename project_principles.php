@@ -9,7 +9,7 @@
 			<a class="navitem" href="project_principles.php#vision"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Vision</a>
 			<a class="navitem" href="project_principles.php#mission"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Mission</a>
 			<a class="navitem" href="project_principles.php#strategy"><img src="assets/images/bullet.gif" width="10" height="13" alt="bullet" />Strategy</a>
-			<a class="navitem" href="project_operations.php">Operations</a>
+			<!-- <a class="navitem" href="project_operations.php">Operations</a> -->
 			<a class="navitem" href="project_organisation.php">Organisation</a>
 			<a class="navitem" href="project_the_team.php">The Team</a>
 			<a class="navitem" href="project_timeline.php">Project Timeline</a>

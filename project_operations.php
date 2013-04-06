@@ -6,7 +6,7 @@
 		<div id="menuleft">
 			<a class="navitem" href="project.php">The Project</a>
 			<a class="navitem" href="project_principles.php">Governing Principles</a>
-			<a class="navitem active" href="project_operations.php">Operations</a>
+			<!-- <a class="navitem active" href="project_operations.php">Operations</a> -->
 			<a class="navitem" href="project_organisation.php">Organisation</a>
 			<a class="navitem" href="project_the_team.php">The Team</a>
 			<a class="navitem" href="project_timeline.php">Project Timeline</a>
