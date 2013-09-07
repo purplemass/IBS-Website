@@ -3,8 +3,9 @@
 			<div class="navitem announcement blue_box">
 				<a href="news_events_upcoming.php"><p class="heading white_text large_text">Upcoming Events</p></a>
 				<p class="title grey_text">
-					The Iranian Business School Project's annual fundraising event will be held at The Dorchester Hotel in London
-					on Friday 25th October 2013, featuring the renowned comedian <span style="font-size: 1.2em">Omid Djalili</span>.
+					The Iranian Business School Project's Annual Fundraising Event will be held at The Dorchester Hotel in London
+					on Friday 25th October 2013, this year featuring the renowned British-Iranian comedian <span style="font-size: 1.2em">Omid Djalili</span>.
+					We are also pleased to announce that <span style="font-size: 1.2em">Mr Hamid Biglari</span>, former Vice Chairman of Citigroup, will be this year’s speaker.
 					We hope you will join us for another fun and exciting evening in support of a world-class business school in Iran.
 				</p>
 <!--				<p class="hilite title">Ticket purchase information will be available soon</p> -->
