@@ -23,26 +23,26 @@ Cufon.replace('.caption');
 // **********************************************
 
 $(document).ready(function(){
-	
+
 	//start_slide_show
 	path = window.location.pathname;
 	if (path.indexOf('_upcoming') > -1)
 		start_slide_show();
-	
+
 	// add target to external & PFD linkes
 	$('a[href^="http://"]')
 		.attr("target", "_blank");
 	$('a[href$=".pdf"]')
 		.attr("target", "_blank");
-	
+
 	// donation pages
 	$("#main_form #email").focus();
 	$("#main_form #forename").focus();
 	$("#main_form #amount").focus();
-	
+
 	// db_result
 	//$('#db_result td').attr('width', '140');
-	
+
 	do_donations();
 	do_logout();
 	do_registration();
@@ -54,26 +54,33 @@ $(document).ready(function(){
 // slide show
 // **********************************************
 function start_slide_show() {
-	$("#slide_raffle").PikaChoose({autoPlay:true});
-	
-	$("#slide_raffle").jcarousel({scroll:4,					
-		initCallback: function(carousel) 
-		{
-			$(carousel.list).find('img').click(function() {
-				carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
-			});
-		}
-	});
+	try
+	{
+		$("#slide_raffle").PikaChoose({autoPlay:true});
 
-	$("#slide_auction").PikaChoose({autoPlay:false, user_thumbs:true, show_prev_next:false});
-	$("#slide_auction").jcarousel({scroll:4,					
-		initCallback: function(carousel) 
-		{
-			$(carousel.list).find('img').click(function() {
-				carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
-			});
-		}
-	});
+		$("#slide_raffle").jcarousel({scroll:4,
+			initCallback: function(carousel)
+			{
+				$(carousel.list).find('img').click(function() {
+					carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
+				});
+			}
+		});
+
+		$("#slide_auction").PikaChoose({autoPlay:false, user_thumbs:true, show_prev_next:false});
+		$("#slide_auction").jcarousel({scroll:4,
+			initCallback: function(carousel)
+			{
+				$(carousel.list).find('img').click(function() {
+					carousel.scroll(parseInt($(this).parents('.jcarousel-item').attr('jcarouselindex')));
+				});
+			}
+		});
+	}
+	catch(e)
+	{
+		//alert(e)
+	}
 }
 
 // **********************************************
@@ -110,14 +117,14 @@ function do_donations()
 			//$(this).attr('disabled', 'true');
 			// add email + ; + tax_payer to make up PayPal's cutom field
 			$('#custom').val($('#email').val() + '|' + $('#tax_payer').val());
-			
+
 			// this one is for the live site
 			$('#main_form').attr('action', 'https://www.paypal.com/cgi-bin/webscr');
-			
+
 			// these are for testing ONLY
 			//$('#business').val('seller_1291458969_biz@hotmail.com');
 			//$('#main_form').attr('action', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
-						
+
 			$('#main_form').submit();
 			return true;
 		}
@@ -138,7 +145,7 @@ function do_logout()
 			'sys_flag': $('#sys_flag').val()
 
 		}, function(sys_flag){
-		
+
 			loc = String(document.location);
 			n = loc.lastIndexOf('/', loc.length);
 			loc = loc.substr(0, n+1);
@@ -255,31 +262,31 @@ function do_newsletter()
 		$("#error").hide();
 		$("#success").hide();
 	});
-	
+
 	// validate email & send
 	$("#newsletter_submit").click(function(){
 
 		$("#error").hide();
-		
+
 		var hasError = false;
 		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
 		var emailAddressVal = $("#emailAddress").val();
-		
+
 		if(emailAddressVal == '') {
-		
+
 			$("#error").html('You forgot to enter your email address.');
 			hasError = true;
-		
+
 		} else if(!emailReg.test(emailAddressVal)) {
-		
+
 			$("#error").html('Please enter a valid email address.');
 			hasError = true;
-		
+
 		}
-		
+
 		if (hasError == false) {
-			
+
 			$(this).hide();
 
 			$.ajax({
@@ -297,20 +304,20 @@ function do_newsletter()
 						   		}
 				},
 				error:		errorResponse
-             });  
+             });
 
 				$("#error").html('Processing. Please wait.');
 				$("#error").show();
 
 		} else {
 
-			$("#newsletter_form").show();		
+			$("#newsletter_form").show();
 			$("#error").show();
-		
+
 		}
-		
+
 		return false;
-		
+
 	});
 }
 
@@ -334,12 +341,12 @@ function CI(img)
 }
 
 // **********************************************
-// 
+//
 // **********************************************
-			
-/*			
+
+/*
 			//$("#sendEmail li.buttons").append('<img src="/images/template/loading.gif" alt="Loading" id="loading" />');
-			
+
 			$.post("_sendemail.php",{ emailAddress: emailAddressVal, success: showResponse, error: showError },
 		   		function(data){
 		   			$("#newsletter_form").hide();
@@ -350,5 +357,5 @@ function CI(img)
 					//});
 				}
 			);
-*/			
+*/
 

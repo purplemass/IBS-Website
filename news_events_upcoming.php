@@ -21,6 +21,9 @@
 				<p>The Iranian Business School Project will host its Annual Fundraising Event on <span class="bold_text">Friday, 25th October 2013</span> at the Ballroom of <span class="bold_text">The Dorchester Hotel</span> in London.</p>
 				<!-- <p>The event will feature entertainment from the renowned Iranian comedian <span class="bold_text">Maz Jobrani</span> and an exclusive auction of a number of significant works from leading Iranian artists.</p> -->
 
+				<p><a rel="new" href="./_downloads/2013_IBS_Event_Brochure.pdf">Click here</a> to download the event brochure.</p>
+				<p><a rel="new" href="./_downloads/2013_IBS_Art_auction.pdf">Click here</a> to download a list of Art Auction items.</p>
+
 				<p class="intitle intitle_larger">Purchase Tickets</p>
 				<!-- <p>To purchase tickets or for general enquiries, please contact us on <br />+44 20 7493 0413 or write to us at: <a href="mailto:events@ibsproject.org">events@ibsproject.org</a>.</p>  -->
 				<ul>
